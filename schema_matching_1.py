@@ -32,12 +32,6 @@ def get_elem(tag_name, doc):
 
 def get_features(tag_list, doc):
     new_tag_list = []
-    # print out the document node and the name of the first child tag
-    # print ("Start")
-    # print (doc.nodeName)
-    # print ("Name")
-    # print (doc.firstChild.tagName)
-    # get a list of XML tags from the document and print each one
     obj = {}
     example_list = []
     for tag_name in tag_list:
@@ -95,13 +89,6 @@ def get_features(tag_list, doc):
                         distinct_val[item] = 1
             except AttributeError:
                 continue
-
-        # print (tag_name)
-        # print (len(orig_list))
-        # if tag_name == "bath_1":
-        #     print (orig_list)
-        # print (orig_list)
-        # print (processed_list)
 
         if processed_list == []:
             continue
@@ -239,63 +226,6 @@ def range_extract(list):
 
 def main():
 
-    """
-    Classes:
-    1 : Features
-    2 : Num of levels/type
-    3 : Site/ District/ State/ County
-    4 : Construction details
-    5 : Location
-    6 : Email
-    7 : Agent/ Firm
-    8 : Description
-    9 : Id
-    10: Fees
-    11: Rooms
-    12: Dimensions
-    13: Price
-    14: Phone
-    """
-
-    # ''' Read XML data and get features '''
-    # # courses_wsu
-    # xml_tree = ET.parse('real_estate_nky.xml') # ('SwissProt.xml') # ('courses_wsu.xml')#('real_estate_nky.xml')
-    # elem_list_1 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_1.append(elem.tag)
-    #
-    # elem_list_1 = list(set(elem_list_1))
-    #
-    # print (elem_list_1)
-    #
-    # doc = xml.dom.minidom.parse('real_estate_nky.xml') # ('SwissProt.xml') # ('courses_wsu.xml')#("real_estate_nky.xml")
-    # features_tag_1 = get_features(elem_list_1, doc)
-    #
-    # # courses_washington
-    # xml_tree = ET.parse('real_estate_texas.xml')#('courses_washington.xml')#('real_estate_texas.xml')
-    # elem_list_2 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_2.append(elem.tag)
-    #
-    # elem_list_2 = list(set(elem_list_2))
-    #
-    # doc = xml.dom.minidom.parse('real_estate_texas.xml')#('courses_washington.xml')#("real_estate_texas.xml")
-    # features_tag_2 = get_features(elem_list_2, doc)
-    #
-    # # courses_uwm
-    # xml_tree = ET.parse('real_estate_windermere.xml')#('courses_uwm.xml')#('courses_reed.xml')#('real_estate_windermere.xml')
-    # elem_list_3 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_3.append(elem.tag)
-    #
-    # elem_list_3 = list(set(elem_list_3))
-    #
-    # doc = xml.dom.minidom.parse('real_estate_windermere.xml')#('courses_uwm.xml')#('courses_reed.xml')#("real_estate_windermere.xml")
-    # features_tag_3 = get_features(elem_list_3, doc)
-
     ''' Fetch data and extract features '''
 
     # f = open("phone_schema.txt", "r")
@@ -325,58 +255,6 @@ def main():
 
     print (len(info))
 
-    # # courses_wsu
-    # xml_tree = ET.parse('part.xml')#('courses_wsu.xml')#('yahoo.xml')#('real_estate_nky.xml')#
-    # elem_list_1 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_1.append(elem.tag)
-    #
-    # elem_list_1 = list(set(elem_list_1))
-    # # print (elem_list_1)
-    #
-    # doc1 = xml.dom.minidom.parse("part.xml")#('courses_wsu.xml')#('yahoo.xml')#('real_estate_nky.xml')#
-    # features_tag_1 = get_features(elem_list_1, doc1)
-
-    # # courses_washington
-    # xml_tree = ET.parse('partsupp.xml')#('courses_washington.xml')#('321gone.xml')#('real_estate_texas.xml')#
-    # elem_list_2 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_2.append(elem.tag)
-    #
-    # elem_list_2 = list(set(elem_list_2))
-    # # print (elem_list_2)
-    #
-    # doc2 = xml.dom.minidom.parse("partsupp.xml")#('courses_washington.xml')#('321gone.xml')#('real_estate_texas.xml')#
-    # features_tag_2 = get_features(elem_list_2, doc2)
-
-    # # courses_uwm
-    # xml_tree = ET.parse('supplier.xml')#('courses_uwm.xml')#('ebay.xml')#('real_estate_windermere.xml')#('courses_reed.xml')#
-    # elem_list_3 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_3.append(elem.tag)
-    #
-    # elem_list_3 = list(set(elem_list_3))
-    # # print (elem_list_3)
-    #
-    # doc3 = xml.dom.minidom.parse("supplier.xml")#('courses_uwm.xml')#('ebay.xml')#('real_estate_windermere.xml')#('courses_reed.xml')#
-    # features_tag_3 = get_features(elem_list_3, doc3)
-
-    # # courses_reed
-    # xml_tree = ET.parse('lineitem.xml')#('courses_reed.xml')#('ubid.xml')#('real_estate_windermere.xml')#
-    # elem_list_4 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_4.append(elem.tag)
-    #
-    # elem_list_4 = list(set(elem_list_4))
-    # # print (elem_list_4)
-    #
-    # doc4 = xml.dom.minidom.parse("lineitem.xml")#('courses_reed.xml')#('ubid.xml')#('real_estate_windermere.xml')#
-    # features_tag_4 = get_features(elem_list_4, doc4)
-
     ''' Features for training and clustering '''
     features = []
     label_list = []
@@ -384,10 +262,6 @@ def main():
     for i in  range(len(info)):
         features = features + info[i]['features_tag'][1]
         label_list = label_list + info[i]['features_tag'][2]
-    # features = features_tag_1[1] + features_tag_2[1] + features_tag_3[1] + features_tag_4[1]  # + features_tag_5[1] + features_tag_6[1]
-    # # print (features)
-    # label_list = features_tag_1[2] + features_tag_2[2] + features_tag_3[2] + features_tag_4[2]  # + features_tag_5[2] + features_tag_6[2]
-    # # print (len(label_list))
 
     ''' Hierarchical clustering '''
     plt.figure(figsize=(10, 7))
@@ -411,20 +285,6 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    # courses_reed
-    # xml_tree = ET.parse('courses_reed.xml')#('courses_uwm.xml')  # ('real_estate_nky.xml')
-    # elem_list_4 = []
-    #
-    # for elem in xml_tree.iter():
-    #     elem_list_4.append(elem.tag)
-    #
-    # elem_list_4 = list(set(elem_list_4))
-    #
-    # doc = xml.dom.minidom.parse('courses_reed.xml')#('courses_uwm.xml')  # ("real_estate_nky.xml")
-    # features_tag_4 = get_features(elem_list_4, doc)
-    #
-    # features_test = features_tag_4[1]
-    # tag_list_test = features_tag_4[2]
     test_set_1 = 1
     test_set_2 = 2
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
@@ -434,13 +294,6 @@ def main():
     test_feature_2 = info[test_set_2-1]['features_tag'][1]  # features_tag_4[1]
     test_tag_2 = info[test_set_2-1]['features_tag'][2]  # features_tag_4[2]
     test_doc_2 = info[test_set_2-1]['doc']  # doc4
-
-    # out_test = [0 for i in range(len(tag_list_test))]
-    # output_test = []
-    # for class_name in out_test:
-    #     one_hot_vec = [0 * i for i in range(class_name)] + [1] + [0 * i for i in range(num_clusters - class_name - 1)]
-    #     # print (one_hot_vec)
-    #     output_test.append(one_hot_vec)
 
     ''' Prediction '''
     prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features))
