@@ -1,7 +1,7 @@
-part.xml
-partsupp.xml
-supplier.xml
-lineitem.xml
-nation.xml
-region.xml
-customer.xml
+Datasets/part.xml
+Datasets/partsupp.xml
+Datasets/supplier.xml
+Datasets/lineitem.xml
+Datasets/nation.xml
+Datasets/region.xml
+Datasets/customer.xml

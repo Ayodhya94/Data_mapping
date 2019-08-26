@@ -1,4 +1,4 @@
-yahoo.xml
-ubid.xml
-ebay.xml
-321gone.xml
+Datasets/yahoo.xml
+Datasets/ubid.xml
+Datasets/ebay.xml
+Datasets/321gone.xml
