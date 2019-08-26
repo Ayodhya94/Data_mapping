@@ -19,6 +19,7 @@ import cmath as math
 import operator
 import sys
 
+
 def get_elem(tag_name, doc):
     list_val = []
     tag_property = doc.getElementsByTagName(tag_name)
@@ -223,15 +224,14 @@ def range_extract(list):
     return sorted_diff
 
 
-
 def main():
 
     ''' Fetch data and extract features '''
 
-    # f = open("phone_schema.txt", "r")
-    # f = open("courses_schemas.txt", "r")
-    f = open("real_es_schema.txt", "r")
-    # f = open("schemas.txt", "r")
+    # f = open("Datasets/phone_schema.txt", "r")
+    f = open("Datasets/courses_schemas.txt", "r")
+    # f = open("Datasets/real_es_schema.txt", "r")
+    # f = open("Datasets/schemas.txt", "r")
     fl = f.readlines()
     info = []
     for line in fl:
@@ -259,7 +259,7 @@ def main():
     features = []
     label_list = []
 
-    for i in  range(len(info)):
+    for i in range(len(info)):
         features = features + info[i]['features_tag'][1]
         label_list = label_list + info[i]['features_tag'][2]
 
@@ -285,8 +285,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 1
-    test_set_2 = 2
+    test_set_1 = 3
+    test_set_2 = 4
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -322,11 +322,11 @@ def main():
         index_list_1 = indices(prediction[0], i+1)
         index_list_2 = indices(prediction[1], i+1)
 
-        # print ("\n")
-        # print ("Class %u" % (i + 1))
+        print ("\n")
+        print ("Class %u" % (i + 1))
         for item in index_list_1:
             label = test_tag_1[item]
-            # print (label)
+            print (label)
             label_list_1.append(label)
             temp = range_extract(get_elem(label, test_doc_1))
             # print (temp)
@@ -334,10 +334,10 @@ def main():
                 range_list_1.append(temp[:range_n])
             else:
                 range_list_1.append(temp)
-        # print ("___________")
+        print ("___________")
         for item in index_list_2:
             label = test_tag_2[item]
-            # print (label)
+            print (label)
             label_list_2.append(label)
             temp = range_extract(get_elem(label, test_doc_2))
             # print (temp)
@@ -345,7 +345,7 @@ def main():
                 range_list_2.append(temp[:range_n])
             else:
                 range_list_2.append(temp)
-        # print ("_______________________________")
+        print ("_______________________________")
         # print (range_list_1)
         # print ("\n")
         # print (range_list_2)
