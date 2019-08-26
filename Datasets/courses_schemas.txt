@@ -1,0 +1,4 @@
+Datasets/courses_wsu.xml
+Datasets/courses_washington.xml
+Datasets/courses_uwm.xml
+Datasets/courses_reed.xml

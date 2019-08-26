@@ -1,0 +1,2803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <row>
+    <date>2012-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2012-10-12</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-24</date>
+    <type>Bridge</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Puente Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-31</date>
+    <type>Bridge</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Puente Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2012-12-31</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-01-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-01-05</date>
+    <type>Work Day</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Recupero puente Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-01-12</date>
+    <type>Work Day</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Recupero puente primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-02-11</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-02-12</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-04-29</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Viernes Santo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-05-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia del Trabajo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-05-11</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-05-12</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-05-24</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Batalla de Pichincha</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-07-24</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-07-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2013-10-11</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2013-12-31</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-01-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-03-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-03-04</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-04-18</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Viernes Santo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-05-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia del Trabajo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-05-10</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-05-11</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-05-24</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Batalla de Pichincha</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-12</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Inauguracion Mundial de futbol Brasil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-15</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Ecuador-Suiza</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-20</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Ecuador-Honduras</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-25</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Ecuador-Francia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-28</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Octavos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-29</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Octavos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-06-30</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Octavos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-01</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Octavos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-04</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Cuartos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-05</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Cuartos de Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-08</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Semifinales</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-09</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Semifinales</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-12</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Tercer y cuarto lugar</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-13</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Mundial de futbol Brasil: Final</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-24</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-07-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2014-10-10</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-11-28</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Black Friday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-01</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Cyber Monday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-20</date>
+    <type>Work Day</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Recupero Puente Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-26</date>
+    <type>Bridge</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Puente Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2014-12-31</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-01-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-01-02</date>
+    <type>Bridge</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Puente Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-01-10</date>
+    <type>Work Day</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Recupero Puente Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-02-16</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-02-17</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-04-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Viernes Santo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-05-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia del Trabajo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-05-09</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-05-10</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-05-24</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Batalla de Pichincha</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-07-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-07-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-27</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Black Friday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-11-30</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Cyber Monday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2015-12-31</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-01-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-02-08</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-02-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-03-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Viernes Santo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-16</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-17</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-18</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-19</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-20</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-21</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+5</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-22</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+6</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-23</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+7</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-24</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+8</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-25</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+9</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-26</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+10</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-27</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+11</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-28</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+12</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-29</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+13</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-04-30</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+14</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia del Trabajo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-01</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+15</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-02</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+16</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-03</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+17</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-04</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+18</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-05</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+19</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-06</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+20</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-07</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-07</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+21</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-08</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+22</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-08</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-09</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+23</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-10</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+24</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-11</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+25</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-12</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+26</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-13</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+27</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-14</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+28</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-15</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+29</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-16</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Terremoto Manabi+30</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-05-24</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Batalla de Pichincha</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2016-05-27</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Batalla de Pichincha</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-24</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-24</date>
+    <type>Transfer</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Traslado Fundacion de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-07-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2016-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2016-08-12</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-04</date>
+    <type>Bridge</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Puente Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-12</date>
+    <type>Work Day</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Recupero Puente Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-25</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Black Friday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-11-28</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Cyber Monday</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2016-12-31</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-01-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer dia del ano</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-01-02</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Primer dia del ano</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-02-27</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-02-28</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Carnaval</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-03-02</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Manta</locale_name>
+    <description>Fundacion de Manta</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-04-01</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Cotopaxi</locale_name>
+    <description>Provincializacion de Cotopaxi</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-04-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-04-13</date>
+    <type>Transfer</type>
+    <locale>Local</locale>
+    <locale_name>Cuenca</locale_name>
+    <description>Fundacion de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-04-14</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Libertad</locale_name>
+    <description>Cantonizacion de Libertad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-04-14</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Viernes Santo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-04-21</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Cantonizacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-05-01</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia del Trabajo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-05-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Puyo</locale_name>
+    <description>Cantonizacion del Puyo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-05-13</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-05-14</date>
+    <type>Event</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de la Madre</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-05-24</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Batalla de Pichincha</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-05-26</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Batalla de Pichincha</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-06-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Cantonizacion de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-06-25</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Imbabura</locale_name>
+    <description>Provincializacion de Imbabura</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Cantonizacion de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-06-25</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Machala</locale_name>
+    <description>Fundacion de Machala</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>El Carmen</locale_name>
+    <description>Cantonizacion de El Carmen</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-07-03</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Santo Domingo</locale_name>
+    <description>Fundacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-07-23</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Cayambe</locale_name>
+    <description>Cantonizacion de Cayambe</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-07-24</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-07-25</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Guayaquil</locale_name>
+    <description>Fundacion de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-08-05</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Esmeraldas</locale_name>
+    <description>Fundacion de Esmeraldas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-08-10</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Primer Grito de Independencia</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-08-11</date>
+    <type>Transfer</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Traslado Primer Grito de Independencia</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-08-15</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Riobamba</locale_name>
+    <description>Fundacion de Riobamba</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-08-24</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Fundacion de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-09-28</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-09-29</date>
+    <type>Transfer</type>
+    <locale>Local</locale>
+    <locale_name>Ibarra</locale_name>
+    <description>Fundacion de Ibarra</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-10-07</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quevedo</locale_name>
+    <description>Cantonizacion de Quevedo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-10-09</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Guayaquil</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-02</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Dia de Difuntos</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-03</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Independencia de Cuenca</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-06</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santo Domingo de los Tsachilas</locale_name>
+    <description>Provincializacion de Santo Domingo</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-07</date>
+    <type>Holiday</type>
+    <locale>Regional</locale>
+    <locale_name>Santa Elena</locale_name>
+    <description>Provincializacion Santa Elena</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-10</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Guaranda</locale_name>
+    <description>Independencia de Guaranda</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-11</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Latacunga</locale_name>
+    <description>Independencia de Latacunga</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-11-12</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Ambato</locale_name>
+    <description>Independencia de Ambato</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-05</date>
+    <type>Additional</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-06</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Fundacion de Quito</description>
+    <transferred>True</transferred>
+  </row>
+  <row>
+    <date>2017-12-08</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Loja</locale_name>
+    <description>Fundacion de Loja</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-08</date>
+    <type>Transfer</type>
+    <locale>Local</locale>
+    <locale_name>Quito</locale_name>
+    <description>Traslado Fundacion de Quito</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-21</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-4</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-22</date>
+    <type>Holiday</type>
+    <locale>Local</locale>
+    <locale_name>Salinas</locale_name>
+    <description>Cantonizacion de Salinas</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-22</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-3</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-23</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-2</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-24</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad-1</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-25</date>
+    <type>Holiday</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad</description>
+    <transferred>False</transferred>
+  </row>
+  <row>
+    <date>2017-12-26</date>
+    <type>Additional</type>
+    <locale>National</locale>
+    <locale_name>Ecuador</locale_name>
+    <description>Navidad+1</description>
+    <transferred>False</transferred>
+  </row>
+</root>
