@@ -16,6 +16,12 @@ import scipy.optimize
 from tensorflow.contrib.tensor_forest.python import tensor_forest
 from tensorflow.python.ops import resources
 
+from sklearn import datasets
+import xgboost as xgb
+from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn.metrics import precision_score, recall_score, accuracy_score
+
 
 import cmath as math
 import operator
@@ -282,8 +288,35 @@ def rf_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
     return [predict_1.argmax(1), predict_2.argmax(1)]
 
 
-def xg_nn():
-    return
+def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
+    d_train = xgb.DMatrix(batch_x, label=batch_y)
+    param = {
+        'eta': 0.3,
+        'max_depth': 3,
+        'objective': 'multi:softprob',
+        'num_class': num_class}
+    steps = 1000  # The number of training iterations
+
+    model = xgb.train(param, d_train, steps)
+
+    d_test_1 = xgb.DMatrix(batch_test_x_1)
+    d_test_2 = xgb.DMatrix(batch_test_x_2)
+
+    preds_1 = model.predict(d_test_1)
+    preds_2 = model.predict(d_test_2)
+
+    # print ("XG BOOST")
+    # print (preds_1)
+    # print (preds_2)
+
+
+    # best_preds = np.asarray([np.argmax(line) for line in preds])
+    #
+    # print("Precision = {}".format(precision_score(Y_test, best_preds, average='macro')))
+    # print("Recall = {}".format(recall_score(Y_test, best_preds, average='macro')))
+    # print("Accuracy = {}".format(accuracy_score(Y_test, best_preds)))
+
+    return [preds_1.argmax(1), preds_2.argmax(1)]
 
 
 def main():
@@ -348,8 +381,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 2
-    test_set_2 = 3
+    test_set_1 = 1
+    test_set_2 = 4
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -359,9 +392,14 @@ def main():
     test_doc_2 = info[test_set_2-1]['doc']  # doc4
 
     ''' Prediction '''
+    # Neural Network
     # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features))
-    prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
 
+    # RF
+    # prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
+
+    # XG Boost
+    prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
 
     print ("\n")
     print ("Schema 1:")
@@ -476,6 +514,7 @@ def main():
             print ('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
 
     # plt.show()
+
 
 if __name__ == "__main__":
     main()
