@@ -13,11 +13,14 @@ from sklearn.cluster import AgglomerativeClustering
 import xml.etree.ElementTree as ET
 import scipy.optimize
 # from operator import add
+from tensorflow.contrib.tensor_forest.python import tensor_forest
+from tensorflow.python.ops import resources
 
 
 import cmath as math
 import operator
 import sys
+import os
 
 
 def get_elem(tag_name, doc):
@@ -181,7 +184,7 @@ def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
                 _, c = sess.run([optimiser, cross_entropy],
                                 feed_dict={x: batch_x, y: batch_y})
                 avg_cost += c / total_batch
-            print("Epoch:", (epoch + 1), "cost =", "{:.3f}".format(avg_cost))
+            # print("Epoch:", (epoch + 1), "cost =", "{:.3f}".format(avg_cost))
             cost_list.append(avg_cost)
             epoch_list.append(epoch+1)
         # print(sess.run(accuracy, feed_dict={x: batch_test_x, y: batch_test_y}))
@@ -224,7 +227,67 @@ def range_extract(list):
     return sorted_diff
 
 
+def rf_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
+    # Parameters
+    num_features = 10  # Each image is 28x28 pixels
+    num_trees = 10
+    max_nodes = 1000
+
+    learning_rate = 0.9  # 0.01  # 0.5
+    epochs = 1000  # 5000
+
+    # Input and Target data
+    X = tf.compat.v1.placeholder(tf.float32, shape=[None, num_features])
+    # For random forest, labels must be integers (the class id)
+    Y = tf.compat.v1.placeholder(tf.int32, shape=[None])
+
+    # Random Forest Parameters
+    hparams = tensor_forest.ForestHParams(num_classes=num_class,
+                                          num_features=num_features,
+                                          num_trees=num_trees,
+                                          max_nodes=max_nodes).fill()
+
+    # Build the Random Forest
+    forest_graph = tensor_forest.RandomForestGraphs(hparams)
+    # Get training graph and loss
+    train_op = forest_graph.training_graph(X, Y)
+    loss_op = forest_graph.training_loss(X, Y)
+
+    # Measure the accuracy
+    infer_op, _, _ = forest_graph.inference_graph(X)
+    correct_prediction = tf.equal(tf.argmax(infer_op, 1), tf.cast(Y, tf.int64))
+    accuracy_op = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+
+    # Initialize the variables (i.e. assign their default value) and forest resources
+    init_vars = tf.group(tf.compat.v1.global_variables_initializer(),
+                         resources.initialize_resources(resources.shared_resources()))
+
+    # Start TensorFlow session
+    sess = tf.compat.v1.Session()
+
+    # Run the initializer
+    sess.run(init_vars)
+
+    # Training
+    for i in range(1, epochs + 1):
+        # Prepare Data
+        _, l = sess.run([train_op, loss_op], feed_dict={X: batch_x, Y: batch_y})
+        if i % 50 == 0 or i == 1:
+            acc = sess.run(accuracy_op, feed_dict={X: batch_x, Y: batch_y})
+            # print('Step %i, Loss: %f, Acc: %f' % (i, l, acc))
+
+    predict_1 = sess.run(infer_op, feed_dict={X: batch_test_x_1})
+    predict_2 = sess.run(infer_op, feed_dict={X: batch_test_x_2})
+
+    return [predict_1.argmax(1), predict_2.argmax(1)]
+
+
+def xg_nn():
+    return
+
+
 def main():
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
     ''' Fetch data and extract features '''
 
@@ -285,8 +348,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 3
-    test_set_2 = 4
+    test_set_1 = 2
+    test_set_2 = 3
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -296,7 +359,9 @@ def main():
     test_doc_2 = info[test_set_2-1]['doc']  # doc4
 
     ''' Prediction '''
-    prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features))
+    # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features))
+    prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
+
 
     print ("\n")
     print ("Schema 1:")
@@ -319,14 +384,16 @@ def main():
         range_list_2 = []
         label_list_1 = []
         label_list_2 = []
-        index_list_1 = indices(prediction[0], i+1)
-        index_list_2 = indices(prediction[1], i+1)
+        # index_list_1 = indices(prediction[0], i + 1)
+        # index_list_2 = indices(prediction[1], i + 1)
+        index_list_1 = indices(prediction[0], i)
+        index_list_2 = indices(prediction[1], i)
 
-        print ("\n")
-        print ("Class %u" % (i + 1))
+        # print ("\n")
+        # print ("Class %u" % (i + 1))
         for item in index_list_1:
             label = test_tag_1[item]
-            print (label)
+            # print (label)
             label_list_1.append(label)
             temp = range_extract(get_elem(label, test_doc_1))
             # print (temp)
@@ -334,10 +401,10 @@ def main():
                 range_list_1.append(temp[:range_n])
             else:
                 range_list_1.append(temp)
-        print ("___________")
+        # print ("___________")
         for item in index_list_2:
             label = test_tag_2[item]
-            print (label)
+            # print (label)
             label_list_2.append(label)
             temp = range_extract(get_elem(label, test_doc_2))
             # print (temp)
@@ -345,7 +412,7 @@ def main():
                 range_list_2.append(temp[:range_n])
             else:
                 range_list_2.append(temp)
-        print ("_______________________________")
+        # print ("_______________________________")
         # print (range_list_1)
         # print ("\n")
         # print (range_list_2)
@@ -409,7 +476,6 @@ def main():
             print ('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
 
     # plt.show()
-
 
 if __name__ == "__main__":
     main()
