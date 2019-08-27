@@ -1,3 +1,3 @@
 # Data_mapping
-Problem :
+%%Problem :
 A process of taking data from one document and filling in another document format is generally called “Data Mapping”. Usually documents from heterogeneous sources are different in format and may have different attributes. In such cases, typically manual data mapping is required which is a tedious task, especially when data quantity is high. Current approaches for automatic data mapping are most of the time task specific or perform well in limited types of instances. Therefore, generic data mapping is still an open problem which is highly demanded in data integration systems.
