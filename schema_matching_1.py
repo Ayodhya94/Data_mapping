@@ -143,8 +143,9 @@ def get_features(tag_list, doc):
             # print (norm_stat_feat)
             # print (comp_feat)
             # print (dist_feat)
-            # norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat + word2_vec_list
-            norm_feature_map = word2_vec_list  # Using only word2vec features
+            norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat + word2_vec_list
+            # norm_feature_map = word2_vec_list  # Using only word2vec features
+            # norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat  # Using only original features
 
             final_feature_list.append(norm_feature_map)
             final_feature_list_concat = final_feature_list_concat + norm_feature_map
@@ -370,13 +371,13 @@ def main():
     plt.figure(figsize=(10, 7))
     plt.title("Clusters")
     get_link = shc.linkage(features, method='ward')
-    dend = shc.dendrogram(get_link, leaf_font_size=8., leaf_rotation=90., labels=label_list)
+    dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
     plt.axhline(y=1, color='r', linestyle='--')
     # pylab.show()
 
     ''' Ground truth for training '''
     num_clusters = 13  # 6  # 8 #13
-    num_feat = 50
+    num_feat = 60
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -389,8 +390,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 3
-    test_set_2 = 4
+    test_set_1 = 1
+    test_set_2 = 2
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -551,15 +552,6 @@ def main():
             print('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
 
     # plt.show()
-    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
-    #
-    # w1 = "bldg"
-    # similar_list = wv.most_similar(positive=w1)
-    # print("Most similar to {0}:".format(w1))
-    # for items in similar_list:
-    #     print(items)
-    #
-    # print(len(wv['bldg'].tolist()))
 
 
 if __name__ == "__main__":
