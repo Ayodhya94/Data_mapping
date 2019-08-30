@@ -50596,7 +50596,7 @@
   <title>ADVANCED INDEPENDENT STUDY</title>
   <credits>1-6</credits>
   <level>G</level>
-  <restrictions>; ; RETAKABLE W/CHG IN TOPIC. PREREQ: GRAD ST &amp; SPONSORSHIP BY A FACULTY MEMBER ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING. AVAILABLE SECTIONS ARE SE 004-019, 021 &amp; 027</restrictions>
+  <restrictions>; ; RETAKABLE W/CHG IN TOPIC. PREREQ: GRAD ST &amp; SPONSORSHIP BY A FACULTY MEMBER ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING. AVAILABLE SECTIONS ARE SE 004-019, 021 &amp; 027</restrictions>
    <section_listing>
       <section_note>#</section_note>
       <section>Se 101</section>
@@ -50881,7 +50881,7 @@
   <title>GRADUATE RESEARCH</title>
   <credits>1-6</credits>
   <level>G</level>
-  <restrictions>; ; RETAKABLE. PREREQ: GRAD ST &amp; SPONSORSHIP BY A GRAD FACULTY MEMBER ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING. AVAILABLESECTIONS ARE SE 004-019 &amp; 027</restrictions>
+  <restrictions>; ; RETAKABLE. PREREQ: GRAD ST &amp; SPONSORSHIP BY A GRAD FACULTY MEMBER ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING. AVAILABLESECTIONS ARE SE 004-019 &amp; 027</restrictions>
    <section_listing>
       <section_note></section_note>
       <section>Se 113</section>
@@ -51401,7 +51401,7 @@
   <title>CANDIDATE FOR DEGREE</title>
   <credits>1@</credits>
   <level>G</level>
-  <restrictions>; ; @FEE FOR 1 CR ASSESSED; STUDENT SCHEDULE WILL SHOW 1N CR; THIS WILL BE CHANGED TO 0 CR FOR GRADE REPORT &amp; PERMANENT RECORD. PREREQ: GRAD ST ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING</restrictions>
+  <restrictions>; ; @FEE FOR 1 CR ASSESSED; STUDENT SCHEDULE WILL SHOW 1N CR; THIS WILL BE CHANGED TO 0 CR FOR GRADE REPORT &amp; PERMANENT RECORD. PREREQ: GRAD ST ; ; TBA WITH INSTR. FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING</restrictions>
    <section_listing>
       <section_note></section_note>
       <section>Se 101</section>
@@ -51694,7 +51694,7 @@
   <title>RESEARCH AND THESIS</title>
   <credits>1-3</credits>
   <level>G</level>
-  <restrictions>; ; PREREQ: GRAD ST; WRIT CONS INSTR; WRIT CONS DEPT CHAIR ; ; FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING. OUT-OF-STATE STUDENTS ONLY, USE THE 100-SERIES SECTION NUMBERS SHOWN BELOW</restrictions>
+  <restrictions>; ; PREREQ: GRAD ST; WRIT CONS INSTR; WRIT CONS DEPT CHAIR ; ; FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING. OUT-OF-STATE STUDENTS ONLY, USE THE 100-SERIES SECTION NUMBERS SHOWN BELOW</restrictions>
    <section_listing>
       <section_note></section_note>
       <section>Se 101</section>
@@ -52095,7 +52095,7 @@
   <title>ADVANCED INDEPENDENT STUDY</title>
   <credits>1-3</credits>
   <level>G</level>
-  <restrictions>; ; RETAKABLE TO 6 CR MAX. PREREQ: GRAD ST; WRIT CONS INSTR ; ; FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING. OUT-OF-STATE STUDENTS ONLY, USE THE 100-SERIES SECTION NUMBERS SHOWN BELOW</restrictions>
+  <restrictions>; ; RETAKABLE TO 6 CR MAX. PREREQ: GRAD ST; WRIT CONS INSTR ; ; FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING. OUT-OF-STATE STUDENTS ONLY, USE THE 100-SERIES SECTION NUMBERS SHOWN BELOW</restrictions>
    <section_listing>
       <section_note></section_note>
       <section>Se 101</section>
@@ -86594,7 +86594,7 @@
   <title>INDEPENDENT WORK</title>
   <credits>1-3</credits>
   <level>U</level>
-  <restrictions>; ; RETAKABLE W/TOPIC CHG. PREREQ: JR ST, 2.5 GPA &amp; WRIT CONS INSTR, DEPT CHAIR &amp; ASST DEAN FOR SAS ; ; FOR SECTION NUMBER, USE INSTR CODE. SEE <A HREF="#instructors">INSTR KEY</A> AT HEAD OF DEPT LISTING</restrictions>
+  <restrictions>; ; RETAKABLE W/TOPIC CHG. PREREQ: JR ST, 2.5 GPA &amp; WRIT CONS INSTR, DEPT CHAIR &amp; ASST DEAN FOR SAS ; ; FOR SECTION NUMBER, USE INSTR CODE. INSTR KEY AT HEAD OF DEPT LISTING</restrictions>
    <section_listing>
       <section_note></section_note>
       <section>Se 100</section>
