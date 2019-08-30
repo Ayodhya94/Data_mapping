@@ -21,6 +21,7 @@ import xgboost as xgb
 from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, accuracy_score
+from gensim.models import KeyedVectors
 
 
 import cmath as math
@@ -41,6 +42,7 @@ def get_elem(tag_name, doc):
 
 
 def get_features(tag_list, doc):
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
     new_tag_list = []
     obj = {}
     example_list = []
@@ -69,6 +71,10 @@ def get_features(tag_list, doc):
         digit_list = []
         alpha_list = []
         chara_list = []
+        try:
+            word2_vec_list = wv[tag_name].tolist()
+        except KeyError:
+            word2_vec_list = [0*count for count in range(50)]
         space = 0
         distinct_val = {}
         new_line = 0
@@ -137,7 +143,8 @@ def get_features(tag_list, doc):
             # print (norm_stat_feat)
             # print (comp_feat)
             # print (dist_feat)
-            norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat
+            # norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat + word2_vec_list
+            norm_feature_map = word2_vec_list  # Using only word2vec features
 
             final_feature_list.append(norm_feature_map)
             final_feature_list_concat = final_feature_list_concat + norm_feature_map
@@ -147,16 +154,16 @@ def get_features(tag_list, doc):
     return [final_feature_list_concat, final_feature_list, new_tag_list]
 
 
-def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
+def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec, num_features):
     # Python optimisation variables
     learning_rate = 0.9  # 0.01  # 0.5
     epochs = 1000  # 5000
     # batch_size = 6   # 100
 
-    x = tf.compat.v1.placeholder(tf.float32, [None, 10])
+    x = tf.compat.v1.placeholder(tf.float32, [None, num_features])
     y = tf.compat.v1.placeholder(tf.float32, [None, num_class])
 
-    w1 = tf.Variable(tf.random.normal([10, 15], stddev=0.03), name='w1')
+    w1 = tf.Variable(tf.random.normal([num_features, 15], stddev=0.03), name='w1')
     b1 = tf.Variable(tf.random.normal([15]), name='b1')
     w2 = tf.Variable(tf.random.normal([15, num_class], stddev=0.03), name='w2')
     b2 = tf.Variable(tf.random.normal([num_class]), name='b2')
@@ -233,9 +240,9 @@ def range_extract(list):
     return sorted_diff
 
 
-def rf_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
+def rf_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu):
     # Parameters
-    num_features = 10  # Each image is 28x28 pixels
+    num_features = num_featu  # Each image is 28x28 pixels
     num_trees = 10
     max_nodes = 1000
 
@@ -288,7 +295,7 @@ def rf_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
     return [predict_1.argmax(1), predict_2.argmax(1)]
 
 
-def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec):
+def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu):
     d_train = xgb.DMatrix(batch_x, label=batch_y)
     param = {
         'eta': 0.3,
@@ -332,7 +339,7 @@ def main():
     info = []
     for line in fl:
         line = line[:-1]
-        print (line)
+        print(line)
         info_dict = {}
         xml_tree = ET.parse(line)  # ### Define line
         elem_list = []
@@ -349,7 +356,7 @@ def main():
 
         info.append(info_dict)
 
-    print (len(info))
+    print(len(info))
 
     ''' Features for training and clustering '''
     features = []
@@ -369,6 +376,7 @@ def main():
 
     ''' Ground truth for training '''
     num_clusters = 13  # 6  # 8 #13
+    num_feat = 50
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -381,7 +389,7 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 1
+    test_set_1 = 3
     test_set_2 = 4
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
@@ -393,13 +401,13 @@ def main():
 
     ''' Prediction '''
     # Neural Network
-    # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features))
+    # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features), num_feat)
 
     # RF
-    # prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
+    # prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
 
     # XG Boost
-    prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, len(features))
+    prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
 
     print ("\n")
     print ("Schema 1:")
@@ -416,6 +424,8 @@ def main():
     ''' Match schemas '''
     print ('\n')
     range_n = 5
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
 
     for i in range(num_clusters):
         range_list_1 = []
@@ -427,11 +437,11 @@ def main():
         index_list_1 = indices(prediction[0], i)
         index_list_2 = indices(prediction[1], i)
 
-        # print ("\n")
-        # print ("Class %u" % (i + 1))
+        print("\n")
+        print("Class %u" % (i + 1))
         for item in index_list_1:
             label = test_tag_1[item]
-            # print (label)
+            print(label)
             label_list_1.append(label)
             temp = range_extract(get_elem(label, test_doc_1))
             # print (temp)
@@ -439,10 +449,10 @@ def main():
                 range_list_1.append(temp[:range_n])
             else:
                 range_list_1.append(temp)
-        # print ("___________")
+        print("___________")
         for item in index_list_2:
             label = test_tag_2[item]
-            # print (label)
+            print(label)
             label_list_2.append(label)
             temp = range_extract(get_elem(label, test_doc_2))
             # print (temp)
@@ -450,7 +460,7 @@ def main():
                 range_list_2.append(temp[:range_n])
             else:
                 range_list_2.append(temp)
-        # print ("_______________________________")
+        print("_______________________________")
         # print (range_list_1)
         # print ("\n")
         # print (range_list_2)
@@ -492,6 +502,28 @@ def main():
             cost_list.append(cost_row)
         # print (cost_list)
 
+        simi_list = []
+        for i_attr in label_list_1:
+            i_attr_list = i_attr.split("_")
+            # print(i_attr_list)
+            simi_row = []
+            for j_attr in label_list_2:
+                j_attr_list = j_attr.split("_")
+                # print(j_attr_list)
+                temp_list = []
+                for word_part_1 in i_attr_list:
+                    for word_part_2 in j_attr_list:
+                        try:
+                            simi = wv.similarity(w1=word_part_1, w2=word_part_2)
+                        except KeyError:
+                            simi = 0
+                        temp_list.append(simi)
+                        # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
+
+                simi_row.append(1-max(temp_list))
+            simi_list.append(simi_row)
+        # print (cost_list)
+
         try:
             matching_pairs = scipy.optimize.linear_sum_assignment(score_list)
         except ValueError:
@@ -499,6 +531,11 @@ def main():
 
         try:
             matching_pairs_2 = scipy.optimize.linear_sum_assignment(cost_list)
+        except ValueError:
+            continue
+
+        try:
+            matching_pairs_3 = scipy.optimize.linear_sum_assignment(simi_list)
         except ValueError:
             continue
 
@@ -511,9 +548,18 @@ def main():
         #
         # print ("COST PAIRS")
         for ind in range(len(matching_pairs_2[0])):
-            print ('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
+            print('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
 
     # plt.show()
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    #
+    # w1 = "bldg"
+    # similar_list = wv.most_similar(positive=w1)
+    # print("Most similar to {0}:".format(w1))
+    # for items in similar_list:
+    #     print(items)
+    #
+    # print(len(wv['bldg'].tolist()))
 
 
 if __name__ == "__main__":
