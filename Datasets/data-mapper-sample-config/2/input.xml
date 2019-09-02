@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><jsonObject>
+ <AgentID>12312312313</AgentID>
+ <AgentFullName>AIA Patrick Axton</AgentFullName>
+ <StartReasonDesc>Visitor request</StartReasonDesc>
+ <Transcript>
+ <Lines>
+ <User>info</User>
+ <Source>system</Source>
+ <Time>2019-03-21T12:09:59</Time>
+ <Text>"Thank you for choosing to chat with us. An agent will be with you shortly."</Text>
+ </Lines>
+ <Lines>
+ <User>info</User>
+ <Source>system</Source>
+ <Time>2019-03-21T12:10:00</Time>
+ <Text>"You are now chatting with Patrick."</Text>
+ </Lines>
+ <Lines>
+ <User>Patrick</User>
+ <Source>agent</Source>
+ <Time>2019-03-21T12:10:14</Time>
+ <Text>"Hi there, you're chatting with ­­­­­­­Patrick, your Contact Centre Representative from AIA on behalf of REST. May I take your name please?"</Text>
+ </Lines>
+ <Lines>
+ <User>Patrick</User>
+ <Source>agent</Source>
+ <Time>2019-03-21T12:10:19</Time>
+ <Text>"Patrick has sent you a Secure Form: Visitor Authentication Form"</Text>
+ </Lines>
+ <Lines>
+ <User>You</User>
+ <Source>visitor</Source>
+ <Time>2019-03-21T12:10:20</Time>
+ <Text>"The visitor has received the Secure Form: Visitor Authentication Form"</Text>
+ </Lines>
+ <Lines>
+ <User>You</User>
+ <Source>visitor</Source>
+ <Time>2019-03-21T12:11:17</Time>
+ <Text>".just received a text in regards to my claim. It's ok. I'll wait for agent to call when they have update. Thank you"</Text>
+ </Lines>
+ </Transcript>
+</jsonObject></soapenv:Body></soapenv:Envelope>

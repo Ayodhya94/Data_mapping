@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='utf-8'?>
+<env:Envelope
+	xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wsa="http://www.w3.org/2005/08/addressing">
+	<env:Header>
+		<wsa:Action>http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderService//PurchaseOrderService/getPurchaseOrderResponse</wsa:Action>
+		<wsa:MessageID>urn:uuid:a5522cad-9feb-4e03-b24e-574f7f495dbe</wsa:MessageID>
+	</env:Header>
+	<env:Body>
+		<ns0:getPurchaseOrderResponse
+			xmlns:ns0="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderService/types/">
+			<ns1:result
+				xmlns:ns1="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderService/types/"
+				xmlns:tns="http://xmlns.oracle.com/adf/svc/errors/"
+				xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+				xmlns:ns2="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderService/"
+				xmlns:ns9="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentHeader/"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PurchaseOrderResult">
+				<ns2:Value>
+					<ns2:POHeaderId>300000001085237</ns2:POHeaderId>
+					<ns2:OrderNumber>ESL-PO-4</ns2:OrderNumber>
+					<ns2:OrderRevision xsi:nil="true"/>
+					<ns2:DocumentTypeCode>STANDARD</ns2:DocumentTypeCode>
+					<ns2:DocumentType>Purchase Order</ns2:DocumentType>
+					<ns2:DocumentStyleId>1</ns2:DocumentStyleId>
+					<ns2:DocumentStyle>Purchase Order</ns2:DocumentStyle>
+					<ns2:ProcurementBUId>300000001071236</ns2:ProcurementBUId>
+					<ns2:ProcurementBusinessUnit>Etisalat Lanka Private Limited</ns2:ProcurementBusinessUnit>
+					<ns2:RequisitioningBUId>300000001071236</ns2:RequisitioningBUId>
+					<ns2:RequisitioningBusinessUnit>Etisalat Lanka Private Limited</ns2:RequisitioningBusinessUnit>
+					<ns2:SoldToBUId>300000001071236</ns2:SoldToBUId>
+					<ns2:SoldToBusinessUnit xsi:nil="true"/>
+					<ns2:DocumentStatusCode>INCOMPLETE</ns2:DocumentStatusCode>
+					<ns2:DocumentStatus>Incomplete</ns2:DocumentStatus>
+					<ns2:BuyerId>300000001092055</ns2:BuyerId>
+					<ns2:BuyerName>PwC, Etisalat</ns2:BuyerName>
+					<ns2:BuyerEmail>etisalatpwcteam@gmail.com</ns2:BuyerEmail>
+					<ns2:CreationDate>2017-01-14T12:00:35.0Z</ns2:CreationDate>
+					<ns2:SupplierId>300000001085017</ns2:SupplierId>
+					<ns2:Supplier>PwC Pakistan</ns2:Supplier>
+					<ns2:SupplierSiteId>300000001085112</ns2:SupplierSiteId>
+					<ns2:SupplierSiteCode>PWC Pakistan</ns2:SupplierSiteCode>
+					<ns2:SupplierContactId xsi:nil="true"/>
+					<ns2:SupplierContactName xsi:nil="true"/>
+					<ns2:SupplierContactEmail xsi:nil="true"/>
+					<ns2:SupplierCommunicationMethod>NONE</ns2:SupplierCommunicationMethod>
+					<ns2:SupplierCommunicationEmail xsi:nil="true"/>
+					<ns2:SupplierCommunicationFax xsi:nil="true"/>
+					<ns2:BillToLocationId>300000001071435</ns2:BillToLocationId>
+					<ns2:BillToLocationCode>Etisalat Head Office</ns2:BillToLocationCode>
+					<ns2:DefaultShipToLocationId>300000001071495</ns2:DefaultShipToLocationId>
+					<ns2:DefaultShipToLocationCode>Etisalat Main Warehouse</ns2:DefaultShipToLocationCode>
+					<ns2:CurrencyCode>PKR</ns2:CurrencyCode>
+					<ns2:Currency>Pakistan Rupee</ns2:Currency>
+					<ns2:ConversionRateTypeCode>User</ns2:ConversionRateTypeCode>
+					<ns2:ConversionRateType>User</ns2:ConversionRateType>
+					<ns2:ConversionDate xsi:nil="true"/>
+					<ns2:ConversionRate>243</ns2:ConversionRate>
+					<ns2:OrderedAmount currencyCode="PKR">3144.00</ns2:OrderedAmount>
+					<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+					<ns2:TotalAmount currencyCode="PKR">3144.00</ns2:TotalAmount>
+					<ns2:ProcurementCard xsi:nil="true"/>
+					<ns2:DocumentDescription xsi:nil="true"/>
+					<ns2:SupplierOrderNumber xsi:nil="true"/>
+					<ns2:RequiredAcknowledgmentCode>N</ns2:RequiredAcknowledgmentCode>
+					<ns2:RequiredAcknowledgment>None</ns2:RequiredAcknowledgment>
+					<ns2:AcknowledgmentDueDate xsi:nil="true"/>
+					<ns2:PaymentTermsId xsi:nil="true"/>
+					<ns2:PaymentTerms xsi:nil="true"/>
+					<ns2:CarrierId xsi:nil="true"/>
+					<ns2:Carrier xsi:nil="true"/>
+					<ns2:FreightTermsCode xsi:nil="true"/>
+					<ns2:FreightTerms/>
+					<ns2:FOBCode xsi:nil="true"/>
+					<ns2:FOB/>
+					<ns2:PayOnReceiptFlag>false</ns2:PayOnReceiptFlag>
+					<ns2:ConfirmingOrderFlag>false</ns2:ConfirmingOrderFlag>
+					<ns2:NoteToReceiver xsi:nil="true"/>
+					<ns2:NoteToSupplier xsi:nil="true"/>
+					<ns2:TaxationCountryCode>LK</ns2:TaxationCountryCode>
+					<ns2:TaxationCountry>Sri Lanka</ns2:TaxationCountry>
+					<ns2:DocumentFiscalClassificationCode xsi:nil="true"/>
+					<ns2:DocumentFiscalClassification xsi:nil="true"/>
+					<ns2:InterfaceSourceCode xsi:nil="true"/>
+					<ns2:ReferenceNumber xsi:nil="true"/>
+					<ns2:PurchaseOrderLine
+						xmlns:ns8="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentLine/">
+						<ns2:LineNumber>1</ns2:LineNumber>
+						<ns2:POLineId>300000001085239</ns2:POLineId>
+						<ns2:LineTypeId>1</ns2:LineTypeId>
+						<ns2:LineType>Goods</ns2:LineType>
+						<ns2:ItemId>300000001075027</ns2:ItemId>
+						<ns2:ItemNumber>DEV123123L</ns2:ItemNumber>
+						<ns2:ItemRevision xsi:nil="true"/>
+						<ns2:ItemDescription>Nokia Handset</ns2:ItemDescription>
+						<ns2:CategoryId>300000001102045</ns2:CategoryId>
+						<ns2:CategoryName>Default Item Category</ns2:CategoryName>
+						<ns2:LineStatusCode xsi:nil="true"/>
+						<ns2:LineStatus/>
+						<ns2:SupplierItem xsi:nil="true"/>
+						<ns2:UnitOfMeasureCode>zzu</ns2:UnitOfMeasureCode>
+						<ns2:UnitOfMeasure>Unit</ns2:UnitOfMeasure>
+						<ns2:Quantity unitCode="zzu">5</ns2:Quantity>
+						<ns2:Price currencyCode="PKR">100</ns2:Price>
+						<ns2:OrderedAmount currencyCode="PKR">500</ns2:OrderedAmount>
+						<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+						<ns2:TotalAmount currencyCode="PKR">500</ns2:TotalAmount>
+						<ns2:SupplierConfigurationId xsi:nil="true"/>
+						<ns2:NegotiatedFlag>false</ns2:NegotiatedFlag>
+						<ns2:UNNumberId xsi:nil="true"/>
+						<ns2:UNNumber/>
+						<ns2:UNNumberDescription/>
+						<ns2:HazardClassId xsi:nil="true"/>
+						<ns2:HazardClass/>
+						<ns2:HazardClassDescription xsi:nil="true"/>
+						<ns2:SourceAgreementId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBUId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBusinessUnit xsi:nil="true"/>
+						<ns2:SourceAgreementNumber xsi:nil="true"/>
+						<ns2:SourceAgreementLine xsi:nil="true"/>
+						<ns2:SourceAgreementType xsi:nil="true"/>
+						<ns2:SourceAgreementStyle xsi:nil="true"/>
+						<ns2:NoteToSupplier xsi:nil="true"/>
+						<ns2:PurchaseOrderSchedule
+							xmlns:ns7="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentSchedule/">
+							<ns2:ScheduleNumber>1</ns2:ScheduleNumber>
+							<ns2:ScheduleStatusCode xsi:nil="true"/>
+							<ns2:ScheduleStatus/>
+							<ns2:SupplierOrderLine xsi:nil="true"/>
+							<ns2:Quantity unitCode="zzu">5</ns2:Quantity>
+							<ns2:SecondaryUOMCode xsi:nil="true"/>
+							<ns2:SecondaryUOM/>
+							<ns2:SecondaryQuantity xsi:nil="true"/>
+							<ns2:OrderedAmount currencyCode="PKR">500</ns2:OrderedAmount>
+							<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+							<ns2:TotalAmount currencyCode="PKR">500</ns2:TotalAmount>
+							<ns2:CountryOfOriginCode xsi:nil="true"/>
+							<ns2:CountryOfOrigin/>
+							<ns2:ShipToLocationId>300000001071495</ns2:ShipToLocationId>
+							<ns2:ShipToLocationCode>Etisalat Main Warehouse</ns2:ShipToLocationCode>
+							<ns2:ShipToOrganizationId>300000001101675</ns2:ShipToOrganizationId>
+							<ns2:ShipToOrganizationCode>EMW</ns2:ShipToOrganizationCode>
+							<ns2:ShipToOrganizationName>ESL Main Warehouse</ns2:ShipToOrganizationName>
+							<ns2:NeedByDate xsi:nil="true"/>
+							<ns2:PromisedDate>2017-01-16</ns2:PromisedDate>
+							<ns2:OriginalPromisedDate xsi:nil="true"/>
+							<ns2:DestinationTypeCode>EXPENSE</ns2:DestinationTypeCode>
+							<ns2:DestinationType>Expense</ns2:DestinationType>
+							<ns2:EarlyReceiptToleranceDays>5</ns2:EarlyReceiptToleranceDays>
+							<ns2:LateReceiptToleranceDays>5</ns2:LateReceiptToleranceDays>
+							<ns2:LastAcceptDate>2017-01-21</ns2:LastAcceptDate>
+							<ns2:ReceiptDateExceptionActionCode>WARNING</ns2:ReceiptDateExceptionActionCode>
+							<ns2:ReceiptDateExceptionAction>Warning</ns2:ReceiptDateExceptionAction>
+							<ns2:ShipToExceptionActionCode>WARNING</ns2:ShipToExceptionActionCode>
+							<ns2:ShipToExceptionAction>Warning</ns2:ShipToExceptionAction>
+							<ns2:ReceiptCloseTolerancePercent>0</ns2:ReceiptCloseTolerancePercent>
+							<ns2:OverReceiptTolerancePercent>0</ns2:OverReceiptTolerancePercent>
+							<ns2:OverReceiptActionCode>REJECT</ns2:OverReceiptActionCode>
+							<ns2:OverReceiptAction>Reject</ns2:OverReceiptAction>
+							<ns2:ReceiptRoutingId>2</ns2:ReceiptRoutingId>
+							<ns2:ReceiptRouting>Inspection required</ns2:ReceiptRouting>
+							<ns2:AllowSubstituteReceiptsFlag>false</ns2:AllowSubstituteReceiptsFlag>
+							<ns2:MatchApprovalLevelCode>4-Way</ns2:MatchApprovalLevelCode>
+							<ns2:InvoiceMatchOptionCode>R</ns2:InvoiceMatchOptionCode>
+							<ns2:InvoiceMatchOption>Receipt</ns2:InvoiceMatchOption>
+							<ns2:InvoiceCloseTolerancePercent>0</ns2:InvoiceCloseTolerancePercent>
+							<ns2:AccrueAtReceiptFlag>true</ns2:AccrueAtReceiptFlag>
+							<ns2:TransactionBusinessCategoryCode>PURCHASE_TRANSACTION</ns2:TransactionBusinessCategoryCode>
+							<ns2:TransactionBusinessCategory>Purchase Transaction</ns2:TransactionBusinessCategory>
+							<ns2:ProductTypeCode>GOODS</ns2:ProductTypeCode>
+							<ns2:ProductType>Goods</ns2:ProductType>
+							<ns2:ProductFiscalClassificationId xsi:nil="true"/>
+							<ns2:ProductFiscalClassification xsi:nil="true"/>
+							<ns2:ProductCategoryCode xsi:nil="true"/>
+							<ns2:ProductCategory/>
+							<ns2:IntendedUseId xsi:nil="true"/>
+							<ns2:IntendedUse/>
+							<ns2:UserDefinedFiscalClassificationCode xsi:nil="true"/>
+							<ns2:UserDefinedFiscalClassification/>
+							<ns2:TaxClassificationCode xsi:nil="true"/>
+							<ns2:TaxClassification/>
+							<ns2:AssessableAmount currencyCode="PKR">500</ns2:AssessableAmount>
+							<ns2:NoteToReceiver xsi:nil="true"/>
+							<ns2:PurchaseOrderDistribution
+								xmlns:ns6="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchaseOrderDistribution/">
+								<ns2:DistributionNumber>1</ns2:DistributionNumber>
+								<ns2:Quantity unitCode="zzu">5</ns2:Quantity>
+								<ns2:OrderedAmount currencyCode="PKR">500</ns2:OrderedAmount>
+								<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+								<ns2:TotalAmount currencyCode="PKR">500</ns2:TotalAmount>
+								<ns2:DestinationSubinventory xsi:nil="true"/>
+								<ns2:RequesterId>300000001092055</ns2:RequesterId>
+								<ns2:RequesterName>PwC, Etisalat</ns2:RequesterName>
+								<ns2:DeliverToLocationId>300000001071495</ns2:DeliverToLocationId>
+								<ns2:DeliverToLocationCode>Etisalat Main Warehouse</ns2:DeliverToLocationCode>
+								<ns2:Requisition xsi:nil="true"/>
+								<ns2:RequisitionLine xsi:nil="true"/>
+								<ns2:DestinationChargeAccountId xsi:nil="true"/>
+								<ns2:DestinationChargeAccount xsi:nil="true"/>
+								<ns2:POChargeAccountId>300000001072215</ns2:POChargeAccountId>
+								<ns2:POChargeAccount>01-000-25111001-0000-0000-0000-0000-01-0000-0000</ns2:POChargeAccount>
+								<ns2:POAccrualAccountId>300000001072215</ns2:POAccrualAccountId>
+								<ns2:POAccrualAccount>01-000-25111001-0000-0000-0000-0000-01-0000-0000</ns2:POAccrualAccount>
+								<ns2:DestinationVarianceAccountId xsi:nil="true"/>
+								<ns2:DestinationVarianceAccount xsi:nil="true"/>
+								<ns2:POVarianceAccountId>300000001072215</ns2:POVarianceAccountId>
+								<ns2:POVarianceAccount>01-000-25111001-0000-0000-0000-0000-01-0000-0000</ns2:POVarianceAccount>
+								<ns2:ConversionDate xsi:nil="true"/>
+								<ns2:ConversionRate>243</ns2:ConversionRate>
+								<ns2:DistributionFlexfield>
+									<ns6:PoDistributionId>300000001085241</ns6:PoDistributionId>
+									<ns6:__FLEX_Context xsi:nil="true"/>
+									<ns6:__FLEX_Context_DisplayValue xsi:nil="true"/>
+									<ns6:_FLEX_NumOfSegments>0</ns6:_FLEX_NumOfSegments>
+								</ns2:DistributionFlexfield>
+							</ns2:PurchaseOrderDistribution>
+							<ns2:ScheduleFlexfield>
+								<ns7:LineLocationId>300000001085240</ns7:LineLocationId>
+								<ns7:__FLEX_Context xsi:nil="true"/>
+								<ns7:__FLEX_Context_DisplayValue xsi:nil="true"/>
+								<ns7:_FLEX_NumOfSegments>0</ns7:_FLEX_NumOfSegments>
+							</ns2:ScheduleFlexfield>
+						</ns2:PurchaseOrderSchedule>
+						<ns2:LineFlexfield>
+							<ns8:PoLineId>300000001085239</ns8:PoLineId>
+							<ns8:__FLEX_Context xsi:nil="true"/>
+							<ns8:__FLEX_Context_DisplayValue xsi:nil="true"/>
+							<ns8:_FLEX_NumOfSegments>0</ns8:_FLEX_NumOfSegments>
+						</ns2:LineFlexfield>
+					</ns2:PurchaseOrderLine>
+					<ns2:PurchaseOrderLine
+						xmlns:ns8="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentLine/">
+						<ns2:LineNumber>2</ns2:LineNumber>
+						<ns2:POLineId>300000001085251</ns2:POLineId>
+						<ns2:LineTypeId>1</ns2:LineTypeId>
+						<ns2:LineType>Goods</ns2:LineType>
+						<ns2:ItemId>300000001075027</ns2:ItemId>
+						<ns2:ItemNumber>DEV123123L</ns2:ItemNumber>
+						<ns2:ItemRevision xsi:nil="true"/>
+						<ns2:ItemDescription>Nokia Handset</ns2:ItemDescription>
+						<ns2:CategoryId>300000001102045</ns2:CategoryId>
+						<ns2:CategoryName>Default Item Category</ns2:CategoryName>
+						<ns2:LineStatusCode xsi:nil="true"/>
+						<ns2:LineStatus/>
+						<ns2:SupplierItem xsi:nil="true"/>
+						<ns2:UnitOfMeasureCode>zzu</ns2:UnitOfMeasureCode>
+						<ns2:UnitOfMeasure>Unit</ns2:UnitOfMeasure>
+						<ns2:Quantity unitCode="zzu">2</ns2:Quantity>
+						<ns2:Price currencyCode="PKR">222</ns2:Price>
+						<ns2:OrderedAmount currencyCode="PKR">444</ns2:OrderedAmount>
+						<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+						<ns2:TotalAmount currencyCode="PKR">444</ns2:TotalAmount>
+						<ns2:SupplierConfigurationId xsi:nil="true"/>
+						<ns2:NegotiatedFlag>false</ns2:NegotiatedFlag>
+						<ns2:UNNumberId xsi:nil="true"/>
+						<ns2:UNNumber/>
+						<ns2:UNNumberDescription/>
+						<ns2:HazardClassId xsi:nil="true"/>
+						<ns2:HazardClass/>
+						<ns2:HazardClassDescription xsi:nil="true"/>
+						<ns2:SourceAgreementId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBUId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBusinessUnit xsi:nil="true"/>
+						<ns2:SourceAgreementNumber xsi:nil="true"/>
+						<ns2:SourceAgreementLine xsi:nil="true"/>
+						<ns2:SourceAgreementType xsi:nil="true"/>
+						<ns2:SourceAgreementStyle xsi:nil="true"/>
+						<ns2:NoteToSupplier xsi:nil="true"/>
+						<ns2:PurchaseOrderSchedule
+							xmlns:ns7="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentSchedule/">
+							<ns2:ScheduleNumber>1</ns2:ScheduleNumber>
+							<ns2:ScheduleStatusCode xsi:nil="true"/>
+							<ns2:ScheduleStatus/>
+							<ns2:SupplierOrderLine xsi:nil="true"/>
+							<ns2:Quantity unitCode="zzu">2</ns2:Quantity>
+							<ns2:SecondaryUOMCode xsi:nil="true"/>
+							<ns2:SecondaryUOM/>
+							<ns2:SecondaryQuantity xsi:nil="true"/>
+							<ns2:OrderedAmount currencyCode="PKR">444</ns2:OrderedAmount>
+							<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+							<ns2:TotalAmount currencyCode="PKR">444</ns2:TotalAmount>
+							<ns2:CountryOfOriginCode xsi:nil="true"/>
+							<ns2:CountryOfOrigin/>
+							<ns2:ShipToLocationId>300000001071495</ns2:ShipToLocationId>
+							<ns2:ShipToLocationCode>Etisalat Main Warehouse</ns2:ShipToLocationCode>
+							<ns2:ShipToOrganizationId>300000001101675</ns2:ShipToOrganizationId>
+							<ns2:ShipToOrganizationCode>EMW</ns2:ShipToOrganizationCode>
+							<ns2:ShipToOrganizationName>ESL Main Warehouse</ns2:ShipToOrganizationName>
+							<ns2:NeedByDate>2017-01-14</ns2:NeedByDate>
+							<ns2:PromisedDate>2017-01-14</ns2:PromisedDate>
+							<ns2:OriginalPromisedDate xsi:nil="true"/>
+							<ns2:DestinationTypeCode>INVENTORY</ns2:DestinationTypeCode>
+							<ns2:DestinationType>Inventory</ns2:DestinationType>
+							<ns2:EarlyReceiptToleranceDays>5</ns2:EarlyReceiptToleranceDays>
+							<ns2:LateReceiptToleranceDays>5</ns2:LateReceiptToleranceDays>
+							<ns2:LastAcceptDate>2017-01-19</ns2:LastAcceptDate>
+							<ns2:ReceiptDateExceptionActionCode>WARNING</ns2:ReceiptDateExceptionActionCode>
+							<ns2:ReceiptDateExceptionAction>Warning</ns2:ReceiptDateExceptionAction>
+							<ns2:ShipToExceptionActionCode>WARNING</ns2:ShipToExceptionActionCode>
+							<ns2:ShipToExceptionAction>Warning</ns2:ShipToExceptionAction>
+							<ns2:ReceiptCloseTolerancePercent>0</ns2:ReceiptCloseTolerancePercent>
+							<ns2:OverReceiptTolerancePercent>0</ns2:OverReceiptTolerancePercent>
+							<ns2:OverReceiptActionCode>REJECT</ns2:OverReceiptActionCode>
+							<ns2:OverReceiptAction>Reject</ns2:OverReceiptAction>
+							<ns2:ReceiptRoutingId>2</ns2:ReceiptRoutingId>
+							<ns2:ReceiptRouting>Inspection required</ns2:ReceiptRouting>
+							<ns2:AllowSubstituteReceiptsFlag>false</ns2:AllowSubstituteReceiptsFlag>
+							<ns2:MatchApprovalLevelCode>4-Way</ns2:MatchApprovalLevelCode>
+							<ns2:InvoiceMatchOptionCode>R</ns2:InvoiceMatchOptionCode>
+							<ns2:InvoiceMatchOption>Receipt</ns2:InvoiceMatchOption>
+							<ns2:InvoiceCloseTolerancePercent>0</ns2:InvoiceCloseTolerancePercent>
+							<ns2:AccrueAtReceiptFlag>true</ns2:AccrueAtReceiptFlag>
+							<ns2:TransactionBusinessCategoryCode>PURCHASE_TRANSACTION</ns2:TransactionBusinessCategoryCode>
+							<ns2:TransactionBusinessCategory>Purchase Transaction</ns2:TransactionBusinessCategory>
+							<ns2:ProductTypeCode>GOODS</ns2:ProductTypeCode>
+							<ns2:ProductType>Goods</ns2:ProductType>
+							<ns2:ProductFiscalClassificationId xsi:nil="true"/>
+							<ns2:ProductFiscalClassification xsi:nil="true"/>
+							<ns2:ProductCategoryCode xsi:nil="true"/>
+							<ns2:ProductCategory/>
+							<ns2:IntendedUseId xsi:nil="true"/>
+							<ns2:IntendedUse/>
+							<ns2:UserDefinedFiscalClassificationCode xsi:nil="true"/>
+							<ns2:UserDefinedFiscalClassification/>
+							<ns2:TaxClassificationCode xsi:nil="true"/>
+							<ns2:TaxClassification/>
+							<ns2:AssessableAmount currencyCode="PKR">444</ns2:AssessableAmount>
+							<ns2:NoteToReceiver xsi:nil="true"/>
+							<ns2:PurchaseOrderDistribution
+								xmlns:ns6="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchaseOrderDistribution/">
+								<ns2:DistributionNumber>1</ns2:DistributionNumber>
+								<ns2:Quantity unitCode="zzu">2</ns2:Quantity>
+								<ns2:OrderedAmount currencyCode="PKR">444</ns2:OrderedAmount>
+								<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+								<ns2:TotalAmount currencyCode="PKR">444</ns2:TotalAmount>
+								<ns2:DestinationSubinventory xsi:nil="true"/>
+								<ns2:RequesterId xsi:nil="true"/>
+								<ns2:RequesterName xsi:nil="true"/>
+								<ns2:DeliverToLocationId>300000001071495</ns2:DeliverToLocationId>
+								<ns2:DeliverToLocationCode>Etisalat Main Warehouse</ns2:DeliverToLocationCode>
+								<ns2:Requisition xsi:nil="true"/>
+								<ns2:RequisitionLine xsi:nil="true"/>
+								<ns2:DestinationChargeAccountId xsi:nil="true"/>
+								<ns2:DestinationChargeAccount xsi:nil="true"/>
+								<ns2:POChargeAccountId>300000001072219</ns2:POChargeAccountId>
+								<ns2:POChargeAccount>01-000-55501010-0000-0000-0000-0000-01-0000-0000</ns2:POChargeAccount>
+								<ns2:POAccrualAccountId>300000001072215</ns2:POAccrualAccountId>
+								<ns2:POAccrualAccount>01-000-25111001-0000-0000-0000-0000-01-0000-0000</ns2:POAccrualAccount>
+								<ns2:DestinationVarianceAccountId xsi:nil="true"/>
+								<ns2:DestinationVarianceAccount xsi:nil="true"/>
+								<ns2:POVarianceAccountId>300000001072219</ns2:POVarianceAccountId>
+								<ns2:POVarianceAccount>01-000-55501010-0000-0000-0000-0000-01-0000-0000</ns2:POVarianceAccount>
+								<ns2:ConversionDate xsi:nil="true"/>
+								<ns2:ConversionRate>243</ns2:ConversionRate>
+								<ns2:DistributionFlexfield>
+									<ns6:PoDistributionId>300000001085253</ns6:PoDistributionId>
+									<ns6:__FLEX_Context xsi:nil="true"/>
+									<ns6:__FLEX_Context_DisplayValue xsi:nil="true"/>
+									<ns6:_FLEX_NumOfSegments>0</ns6:_FLEX_NumOfSegments>
+								</ns2:DistributionFlexfield>
+							</ns2:PurchaseOrderDistribution>
+							<ns2:ScheduleFlexfield>
+								<ns7:LineLocationId>300000001085252</ns7:LineLocationId>
+								<ns7:__FLEX_Context xsi:nil="true"/>
+								<ns7:__FLEX_Context_DisplayValue xsi:nil="true"/>
+								<ns7:_FLEX_NumOfSegments>0</ns7:_FLEX_NumOfSegments>
+							</ns2:ScheduleFlexfield>
+						</ns2:PurchaseOrderSchedule>
+						<ns2:LineFlexfield>
+							<ns8:PoLineId>300000001085251</ns8:PoLineId>
+							<ns8:__FLEX_Context xsi:nil="true"/>
+							<ns8:__FLEX_Context_DisplayValue xsi:nil="true"/>
+							<ns8:_FLEX_NumOfSegments>0</ns8:_FLEX_NumOfSegments>
+						</ns2:LineFlexfield>
+					</ns2:PurchaseOrderLine>
+					<ns2:PurchaseOrderLine
+						xmlns:ns8="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentLine/">
+						<ns2:LineNumber>3</ns2:LineNumber>
+						<ns2:POLineId>300000001085345</ns2:POLineId>
+						<ns2:LineTypeId>1</ns2:LineTypeId>
+						<ns2:LineType>Goods</ns2:LineType>
+						<ns2:ItemId>300000001075027</ns2:ItemId>
+						<ns2:ItemNumber>DEV123123L</ns2:ItemNumber>
+						<ns2:ItemRevision xsi:nil="true"/>
+						<ns2:ItemDescription>Nokia Handset</ns2:ItemDescription>
+						<ns2:CategoryId>300000001102045</ns2:CategoryId>
+						<ns2:CategoryName>Default Item Category</ns2:CategoryName>
+						<ns2:LineStatusCode xsi:nil="true"/>
+						<ns2:LineStatus/>
+						<ns2:SupplierItem xsi:nil="true"/>
+						<ns2:UnitOfMeasureCode>zzu</ns2:UnitOfMeasureCode>
+						<ns2:UnitOfMeasure>Unit</ns2:UnitOfMeasure>
+						<ns2:Quantity unitCode="zzu">10</ns2:Quantity>
+						<ns2:Price currencyCode="PKR">220</ns2:Price>
+						<ns2:OrderedAmount currencyCode="PKR">2200</ns2:OrderedAmount>
+						<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+						<ns2:TotalAmount currencyCode="PKR">2200</ns2:TotalAmount>
+						<ns2:SupplierConfigurationId xsi:nil="true"/>
+						<ns2:NegotiatedFlag>true</ns2:NegotiatedFlag>
+						<ns2:UNNumberId xsi:nil="true"/>
+						<ns2:UNNumber/>
+						<ns2:UNNumberDescription/>
+						<ns2:HazardClassId xsi:nil="true"/>
+						<ns2:HazardClass/>
+						<ns2:HazardClassDescription xsi:nil="true"/>
+						<ns2:SourceAgreementId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBUId xsi:nil="true"/>
+						<ns2:SourceAgreementProcurementBusinessUnit xsi:nil="true"/>
+						<ns2:SourceAgreementNumber xsi:nil="true"/>
+						<ns2:SourceAgreementLine xsi:nil="true"/>
+						<ns2:SourceAgreementType xsi:nil="true"/>
+						<ns2:SourceAgreementStyle xsi:nil="true"/>
+						<ns2:NoteToSupplier xsi:nil="true"/>
+						<ns2:PurchaseOrderSchedule
+							xmlns:ns7="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchasingDocumentSchedule/">
+							<ns2:ScheduleNumber>1</ns2:ScheduleNumber>
+							<ns2:ScheduleStatusCode xsi:nil="true"/>
+							<ns2:ScheduleStatus/>
+							<ns2:SupplierOrderLine xsi:nil="true"/>
+							<ns2:Quantity unitCode="zzu">10</ns2:Quantity>
+							<ns2:SecondaryUOMCode xsi:nil="true"/>
+							<ns2:SecondaryUOM/>
+							<ns2:SecondaryQuantity xsi:nil="true"/>
+							<ns2:OrderedAmount currencyCode="PKR">2200</ns2:OrderedAmount>
+							<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+							<ns2:TotalAmount currencyCode="PKR">2200</ns2:TotalAmount>
+							<ns2:CountryOfOriginCode xsi:nil="true"/>
+							<ns2:CountryOfOrigin/>
+							<ns2:ShipToLocationId>300000001071495</ns2:ShipToLocationId>
+							<ns2:ShipToLocationCode>Etisalat Main Warehouse</ns2:ShipToLocationCode>
+							<ns2:ShipToOrganizationId>300000001101675</ns2:ShipToOrganizationId>
+							<ns2:ShipToOrganizationCode>EMW</ns2:ShipToOrganizationCode>
+							<ns2:ShipToOrganizationName>ESL Main Warehouse</ns2:ShipToOrganizationName>
+							<ns2:NeedByDate>2017-01-20</ns2:NeedByDate>
+							<ns2:PromisedDate>2017-01-20</ns2:PromisedDate>
+							<ns2:OriginalPromisedDate xsi:nil="true"/>
+							<ns2:DestinationTypeCode>INVENTORY</ns2:DestinationTypeCode>
+							<ns2:DestinationType>Inventory</ns2:DestinationType>
+							<ns2:EarlyReceiptToleranceDays>5</ns2:EarlyReceiptToleranceDays>
+							<ns2:LateReceiptToleranceDays>5</ns2:LateReceiptToleranceDays>
+							<ns2:LastAcceptDate>2017-01-25</ns2:LastAcceptDate>
+							<ns2:ReceiptDateExceptionActionCode>WARNING</ns2:ReceiptDateExceptionActionCode>
+							<ns2:ReceiptDateExceptionAction>Warning</ns2:ReceiptDateExceptionAction>
+							<ns2:ShipToExceptionActionCode>WARNING</ns2:ShipToExceptionActionCode>
+							<ns2:ShipToExceptionAction>Warning</ns2:ShipToExceptionAction>
+							<ns2:ReceiptCloseTolerancePercent>0</ns2:ReceiptCloseTolerancePercent>
+							<ns2:OverReceiptTolerancePercent>0</ns2:OverReceiptTolerancePercent>
+							<ns2:OverReceiptActionCode>REJECT</ns2:OverReceiptActionCode>
+							<ns2:OverReceiptAction>Reject</ns2:OverReceiptAction>
+							<ns2:ReceiptRoutingId>2</ns2:ReceiptRoutingId>
+							<ns2:ReceiptRouting>Inspection required</ns2:ReceiptRouting>
+							<ns2:AllowSubstituteReceiptsFlag>false</ns2:AllowSubstituteReceiptsFlag>
+							<ns2:MatchApprovalLevelCode>4-Way</ns2:MatchApprovalLevelCode>
+							<ns2:InvoiceMatchOptionCode>R</ns2:InvoiceMatchOptionCode>
+							<ns2:InvoiceMatchOption>Receipt</ns2:InvoiceMatchOption>
+							<ns2:InvoiceCloseTolerancePercent>0</ns2:InvoiceCloseTolerancePercent>
+							<ns2:AccrueAtReceiptFlag>true</ns2:AccrueAtReceiptFlag>
+							<ns2:TransactionBusinessCategoryCode>PURCHASE_TRANSACTION</ns2:TransactionBusinessCategoryCode>
+							<ns2:TransactionBusinessCategory>Purchase Transaction</ns2:TransactionBusinessCategory>
+							<ns2:ProductTypeCode>GOODS</ns2:ProductTypeCode>
+							<ns2:ProductType>Goods</ns2:ProductType>
+							<ns2:ProductFiscalClassificationId xsi:nil="true"/>
+							<ns2:ProductFiscalClassification xsi:nil="true"/>
+							<ns2:ProductCategoryCode xsi:nil="true"/>
+							<ns2:ProductCategory/>
+							<ns2:IntendedUseId xsi:nil="true"/>
+							<ns2:IntendedUse/>
+							<ns2:UserDefinedFiscalClassificationCode xsi:nil="true"/>
+							<ns2:UserDefinedFiscalClassification/>
+							<ns2:TaxClassificationCode xsi:nil="true"/>
+							<ns2:TaxClassification/>
+							<ns2:AssessableAmount currencyCode="PKR">2200</ns2:AssessableAmount>
+							<ns2:NoteToReceiver xsi:nil="true"/>
+							<ns2:PurchaseOrderDistribution
+								xmlns:ns6="http://xmlns.oracle.com/apps/prc/po/viewDocument/publicFlex/purchaseOrderDistribution/">
+								<ns2:DistributionNumber>1</ns2:DistributionNumber>
+								<ns2:Quantity unitCode="zzu">10</ns2:Quantity>
+								<ns2:OrderedAmount currencyCode="PKR">2200</ns2:OrderedAmount>
+								<ns2:TotalTaxAmount currencyCode="PKR">0</ns2:TotalTaxAmount>
+								<ns2:TotalAmount currencyCode="PKR">2200</ns2:TotalAmount>
+								<ns2:DestinationSubinventory xsi:nil="true"/>
+								<ns2:RequesterId xsi:nil="true"/>
+								<ns2:RequesterName xsi:nil="true"/>
+								<ns2:DeliverToLocationId>300000001071495</ns2:DeliverToLocationId>
+								<ns2:DeliverToLocationCode>Etisalat Main Warehouse</ns2:DeliverToLocationCode>
+								<ns2:Requisition xsi:nil="true"/>
+								<ns2:RequisitionLine xsi:nil="true"/>
+								<ns2:DestinationChargeAccountId xsi:nil="true"/>
+								<ns2:DestinationChargeAccount xsi:nil="true"/>
+								<ns2:POChargeAccountId>300000001072219</ns2:POChargeAccountId>
+								<ns2:POChargeAccount>01-000-55501010-0000-0000-0000-0000-01-0000-0000</ns2:POChargeAccount>
+								<ns2:POAccrualAccountId>300000001072215</ns2:POAccrualAccountId>
+								<ns2:POAccrualAccount>01-000-25111001-0000-0000-0000-0000-01-0000-0000</ns2:POAccrualAccount>
+								<ns2:DestinationVarianceAccountId xsi:nil="true"/>
+								<ns2:DestinationVarianceAccount xsi:nil="true"/>
+								<ns2:POVarianceAccountId>300000001072219</ns2:POVarianceAccountId>
+								<ns2:POVarianceAccount>01-000-55501010-0000-0000-0000-0000-01-0000-0000</ns2:POVarianceAccount>
+								<ns2:ConversionDate xsi:nil="true"/>
+								<ns2:ConversionRate>243</ns2:ConversionRate>
+								<ns2:DistributionFlexfield>
+									<ns6:PoDistributionId>300000001085347</ns6:PoDistributionId>
+									<ns6:__FLEX_Context xsi:nil="true"/>
+									<ns6:__FLEX_Context_DisplayValue xsi:nil="true"/>
+									<ns6:_FLEX_NumOfSegments>0</ns6:_FLEX_NumOfSegments>
+								</ns2:DistributionFlexfield>
+							</ns2:PurchaseOrderDistribution>
+							<ns2:ScheduleFlexfield>
+								<ns7:LineLocationId>300000001085346</ns7:LineLocationId>
+								<ns7:__FLEX_Context xsi:nil="true"/>
+								<ns7:__FLEX_Context_DisplayValue xsi:nil="true"/>
+								<ns7:_FLEX_NumOfSegments>0</ns7:_FLEX_NumOfSegments>
+							</ns2:ScheduleFlexfield>
+						</ns2:PurchaseOrderSchedule>
+						<ns2:LineFlexfield>
+							<ns8:PoLineId>300000001085345</ns8:PoLineId>
+							<ns8:__FLEX_Context xsi:nil="true"/>
+							<ns8:__FLEX_Context_DisplayValue xsi:nil="true"/>
+							<ns8:_FLEX_NumOfSegments>0</ns8:_FLEX_NumOfSegments>
+						</ns2:LineFlexfield>
+					</ns2:PurchaseOrderLine>
+					<ns2:HeaderFlexfield>
+						<ns9:PoHeaderId>300000001085237</ns9:PoHeaderId>
+						<ns9:__FLEX_Context xsi:nil="true"/>
+						<ns9:__FLEX_Context_DisplayValue xsi:nil="true"/>
+						<ns9:_FLEX_NumOfSegments>0</ns9:_FLEX_NumOfSegments>
+					</ns2:HeaderFlexfield>
+				</ns2:Value>
+			</ns1:result>
+		</ns0:getPurchaseOrderResponse>
+	</env:Body>
+</env:Envelope>

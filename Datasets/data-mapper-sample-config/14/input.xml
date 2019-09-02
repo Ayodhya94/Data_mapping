@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns0:lipopt15Response xmlns:ns0="http://www.teranet.ca/elrs/RegisterAdaptor">
+         <return>
+            <messages>
+               <code>0</code>
+               <message>STRING</message>
+            </messages>
+            <success>true</success>
+            <PListItems>
+               <CActive>A</CActive>
+               <CLT>L</CLT>
+               <address>
+                  <unitTypeAbbreviationLocalized>STRING</unitTypeAbbreviationLocalized>                                    
+                  <unitTypeFrenchInd>false</unitTypeFrenchInd>
+                  <szArea>STRING</szArea>
+                  <szStreetName>STRING</szStreetName>
+                  <szStreetNo>STRING</szStreetNo>
+                  <szStreetSuffix>STRING</szStreetSuffix>
+                  <szUnitNo>STRING</szUnitNo>
+                  <szUnitType>ALPHA</szUnitType>
+               </address>
+               <desc>
+                  <remarkLine>ALPHA BRAVO CHARLIE DELTA ECHO FOXTROT</remarkLine>
+               </desc>               
+               <szPin>00001-0001</szPin>
+               <szRegNo>alpha</szRegNo>
+            </PListItems>
+         </return>
+      </ns0:lipopt15Response>
+   </S:Body>
+</S:Envelope>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tXML>
+   <Header>
+      <Source>MPR88</Source>
+      <Action_Type>Create</Action_Type>
+      <Reference_ID>Item_03</Reference_ID>
+      <Message_Type>Item</Message_Type>
+      <Company_ID>1</Company_ID>
+      <Msg_Locale>English (United Kingdom)</Msg_Locale>
+      <Msg_Time_Zone>Europe/Paris</Msg_Time_Zone>
+   </Header>
+   <Message>
+      <Item>
+         <ItemName>110265505R</ItemName>
+         <Description>RONDELLE ETANCHEITE</Description>
+         <BaseStorageUOM>PCE</BaseStorageUOM>
+         <UnitWeight>0.0020</UnitWeight>
+         <WeightUOM>kg</WeightUOM>
+         <UnitVolume>0.0006</UnitVolume>
+         <VolumeUOM>dm3</VolumeUOM>
+         <UnitHeight>0.0100</UnitHeight>
+         <UnitWidth>0.2500</UnitWidth>
+         <UnitLength>0.2500</UnitLength>
+         <DimensionUOM>dm</DimensionUOM>
+         <SoldOnline>0</SoldOnline>
+         <SoldInStores>True</SoldInStores>
+         <ItemBarCode>110265505R00001</ItemBarCode>
+         <ProductType>X</ProductType>
+         <StdBundlQty>0000001</StdBundlQty>
+         <ItemProfileName>STANDARD</ItemProfileName>
+         <ReferenceField1>508-JOINT TORIQUE</ReferenceField1>
+         <ReferenceField3>00</ReferenceField3>
+         <ReferenceField4>0000</ReferenceField4>
+         <ReferenceNumberField1>0</ReferenceNumberField1>
+         <ReferenceNumberField2>0</ReferenceNumberField2>
+         <ReferenceNumberField4 />
+         <MarkForDeletion>0</MarkForDeletion>
+         <ItemFacilityWMSList>
+            <ItemFacilityWMS>
+               <FacilityName>03</FacilityName>
+               <MiscNumeric1 />
+               <DefaultWaveProcess>5</DefaultWaveProcess>
+               <AllocationType>STD</AllocationType>
+               <MiscAlpha1>0000000000</MiscAlpha1>
+               <MiscAlpha2 />
+               <MiscDate1>04/04/2018 13:54:51</MiscDate1>
+               <ItemFacilityProfileName>STANDARD</ItemFacilityProfileName>
+            </ItemFacilityWMS>
+         </ItemFacilityWMSList>
+         <ItemPackageList>
+            <ItemPackage />
+         </ItemPackageList>
+         <ItemWmos>
+            <MaxLPNQty />
+            <ProdLifeInDay />
+         </ItemWmos>
+         <ItemBOMList>
+            <ItemBOM>
+               <ItemBOMDetailList>
+                  <ItemBOMDetail />
+               </ItemBOMDetailList>
+            </ItemBOM>
+         </ItemBOMList>
+         <ItemVendorList>
+            <ItemVendor>
+               <BusinessPartnerId />
+            </ItemVendor>
+         </ItemVendorList>
+      </Item>
+   </Message>
+</tXML>

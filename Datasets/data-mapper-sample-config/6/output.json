@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "Acc_UserId__c": "0058E0000047w5EQAQ",
+      "Acc_EmailOfSFContact__c": "peter.freeman@innovate.test",
+      "Acc_ProjectId__c": "a0E8E000000roaM",
+      "Acc_Role__c": "Innovation lead",
+      "attributes":
+
+{         "referenceId": "pcl-0058E0000047w5EQAQ-Innovation lead",         "type": "Acc_ProjectContactLink__c"       }
+    },
+    {
+      "Acc_ContactId__c": "0038E00000zEP0BQAW",
+      "Acc_AccountId__c": null,
+      "Acc_EmailOfSFContact__c": "orville.gibbs@gm3.com",
+      "Acc_ProjectId__c": "a0E8E000000roaM",
+      "Acc_Role__c": "Monitoring officer",
+      "attributes":
+
+{         "referenceId": "[pcl-orville.gibbs@gm3.com-a0E8E000000roaM-Monitoring|mailto:pcl-orville.gibbs@gm3.com-a0E8E000000roaM-Monitoring] officer",         "type": "Acc_ProjectContactLink__c"       }
+    },
+    {
+      "Acc_ContactId__c": "0038E00000zmnelQAA",
+      "Acc_AccountId__c": "0018E000016NXCnQAO",
+      "Acc_EmailOfSFContact__c": "dave.adams@ppl.com",
+      "Acc_ProjectId__c": "a0E8E000000roaM",
+      "Acc_Role__c": "Project manager",
+      "attributes":
+
+{         "referenceId": "[pcl-dave.adams@ppl.com-a0E8E000000roaM-Project|mailto:pcl-dave.adams@ppl.com-a0E8E000000roaM-Project] manager",         "type": "Acc_ProjectContactLink__c"       }
+    }
+  ]
+}
