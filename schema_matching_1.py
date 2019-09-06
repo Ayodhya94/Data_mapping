@@ -42,6 +42,8 @@ def get_elem(tag_name, doc):
 
 
 def get_features(tag_list, doc):
+    num_keys = 0
+    num_unavail_keys = 0
     wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
     new_tag_list = []
     obj = {}
@@ -71,10 +73,12 @@ def get_features(tag_list, doc):
         digit_list = []
         alpha_list = []
         chara_list = []
+        num_keys += 1
         try:
             word2_vec_list = wv[tag_name].tolist()
         except KeyError:
             word2_vec_list = [0*count for count in range(50)]
+            num_unavail_keys += 1
         space = 0
         distinct_val = {}
         new_line = 0
@@ -152,6 +156,9 @@ def get_features(tag_list, doc):
             # print (final_feature_list)
             # print (norm_feature_map)
     # print (example_list)
+    print("Number of keys: %u" % num_keys)
+    print("Number of unavailable keys: %u" % num_unavail_keys)
+    print(num_unavail_keys/num_keys*100)
     return [final_feature_list_concat, final_feature_list, new_tag_list]
 
 
@@ -390,8 +397,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 1
-    test_set_2 = 2
+    test_set_1 = 2
+    test_set_2 = 4
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -438,11 +445,11 @@ def main():
         index_list_1 = indices(prediction[0], i)
         index_list_2 = indices(prediction[1], i)
 
-        print("\n")
-        print("Class %u" % (i + 1))
+        # print("\n")
+        # print("Class %u" % (i + 1))
         for item in index_list_1:
             label = test_tag_1[item]
-            print(label)
+            # print(label)
             label_list_1.append(label)
             temp = range_extract(get_elem(label, test_doc_1))
             # print (temp)
@@ -450,10 +457,10 @@ def main():
                 range_list_1.append(temp[:range_n])
             else:
                 range_list_1.append(temp)
-        print("___________")
+        # print("___________")
         for item in index_list_2:
             label = test_tag_2[item]
-            print(label)
+            # print(label)
             label_list_2.append(label)
             temp = range_extract(get_elem(label, test_doc_2))
             # print (temp)
@@ -461,7 +468,7 @@ def main():
                 range_list_2.append(temp[:range_n])
             else:
                 range_list_2.append(temp)
-        print("_______________________________")
+        # print("_______________________________")
         # print (range_list_1)
         # print ("\n")
         # print (range_list_2)
