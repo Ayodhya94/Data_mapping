@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "messages": [
+    {
+      "code": 0,
+      "message": "string"
+    }
+  ],
+  "PListItems": [
+    {
+      "CActive": "string",
+      "CLT": "string",
+      "address": {
+        "szArea": "string",
+        "szStreetName": "string",
+        "szStreetNo": "string",
+        "szStreetSuffix": "string",
+        "szUnitNo": "string",
+        "szUnitType": "string"
+      },
+      "desc": [
+        {
+          "remarkLine": "string"
+        }
+      ],
+      "szPin": "string",
+      "szRegNo": "string"
+    }
+  ]
+}

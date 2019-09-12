@@ -1,0 +1,117 @@
+<soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<tXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<Header>
+			<Reference_ID>WSO2.WMS.DO-01</Reference_ID>
+			<Msg_Locale>English (United Kingdom)</Msg_Locale>
+			<Internal_Reference_ID>17acf4e0-d4cd-4253-a696-90a8ada7d1cd</Internal_Reference_ID>
+			<Internal_Date_Time_Stamp>06/12/2018 14:43</Internal_Date_Time_Stamp>
+			<Source>Enfinity</Source>
+			<Message_Type>DistributionOrder</Message_Type>
+			<Company_ID>1</Company_ID>
+		</Header>
+		<Message>
+			<DistributionOrder>
+				<DistributionOrderId>555324</DistributionOrderId>
+				<OrderType>HCCO</OrderType>
+				<OrderedDttm>14/12/2018 12:34</OrderedDttm>
+				<MustReleaseByDttm>18//2/12/1 </MustReleaseByDttm>
+				<ReferenceField1>YES</ReferenceField1>
+				<ReferenceField3>BOX</ReferenceField3>
+				<ReferenceField4>CLICK_AND_COLLECT</ReferenceField4>
+				<ReferenceField10>Enfinity</ReferenceField10>
+				<OriginFacilityAliasId>NIDCFC</OriginFacilityAliasId>
+				<DestinationAddressLine1>123 Some Street 123</DestinationAddressLine1>
+				<DestinationAddressLine2>Some Suburb</DestinationAddressLine2>
+				<DestinationCity>Wellington</DestinationCity>
+				<DestinationCountry>NZ</DestinationCountry>
+				<DestinationPostalCode>1234</DestinationPostalCode>
+				<DestinationContactName>Bob Bobby</DestinationContactName>
+				<DestinationContactTelephoneNbr>123-342-234</DestinationContactTelephoneNbr>
+				<LpnCubingIndicator>51</LpnCubingIndicator>
+				<DsgShipVia>CPCC</DsgShipVia>
+				<NbrOfShippingLabelsToPrint>1</NbrOfShippingLabelsToPrint>
+				<PackingSlipType>RP</PackingSlipType>
+				<NbrOfPackingSlipsToPrint>3</NbrOfPackingSlipsToPrint>
+				<SplInstrCode1>EN</SplInstrCode1>
+				<LineItem>
+					<DoLineNbr>1234</DoLineNbr>
+					<ItemName>12343524</ItemName>
+					<AllocationSourceType>ABC</AllocationSourceType>
+					<FulfillmentType>2</FulfillmentType>
+					<Quantity>
+						<QtyUOM>Unit</QtyUOM>
+						<OrderQty>1</OrderQty>
+					</Quantity>
+					<IsCancelled>false</IsCancelled>
+				</LineItem>
+				<LineItem>
+					<DoLineNbr>1243</DoLineNbr>
+					<ItemName>12343524</ItemName>
+					<AllocationSourceType>ABC</AllocationSourceType>
+					<FulfillmentType>2</FulfillmentType>
+					<Quantity>
+						<QtyUOM>Unit</QtyUOM>
+						<OrderQty>2</OrderQty>
+					</Quantity>
+					<IsCancelled>false</IsCancelled>
+				</LineItem>
+				<SalesOrderNbr>12345</SalesOrderNbr>
+				<Comment>
+					<CommentText>Still awaiting mapping from Enfinity</CommentText>
+					<NoteType>DI</NoteType>
+				</Comment>
+			</DistributionOrder>
+			<DistributionOrder>
+				<DistributionOrderId>4234594</DistributionOrderId>
+				<OrderType>MZAP</OrderType>
+				<OrderedDttm>27/12/2018 12:34</OrderedDttm>
+				<MustReleaseByDttm>27/12/2018 12:34</MustReleaseByDttm>
+				<ReferenceField1>YES</ReferenceField1>
+				<ReferenceField3>BAG</ReferenceField3>
+				<ReferenceField4/>
+				<ReferenceField10>Enfinity</ReferenceField10>
+				<OriginFacilityAliasId>SIDCFC</OriginFacilityAliasId>
+				<DestinationAddressLine1>123 This Street</DestinationAddressLine1>
+				<DestinationAddressLine2>That Suburb</DestinationAddressLine2>
+				<DestinationCity>Wellington</DestinationCity>
+				<DestinationCountry>NZ</DestinationCountry>
+				<DestinationPostalCode>4354</DestinationPostalCode>
+				<DestinationContactName>John Smith</DestinationContactName>
+				<DestinationContactTelephoneNbr>873423534</DestinationContactTelephoneNbr>
+				<LpnCubingIndicator>51</LpnCubingIndicator>
+				<DsgShipVia>CPLO</DsgShipVia>
+				<NbrOfShippingLabelsToPrint>1</NbrOfShippingLabelsToPrint>
+				<PackingSlipType>RD</PackingSlipType>
+				<NbrOfPackingSlipsToPrint>4</NbrOfPackingSlipsToPrint>
+				<SplInstrCode1>EN</SplInstrCode1>
+				<LineItem>
+					<DoLineNbr>1264</DoLineNbr>
+					<ItemName>534453</ItemName>
+					<AllocationSourceType>E</AllocationSourceType>
+					<FulfillmentType>3</FulfillmentType>
+					<Quantity>
+						<QtyUOM>Unit</QtyUOM>
+						<OrderQty>3</OrderQty>
+					</Quantity>
+					<IsCancelled>true</IsCancelled>
+				</LineItem>
+				<LineItem>
+					<DoLineNbr>13423</DoLineNbr>
+					<ItemName>663545</ItemName>
+					<AllocationSourceType>E</AllocationSourceType>
+					<FulfillmentType>3</FulfillmentType>
+					<Quantity>
+						<QtyUOM>Unit</QtyUOM>
+						<OrderQty>4</OrderQty>
+					</Quantity>
+					<IsCancelled>true</IsCancelled>
+				</LineItem>
+				<SalesOrderNbr>12454</SalesOrderNbr>
+				<Comment>
+					<CommentText>Still awaiting mapping from Enfinity</CommentText>
+					<NoteType>DI</NoteType>
+				</Comment>
+			</DistributionOrder>
+		</Message>
+	</tXML>
+</soapenv:Body>

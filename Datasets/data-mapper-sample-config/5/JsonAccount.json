@@ -1,0 +1,63 @@
+{
+
+"data":[{
+			"date": "2019-05-17T00:00:00.000Z",
+			"id": "4123_000124_720_SH_HG_GG",
+			"customer_id": "000124",
+			"country_code": "GB",
+			"on_balance_sheet": true,
+			"asset_liability": "liability",
+			"status": "active",
+			"type": "savings",
+			"purpose": "deposit",
+			"trade_date": "1997-11-14T00:00:00.000Z",
+			"start_date": "1997-11-14T00:00:00.000Z",
+			"end_date": "2020-01-30T00:00:00.000Z",
+			"next_withdrawal_date": "2019-06-24T00:00:00.000Z",
+			"rate_type": "variable",
+			"rate": 0.3000000,
+			"currency_code": "GBP",
+			"balance": 625799,
+			"guarantee_scheme": "gb_fscs",
+			"guarantee_amount": 625799,
+			"arrears_balance": 0,
+			"withdrawal_penalty": 0,
+			"source": "Equation",
+			"version_id": "2019-05-20_V1"
+
+
+		},
+		{
+			"date": "2019-05-17T00:00:00.000Z",
+			"id": "4123_000124_720_SH_HG_GG",
+			"customer_id": "000124",
+			"country_code": "GB",
+			"on_balance_sheet": true,
+			"asset_liability": "liability",
+			"status": "active",
+			"type": "savings",
+			"purpose": "deposit",
+			"trade_date": "1997-11-14T00:00:00.000Z",
+			"start_date": "1997-11-14T00:00:00.000Z",
+			"end_date": "2020-01-30T00:00:00.000Z",
+			"next_withdrawal_date": "2019-06-24T00:00:00.000Z",
+			"rate_type": "variable",
+			"rate": 0.3000000,
+			"currency_code": "GBP",
+			"balance": 625799,
+			"guarantee_scheme": "gb_fscs",
+			"guarantee_amount": 625799,
+			"arrears_balance": 0,
+			"withdrawal_penalty": 0,
+			"source": "Equation",
+			"version_id": "2019-05-20_V1"
+
+
+		}
+
+    ]
+}
+
+
+
+

@@ -1,0 +1,29 @@
+{  
+  "transactions": 
+   [
+   {  
+         "paymentDirection":"inward",
+         "instructionId":"1212121",
+         "creditorAccount":"234232342",
+         "creditorAgent":"3535353",
+         "debtorAccount":"987654321",
+         "debtorAgent":"12312",
+         "settlementAmount":"2000",
+         "settlementCurrency":"GBP",
+         "settlementDate":"2008-09-09",
+         "settlementCycleId":"001"
+      },
+      {  
+         "paymentDirection":"inward",
+         "instructionId":"1212121",
+         "creditorAccount":"234232342",
+         "creditorAgent":"3535353",
+         "debtorAccount":"987654321",
+         "debtorAgent":"12312",
+         "settlementAmount":"2000",
+         "settlementCurrency":"GBP",
+         "settlementDate":"2008-09-09",
+         "settlementCycleId":"001"
+      }
+      ]  
+}

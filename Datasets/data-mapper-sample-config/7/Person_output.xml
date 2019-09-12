@@ -1,0 +1,9 @@
+<UMPersonData>
+    <Uniqname>abc</Uniqname>
+    <PersonName>
+        <NameType>PRI</NameType>
+        <FirstName>Andrew</FirstName>
+        <MiddleName>Barry</MiddleName>
+        <LastName>Chidester</LastName>
+    </PersonName>
+</UMPersonData>

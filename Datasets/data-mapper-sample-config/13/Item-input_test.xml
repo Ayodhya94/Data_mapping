@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<textxml>
+   <hasBom>false</hasBom>
+   <Item>
+      <currentDate>04/04/2018 13:54:51</currentDate>
+      <IDMAG>03</IDMAG>
+      <NUMREF>110265505R</NUMREF>
+      <LETREF />
+      <Description>RONDELLE ETANCHEITE</Description>
+      <MAGSVREF>03</MAGSVREF>
+      <VENTNAT>O</VENTNAT>
+      <GRDVENTE>0</GRDVENTE>
+      <REFCOLL>0</REFCOLL>
+      <REFCOMPO>0</REFCOMPO>
+      <FAMTREF>508-JOINT TORIQUE</FAMTREF>
+      <TYREF>X</TYREF>
+      <PDSREFSK>00000000002</PDSREFSK>
+      <weightUOM>kg</weightUOM>
+      <VOLREFSK>00000000625</VOLREFSK>
+      <volumeUOM>dm3</volumeUOM>
+      <DIM1REFS>00025</DIM1REFS>
+      <DimensionUOM>dm</DimensionUOM>
+      <DIM2REFS>00025</DIM2REFS>
+      <DIM3REFS>00001</DIM3REFS>
+      <QTSERELM>0000001</QTSERELM>
+      <QTSERTC>0096000</QTSERTC>
+      <TYSERTC>ETM---0600</TYSERTC>
+      <LAPSINV>1</LAPSINV>
+      <HORSGEL />
+      <DLU />
+      <NATCOUVD>0</NATCOUVD>
+      <CODMAJ>C</CODMAJ>
+      <MFORDEL>0</MFORDEL>
+      <ItemPackageList />
+      <QTESP_3>00</QTESP_3>
+      <maxLPNQty />
+      <NOFOURCODA />
+      <TYACHIN_1>0000</TYACHIN_1>
+      <TYACHIN_4>0000000000</TYACHIN_4>
+      <TYINV />
+      <SUPERFAM>00</SUPERFAM>
+      <REFNUMF4 />
+      <MISCNUM1 />
+   </Item>
+</textxml>

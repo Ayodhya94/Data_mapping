@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <getUMPersonDataResponse xmlns="http://mais.he.umich.edu/schemas/getUMPersonDataResponse.v1" xsi:schemaLocation="http://mais.he.umich.edu/schemas/getUMPersonDataResponse.v1 http://csdev9ib.dsc.umich.edu/PSIGW/PeopleSoftServiceListeningConnector/getUMPersonDataResponse.v1.xsd">
+         <Uniqname>abc</Uniqname>
+         <BirthDate>04/17/1976</BirthDate>
+         <Gender>M</Gender>
+         <PersonName>
+            <NameType>PRI</NameType>
+            <FirstName>Andrew</FirstName>
+            <MiddleName>Barry</MiddleName>
+            <LastName>Chidester</LastName>
+         </PersonName>
+      </getUMPersonDataResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

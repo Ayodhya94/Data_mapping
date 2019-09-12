@@ -1,0 +1,3 @@
+paymentDirection,instructionId,creditorAccount,creditorAgent,debtorAccount,debtorAgent,settlementAmount,settlementCurrency,settlementDate,settlementCycleId
+inward,UNI123456789012122,12345678,101121,98765412,235623,25000,GBP,12/14/2017,1
+outward,UNI123456789012122,12345678,101121,98765412,235623,25000,GBP,12/14/2017,1

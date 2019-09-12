@@ -1,0 +1,23 @@
+<soapenv:Envelope
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>xxx</soapenv:Header>
+    <soapenv:Body>
+	<infomation>
+	<details>
+        <header_id>1</header_id>
+		<header_description>sports</header_description>
+		<line_id>1</line_id>
+		<line_description>football</line_description>
+		<line_amount>10</line_amount>
+	</details>
+	<details>
+		<header_id>3</header_id>
+		<header_description>chair</header_description>
+		<line_id>1</line_id>
+		<line_description>swivel</line_description>
+		<line_amount>1</line_amount>
+	</details>
+	</infomation>
+    </soapenv:Body>
+</soapenv:Envelope>

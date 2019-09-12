@@ -28,6 +28,7 @@ import cmath as math
 import operator
 import sys
 import os
+import re
 
 
 def get_elem(tag_name, doc):
@@ -42,7 +43,11 @@ def get_elem(tag_name, doc):
 
 
 def get_features(tag_list, doc):
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    num_keys = 0
+    num_unavail_keys = 0
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_2", mmap='r')
     new_tag_list = []
     obj = {}
     example_list = []
@@ -71,10 +76,20 @@ def get_features(tag_list, doc):
         digit_list = []
         alpha_list = []
         chara_list = []
-        try:
-            word2_vec_list = wv[tag_name].tolist()
-        except KeyError:
-            word2_vec_list = [0*count for count in range(50)]
+        num_keys += 1
+        tag_name_list = re.split(' |_', tag_name)
+        temp = []
+        for tags in tag_name_list:
+            try:
+                word2_vec_list = wv[tags].tolist()
+            except KeyError:
+                # word2_vec_list = [0*count for count in range(50)]
+                # word2_vec_list = [0 * count for count in range(150)]
+                word2_vec_list = [0 * count for count in range(15)]
+                num_unavail_keys += 1
+                print(tags)
+            temp.append(word2_vec_list)
+        word2_vec_list = np.mean(temp, axis=0).tolist()
         space = 0
         distinct_val = {}
         new_line = 0
@@ -132,26 +147,54 @@ def get_features(tag_list, doc):
 
             norm_stat_feat = []
             for val in stat_feat:
-                norm_stat_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
+                # norm_stat_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
+                norm_stat_feat.append((val - min(stat_feat))/(max(stat_feat) - min(stat_feat)))
 
             norm_dist_feat = []
             for val in dist_feat:
-                norm_dist_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
+                # norm_dist_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
+                norm_dist_feat.append((val - min(dist_feat))/(max(dist_feat) - min(dist_feat)))
 
+            norm_word2vec_list = []
+            for val in word2_vec_list:
+                try:
+                    norm_word2vec_list.append((val - min(word2_vec_list))/(max(word2_vec_list) - min(word2_vec_list)))
+                except ZeroDivisionError:
+                    norm_word2vec_list. append(0)
+
+            norm_comp_list = []
+            for val in comp_feat:
+                norm_comp_list.append((val - min(comp_feat))/(max(comp_feat) - min(comp_feat)))
+
+            # print("##########################")
+            # print(stat_feat)
+            # print(norm_stat_feat)
+            # print(comp_feat)
+            # print(norm_comp_list)
+            # print(dist_feat)
+            # print(norm_dist_feat)
             # feature_map = stat_feat + comp_feat + dist_feat
             # print ("START")
             # print (norm_stat_feat)
             # print (comp_feat)
             # print (dist_feat)
-            norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat + word2_vec_list
+            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list
+            # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat
+            # print(norm_feature_map)
+            # feature_map = stat_feat + comp_feat + dist_feat + word2_vec_list
             # norm_feature_map = word2_vec_list  # Using only word2vec features
             # norm_feature_map = norm_stat_feat + comp_feat + norm_dist_feat  # Using only original features
 
+            # final_feature_list.append(feature_map)
+            # final_feature_list_concat = final_feature_list_concat + feature_map
             final_feature_list.append(norm_feature_map)
             final_feature_list_concat = final_feature_list_concat + norm_feature_map
             # print (final_feature_list)
             # print (norm_feature_map)
     # print (example_list)
+    print("Number of keys: %u" % num_keys)
+    print("Number of unavailable keys: %u" % num_unavail_keys)
+    print(num_unavail_keys/num_keys*100)
     return [final_feature_list_concat, final_feature_list, new_tag_list]
 
 
@@ -360,12 +403,19 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
+    test_set_1 = 3
+    test_set_2 = 4
+
     features = []
     label_list = []
 
     for i in range(len(info)):
-        features = features + info[i]['features_tag'][1]
-        label_list = label_list + info[i]['features_tag'][2]
+        if (i+1) == test_set_1 or (i+1) == test_set_2:
+            continue
+        else:
+            # print (i+1)
+            features = features + info[i]['features_tag'][1]
+            label_list = label_list + info[i]['features_tag'][2]
 
     ''' Hierarchical clustering '''
     plt.figure(figsize=(10, 7))
@@ -373,11 +423,14 @@ def main():
     get_link = shc.linkage(features, method='ward')
     dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
     plt.axhline(y=1, color='r', linestyle='--')
-    # pylab.show()
+    # plt.show()
 
     ''' Ground truth for training '''
     num_clusters = 13  # 6  # 8 #13
-    num_feat = 60
+    # num_feat = 60
+    # num_feat = 160
+    # num_feat = 10
+    num_feat = 25
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -390,8 +443,8 @@ def main():
         out.append(one_hot_vec)
 
     ''' Test data set '''
-    test_set_1 = 1
-    test_set_2 = 2
+    # test_set_1 = 2
+    # test_set_2 = 4
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
@@ -410,23 +463,35 @@ def main():
     # XG Boost
     prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
 
-    print ("\n")
-    print ("Schema 1:")
+    # arr = features[-1][0:10]
+    # # arr = np.asarray(arr, dtype=np.float32)
+    # # arr = (arr - arr.min()) / (arr.max() - arr.min())
+    # print(arr)
+    # arr = features[-2][0:10]
+    # # arr = np.asarray(arr, dtype=np.float32)
+    # # arr = (arr - arr.min()) / (arr.max() - arr.min())
+    # print(arr)
+    # arr = features[-3][0:10]
+    # # arr = np.asarray(arr, dtype=np.float32)
+    # # arr = (arr - arr.min()) / (arr.max() - arr.min())
+    # print(arr)
+    print("\n")
+    print("Schema 1:")
 
     for i in range(len(test_feature_1)):
         print ("%s  : %u" % (test_tag_1[i], prediction[0][i]))
 
-    print ("\n")
-    print ("Schema 2:")
+    print("\n")
+    print("Schema 2:")
 
     for i in range(len(test_feature_2)):
         print ("%s  : %u" % (test_tag_2[i], prediction[1][i]))
 
     ''' Match schemas '''
-    print ('\n')
+    print('\n')
     range_n = 5
-    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
+    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
 
     for i in range(num_clusters):
         range_list_1 = []
@@ -517,7 +582,15 @@ def main():
                         try:
                             simi = wv.similarity(w1=word_part_1, w2=word_part_2)
                         except KeyError:
-                            simi = 0
+                            # simi = 0
+                            # print("###########")
+                            # print(word_part_1)
+                            # print(word_part_2)
+                            # print("###########")
+                            try:
+                                simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+                            except KeyError:
+                                simi = 0
                         temp_list.append(simi)
                         # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
 
@@ -548,9 +621,9 @@ def main():
         #     print ('%s : %s' % (label_list_1[matching_pairs[0][ind]], label_list_2[matching_pairs[1][ind]]))
         #
         # print ("COST PAIRS")
-        for ind in range(len(matching_pairs_2[0])):
-            print('%s : %s' % (label_list_1[matching_pairs_2[0][ind]], label_list_2[matching_pairs_2[1][ind]]))
-
+        for ind in range(len(matching_pairs_3[0])):
+            print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
+            # print(cost_list[matching_pairs_2[0][ind]][matching_pairs_2[1][ind]])
     # plt.show()
 
 

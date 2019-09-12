@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8" ?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><event:EventsRequest xmlns:event="urn:expedia:om:order:event:messages:v1"><common:MessageInfo xmlns:common="urn:expedia:om:common:defn:v1" CreateDateTime="2017-01-30T13:27:37-08:00" MessageGUID="65299eb6-8f8d-42b5-b9bd-79165948e00b"/><event:EventList xmlns:common="urn:expedia:om:common:defn:v1" xmlns:data="urn:expedia:om:datatype:defn:v1" xmlns:eventV2="urn:expedia:om:order:event:messages:v2" xmlns:legacy="urn:expedia:om:order:event:messages:legacy:v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><event:Event><event:EventId>1483992257</event:EventId><event:EventType>1</event:EventType><event:EventHeader><event:OrderNumber>8066738339595</event:OrderNumber><event:OrderId>-9223372035524309939</event:OrderId><event:OrderVersion>1</event:OrderVersion></event:EventHeader><event:EventDetails><event:Order><common:OrderNumber>8066738339595</common:OrderNumber><common:OrderId>-9223372035524309939</common:OrderId><common:OrderVersion>1</common:OrderVersion><common:OrderSiteInfo>
+    <common:LegacySiteKey>
+      <common:TPID>6</common:TPID>
+      <common:EAPID>25351</common:EAPID>
+      <common:GPID>0</common:GPID>
+    </common:LegacySiteKey>
+    <common:Language>
+      <common:LanguageCode>de</common:LanguageCode>
+      <common:CountryAlpha2Code>DE</common:CountryAlpha2Code>
+    </common:Language>
+    <common:LanguageId>1031</common:LanguageId>
+    <common:ClientID>3</common:ClientID>
+    <common:AffiliateID>4</common:AffiliateID>
+    <common:ABTestGroupID>0</common:ABTestGroupID>
+    <common:GroupAccountID>0</common:GroupAccountID>
+    <common:GroupAccountDepartmentID>0</common:GroupAccountDepartmentID>
+    <common:CompanyCode>10111</common:CompanyCode>
+    <common:ManagementUnitCode>1055</common:ManagementUnitCode>
+    <common:JurisdictionCode>DEU</common:JurisdictionCode>
+    <common:SourceSystemCode>1</common:SourceSystemCode>
+    <common:SourceSystem>Traditional Browser</common:SourceSystem>
+    <common:PeopleSoftOperatingUnit>1003</common:PeopleSoftOperatingUnit>
+    <common:MarketingChannelTypeCode>15</common:MarketingChannelTypeCode>
+    <common:SourceSystemOrder>
+      <common:Source>Traditional Browser</common:Source>
+      <common:AdditionalSourceInfoList>
+        <common:AdditionalSourceInfo>
+          <common:Source>UserAgent</common:Source>
+          <common:Information>Mozilla/5.0 (Windows NT 10.0; rv:45.0) Gecko/20100101 Firefox/45.0</common:Information>
+        </common:AdditionalSourceInfo>
+      </common:AdditionalSourceInfoList>
+      <common:DeviceIDReference>
+        <common:DeviceIDProvider>iovation</common:DeviceIDProvider>
+        <common:ReferenceCode>04003hQUMXGB0poNf94lis1ztjbaCjtwdIzBUiKQ5VqDiev2hXSml2novtcLfdE4EMYP6LPN86c4WNjXnfra5uHnDxyNWym308lBMIqy2Zw6i85J27cNnYPSQUyAZ5slTMaJhGc3lDN94AbUQJLUT2JE8kN13n2vmAeykQgdlVeDidyvTE26W/62rgo5VNMvaDXfrI3MaSYrgzshIqKrjK+gd0U6+nZ8puflC79pRTOEI9Av0nLv/jsDO5gWSO2+NA4Zz+n1ZiY8JiV8nTs/3e3TI3A+k9XRlIy/eK9bBryNPWBsX+PqVLHJEGWQYNwDNV/UznU9Ecu8fTWVmi42S0874hsRVzRh/Vi6xA9x3qRKbjNWvQo0dcdeWisU0LqVK12e0U9R65QyAVPoKIAy2Y9JK8PhNaG/vxUQid7nrHt/JVEWod+/qWBmr400TjErgWExMGfGDfMJjL3Yvl//3MmIvWf/oZd0QFhVSacQg7jowDW5mZwvTfjFe9F9+kXk6jWR4HU13rrqwKvXV7Mg8LZNAA1/InDlj2XM+3Arp0EvTCs5VU/JDhXWhNKNMEqBggo75PT2+0lse104Q2BjiRVT3AHzj486sjgySgPiIcnlrVAXwBmRkMWjWd1cPXCK5ipuA5hGSom+W9WsE3FWLAHv5EfLH/JZWu2VrI3MaSYrgzvK825aVpZM/CT/riUqiozfAOitx40UDza/slJ9rBwgiJQ7PyOT2fagsj69LfM7VRY6PHjnH1mXAzWAbv50krowBfyJjLLmO9LuhzmHVhuxKCv8R5IEY+PT5PT2+0lse13hcm1avlFfZ6OduSh1Q3c73WntPXGqy72ubUfTzG03Cg1cMLC8vXV1ej3ztLBl3Giu97ZalRNfSXJ7dEq1rzi1uaoaqthlxiaMZeUSPbpTNyDL3ToHgh5o51W+7h4F0Bmw9pyhGjIiFZ6zL6DMu8Swjjo/Zl0+w9pyeKgt3rlEJbCt3jWHbVCHTaXMRY+24g7u5a/0VxS7QlVpUUeMisL86Dzbmd1CffterAA8ZOtvtF6P1f+67ntzLwvbMmeoGuBVJUiLP0GDKuilALn7kuTntCOEBE+hjPfpmKG+2ia6dWyYuPzWdhl1xwIYlVKF6cjZ2ZwNrSOzzpuspOgZpesX2TbW4Bvlip7Qw4p2g1ubJBQ3bsL9DUQx9DKz9xBowflk0r3p0BOOx/JzCV4saCqLmmrpmngELq/6e9LTLjaZWnyZTZy6/2zR7zDfu54OZN1A8LBOGvAlWaCSyGo5pb/IREzZXk5Z3eW4PFYYRcmQxABJBe2hk6eVuSAYD8B08QFIztMP7fmGNn6mgrMwUrsA2IXabRdk+65Ko3rRIXVfrpvdXhpI8gpagfcHm0tDBrNGDOf3xbF2/kOvTIsbj98tpthbDDVeCrfsat2y9SRi5w5JHQxphV/Zwy5WNrxB6CAow+QsUEwhNhfSzfg6zY1pK20zKQo0xa9f6QJwh/HCm66g0MvaSqgWHgHZyjDmpS7mx2vNwg2QekENZFSHlXQyBWZEG9BFke3Q5RTpJNFzzSDqJqSNdSVXB+CluvAGuG8egF9uUAx8TJQL8E0wyEGv0T0k6IUVBCz5DTUzO+ULGvWBUrIWM8M8PENU0uPa6Ldt8e0K8tRF+eMr0YV5w5CLfef8JwYoexnk4xcC/aHYZT4A3LYIv0cuWM6yKVwZIhJCImqLrjRIazUYcqnQGkaW</common:ReferenceCode>
+      </common:DeviceIDReference>
+    </common:SourceSystemOrder>
+    <common:PointOfSaleOrderReferenceNumber>7240717420152</common:PointOfSaleOrderReferenceNumber>
+    <common:ClientOrderReferenceCode>3439179a-ade0-402d-9702-695dc6c9771e</common:ClientOrderReferenceCode>
+  </common:OrderSiteInfo><common:OrderCreateDate>2017-01-30T13:26:56-08:00</common:OrderCreateDate><common:LastUpdateDate>2017-01-30T13:26:56-08:00</common:LastUpdateDate><common:OrderStatus>Booked</common:OrderStatus><common:OrderLineList>
+    <common:OrderLine>
+      <common:OrderLineSequence>1</common:OrderLineSequence>
+      <common:OrderLineGUID>516ebf79-e787-4423-89de-53ca5ad562e9</common:OrderLineGUID>
+      <common:OrderLineType>11</common:OrderLineType>
+      <common:OrderLineCreateDate>2017-01-30T13:26:56.927-08:00</common:OrderLineCreateDate>
+      <common:LastUpdateDate>2017-01-30T13:26:56.927-08:00</common:LastUpdateDate>
+      <common:OrderLineStatus>Booked</common:OrderLineStatus>
+      <common:OrderLineData namespace="urn:expedia:e3:ss:lodging:lodginginterface:bookingcommontypes:defn:v2" type="BookedItem">
+        <lbc:BookedItem xmlns:lbc="urn:expedia:e3:ss:lodging:lodginginterface:bookingcommontypes:defn:v2" xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns2="urn:expedia:om:common:defn:v1">
+          <base:Sequence xmlns:base="urn:expedia:e3:data:basetypes:defn:v4">0</base:Sequence>
+          <lbc:LodgingBookedItem>
+            <lbc:HotelProduct>
+              <lc:CheckInDate xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">2017-03-12</lc:CheckInDate>
+              <lc:CheckOutDate xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">2017-03-13</lc:CheckOutDate>
+              <lc:HotelAvailDetail xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">
+                <lc:HotelBase>
+                  <lc:HotelID>1988046</lc:HotelID>
+                  <lc:AvailTypeStatus>Available</lc:AvailTypeStatus>
+                  <lc:CurrencyExchangeInfoRequest>
+                    <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                    <lc:DecimalPlaces>2</lc:DecimalPlaces>
+                    <lc:ExchangeToUSD xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                      <base:Decimal>93470</base:Decimal>
+                    </lc:ExchangeToUSD>
+                    <time:DateTime xmlns:time="urn:expedia:e3:data:timetypes:defn:v4">2017-01-27T16:07:00-08:00</time:DateTime>
+                  </lc:CurrencyExchangeInfoRequest>
+                  <lc:CurrencyExchangeInfoPrice>
+                    <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                    <lc:DecimalPlaces>2</lc:DecimalPlaces>
+                    <lc:ExchangeToUSD xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                      <base:Decimal>93470</base:Decimal>
+                    </lc:ExchangeToUSD>
+                    <time:DateTime xmlns:time="urn:expedia:e3:data:timetypes:defn:v4">2017-01-27T16:07:00-08:00</time:DateTime>
+                  </lc:CurrencyExchangeInfoPrice>
+                  <lc:CurrencyExchangeInfoCost>
+                    <lc:CurrencyCode>USD</lc:CurrencyCode>
+                    <lc:DecimalPlaces>2</lc:DecimalPlaces>
+                    <lc:ExchangeToUSD xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                      <base:Decimal>100000</base:Decimal>
+                    </lc:ExchangeToUSD>
+                    <time:DateTime xmlns:time="urn:expedia:e3:data:timetypes:defn:v4">2017-01-27T16:07:00-08:00</time:DateTime>
+                  </lc:CurrencyExchangeInfoCost>
+                  <lc:HotelRouteInfo>
+                    <lc:HotelInventoryType>LocalInventory</lc:HotelInventoryType>
+                    <lc:HotelPropertyCode>1988046</lc:HotelPropertyCode>
+                    <lc:HotelChainCode/>
+                    <lc:HotelSSFlag/>
+                    <lc:ChainID>1</lc:ChainID>
+                  </lc:HotelRouteInfo>
+                  <lc:HotelStarRating>0</lc:HotelStarRating>
+                  <lc:AccountingVendorID>65776</lc:AccountingVendorID>
+                  <lc:TimeZoneID>26</lc:TimeZoneID>
+                  <lc:TimeZoneDescription>(GMT-05:00) Eastern Time (US &amp; Canada)</lc:TimeZoneDescription>
+                  <lc:IsDualEnabled>1</lc:IsDualEnabled>
+                  <lc:ContractedMaxReconTime>0</lc:ContractedMaxReconTime>
+                  <lc:CutOffTimeMinuteCount>1439</lc:CutOffTimeMinuteCount>
+                </lc:HotelBase>
+                <lc:Product>
+                  <lc:CurrencyExchangeInfoPrice>
+                    <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                    <lc:DecimalPlaces>2</lc:DecimalPlaces>
+                    <lc:ExchangeToUSD xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                      <base:Decimal>93470</base:Decimal>
+                    </lc:ExchangeToUSD>
+                    <time:DateTime xmlns:time="urn:expedia:e3:data:timetypes:defn:v4">2017-01-27T16:07:00-08:00</time:DateTime>
+                  </lc:CurrencyExchangeInfoPrice>
+                  <lc:PricingByDayOfArrivalBoolean>0</lc:PricingByDayOfArrivalBoolean>
+                  <lc:PricingByLengthOfStayBoolean>0</lc:PricingByLengthOfStayBoolean>
+                  <lc:RatePlanPricingCategoryID>StayBased</lc:RatePlanPricingCategoryID>
+                  <lc:ProductDescriptor>
+                    <lc:SupplierRoomTypeCode>KNGN</lc:SupplierRoomTypeCode>
+                    <lc:SupplierRatePlanCode>IDHVC</lc:SupplierRatePlanCode>
+                    <lc:RoomTypeCode>324449</lc:RoomTypeCode>
+                    <lc:RatePlanCode>996168</lc:RatePlanCode>
+                    <lc:RatePlanTypeElement>524288</lc:RatePlanTypeElement>
+                    <lc:RoomRatePlanDescription>Room, 1 King Bed, Non Smoking (Leisure)</lc:RoomRatePlanDescription>
+                    <lc:RateLevelID>0</lc:RateLevelID>
+                    <lc:IsDirectAgency>0</lc:IsDirectAgency>
+                    <lc:IsChangeableFrom>1</lc:IsChangeableFrom>
+                    <lc:IsChangeableTo>1</lc:IsChangeableTo>
+                    <lc:IsFlex>0</lc:IsFlex>
+                    <lc:PaymentTime>1</lc:PaymentTime>
+                    <lc:PaymentChargeCode>2</lc:PaymentChargeCode>
+                    <lc:LOBType>4</lc:LOBType>
+                    <lc:IsHotmip>0</lc:IsHotmip>
+                    <lc:MarketChannelTypeCode>15</lc:MarketChannelTypeCode>
+                    <lc:PriceDisplayConfigLogID>3311</lc:PriceDisplayConfigLogID>
+                    <lc:PricingPath>4</lc:PricingPath>
+                  </lc:ProductDescriptor>
+                  <lc:PriceTypeEnum>TotalPrice</lc:PriceTypeEnum>
+                  <lc:HotelRateInfoBitmask>136</lc:HotelRateInfoBitmask>
+                  <lc:AvailTypeStatus>Available</lc:AvailTypeStatus>
+                  <lc:HasContent>1</lc:HasContent>
+                  <lc:BedType>0</lc:BedType>
+                  <lc:RateType>0</lc:RateType>
+                  <lc:RatePlanAmenityList>
+                    <lc:RatePlanAmenity>
+                      <lc:AmenityID>2</lc:AmenityID>
+                      <lc:AmenityLocalizedName>Kontinentales Fr?hst?ck</lc:AmenityLocalizedName>
+                    </lc:RatePlanAmenity>
+                  </lc:RatePlanAmenityList>
+                  <lc:LodgingRules>
+                    <lc:RestrictionFlags>1152</lc:RestrictionFlags>
+                    <lc:RoomOccupancyPolicy>
+                      <lc:MaxGuestCount>2</lc:MaxGuestCount>
+                      <lc:IncludedGuestCount>2</lc:IncludedGuestCount>
+                      <lc:MinCheckInAge>21</lc:MinCheckInAge>
+                      <lc:MinGuestAge>0</lc:MinGuestAge>
+                      <lc:AgeTypeInfoList>
+                        <lc:AgeTypeInfo>
+                          <lc:AgeClassUser>2</lc:AgeClassUser>
+                          <lc:AgeMinimum>18</lc:AgeMinimum>
+                          <lc:PersonMax>2</lc:PersonMax>
+                        </lc:AgeTypeInfo>
+                        <lc:AgeTypeInfo>
+                          <lc:AgeClassUser>3</lc:AgeClassUser>
+                          <lc:AgeMinimum>0</lc:AgeMinimum>
+                          <lc:PersonMax>1</lc:PersonMax>
+                        </lc:AgeTypeInfo>
+                      </lc:AgeTypeInfoList>
+                    </lc:RoomOccupancyPolicy>
+                    <lc:CancellationPolicy>
+                      <lc:CancellationTime>16:00:00</lc:CancellationTime>
+                      <lc:CancelPenaltyRuleList>
+                        <lc:CancelPenaltyRule>
+                          <lc:CancelPenaltyRuleVersionID>210413735</lc:CancelPenaltyRuleVersionID>
+                          <lc:PenaltyInNightCount>0</lc:PenaltyInNightCount>
+                          <lc:PenaltyInPercentageOfStay xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="4">
+                            <base:Decimal>10000</base:Decimal>
+                          </lc:PenaltyInPercentageOfStay>
+                          <lc:PenaltyWindowEndHourCount>999</lc:PenaltyWindowEndHourCount>
+                          <lc:PenaltyCostAmount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                            <base:Decimal>0</base:Decimal>
+                          </lc:PenaltyCostAmount>
+                        </lc:CancelPenaltyRule>
+                        <lc:CancelPenaltyRule>
+                          <lc:CancelPenaltyRuleVersionID>210413734</lc:CancelPenaltyRuleVersionID>
+                          <lc:PenaltyInNightCount>0</lc:PenaltyInNightCount>
+                          <lc:PenaltyInPercentageOfStay xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="4">
+                            <base:Decimal>10000</base:Decimal>
+                          </lc:PenaltyInPercentageOfStay>
+                          <lc:PenaltyWindowStartHourCount>999</lc:PenaltyWindowStartHourCount>
+                          <lc:PenaltyWindowEndHourCount>0</lc:PenaltyWindowEndHourCount>
+                          <lc:PenaltyCostAmount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                            <base:Decimal>0</base:Decimal>
+                          </lc:PenaltyCostAmount>
+                        </lc:CancelPenaltyRule>
+                      </lc:CancelPenaltyRuleList>
+                      <lc:NonRefundableDateRangeList>
+                        <lc:DateRange>
+                          <lc:StartDate>2017-03-12</lc:StartDate>
+                          <lc:EndDate>2017-03-12</lc:EndDate>
+                        </lc:DateRange>
+                      </lc:NonRefundableDateRangeList>
+                    </lc:CancellationPolicy>
+                  </lc:LodgingRules>
+                  <lc:DayInventoryList>
+                    <lc:DayInventory>
+                      <lc:AvailCount>2147483647</lc:AvailCount>
+                      <lc:TotalAllocation>0</lc:TotalAllocation>
+                      <lc:FreeSell>1</lc:FreeSell>
+                    </lc:DayInventory>
+                  </lc:DayInventoryList>
+                  <lc:RateRuleDescription>
+                    <lc:RateRuleID>1326201</lc:RateRuleID>
+                    <lc:RateRuleLogID>335481209</lc:RateRuleLogID>
+                    <lc:DescriptionID>0</lc:DescriptionID>
+                    <lc:MinStay>1</lc:MinStay>
+                    <lc:LastNightCountRuleApply>0</lc:LastNightCountRuleApply>
+                    <lc:NightPositionRuleApply>0</lc:NightPositionRuleApply>
+                    <lc:AdjustmentType>PercentAdjustment</lc:AdjustmentType>
+                    <lc:CrossOutOriginalPrice>0</lc:CrossOutOriginalPrice>
+                    <lc:RecurrenceType>SingleRecurrence</lc:RecurrenceType>
+                    <lc:AdjustmentAmount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="6">
+                      <base:Decimal>0</base:Decimal>
+                    </lc:AdjustmentAmount>
+                    <lc:PartialApplyBool>0</lc:PartialApplyBool>
+                    <lc:ExpirationDateTime>2079-06-06T23:59:00+00:00</lc:ExpirationDateTime>
+                    <lc:RateRuleTypeID>BaseRateRule</lc:RateRuleTypeID>
+                    <lc:AdvancePurchaseMinCount>7</lc:AdvancePurchaseMinCount>
+                    <lc:AdvancePurchaseMaxCount>330</lc:AdvancePurchaseMaxCount>
+                  </lc:RateRuleDescription>
+                  <lc:NonRefundable>1</lc:NonRefundable>
+                  <lc:RoomOptions>
+                    <lc:ExtraGuestOption>
+                      <lc:Adult>
+                        <lc:OfferType>1</lc:OfferType>
+                        <lc:Count>0</lc:Count>
+                        <lc:Price>
+                          <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                            <base:Decimal>0</base:Decimal>
+                          </base:Amount>
+                          <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                        </lc:Price>
+                      </lc:Adult>
+                      <lc:Child>
+                        <lc:OfferType>0</lc:OfferType>
+                        <lc:Count>0</lc:Count>
+                        <lc:Price>
+                          <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="0">
+                            <base:Decimal>0</base:Decimal>
+                          </base:Amount>
+                          <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                        </lc:Price>
+                      </lc:Child>
+                      <lc:Infant>
+                        <lc:OfferType>0</lc:OfferType>
+                        <lc:Count>0</lc:Count>
+                        <lc:Price>
+                          <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="0">
+                            <base:Decimal>0</base:Decimal>
+                          </base:Amount>
+                          <lc:CurrencyCode>EUR</lc:CurrencyCode>
+                        </lc:Price>
+                      </lc:Infant>
+                    </lc:ExtraGuestOption>
+                    <lc:SmokingTypeAvailable>
+                      <lc:HasNonSmoking>1</lc:HasNonSmoking>
+                      <lc:HasSmoking>0</lc:HasSmoking>
+                    </lc:SmokingTypeAvailable>
+                    <lc:BedAvailableList>
+                      <lc:BedAvailable>14</lc:BedAvailable>
+                    </lc:BedAvailableList>
+                  </lc:RoomOptions>
+                  <lc:RoomPricingDetailEntryList>
+                    <lc:RoomPricingDetailEntry>
+                      <base:Sequence xmlns:base="urn:expedia:e3:data:basetypes:defn:v4">0</base:Sequence>
+                      <lc:RoomPricingDetail>
+                        <lc:PriceRate>
+                          <lc:PerDayRateEntryList>
+                            <lc:PerDayRateEntry>
+                              <base:Sequence xmlns:base="urn:expedia:e3:data:basetypes:defn:v4">0</base:Sequence>
+                              <lc:LodgingAmountList>
+                                <lc:LodgingAmount>
+                                  <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                                    <base:Decimal>256</base:Decimal>
+                                  </base:Amount>
+                                  <lc:LodgingAmountCategoryCode>1024</lc:LodgingAmountCategoryCode>
+                                  <lc:AmountReferenceCode>Automatic</lc:AmountReferenceCode>
+                                  <lc:AmountDescription>TemporaryFee</lc:AmountDescription>
+                                </lc:LodgingAmount>
+                                <lc:LodgingAmount>
+                                  <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                                    <base:Decimal>11871</base:Decimal>
+                                  </base:Amount>
+                                  <lc:LodgingAmountCategoryCode>1</lc:LodgingAmountCategoryCode>
+                                  <lc:AmountReferenceCode/>
+                                  <lc:AmountDescription/>
+                                </lc:LodgingAmount>
+                                <lc:LodgingAmount>
+                                  <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                                    <base:Decimal>1168</base:Decimal>
+                                  </base:Amount>
+                                  <lc:LodgingAmountCategoryCode>8</lc:LodgingAmountCategoryCode>
+                                  <lc:AmountReferenceCode>none</lc:AmountReferenceCode>
+                                  <lc:AmountDescription/>
+                                </lc:LodgingAmount>
+                              </lc:LodgingAmountList>
+                            </lc:PerDayRateEntry>
+                          </lc:PerDayRateEntryList>
+                        </lc:PriceRate>
+                        <lc:CostRate>
+                          <lc:PerDayRateEntryList>
+                            <lc:PerDayRateEntry>
+                              <base:Sequence xmlns:base="urn:expedia:e3:data:basetypes:defn:v4">0</base:Sequence>
+                              <lc:LodgingAmountList>
+                                <lc:LodgingAmount>
+                                  <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                                    <base:Decimal>10414</base:Decimal>
+                                  </base:Amount>
+                                  <lc:LodgingAmountCategoryCode>1</lc:LodgingAmountCategoryCode>
+                                  <lc:AmountReferenceCode>IDHVC</lc:AmountReferenceCode>
+                                  <lc:AmountDescription/>
+                                </lc:LodgingAmount>
+                                <lc:LodgingAmount>
+                                  <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                                    <base:Decimal>1250</base:Decimal>
+                                  </base:Amount>
+                                  <lc:LodgingAmountCategoryCode>8</lc:LodgingAmountCategoryCode>
+                                  <lc:AmountReferenceCode>none</lc:AmountReferenceCode>
+                                  <lc:AmountDescription/>
+                                </lc:LodgingAmount>
+                              </lc:LodgingAmountList>
+                            </lc:PerDayRateEntry>
+                          </lc:PerDayRateEntryList>
+                        </lc:CostRate>
+                        <lc:TimeQuoted>2017-01-30T13:27:00-08:00</lc:TimeQuoted>
+                        <lc:QuotedRateType>2</lc:QuotedRateType>
+                      </lc:RoomPricingDetail>
+                    </lc:RoomPricingDetailEntry>
+                  </lc:RoomPricingDetailEntryList>
+                </lc:Product>
+              </lc:HotelAvailDetail>
+            </lbc:HotelProduct>
+            <lbc:BookingItemID>786297148</lbc:BookingItemID>
+            <lbc:BookingConfiguration>
+              <base:Sequence xmlns:base="urn:expedia:e3:data:basetypes:defn:v4">0</base:Sequence>
+              <lbc:PrimaryGuest>
+                <person:FirstName xmlns:person="urn:expedia:e3:data:persontypes:defn:v4">Tanja</person:FirstName>
+                <person:LastName xmlns:person="urn:expedia:e3:data:persontypes:defn:v4">Rosenhuber</person:LastName>
+                <person:EmailAddress xmlns:person="urn:expedia:e3:data:persontypes:defn:v4">tanja.rosenhuber@t-online.de</person:EmailAddress>
+                <lbc:PrimaryPhone>
+                  <place:PhoneCountryCode xmlns:place="urn:expedia:e3:data:placetypes:defn:v4">49</place:PhoneCountryCode>
+                  <place:PhoneAreaCode xmlns:place="urn:expedia:e3:data:placetypes:defn:v4">177</place:PhoneAreaCode>
+                  <place:PhoneNumber xmlns:place="urn:expedia:e3:data:placetypes:defn:v4">8122700</place:PhoneNumber>
+                </lbc:PrimaryPhone>
+              </lbc:PrimaryGuest>
+              <lc:RoomOccupancy xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">
+                <lc:AdultCount>2</lc:AdultCount>
+              </lc:RoomOccupancy>
+              <lbc:BookingRoomOptions>
+                <lbc:SmokingTypeSelected>
+                  <lbc:NonSmokingSelected>1</lbc:NonSmokingSelected>
+                  <lbc:SmokingSelected>0</lbc:SmokingSelected>
+                </lbc:SmokingTypeSelected>
+                <lbc:BedSelected>14</lbc:BedSelected>
+              </lbc:BookingRoomOptions>
+            </lbc:BookingConfiguration>
+            <lbc:BookingData>
+              <lbc:LegacyLoggingData>
+                <lbc:BookingRecordSystemID>3</lbc:BookingRecordSystemID>
+                <lbc:BookingSystemDatabaseTypeID>1</lbc:BookingSystemDatabaseTypeID>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+                <lbc:BasePrice xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                  <base:Decimal>10414000</base:Decimal>
+                </lbc:BasePrice>
+                <lbc:BasePricePeriodID>4</lbc:BasePricePeriodID>
+                <lbc:SalePrice xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                  <base:Decimal>11871000</base:Decimal>
+                </lbc:SalePrice>
+                <lbc:TaxAmt xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                  <base:Decimal>1168000</base:Decimal>
+                </lbc:TaxAmt>
+                <lbc:CurrencyCodePOS>EUR</lbc:CurrencyCodePOS>
+                <lbc:TaxAmtBase xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="5">
+                  <base:Decimal>1250000</base:Decimal>
+                </lbc:TaxAmtBase>
+                <lbc:BrandID>288</lbc:BrandID>
+                <lbc:RatingSystemID>5</lbc:RatingSystemID>
+                <lbc:RatingSystemNbr>25</lbc:RatingSystemNbr>
+                <lbc:AvailOverrideBool>0</lbc:AvailOverrideBool>
+                <lbc:LegacyLoggingFeeList>
+                  <lbc:LegacyLoggingFee>
+                    <lbc:PurchaseItemTypeID>8</lbc:PurchaseItemTypeID>
+                    <lbc:CurrencyCode>EUR</lbc:CurrencyCode>
+                    <lbc:CurrencyCodeCost>USD</lbc:CurrencyCodeCost>
+                    <lbc:FeeAmt xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                      <base:Decimal>256</base:Decimal>
+                    </lbc:FeeAmt>
+                    <lbc:FeeAmtCost xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                      <base:Decimal>0</base:Decimal>
+                    </lbc:FeeAmtCost>
+                    <lbc:RewardRelatedBool>0</lbc:RewardRelatedBool>
+                  </lbc:LegacyLoggingFee>
+                </lbc:LegacyLoggingFeeList>
+                <lbc:BookingID>634153041</lbc:BookingID>
+              </lbc:LegacyLoggingData>
+            </lbc:BookingData>
+            <revitem:SupplyInfo xmlns:revitem="urn:expedia:e3:data:revitemtypes:defn:v1">
+              <revitem:RevenueItemTypeCode>1001</revitem:RevenueItemTypeCode>
+              <revitem:SupplyChainList>
+                <revitem:SupplyChain>
+                  <revitem:PartnerID>1988046</revitem:PartnerID>
+                  <revitem:PartnerType>11</revitem:PartnerType>
+                  <revitem:PartnerRole>11</revitem:PartnerRole>
+                </revitem:SupplyChain>
+                <revitem:SupplyChain>
+                  <revitem:PartnerID>10111</revitem:PartnerID>
+                  <revitem:PartnerType>13</revitem:PartnerType>
+                  <revitem:PartnerRole>16</revitem:PartnerRole>
+                </revitem:SupplyChain>
+                <revitem:SupplyChain>
+                  <revitem:PartnerID>1988046</revitem:PartnerID>
+                  <revitem:PartnerType>11</revitem:PartnerType>
+                  <revitem:PartnerRole>17</revitem:PartnerRole>
+                </revitem:SupplyChain>
+                <revitem:SupplyChain>
+                  <revitem:PartnerID>10111</revitem:PartnerID>
+                  <revitem:PartnerType>13</revitem:PartnerType>
+                  <revitem:PartnerRole>15</revitem:PartnerRole>
+                </revitem:SupplyChain>
+                <revitem:SupplyChain>
+                  <revitem:PartnerID>10111</revitem:PartnerID>
+                  <revitem:PartnerType>13</revitem:PartnerType>
+                  <revitem:PartnerRole>12</revitem:PartnerRole>
+                </revitem:SupplyChain>
+              </revitem:SupplyChainList>
+              <revitem:SupplyMerchantType>11</revitem:SupplyMerchantType>
+              <revitem:SupplyContractPartyType>11</revitem:SupplyContractPartyType>
+              <revitem:SupplyRevenueType>13</revitem:SupplyRevenueType>
+            </revitem:SupplyInfo>
+          </lbc:LodgingBookedItem>
+          <lbc:BookingAmountList>
+            <lbc:BookingAmount>
+              <lbc:BookingSequenceNumber>1</lbc:BookingSequenceNumber>
+              <lbc:BookingAmountID>d5c3aa87-e732-11e6-a178-bfdc699052ba</lbc:BookingAmountID>
+              <lbc:IsCancel>0</lbc:IsCancel>
+              <lbc:AmountLevelID>3</lbc:AmountLevelID>
+              <lbc:BookingItemID>786297148</lbc:BookingItemID>
+              <lbc:SequenceNumberItemInventory>1</lbc:SequenceNumberItemInventory>
+              <lbc:MonetaryClassID>1</lbc:MonetaryClassID>
+              <lbc:MonetaryCalculationSystemID>8</lbc:MonetaryCalculationSystemID>
+              <lbc:MonetaryCalculationID>2</lbc:MonetaryCalculationID>
+              <lbc:UseDate>2017-03-12</lbc:UseDate>
+              <lbc:Cost>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>10414</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">IDHVC</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+              </lbc:Cost>
+              <lbc:Price>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>11871</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">EUR</lc:CurrencyCode>
+              </lbc:Price>
+              <lbc:CreateTUID>73435155</lbc:CreateTUID>
+              <lbc:CreateTPID>6</lbc:CreateTPID>
+              <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+            </lbc:BookingAmount>
+            <lbc:BookingAmount>
+              <lbc:BookingSequenceNumber>2</lbc:BookingSequenceNumber>
+              <lbc:BookingAmountID>d5c3aa88-e732-11e6-a178-bfdc699052ba</lbc:BookingAmountID>
+              <lbc:IsCancel>0</lbc:IsCancel>
+              <lbc:AmountLevelID>3</lbc:AmountLevelID>
+              <lbc:BookingItemID>786297148</lbc:BookingItemID>
+              <lbc:SequenceNumberItemInventory>1</lbc:SequenceNumberItemInventory>
+              <lbc:MonetaryClassID>3</lbc:MonetaryClassID>
+              <lbc:MonetaryCalculationSystemID>3</lbc:MonetaryCalculationSystemID>
+              <lbc:MonetaryCalculationID>201324487</lbc:MonetaryCalculationID>
+              <lbc:UseDate>2017-03-12</lbc:UseDate>
+              <lbc:Cost>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>104</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+              </lbc:Cost>
+              <lbc:Price>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>97</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">EUR</lc:CurrencyCode>
+              </lbc:Price>
+              <lbc:CreateTUID>73435155</lbc:CreateTUID>
+              <lbc:CreateTPID>6</lbc:CreateTPID>
+              <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+            </lbc:BookingAmount>
+            <lbc:BookingAmount>
+              <lbc:BookingSequenceNumber>3</lbc:BookingSequenceNumber>
+              <lbc:BookingAmountID>d5c3aa89-e732-11e6-a178-bfdc699052ba</lbc:BookingAmountID>
+              <lbc:IsCancel>0</lbc:IsCancel>
+              <lbc:AmountLevelID>3</lbc:AmountLevelID>
+              <lbc:BookingItemID>786297148</lbc:BookingItemID>
+              <lbc:SequenceNumberItemInventory>1</lbc:SequenceNumberItemInventory>
+              <lbc:MonetaryClassID>3</lbc:MonetaryClassID>
+              <lbc:MonetaryCalculationSystemID>3</lbc:MonetaryCalculationSystemID>
+              <lbc:MonetaryCalculationID>201324491</lbc:MonetaryCalculationID>
+              <lbc:UseDate>2017-03-12</lbc:UseDate>
+              <lbc:Cost>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>521</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+              </lbc:Cost>
+              <lbc:Price>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>487</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">EUR</lc:CurrencyCode>
+              </lbc:Price>
+              <lbc:CreateTUID>73435155</lbc:CreateTUID>
+              <lbc:CreateTPID>6</lbc:CreateTPID>
+              <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+            </lbc:BookingAmount>
+            <lbc:BookingAmount>
+              <lbc:BookingSequenceNumber>4</lbc:BookingSequenceNumber>
+              <lbc:BookingAmountID>d5c3aa8a-e732-11e6-a178-bfdc699052ba</lbc:BookingAmountID>
+              <lbc:IsCancel>0</lbc:IsCancel>
+              <lbc:AmountLevelID>3</lbc:AmountLevelID>
+              <lbc:BookingItemID>786297148</lbc:BookingItemID>
+              <lbc:SequenceNumberItemInventory>1</lbc:SequenceNumberItemInventory>
+              <lbc:MonetaryClassID>3</lbc:MonetaryClassID>
+              <lbc:MonetaryCalculationSystemID>3</lbc:MonetaryCalculationSystemID>
+              <lbc:MonetaryCalculationID>201324494</lbc:MonetaryCalculationID>
+              <lbc:UseDate>2017-03-12</lbc:UseDate>
+              <lbc:Cost>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>625</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+              </lbc:Cost>
+              <lbc:Price>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>584</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">none</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">EUR</lc:CurrencyCode>
+              </lbc:Price>
+              <lbc:CreateTUID>73435155</lbc:CreateTUID>
+              <lbc:CreateTPID>6</lbc:CreateTPID>
+              <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+            </lbc:BookingAmount>
+            <lbc:BookingAmount>
+              <lbc:BookingSequenceNumber>5</lbc:BookingSequenceNumber>
+              <lbc:BookingAmountID>d5c3aa8b-e732-11e6-a178-bfdc699052ba</lbc:BookingAmountID>
+              <lbc:IsCancel>0</lbc:IsCancel>
+              <lbc:AmountLevelID>3</lbc:AmountLevelID>
+              <lbc:BookingItemID>786297148</lbc:BookingItemID>
+              <lbc:SequenceNumberItemInventory>1</lbc:SequenceNumberItemInventory>
+              <lbc:MonetaryClassID>18</lbc:MonetaryClassID>
+              <lbc:MonetaryCalculationSystemID>52</lbc:MonetaryCalculationSystemID>
+              <lbc:MonetaryCalculationID>1016</lbc:MonetaryCalculationID>
+              <lbc:UseDate>2017-03-12</lbc:UseDate>
+              <lbc:Cost>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>0</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4"/>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">USD</lc:CurrencyCode>
+              </lbc:Cost>
+              <lbc:Price>
+                <base:Amount xmlns:base="urn:expedia:e3:data:basetypes:defn:v4" base:DecimalPlaceCount="2">
+                  <base:Decimal>256</base:Decimal>
+                </base:Amount>
+                <lc:AmountReferenceCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">Automatic</lc:AmountReferenceCode>
+                <lc:AmountDescription xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">TemporaryFee</lc:AmountDescription>
+                <lc:CurrencyCode xmlns:lc="urn:expedia:e3:ss:lodging:lodginginterface:commontypes:defn:v4">EUR</lc:CurrencyCode>
+              </lbc:Price>
+              <lbc:CreateTUID>73435155</lbc:CreateTUID>
+              <lbc:CreateTPID>6</lbc:CreateTPID>
+              <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+            </lbc:BookingAmount>
+          </lbc:BookingAmountList>
+          <lbc:ReservationStatus>Pending</lbc:ReservationStatus>
+          <lbc:CreateDateTime>2017-01-30T13:27:00-08:00</lbc:CreateDateTime>
+          <lbc:IsSynchronousBooking>1</lbc:IsSynchronousBooking>
+        </lbc:BookedItem>
+      </common:OrderLineData>
+      <common:SupplyRecordLocator>
+        <common:BookingRecordLocator>467946309</common:BookingRecordLocator>
+        <common:BookingItemId>786297148</common:BookingItemId>
+      </common:SupplyRecordLocator>
+      <common:RequestedProductRefID ref="GUID_530f888d-f7b0-4ae2-ba0e-bd5c46004216"/>
+      <common:AdditionalDataRefList>
+        <common:AdditionalDataRef ref="GUID_3bdd100a-2e36-48d8-af2a-9a07c3c028b8"/>
+        <common:AdditionalDataRef ref="GUID_e8bb5c08-a55d-474e-b420-a926d90c35a3"/>
+      </common:AdditionalDataRefList>
+      <common:LineUpdateFlag>Created</common:LineUpdateFlag>
+      <common:OrderLineStartEndDateTime>
+        <common:StartDateTime>2017-03-12T00:00:00-05:00</common:StartDateTime>
+        <common:EndDateTime>2017-03-13T00:00:00-05:00</common:EndDateTime>
+      </common:OrderLineStartEndDateTime>
+      <common:PaymentRefList>
+        <common:PaymentRef ref="PaymentPlanDetails_a5cb4a65-bc3d-43eb-89a1-3f28e7bfb0d6"/>
+      </common:PaymentRefList>
+      <ns5:PriceStructure xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns2="urn:expedia:om:common:defn:v1" xmlns:ns5="urn:expedia:e3:data:financetypes:defn:v5">
+        <ns5:ComponentPrice>
+          <ns5:Component id="GUID_4f75f9a8-a08b-4ebe-aa05-f8e1b68ecbda">
+            <ns5:Amount>
+              <ns6:SimpleAmount xmlns:ns6="urn:expedia:e3:data:basetypes:defn:v4">118.71</ns6:SimpleAmount>
+              <ns5:CurrencyCode>EUR</ns5:CurrencyCode>
+            </ns5:Amount>
+            <ns5:ComponentDefinition>Base</ns5:ComponentDefinition>
+            <ns5:AdditionalDefinitionList>
+              <ns5:AdditionalDefinition>
+                <ns5:Name>BookingAmountID</ns5:Name>
+                <ns5:Value>d5c3aa87-e732-11e6-a178-bfdc699052ba</ns5:Value>
+              </ns5:AdditionalDefinition>
+            </ns5:AdditionalDefinitionList>
+          </ns5:Component>
+          <ns5:Component id="GUID_5bcbaa9d-ad9f-4381-8c5d-7b0e218e2115">
+            <ns5:Amount>
+              <ns6:SimpleAmount xmlns:ns6="urn:expedia:e3:data:basetypes:defn:v4">0.97</ns6:SimpleAmount>
+              <ns5:CurrencyCode>EUR</ns5:CurrencyCode>
+            </ns5:Amount>
+            <ns5:ComponentDefinition>Base</ns5:ComponentDefinition>
+            <ns5:AdditionalDefinitionList>
+              <ns5:AdditionalDefinition>
+                <ns5:Name>BookingAmountID</ns5:Name>
+                <ns5:Value>d5c3aa88-e732-11e6-a178-bfdc699052ba</ns5:Value>
+              </ns5:AdditionalDefinition>
+            </ns5:AdditionalDefinitionList>
+          </ns5:Component>
+          <ns5:Component id="GUID_a5288012-250c-498f-b6fd-a0414e20736a">
+            <ns5:Amount>
+              <ns6:SimpleAmount xmlns:ns6="urn:expedia:e3:data:basetypes:defn:v4">4.87</ns6:SimpleAmount>
+              <ns5:CurrencyCode>EUR</ns5:CurrencyCode>
+            </ns5:Amount>
+            <ns5:ComponentDefinition>Base</ns5:ComponentDefinition>
+            <ns5:AdditionalDefinitionList>
+              <ns5:AdditionalDefinition>
+                <ns5:Name>BookingAmountID</ns5:Name>
+                <ns5:Value>d5c3aa89-e732-11e6-a178-bfdc699052ba</ns5:Value>
+              </ns5:AdditionalDefinition>
+            </ns5:AdditionalDefinitionList>
+          </ns5:Component>
+          <ns5:Component id="GUID_965ec906-ce92-445f-8cff-05165680b4f4">
+            <ns5:Amount>
+              <ns6:SimpleAmount xmlns:ns6="urn:expedia:e3:data:basetypes:defn:v4">5.84</ns6:SimpleAmount>
+              <ns5:CurrencyCode>EUR</ns5:CurrencyCode>
+            </ns5:Amount>
+            <ns5:ComponentDefinition>Base</ns5:ComponentDefinition>
+            <ns5:AdditionalDefinitionList>
+              <ns5:AdditionalDefinition>
+                <ns5:Name>BookingAmountID</ns5:Name>
+                <ns5:Value>d5c3aa8a-e732-11e6-a178-bfdc699052ba</ns5:Value>
+              </ns5:AdditionalDefinition>
+            </ns5:AdditionalDefinitionList>
+          </ns5:Component>
+          <ns5:Component id="GUID_e2e4855c-4245-4492-bb03-5f3c2508c290">
+            <ns5:Amount>
+              <ns6:SimpleAmount xmlns:ns6="urn:expedia:e3:data:basetypes:defn:v4">2.56</ns6:SimpleAmount>
+              <ns5:CurrencyCode>EUR</ns5:CurrencyCode>
+            </ns5:Amount>
+            <ns5:ComponentDefinition>Base</ns5:ComponentDefinition>
+            <ns5:AdditionalDefinitionList>
+              <ns5:AdditionalDefinition>
+                <ns5:Name>BookingAmountID</ns5:Name>
+                <ns5:Value>d5c3aa8b-e732-11e6-a178-bfdc699052ba</ns5:Value>
+              </ns5:AdditionalDefinition>
+            </ns5:AdditionalDefinitionList>
+          </ns5:Component>
+        </ns5:ComponentPrice>
+      </ns5:PriceStructure>
+    </common:OrderLine>
+  </common:OrderLineList><common:AssociatedUsers>
+    <common:Customer>
+      <common:EmailAddress>tanja.rosenhuber@t-online.de</common:EmailAddress>
+      <common:FirstName>Tanja</common:FirstName>
+      <common:MiddleName/>
+      <common:LastName>Rosenhuber</common:LastName>
+      <common:Phone>
+        <common:PhoneCountryCode>49</common:PhoneCountryCode>
+        <common:PhoneAreaCode>177</common:PhoneAreaCode>
+        <common:PhoneNumber>8122700</common:PhoneNumber>
+      </common:Phone>
+      <common:JurisdictionCode>DEU</common:JurisdictionCode>
+      <common:LoyaltyProgramData namespace="urn:expedia:e3:partnerlty:sterling:types:v1" type="SterlingLoyaltyProgramData">
+        <SterlingLoyaltyProgramData:SterlingLoyaltyProgramData xmlns:SterlingLoyaltyProgramData="urn:expedia:e3:partnerlty:sterling:types:v1" xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns2="urn:expedia:om:common:defn:v1">
+          <n2:IsseuAwardsMembershipList xmlns:n2="urn:expedia:e3:partnerlty:sterling:types:v1">
+            <n2:membershipId programId="6">333526461</n2:membershipId>
+          </n2:IsseuAwardsMembershipList>
+        </SterlingLoyaltyProgramData:SterlingLoyaltyProgramData>
+      </common:LoyaltyProgramData>
+      <common:PointOfSaleCustomerIdentifierData namespace="urn:expedia:om:datatype:defn:v1" type="ExpediaUserType">
+        <data:ExpediaUser>
+          <data:User>
+            <data:UserID>73435155</data:UserID>
+            <data:SiteKey>401410005</data:SiteKey>
+          </data:User>
+        </data:ExpediaUser>
+      </common:PointOfSaleCustomerIdentifierData>
+    </common:Customer>
+  </common:AssociatedUsers><common:AdditionalDataList>
+    <common:AdditionalData content="3439179a-ade0-402d-9702-695dc6c9771e" id="GUID_4077093e-976a-4cc1-87f0-fedc96bb74c8" key="TripId" namespace="urn:expedia:e3:ews:core:trip:entities:defn:v1"/>
+    <common:AdditionalData content="CreditCard" id="GUID_1262e93c-52ef-4fa8-8cc9-d64426509b83" key="SelectedPaymentOption" namespace="urn:selected:payment:option:not:a:real:namespace:v1"/>
+    <common:AdditionalData content="%7B%22seo%22%3A%5B%22SEO.U.google.de%22%2C1485810459539%5D%2C%22cid%22%3A%5B%22AFF.DE.DIRECT.PHG.1100l261.0%22%2C1485810636076%5D%2C%22rlt%22%3A%5B%22AFF.DE.DIRECT.PHG.1100l261.0%22%2C1485810636076%5D%2C%22sem%22%3A%5B%22SEM.DE.UB.GOOGLE.SEARCH.HOTEL.deu_ger_usa_pt_dsa_feed!e.ZzZz.4470000715177.0.109131027661._inurl%3A_feed_label%3Actry%3Ausa-%24-pt%23inurl%3A_feed_label%3Aposa%3Ade-%24-pt.deu_ger_usa_pt_dsa_feed.k_user_id.%22%2C1484351255188%5D%2C%22semRlt%22%3A%5B%22SEM.DE.UB.GOOGLE.SEARCH.HOTEL.deu_ger_usa_pt_dsa_feed!e.ZzZz.4470000715177.0.109131027661._inurl%3A_feed_label%3Actry%3Ausa-%24-pt%23inurl%3A_feed_label%3Aposa%3Ade-%24-pt.deu_ger_usa_pt_dsa_feed.k_user_id.%22%2C1484351255188%5D%2C%22cidVisit%22%3A%5B%22AFF.DE.DIRECT.PHG.1100l261.0%22%2C1485811557346%5D%2C%22aff%22%3A%5B%22AFF.DE.DIRECT.PHG.1100l261.0%22%2C1485810636072%5D%7D" id="GUID_1959a47e-4c9d-4250-b639-3d3aeff01448" key="MarketingAttribution" namespace="urn:expedia:ewe:opm:defn:v1"/>
+    <common:AdditionalData id="GUID_2d9f53c9-0f2a-4a18-9063-5cc46225a972" key="NuDataBehavioralDetails" namespace="urn:expedia:fraud:nudata:messages:defn:v1">
+      <NuDataBehavioralDetails:NuDataBehavioralDetails xmlns:NuDataBehavioralDetails="urn:expedia:fraud:nudata:messages:defn:v1" xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns2="urn:expedia:om:common:defn:v1">
+        <n3:AccountID xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">6:73435155</n3:AccountID>
+        <n3:SessionID xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">4fbdc639-dadb-49bb-ba29-fc0e6192dfcf</n3:SessionID>
+        <n3:FlowId xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">fc-TGeDEUFNsloOLL92g3znvb7ePxIx</n3:FlowId>
+        <n3:Placement xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">Purchase</n3:Placement>
+        <n3:Score xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">31</n3:Score>
+        <n3:ScoreBand xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">Green</n3:ScoreBand>
+        <n3:RequiredAction xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">Proceed</n3:RequiredAction>
+        <n3:SignatureItemList xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">
+          <n3:SignatureItem>
+            <n3:key>country_reputation</n3:key>
+            <n3:signature>0</n3:signature>
+          </n3:SignatureItem>
+        </n3:SignatureItemList>
+        <n3:NudataAttributeList xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">
+          <n3:NudataAttribute>
+            <n3:key>DeviceUID</n3:key>
+            <n3:value>wcs-knSG0j1DtQBDHo9X545rJQxx</n3:value>
+          </n3:NudataAttribute>
+          <n3:NudataAttribute>
+            <n3:key>DeviceFingerprint</n3:key>
+            <n3:value>d1-a8ecca96b8db5e86</n3:value>
+          </n3:NudataAttribute>
+        </n3:NudataAttributeList>
+        <n3:NumberOfInterdictionAttempts xmlns:n3="urn:expedia:fraud:nudata:messages:defn:v1">0</n3:NumberOfInterdictionAttempts>
+      </NuDataBehavioralDetails:NuDataBehavioralDetails>
+    </common:AdditionalData>
+    <common:AdditionalData content="DA0EFD9F-B977-4DB6-B0CE-9D6957B39E1D" id="GUID_3bdd100a-2e36-48d8-af2a-9a07c3c028b8" key="TripEntityId" namespace="urn:expedia:e3:ews:core:trip:entities:defn:v1"/>
+    <common:AdditionalData content="4" id="GUID_e8bb5c08-a55d-474e-b420-a926d90c35a3" key="WizardID" namespace="urn:not:a:real:namespace:v1"/>
+    <common:AdditionalData content="88782110" id="GUID_a7d76f4b-d773-4084-8ff7-43f4e0bb9064" key="ItineraryID" namespace="urn:expedia:om:common:defn:v1">
+      <common:ItineraryID>
+        <n1:TravelRecordLocator xmlns:n1="urn:expedia:om:common:defn:v1">88782110</n1:TravelRecordLocator>
+        <n1:TravelProductId xmlns:n1="urn:expedia:om:common:defn:v1">6</n1:TravelProductId>
+        <n1:ItineraryNumber xmlns:n1="urn:expedia:om:common:defn:v1">18878211044</n1:ItineraryNumber>
+      </common:ItineraryID>
+    </common:AdditionalData>
+    <common:AdditionalData id="GUID_5e8da037-eadf-41d0-815a-ebddb0759ded" key="SingleUseAccountUserKey" namespace="urn:expedia:om:datatype:defn:v1">
+      <data:ExpediaUser>
+        <data:User>
+          <data:UserID>73435155</data:UserID>
+          <data:LegacySiteKey>6</data:LegacySiteKey>
+        </data:User>
+      </data:ExpediaUser>
+    </common:AdditionalData>
+    <common:AdditionalData id="GUID_cb1d2549-c055-458f-859e-217d9dbfdc60" key="LoyaltyAwardData" namespace="urn:expedia:om:common:defn:v1">
+      <common:LoyaltyAwardData namespace="urn:expedia:e3:partnerlty:sterling:types:v1" type="Transaction">
+        <ns11:Transaction xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns11="urn:expedia:e3:partnerlty:sterling:types:v1" xmlns:ns2="urn:expedia:om:common:defn:v1" xmlns:ns5="urn:expedia:om:common:defn:v1">
+          <n4:transactionId xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">3000000105166064</n4:transactionId>
+          <n4:bookingId xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">634153041</n4:bookingId>
+          <n4:orderNumber xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">8066738339595</n4:orderNumber>
+          <n4:orderId xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">-9223372035524309939</n4:orderId>
+          <n4:TRL xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">88782110</n4:TRL>
+          <n4:transactionSource xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">Booking</n4:transactionSource>
+          <n4:transactionDate xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">2017-01-30T13:26:56.000-08:00</n4:transactionDate>
+          <n4:agentAssisted xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">false</n4:agentAssisted>
+          <n4:isLockedForRescore xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">0</n4:isLockedForRescore>
+          <n4:TransactionEvent xmlns:n4="urn:expedia:e3:partnerlty:sterling:types:v1">
+            <n4:memberId>333526461</n4:memberId>
+            <n4:agentAssisted>false</n4:agentAssisted>
+            <n4:Awards>
+              <n4:Award>
+                <n4:ruleGroup>Base</n4:ruleGroup>
+                <n4:pointsType>Points</n4:pointsType>
+                <n4:pendingPoints>0.0</n4:pendingPoints>
+                <n4:confirmedPoints>133.0</n4:confirmedPoints>
+              </n4:Award>
+            </n4:Awards>
+          </n4:TransactionEvent>
+        </ns11:Transaction>
+      </common:LoyaltyAwardData>
+    </common:AdditionalData>
+  </common:AdditionalDataList><common:PaymentDetailList>
+    <common:PaymentDetailData id="PaymentPlanDetails_a5cb4a65-bc3d-43eb-89a1-3f28e7bfb0d6" namespace="urn:expedia:payment:processor:messages:v2" type="PaymentPlanDetail">
+      <ns2:PaymentPlanDetail xmlns:message="urn:expedia:om:order:event:messages:v2" xmlns:ns2="urn:expedia:payment:processor:messages:v2">
+        <payment:CreateDate xmlns:payment="urn:expedia:payment:processor:messages:v2">2017-01-30T13:26:57.260-08:00</payment:CreateDate>
+        <payment:CreatingClientID xmlns:payment="urn:expedia:payment:processor:messages:v2">CFF23674-69D6-4DC8-B970-E694DF4B0785</payment:CreatingClientID>
+        <payment:CreatingClientRequestID xmlns:payment="urn:expedia:payment:processor:messages:v2">15A0B57D-E6E1-48BE-A1E3-60D33010CB8B</payment:CreatingClientRequestID>
+        <payment:PaymentPlanCorrelationID xmlns:payment="urn:expedia:payment:processor:messages:v2">22a44124-fcd7-4e19-9267-120d5f6df87a</payment:PaymentPlanCorrelationID>
+        <payment:PaymentPlanID xmlns:payment="urn:expedia:payment:processor:messages:v2">2001345357</payment:PaymentPlanID>
+        <payment:BillingMerchantCategory xmlns:payment="urn:expedia:payment:processor:messages:v2">Expedia</payment:BillingMerchantCategory>
+        <payment:CompanyCode xmlns:payment="urn:expedia:payment:processor:messages:v2">10111</payment:CompanyCode>
+        <payment:Jurisdiction xmlns:payment="urn:expedia:payment:processor:messages:v2">DEU</payment:Jurisdiction>
+        <payment:OrderNumber xmlns:payment="urn:expedia:payment:processor:messages:v2">8066738339595</payment:OrderNumber>
+        <payment:TaggingData xmlns:payment="urn:expedia:payment:processor:messages:v2">
+          <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+            <n2:Name>ManagementUnit</n2:Name>
+            <n2:Value>1055</n2:Value>
+          </n2:Attribute>
+        </payment:TaggingData>
+        <payment:PaymentItemDetail xmlns:payment="urn:expedia:payment:processor:messages:v2">
+          <payment:PaymentItemCorrelationID>NOT_AVAILABLE</payment:PaymentItemCorrelationID>
+          <payment:PaymentItemID>2004753374</payment:PaymentItemID>
+          <payment:PaymentItemGUID>33A4B348-6F51-42C1-8E81-466048845123</payment:PaymentItemGUID>
+          <payment:PaymentInstrumentID>40415983-1279-4644-8088-AA0D82CC6BEA</payment:PaymentInstrumentID>
+          <payment:PaymentInstrumentServiceID>PV</payment:PaymentInstrumentServiceID>
+          <payment:PaymentType>CreditCard</payment:PaymentType>
+          <payment:PaymentSubType>Visa</payment:PaymentSubType>
+          <payment:BrandName>Visa</payment:BrandName>
+          <payment:PaymentAccountID>426354XXXXXX2260</payment:PaymentAccountID>
+          <payment:CardPresentCode>WebPaymentByCustomerWithSecureCode</payment:CardPresentCode>
+          <payment:LifeCycleStateName>Pending</payment:LifeCycleStateName>
+          <payment:TransactionModel>TwoStepCommit</payment:TransactionModel>
+          <payment:PaymentItemVerifyOperation>
+            <payment:IsPending>false</payment:IsPending>
+            <payment:TransactionTrackingInfo>
+              <payment:ClientTransactionID>c25f3959-c49c-41f5-a513-bc09c74e1528</payment:ClientTransactionID>
+              <payment:OtherTrackingAttributes>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TravelProductID</n2:Name>
+                  <n2:Value>6</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TUID</n2:Name>
+                  <n2:Value>73435155</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TRL</n2:Name>
+                  <n2:Value>88782110</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ExpediaPurchaseTypeID</n2:Name>
+                  <n2:Value>2</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>EAPID</n2:Name>
+                  <n2:Value>25351</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>GPID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentDesc</n2:Name>
+                  <n2:Value>Itinerary: 18878211044, Start Date: 3/12/2017, End Date: 3/13/2017, Contains: Hotel, Merchant (1)</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentReasonID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ProxyForPayerID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TravServerDBInstance</n2:Name>
+                  <n2:Value>TravServerEU</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TUIDLogon</n2:Name>
+                  <n2:Value>73435155</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>LanguageCode</n2:Name>
+                  <n2:Value>de</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>OrderOperationCorrelationID</n2:Name>
+                  <n2:Value>81793dab-a361-452d-8db1-a178a954d935</n2:Value>
+                </n2:Attribute>
+              </payment:OtherTrackingAttributes>
+            </payment:TransactionTrackingInfo>
+            <payment:PaymentItemOperationID>2380652066</payment:PaymentItemOperationID>
+            <payment:PaymentAmount>
+              <payment:CurrencyCode>EUR</payment:CurrencyCode>
+              <payment:Amount>132.95</payment:Amount>
+            </payment:PaymentAmount>
+            <payment:PaymentItemVerifyStep>
+              <payment:PaymentItemOperationStepID>2712686530</payment:PaymentItemOperationStepID>
+              <payment:ClientRequestID>15a0b57d-e6e1-48be-a1e3-60d33010cb8b</payment:ClientRequestID>
+              <payment:ProcessorRequestID>de5b01e8-e7d3-482f-92d2-3168780dd5ef</payment:ProcessorRequestID>
+              <payment:CreateDate>2017-01-30T13:26:57.280-08:00</payment:CreateDate>
+              <payment:AdditionalData>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentProviderTransactionCodeMapID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>CreditCardLogFailureAuthID</n2:Name>
+                  <n2:Value>-1928943144</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ExpediaPurchaseTypeID</n2:Name>
+                  <n2:Value>2</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>LanguageCode</n2:Name>
+                  <n2:Value>de</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ManagementUnit</n2:Name>
+                  <n2:Value>1055</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentDesc</n2:Name>
+                  <n2:Value>Itinerary: 18878211044, Start Date: 3/12/2017, End Date: 3/13/2017, Contains: Hotel, Merchant (1)</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentReasonID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ProxyForPayerID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+              </payment:AdditionalData>
+              <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                <n2:StatusCode>0</n2:StatusCode>
+                <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+              </n2:TransactionStatus>
+              <payment:HAPSResponseInfo>
+                <payment:ThirdPartyProcessorInfo>
+                  <payment:ProcessorName>Bibit</payment:ProcessorName>
+                  <payment:ProcessorTransactionCode>RmzIc8O2QZ-UMTb-MY2Z9Q:20170105</payment:ProcessorTransactionCode>
+                  <payment:ProcessorAuthorizationCode>RmzIc8O2QZ-UMTb-MY2Z9Q:20170105</payment:ProcessorAuthorizationCode>
+                </payment:ThirdPartyProcessorInfo>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCAuth</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXTERNAL</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>SUCCESSFUL</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>AUTHORISED</payment:HAPSRawStatusCode>
+                  <payment:Description/>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCAddressVerify</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXP</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>1</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>NOT_SUPPLIED_BY_SHOPPER</payment:HAPSRawStatusCode>
+                  <payment:Description/>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCCSVVerify</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXP</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>7</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>APPROVED</payment:HAPSRawStatusCode>
+                  <payment:Description/>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:PaymentAmount>
+                  <payment:CurrencyCode>EUR</payment:CurrencyCode>
+                  <payment:Amount>0.00</payment:Amount>
+                </payment:PaymentAmount>
+                <payment:OtherAttributes>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>CustomerOrderNumber</n2:Name>
+                    <n2:Value>18777517664</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>ExpediaPurchaseTypeId</n2:Name>
+                    <n2:Value>2</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>InternalOrderNumber</n2:Name>
+                    <n2:Value>87775176</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>MID</n2:Name>
+                    <n2:Value>EXPEDIAAUTH</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>PointOfSaleOrderReferenceNumber</n2:Name>
+                    <n2:Value>7234942056357</n2:Value>
+                  </n2:Attribute>
+                </payment:OtherAttributes>
+              </payment:HAPSResponseInfo>
+              <payment:PaymentInstrumentVerificationID>f689820b-a5e2-4ef1-9cc4-b1f74f791059</payment:PaymentInstrumentVerificationID>
+            </payment:PaymentItemVerifyStep>
+          </payment:PaymentItemVerifyOperation>
+          <payment:PaymentItemChargeOperation>
+            <payment:IsPending>true</payment:IsPending>
+            <payment:TransactionTrackingInfo>
+              <payment:ClientTransactionID>c25f3959-c49c-41f5-a513-bc09c74e1528</payment:ClientTransactionID>
+              <payment:OtherTrackingAttributes>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TravelProductID</n2:Name>
+                  <n2:Value>6</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TUID</n2:Name>
+                  <n2:Value>73435155</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TRL</n2:Name>
+                  <n2:Value>88782110</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ExpediaPurchaseTypeID</n2:Name>
+                  <n2:Value>2</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>EAPID</n2:Name>
+                  <n2:Value>25351</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>GPID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentDesc</n2:Name>
+                  <n2:Value>Itinerary: 18878211044, Start Date: 3/12/2017, End Date: 3/13/2017, Contains: Hotel, Merchant (1)</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentEndDate</n2:Name>
+                  <n2:Value>2017-03-13</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>PaymentReasonID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>ProxyForPayerID</n2:Name>
+                  <n2:Value>0</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TravServerDBInstance</n2:Name>
+                  <n2:Value>TravServerEU</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>TUIDLogon</n2:Name>
+                  <n2:Value>73435155</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>3DS_ENROLLMENT_STATUS</n2:Name>
+                  <n2:Value>LOGIN_NEEDED</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>DYNAMIC_3DS_REQUIRED</n2:Name>
+                  <n2:Value>false</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>LanguageCode</n2:Name>
+                  <n2:Value>de</n2:Value>
+                </n2:Attribute>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>OrderOperationCorrelationID</n2:Name>
+                  <n2:Value>81793dab-a361-452d-8db1-a178a954d935</n2:Value>
+                </n2:Attribute>
+              </payment:OtherTrackingAttributes>
+            </payment:TransactionTrackingInfo>
+            <payment:PaymentItemOperationID>2380652067</payment:PaymentItemOperationID>
+            <payment:PaymentAmount>
+              <payment:CurrencyCode>EUR</payment:CurrencyCode>
+              <payment:Amount>132.95</payment:Amount>
+            </payment:PaymentAmount>
+            <payment:PaymentItemRedirectionStep>
+              <payment:PaymentItemOperationStepID>2712686531</payment:PaymentItemOperationStepID>
+              <payment:ClientRequestID>15a0b57d-e6e1-48be-a1e3-60d33010cb8b</payment:ClientRequestID>
+              <payment:ProcessorRequestID>8a457384-d8ad-464b-bf10-c8727e1d4bbf</payment:ProcessorRequestID>
+              <payment:CreateDate>2017-01-30T13:26:57.290-08:00</payment:CreateDate>
+              <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                <n2:StatusCode>2621</n2:StatusCode>
+                <n2:StatusMessage>LOGIN_NEEDED</n2:StatusMessage>
+              </n2:TransactionStatus>
+              <payment:HAPSResponseInfo>
+                <payment:ThirdPartyProcessorInfo>
+                  <payment:ProcessorName>CyberSource</payment:ProcessorName>
+                  <payment:ProcessorAuthorizationCode/>
+                </payment:ThirdPartyProcessorInfo>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>IBPRecord</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXTERNAL</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>10000</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>475</payment:HAPSRawStatusCode>
+                  <payment:Description>Successful :: Enrolled :: AuthPath=RIBA</payment:Description>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>2621</n2:StatusCode>
+                    <n2:StatusMessage>LOGIN_NEEDED</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:OtherAttributes>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>CustomerOrderNumber</n2:Name>
+                    <n2:Value>18878211044</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>InternalOrderNumber</n2:Name>
+                    <n2:Value>88782110</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>ExpediaPurchaseTypeId</n2:Name>
+                    <n2:Value>2</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>MID</n2:Name>
+                    <n2:Value>ConsolidatedDE_EUR_DR</n2:Value>
+                  </n2:Attribute>
+                </payment:OtherAttributes>
+              </payment:HAPSResponseInfo>
+              <payment:ReturnURL>https://www.expedia.de/HotelLandingPage?tripid=3439179a-ade0-402d-9702-695dc6c9771e&amp;c=d3e6bfb2-fa01-4880-a91a-cef4641fe6ab&amp;paymentOptionUsed=StoredCreditCard&amp;productType=hotel&amp;paymentType=StoredCreditCard&amp;verificationType=3DS</payment:ReturnURL>
+              <payment:RedirectionURL payment:redirectionType="LOGIN">https://redirect.expedia.com/redirect-proxy/out/E79hcxmJ0hepeYHjDrLtEWtM-_wdopQE3LwW4c3D606bIliP</payment:RedirectionURL>
+              <payment:RedirectionState>NONE</payment:RedirectionState>
+            </payment:PaymentItemRedirectionStep>
+            <payment:PaymentItemHoldStep>
+              <payment:PaymentItemOperationStepID>2712686694</payment:PaymentItemOperationStepID>
+              <payment:ClientRequestID>eee6b0d7-677a-4fa6-b09e-df2e89d977c8</payment:ClientRequestID>
+              <payment:ProcessorRequestID>7c20da96-aef7-4092-87bb-368a39e8bb10</payment:ProcessorRequestID>
+              <payment:CreateDate>2017-01-30T13:27:00.960-08:00</payment:CreateDate>
+              <payment:AdditionalData>
+                <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:Name>CreditCardLogFailureAuthID</n2:Name>
+                  <n2:Value>-1926115006</n2:Value>
+                </n2:Attribute>
+              </payment:AdditionalData>
+              <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                <n2:StatusCode>0</n2:StatusCode>
+                <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+              </n2:TransactionStatus>
+              <payment:HAPSResponseInfo>
+                <payment:ThirdPartyProcessorInfo>
+                  <payment:ProcessorName>Netgiro</payment:ProcessorName>
+                  <payment:ProcessorTransactionCode>5054819947</payment:ProcessorTransactionCode>
+                  <payment:ProcessorAuthorizationCode>746805</payment:ProcessorAuthorizationCode>
+                </payment:ThirdPartyProcessorInfo>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCAuth</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXTERNAL</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>OK</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>0</payment:HAPSRawStatusCode>
+                  <payment:Description>Transaction accepted</payment:Description>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCAddressVerify</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>ISO8583:2003</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>G</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>4</payment:HAPSRawStatusCode>
+                  <payment:Description>211800</payment:Description>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:HAPSStatus>
+                  <payment:HAPSActionCode>CCCSVVerify</payment:HAPSActionCode>
+                  <payment:HAPSStatusCodeGroup>EXP</payment:HAPSStatusCodeGroup>
+                  <payment:HAPSStatusCode>7</payment:HAPSStatusCode>
+                  <payment:HAPSRawStatusCode>0</payment:HAPSRawStatusCode>
+                  <payment:Description>211800</payment:Description>
+                  <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                    <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.HAPSResponseCode.MSTE</n2:StatusCodeNamespace>
+                    <n2:StatusCode>0</n2:StatusCode>
+                    <n2:StatusMessage>MSTERR_NO_ERROR</n2:StatusMessage>
+                  </n2:TransactionStatus>
+                </payment:HAPSStatus>
+                <payment:PaymentAmount>
+                  <payment:CurrencyCode>EUR</payment:CurrencyCode>
+                  <payment:Amount>132.95</payment:Amount>
+                </payment:PaymentAmount>
+                <payment:OtherAttributes>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>CustomerOrderNumber</n2:Name>
+                    <n2:Value>18878211044</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>ExpediaPurchaseTypeId</n2:Name>
+                    <n2:Value>2</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>InternalOrderNumber</n2:Name>
+                    <n2:Value>88782110</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>MID</n2:Name>
+                    <n2:Value>1097307768</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>OrderID</n2:Name>
+                    <n2:Value>-9223372035524309939</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>PointOfSaleOrderReferenceNumber</n2:Name>
+                    <n2:Value>7240717420152</n2:Value>
+                  </n2:Attribute>
+                </payment:OtherAttributes>
+              </payment:HAPSResponseInfo>
+              <payment:CanReuse>false</payment:CanReuse>
+              <payment:PaymentAmount>
+                <payment:CurrencyCode>EUR</payment:CurrencyCode>
+                <payment:Amount>132.95</payment:Amount>
+              </payment:PaymentAmount>
+              <payment:PaymentItemCommitHoldStep>
+                <payment:PaymentItemOperationStepID>2712686779</payment:PaymentItemOperationStepID>
+                <payment:ClientRequestID>3a8e70b6-23ed-4412-b197-6bafa3e6f0bf</payment:ClientRequestID>
+                <payment:ProcessorRequestID>e4bdb70f-bcdb-4b76-ae92-81dd4906435d</payment:ProcessorRequestID>
+                <payment:CreateDate>2017-01-30T13:27:03.180-08:00</payment:CreateDate>
+                <payment:AdditionalData>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>EmainPaymentID</n2:Name>
+                    <n2:Value>198672866</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>CreditCardTypeID</n2:Name>
+                    <n2:Value>0</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>TransactionGUID</n2:Name>
+                    <n2:Value>e4bdb70f-bcdb-4b76-ae92-81dd4906435d</n2:Value>
+                  </n2:Attribute>
+                  <n2:Attribute xmlns:n2="urn:expedia:payment:system:types:v2">
+                    <n2:Name>PaymentUpdateDate</n2:Name>
+                    <n2:Value>2017-01-30T13:27:03</n2:Value>
+                  </n2:Attribute>
+                </payment:AdditionalData>
+                <n2:TransactionStatus xmlns:n2="urn:expedia:payment:system:types:v2">
+                  <n2:StatusCodeCategory>Success</n2:StatusCodeCategory>
+                  <n2:StatusCodeNamespace>com.expedia.e3.es.payment.processor.errorhandling.PaymentProcessorExceptions</n2:StatusCodeNamespace>
+                  <n2:StatusCode>2536</n2:StatusCode>
+                  <n2:StatusMessage>Charge request has been successfully queued.</n2:StatusMessage>
+                </n2:TransactionStatus>
+              </payment:PaymentItemCommitHoldStep>
+            </payment:PaymentItemHoldStep>
+          </payment:PaymentItemChargeOperation>
+        </payment:PaymentItemDetail>
+      </ns2:PaymentPlanDetail>
+    </common:PaymentDetailData>
+  </common:PaymentDetailList></event:Order><event:LegacyTrl>88782110</event:LegacyTrl><event:OrderRequestInfo>
+  <common:MarketingCampaignCode>0</common:MarketingCampaignCode>
+  <common:TravelPurposeType>KnownPersonalVisit</common:TravelPurposeType>
+  <common:BookingDescription>Customer booking [Host: chexwbtexweb164.ch.expeso.com - 10.178.17.97] [User: ExpWeb]</common:BookingDescription>
+  <common:OrderComponentsType>
+    <common:Hotel>true</common:Hotel>
+    <common:Air>false</common:Air>
+    <common:Car>false</common:Car>
+    <common:DestinationServices>false</common:DestinationServices>
+    <common:Bus>false</common:Bus>
+    <common:Train>false</common:Train>
+    <common:Insurance>false</common:Insurance>
+    <common:Cruise>false</common:Cruise>
+  </common:OrderComponentsType>
+  <common:AccountsReceivableType>0</common:AccountsReceivableType>
+  <common:PointOfSaleOrderReferenceNumber>7240717420152</common:PointOfSaleOrderReferenceNumber>
+</event:OrderRequestInfo><event:RequestInfo><common:UserOriginationIPAddress>95.90.193.245</common:UserOriginationIPAddress><common:CookieGUID>d6917272-470d-7b4d-9e87-7ea7d7cd8ab2</common:CookieGUID><common:ClientOrderReferenceCode>3439179a-ade0-402d-9702-695dc6c9771e</common:ClientOrderReferenceCode></event:RequestInfo><event:SiteInfo><common:LegacySiteKey>
+    <common:TPID>6</common:TPID>
+    <common:EAPID>25351</common:EAPID>
+    <common:GPID>0</common:GPID>
+  </common:LegacySiteKey><common:Language>
+    <common:LanguageCode>de</common:LanguageCode>
+    <common:CountryAlpha2Code>DE</common:CountryAlpha2Code>
+  </common:Language><common:ClientID>3</common:ClientID><common:AffiliateID>4</common:AffiliateID><common:ABTestGroupID>0</common:ABTestGroupID><common:GroupAccountID>0</common:GroupAccountID><common:GroupAccountDepartmentID>0</common:GroupAccountDepartmentID><common:CompanyCode>10111</common:CompanyCode><common:ManagementUnitCode>1055</common:ManagementUnitCode><common:JurisdictionCode>DEU</common:JurisdictionCode><common:SourceSystemCode>1</common:SourceSystemCode><common:SourceSystem>Traditional Browser</common:SourceSystem><common:PeopleSoftOperatingUnit>1003</common:PeopleSoftOperatingUnit><common:MarketingChannelTypeCode>15</common:MarketingChannelTypeCode><common:SourceSystemOrder>
+    <common:Source>Traditional Browser</common:Source>
+    <common:AdditionalSourceInfoList>
+      <common:AdditionalSourceInfo>
+        <common:Source>UserAgent</common:Source>
+        <common:Information>Mozilla/5.0 (Windows NT 10.0; rv:45.0) Gecko/20100101 Firefox/45.0</common:Information>
+      </common:AdditionalSourceInfo>
+    </common:AdditionalSourceInfoList>
+    <common:DeviceIDReference>
+      <common:DeviceIDProvider>iovation</common:DeviceIDProvider>
+      <common:ReferenceCode>04003hQUMXGB0poNf94lis1ztjbaCjtwdIzBUiKQ5VqDiev2hXSml2novtcLfdE4EMYP6LPN86c4WNjXnfra5uHnDxyNWym308lBMIqy2Zw6i85J27cNnYPSQUyAZ5slTMaJhGc3lDN94AbUQJLUT2JE8kN13n2vmAeykQgdlVeDidyvTE26W/62rgo5VNMvaDXfrI3MaSYrgzshIqKrjK+gd0U6+nZ8puflC79pRTOEI9Av0nLv/jsDO5gWSO2+NA4Zz+n1ZiY8JiV8nTs/3e3TI3A+k9XRlIy/eK9bBryNPWBsX+PqVLHJEGWQYNwDNV/UznU9Ecu8fTWVmi42S0874hsRVzRh/Vi6xA9x3qRKbjNWvQo0dcdeWisU0LqVK12e0U9R65QyAVPoKIAy2Y9JK8PhNaG/vxUQid7nrHt/JVEWod+/qWBmr400TjErgWExMGfGDfMJjL3Yvl//3MmIvWf/oZd0QFhVSacQg7jowDW5mZwvTfjFe9F9+kXk6jWR4HU13rrqwKvXV7Mg8LZNAA1/InDlj2XM+3Arp0EvTCs5VU/JDhXWhNKNMEqBggo75PT2+0lse104Q2BjiRVT3AHzj486sjgySgPiIcnlrVAXwBmRkMWjWd1cPXCK5ipuA5hGSom+W9WsE3FWLAHv5EfLH/JZWu2VrI3MaSYrgzvK825aVpZM/CT/riUqiozfAOitx40UDza/slJ9rBwgiJQ7PyOT2fagsj69LfM7VRY6PHjnH1mXAzWAbv50krowBfyJjLLmO9LuhzmHVhuxKCv8R5IEY+PT5PT2+0lse13hcm1avlFfZ6OduSh1Q3c73WntPXGqy72ubUfTzG03Cg1cMLC8vXV1ej3ztLBl3Giu97ZalRNfSXJ7dEq1rzi1uaoaqthlxiaMZeUSPbpTNyDL3ToHgh5o51W+7h4F0Bmw9pyhGjIiFZ6zL6DMu8Swjjo/Zl0+w9pyeKgt3rlEJbCt3jWHbVCHTaXMRY+24g7u5a/0VxS7QlVpUUeMisL86Dzbmd1CffterAA8ZOtvtF6P1f+67ntzLwvbMmeoGuBVJUiLP0GDKuilALn7kuTntCOEBE+hjPfpmKG+2ia6dWyYuPzWdhl1xwIYlVKF6cjZ2ZwNrSOzzpuspOgZpesX2TbW4Bvlip7Qw4p2g1ubJBQ3bsL9DUQx9DKz9xBowflk0r3p0BOOx/JzCV4saCqLmmrpmngELq/6e9LTLjaZWnyZTZy6/2zR7zDfu54OZN1A8LBOGvAlWaCSyGo5pb/IREzZXk5Z3eW4PFYYRcmQxABJBe2hk6eVuSAYD8B08QFIztMP7fmGNn6mgrMwUrsA2IXabRdk+65Ko3rRIXVfrpvdXhpI8gpagfcHm0tDBrNGDOf3xbF2/kOvTIsbj98tpthbDDVeCrfsat2y9SRi5w5JHQxphV/Zwy5WNrxB6CAow+QsUEwhNhfSzfg6zY1pK20zKQo0xa9f6QJwh/HCm66g0MvaSqgWHgHZyjDmpS7mx2vNwg2QekENZFSHlXQyBWZEG9BFke3Q5RTpJNFzzSDqJqSNdSVXB+CluvAGuG8egF9uUAx8TJQL8E0wyEGv0T0k6IUVBCz5DTUzO+ULGvWBUrIWM8M8PENU0uPa6Ldt8e0K8tRF+eMr0YV5w5CLfef8JwYoexnk4xcC/aHYZT4A3LYIv0cuWM6yKVwZIhJCImqLrjRIazUYcqnQGkaW</common:ReferenceCode>
+    </common:DeviceIDReference>
+  </common:SourceSystemOrder></event:SiteInfo><common:OrderOperationCorrelationID>81793dab-a361-452d-8db1-a178a954d935</common:OrderOperationCorrelationID></event:EventDetails></event:Event></event:EventList></event:EventsRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:esl="esl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <esl:insert_RDPOEntryHeader_operation>
+         <esl:BusinessUnit>ESFA</esl:BusinessUnit>
+         <esl:POEntryPrefix>PORP</esl:POEntryPrefix>
+         <esl:POEntryNumber>1234</esl:POEntryNumber>
+         <esl:PODate>2017-02-23T00:00:00.000+00:00</esl:PODate>
+         <esl:SUNPONumber>1234</esl:SUNPONumber>
+         <esl:SUNPODate>2017-02-23T00:00:00.000+00:00</esl:SUNPODate>
+         <esl:VendorCode>0001</esl:VendorCode>
+         <esl:Value>0</esl:Value>
+         <esl:POStatus>0</esl:POStatus>
+         <esl:OrderNumber>1234</esl:OrderNumber>
+         <esl:OrderDate>2017-02-23T00:00:00.000+00:00</esl:OrderDate>
+         <esl:UpdatedOn>2017-02-23T00:00:00.000+00:00</esl:UpdatedOn>
+         <esl:UpdatedBy>pwc.etisalat</esl:UpdatedBy>
+         <esl:LastUpdatedOn>2017-02-23T00:00:00.000+00:00</esl:LastUpdatedOn>
+         <esl:LastUpdatedBy>pwc.etisalat</esl:LastUpdatedBy>
+      </esl:insert_RDPOEntryHeader_operation>
+   </soapenv:Body>
+</soapenv:Envelope>
