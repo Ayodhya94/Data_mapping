@@ -1,0 +1,118 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "indexName": {
+      "id": "http:\/\/wso2jsonschema.org\/indexName",
+      "type": "string"
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "script": {
+      "id": "http:\/\/wso2jsonschema.org\/script",
+      "type": "string",
+      "nullable": "true"
+    },
+    "params": {
+      "id": "http:\/\/wso2jsonschema.org\/params",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "count": {
+          "id": "http:\/\/wso2jsonschema.org\/params\/count",
+          "type": "number"
+        }
+      }
+    },
+    "timeout": {
+      "id": "http:\/\/wso2jsonschema.org\/timeout",
+      "type": "string",
+      "nullable": "true"
+    },
+    "consistency": {
+      "id": "http:\/\/wso2jsonschema.org\/consistency",
+      "type": "string",
+      "nullable": "true"
+    },
+    "parentId": {
+      "id": "http:\/\/wso2jsonschema.org\/parentId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "routing": {
+      "id": "http:\/\/wso2jsonschema.org\/routing",
+      "type": "string",
+      "nullable": "true"
+    },
+    "refresh": {
+      "id": "http:\/\/wso2jsonschema.org\/refresh",
+      "type": "string",
+      "nullable": "true"
+    },
+    "fields": {
+      "id": "http:\/\/wso2jsonschema.org\/fields",
+      "type": "string",
+      "nullable": "true"
+    },
+    "version": {
+      "id": "http:\/\/wso2jsonschema.org\/version",
+      "type": "string",
+      "nullable": "true"
+    },
+    "versionType": {
+      "id": "http:\/\/wso2jsonschema.org\/versionType",
+      "type": "string",
+      "nullable": "true"
+    },
+    "retryOnConflict": {
+      "id": "http:\/\/wso2jsonschema.org\/retryOnConflict",
+      "type": "string",
+      "nullable": "true"
+    },
+    "detectNoop": {
+      "id": "http:\/\/wso2jsonschema.org\/detectNoop",
+      "type": "string",
+      "nullable": "true"
+    },
+    "upsert": {
+      "id": "http:\/\/wso2jsonschema.org\/upsert",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "counter": {
+          "id": "http:\/\/wso2jsonschema.org\/upsert\/counter",
+          "type": "number"
+        }
+      }
+    },
+    "scriptedUpsert": {
+      "id": "http:\/\/wso2jsonschema.org\/scriptedUpsert",
+      "type": "string",
+      "nullable": "true"
+    },
+    "docAsUpsert": {
+      "id": "http:\/\/wso2jsonschema.org\/docAsUpsert",
+      "type": "string",
+      "nullable": "true"
+    },
+    "doc": {
+      "id": "http:\/\/wso2jsonschema.org\/doc",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/doc\/name",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "type": "object"
+}

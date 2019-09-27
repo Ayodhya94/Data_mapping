@@ -1,0 +1,92 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "durationType": {
+      "id": "http:\/\/wso2jsonschema.org\/durationType",
+      "type": "string"
+    },
+    "oldStartDate": {
+      "id": "http:\/\/wso2jsonschema.org\/oldStartDate",
+      "type": "string"
+    },
+    "oldEndDate": {
+      "id": "http:\/\/wso2jsonschema.org\/oldEndDate",
+      "type": "string"
+    },
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "reason": {
+      "id": "http:\/\/wso2jsonschema.org\/reason",
+      "type": "string"
+    },
+    "startDate": {
+      "id": "http:\/\/wso2jsonschema.org\/startDate",
+      "type": "string"
+    },
+    "endDate": {
+      "id": "http:\/\/wso2jsonschema.org\/endDate",
+      "type": "string"
+    },
+    "duration": {
+      "id": "http:\/\/wso2jsonschema.org\/duration",
+      "type": "string"
+    },
+    "partOfDay": {
+      "id": "http:\/\/wso2jsonschema.org\/partOfDay",
+      "type": "string"
+    },
+    "absencePaidStatus": {
+      "id": "http:\/\/wso2jsonschema.org\/absencePaidStatus",
+      "type": "string"
+    },
+    "emergencyLeave": {
+      "id": "http:\/\/wso2jsonschema.org\/emergencyLeave",
+      "type": "string"
+    },
+    "addComments": {
+      "id": "http:\/\/wso2jsonschema.org\/addComments",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/addComments\/0",
+          "type": "object",
+          "properties": {
+            "Comment": {
+              "id": "http:\/\/wso2jsonschema.org\/addComments\/0\/Comment",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "addFiles": {
+      "id": "http:\/\/wso2jsonschema.org\/addFiles",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/addFiles\/0",
+          "type": "object",
+          "properties": {
+            "DocumentName": {
+              "id": "http:\/\/wso2jsonschema.org\/addFiles\/0\/DocumentName",
+              "type": "string"
+            },
+            "File": {
+              "id": "http:\/\/wso2jsonschema.org\/addFiles\/0\/File",
+              "type": "string"
+            },
+            "Description": {
+              "id": "http:\/\/wso2jsonschema.org\/addFiles\/0\/Description",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

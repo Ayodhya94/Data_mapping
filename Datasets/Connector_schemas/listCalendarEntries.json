@@ -1,0 +1,33 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "fields": {
+      "id": "http:\/\/wso2jsonschema.org\/fields",
+      "type": "string",
+      "nullable": "true"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "number",
+      "nullable": "true"
+    },
+    "minAccessRole": {
+      "id": "http:\/\/wso2jsonschema.org\/minAccessRole",
+      "type": "string",
+      "nullable": "true"
+    },
+    "pageToken": {
+      "id": "http:\/\/wso2jsonschema.org\/pageToken",
+      "type": "string",
+      "nullable": "true"
+    },
+    "isShowHidden": {
+      "id": "http:\/\/wso2jsonschema.org\/isShowHidden",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+Datasets/courses_wsu.xml
+Datasets/courses_washington.xml
+Datasets/courses_uwm.xml
+Datasets/courses_reed.xml
+Datasets/yahoo.xml
+Datasets/ubid.xml
+Datasets/ebay.xml
+Datasets/321gone.xml
+Datasets/real_estate_windermere.xml
+Datasets/real_estate_texas.xml
+Datasets/real_estate_nky.xml

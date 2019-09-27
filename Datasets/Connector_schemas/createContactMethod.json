@@ -1,0 +1,65 @@
+{
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "id": "http:\/\/wso2jsonschema.org\/userId",
+      "type": "string"
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "string"
+    },
+    "address": {
+      "id": "http:\/\/wso2jsonschema.org\/address",
+      "type": "string"
+    },
+    "label": {
+      "id": "http:\/\/wso2jsonschema.org\/label",
+      "type": "string"
+    },
+    "isSendShortEmail": {
+      "id": "http:\/\/wso2jsonschema.org\/isSendShortEmail",
+      "type": "string",
+      "nullable": "true"
+    },
+    "countryCode": {
+      "id": "http:\/\/wso2jsonschema.org\/countryCode",
+      "type": "string",
+      "nullable": "true"
+    },
+    "deviceType": {
+      "id": "http:\/\/wso2jsonschema.org\/deviceType",
+      "type": "string",
+      "nullable": "true"
+    },
+    "sounds": {
+      "id": "http:\/\/wso2jsonschema.org\/sounds",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/sounds\/0",
+          "type": "object",
+          "properties": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/sounds\/0\/type",
+              "type": "string"
+            },
+            "file": {
+              "id": "http:\/\/wso2jsonschema.org\/sounds\/0\/file",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "createdAt": {
+      "id": "http:\/\/wso2jsonschema.org\/createdAt",
+      "type": "string",
+      "nullable": "true"
+    }
+  }
+}

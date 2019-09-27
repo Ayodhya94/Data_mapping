@@ -1,0 +1,29 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "settings": {
+      "id": "http:\/\/wso2jsonschema.org\/settings",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "index": {
+          "id": "http:\/\/wso2jsonschema.org\/settings\/index",
+          "type": "object",
+          "properties": {
+            "mapping.allow_type_wrapper": {
+              "id": "http:\/\/wso2jsonschema.org\/settings\/index\/mapping.allow_type_wrapper",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "indexName": {
+      "id": "http:\/\/wso2jsonschema.org\/indexName",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

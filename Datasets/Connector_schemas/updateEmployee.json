@@ -1,0 +1,211 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "reasonForChange": {
+      "id": "http:\/\/wso2jsonschema.org\/reasonForChange",
+      "type": "string"
+    },
+    "title": {
+      "id": "http:\/\/wso2jsonschema.org\/title",
+      "type": "string",
+      "nullable": "true"
+    },
+    "firstName": {
+      "id": "http:\/\/wso2jsonschema.org\/firstName",
+      "type": "string",
+      "nullable": "true"
+    },
+    "lastName": {
+      "id": "http:\/\/wso2jsonschema.org\/lastName",
+      "type": "string",
+      "nullable": "true"
+    },
+    "email": {
+      "id": "http:\/\/wso2jsonschema.org\/email",
+      "type": "string",
+      "nullable": "true"
+    },
+    "gender": {
+      "id": "http:\/\/wso2jsonschema.org\/gender",
+      "type": "string",
+      "nullable": "true"
+    },
+    "startDate": {
+      "id": "http:\/\/wso2jsonschema.org\/startDate",
+      "type": "string",
+      "nullable": "true"
+    },
+    "dateOfBirth": {
+      "id": "http:\/\/wso2jsonschema.org\/dateOfBirth",
+      "type": "string",
+      "nullable": "true"
+    },
+    "reportsTo": {
+      "id": "http:\/\/wso2jsonschema.org\/reportsTo",
+      "type": "string"
+    },
+    "jobRole": {
+      "id": "http:\/\/wso2jsonschema.org\/jobRole",
+      "type": "string"
+    },
+    "location": {
+      "id": "http:\/\/wso2jsonschema.org\/location",
+      "type": "string"
+    },
+    "department": {
+      "id": "http:\/\/wso2jsonschema.org\/department",
+      "type": "string"
+    },
+    "nationalInsuranceNumber": {
+      "id": "http:\/\/wso2jsonschema.org\/nationalInsuranceNumber",
+      "type": "string",
+      "nullable": "true"
+    },
+    "nationality": {
+      "id": "http:\/\/wso2jsonschema.org\/nationality",
+      "type": "string",
+      "nullable": "true"
+    },
+    "employmentType": {
+      "id": "http:\/\/wso2jsonschema.org\/employmentType",
+      "type": "string",
+      "nullable": "true"
+    },
+    "entitlementThisYear": {
+      "id": "http:\/\/wso2jsonschema.org\/entitlementThisYear",
+      "type": "string",
+      "nullable": "true"
+    },
+    "entitlementNextYear": {
+      "id": "http:\/\/wso2jsonschema.org\/entitlementNextYear",
+      "type": "string",
+      "nullable": "true"
+    },
+    "address": {
+      "id": "http:\/\/wso2jsonschema.org\/address",
+      "type": "string",
+      "nullable": "true"
+    },
+    "personalPhoneNumber": {
+      "id": "http:\/\/wso2jsonschema.org\/personalPhoneNumber",
+      "type": "string",
+      "nullable": "true"
+    },
+    "apiColumn1": {
+      "id": "http:\/\/wso2jsonschema.org\/apiColumn1",
+      "type": "string",
+      "nullable": "true"
+    },
+    "apiColumn2": {
+      "id": "http:\/\/wso2jsonschema.org\/apiColumn2",
+      "type": "string",
+      "nullable": "true"
+    },
+    "apiColumn3": {
+      "id": "http:\/\/wso2jsonschema.org\/apiColumn3",
+      "type": "string",
+      "nullable": "true"
+    },
+    "apiColumn4": {
+      "id": "http:\/\/wso2jsonschema.org\/apiColumn4",
+      "type": "string",
+      "nullable": "true"
+    },
+    "apiColumn5": {
+      "id": "http:\/\/wso2jsonschema.org\/apiColumn5",
+      "type": "string",
+      "nullable": "true"
+    },
+    "jobRoleEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/jobRoleEffectiveDate",
+      "type": "string"
+    },
+    "company": {
+      "id": "http:\/\/wso2jsonschema.org\/company",
+      "type": "string"
+    },
+    "payrollCompany": {
+      "id": "http:\/\/wso2jsonschema.org\/payrollCompany",
+      "type": "string",
+      "nullable": "true"
+    },
+    "payrollId": {
+      "id": "http:\/\/wso2jsonschema.org\/payrollId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "rotaId": {
+      "id": "http:\/\/wso2jsonschema.org\/rotaId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "crmId": {
+      "id": "http:\/\/wso2jsonschema.org\/crmId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "atsId": {
+      "id": "http:\/\/wso2jsonschema.org\/atsId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "performanceId": {
+      "id": "http:\/\/wso2jsonschema.org\/performanceId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "benefitsId": {
+      "id": "http:\/\/wso2jsonschema.org\/benefitsId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "system1Id": {
+      "id": "http:\/\/wso2jsonschema.org\/system1Id",
+      "type": "string",
+      "nullable": "true"
+    },
+    "system2Id": {
+      "id": "http:\/\/wso2jsonschema.org\/system2Id",
+      "type": "string",
+      "nullable": "true"
+    },
+    "system3Id": {
+      "id": "http:\/\/wso2jsonschema.org\/system3Id",
+      "type": "string",
+      "nullable": "true"
+    },
+    "personalEmail": {
+      "id": "http:\/\/wso2jsonschema.org\/personalEmail",
+      "type": "string",
+      "nullable": "true"
+    },
+    "methodOfRecruitment": {
+      "id": "http:\/\/wso2jsonschema.org\/methodOfRecruitment",
+      "type": "string",
+      "nullable": "true"
+    },
+    "reportsToEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/reportsToEffectiveDate",
+      "type": "string"
+    },
+    "locationEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/locationEffectiveDate",
+      "type": "string"
+    },
+    "departmentEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/departmentEffectiveDate",
+      "type": "string"
+    },
+    "employmentTypeEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/employmentTypeEffectiveDate",
+      "type": "string"
+    },
+    "companyEffectiveDate": {
+      "id": "http:\/\/wso2jsonschema.org\/companyEffectiveDate",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

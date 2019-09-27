@@ -1,0 +1,63 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "projectId": {
+      "id": "http:\/\/wso2jsonschema.org\/projectId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "offset": {
+      "id": "http:\/\/wso2jsonschema.org\/offset",
+      "type": "string",
+      "nullable": "true"
+    },
+    "limit": {
+      "id": "http:\/\/wso2jsonschema.org\/limit",
+      "type": "string",
+      "nullable": "true"
+    },
+    "sort": {
+      "id": "http:\/\/wso2jsonschema.org\/sort",
+      "type": "string",
+      "nullable": "true"
+    },
+    "statusId": {
+      "id": "http:\/\/wso2jsonschema.org\/statusId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "subprojectId": {
+      "id": "http:\/\/wso2jsonschema.org\/subprojectId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "trackerId": {
+      "id": "http:\/\/wso2jsonschema.org\/trackerId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "assignedToId": {
+      "id": "http:\/\/wso2jsonschema.org\/assignedToId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "cf": {
+      "id": "http:\/\/wso2jsonschema.org\/cf",
+      "type": "string",
+      "nullable": "true"
+    },
+    "createdOn": {
+      "id": "http:\/\/wso2jsonschema.org\/createdOn",
+      "type": "string",
+      "nullable": "true"
+    },
+    "updatedOn": {
+      "id": "http:\/\/wso2jsonschema.org\/updatedOn",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

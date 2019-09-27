@@ -1,0 +1,58 @@
+{
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "from": {
+      "id": "http:\/\/wso2jsonschema.org\/from",
+      "type": "string"
+    },
+    "incidents": {
+      "id": "http:\/\/wso2jsonschema.org\/incidents",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/incidents\/0",
+          "type": "object",
+          "properties": {
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/id",
+              "type": "string"
+            },
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/type",
+              "type": "string"
+            },
+            "assignments": {
+              "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/assignments",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/assignments\/0",
+                  "type": "object",
+                  "properties": {
+                    "assignee": {
+                      "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/assignments\/0\/assignee",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/assignments\/0\/assignee\/id",
+                          "type": "string"
+                        },
+                        "type": {
+                          "id": "http:\/\/wso2jsonschema.org\/incidents\/0\/assignments\/0\/assignee\/type",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "messageId": {
+      "id": "http:\/\/wso2jsonschema.org\/messageId",
+      "type": "string"
+    },
+    "oDataType": {
+      "id": "http:\/\/wso2jsonschema.org\/oDataType",
+      "type": "string"
+    },
+    "name": {
+      "id": "http:\/\/wso2jsonschema.org\/name",
+      "type": "string"
+    },
+    "contentBytes": {
+      "id": "http:\/\/wso2jsonschema.org\/contentBytes",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

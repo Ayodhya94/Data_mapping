@@ -1,0 +1,16 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "calendarId": {
+      "id": "http:\/\/wso2jsonschema.org\/calendarId",
+      "type": "string"
+    },
+    "ruleId": {
+      "id": "http:\/\/wso2jsonschema.org\/ruleId",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

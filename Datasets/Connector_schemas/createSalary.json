@@ -1,0 +1,74 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "effectiveFrom": {
+      "id": "http:\/\/wso2jsonschema.org\/effectiveFrom",
+      "type": "string"
+    },
+    "salaryType": {
+      "id": "http:\/\/wso2jsonschema.org\/salaryType",
+      "type": "string"
+    },
+    "paymentFrequency": {
+      "id": "http:\/\/wso2jsonschema.org\/paymentFrequency",
+      "type": "string"
+    },
+    "salaryAmount": {
+      "id": "http:\/\/wso2jsonschema.org\/salaryAmount",
+      "type": "string"
+    },
+    "currencyCode": {
+      "id": "http:\/\/wso2jsonschema.org\/currencyCode",
+      "type": "string"
+    },
+    "changeReason": {
+      "id": "http:\/\/wso2jsonschema.org\/changeReason",
+      "type": "string"
+    },
+    "comments": {
+      "id": "http:\/\/wso2jsonschema.org\/comments",
+      "type": "string",
+      "nullable": "true"
+    },
+    "entitlements": {
+      "id": "http:\/\/wso2jsonschema.org\/entitlements",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/entitlements\/0",
+          "type": "object",
+          "properties": {
+            "Entitlement": {
+              "id": "http:\/\/wso2jsonschema.org\/entitlements\/0\/Entitlement",
+              "type": "string"
+            },
+            "Amount": {
+              "id": "http:\/\/wso2jsonschema.org\/entitlements\/0\/Amount",
+              "type": "string"
+            },
+            "Percentage": {
+              "id": "http:\/\/wso2jsonschema.org\/entitlements\/0\/Percentage",
+              "type": "string"
+            },
+            "Comments": {
+              "id": "http:\/\/wso2jsonschema.org\/entitlements\/0\/Comments",
+              "type": "null"
+            },
+            "IncludeInTotalSalary": {
+              "id": "http:\/\/wso2jsonschema.org\/entitlements\/0\/IncludeInTotalSalary",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object"
+}
