@@ -29,6 +29,17 @@ import operator
 import sys
 import os
 import re
+import random
+
+
+def rem_vowel(string):
+    vowels = ('a', 'e', 'i', 'o', 'u')
+    for x in string.lower():
+        if x in vowels:
+            string = string.replace(x, "")
+
+            # Print string without vowels
+    return string
 
 
 def get_elem(tag_name, doc):
@@ -42,12 +53,14 @@ def get_elem(tag_name, doc):
     return list_val
 
 
-def get_features(tag_list, doc):
+def get_features(tag_list, doc, new_words):
     num_keys = 0
     num_unavail_keys = 0
-    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    num_zero_keys = 0
+    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
     # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
     wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_2", mmap='r')
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_3", mmap='r')
     new_tag_list = []
     obj = {}
     example_list = []
@@ -76,20 +89,53 @@ def get_features(tag_list, doc):
         digit_list = []
         alpha_list = []
         chara_list = []
-        num_keys += 1
+        # num_keys += 1
         tag_name_list = re.split(' |_', tag_name)
         temp = []
+        # print("TAG NAME")
+        # print(tag_name)
         for tags in tag_name_list:
+            num_keys += 1
             try:
-                word2_vec_list = wv[tags].tolist()
+                word2_vec_list = wv[tags.lower()].tolist()
+                # print(min(word2_vec_list))
+                # print(max(word2_vec_list))
+                # temp.append(word2_vec_list)
             except KeyError:
-                # word2_vec_list = [0*count for count in range(50)]
-                # word2_vec_list = [0 * count for count in range(150)]
+                # print(tags)
+                # try:
+                #     word2_vec_list = wv_1[tags.lower()].tolist()
+                #     print("ERROR")
+                #     print(word2_vec_list)
+                # except KeyError:
+                #     #     # if tags.lower() in new_words.keys():
+                #     #     #     word2_vec_list = (new_words[tags.lower()])
+                #     #     #     # print(rem_vowel(tags))
+                #     #     # elif rem_vowel(tags.lower()) in new_words.keys():
+                #     #     #     word2_vec_list = (new_words[rem_vowel(tags.lower())])
+                #     #     # else:
+                #     #     #     word2_vec_list = random.sample(range(-15, 15), 15)
+                #     #     #     new_words[tags.lower()] = word2_vec_list
+                #     #     #     new_words[rem_vowel(tags.lower())] = word2_vec_list
+                #     #     # word2_vec_list = [0*count for count in range(50)]
+                #     word2_vec_list_1 = [0 * count for count in range(150)]
                 word2_vec_list = [0 * count for count in range(15)]
+                # word2_vec_list = [0.0 * count for count in range(10)]
+                num_zero_keys += 0
                 num_unavail_keys += 1
-                print(tags)
+                # print(tags)
             temp.append(word2_vec_list)
+        print(temp)
+        print(type(temp))
+        print(len(temp))
         word2_vec_list = np.mean(temp, axis=0).tolist()
+        # print("W2V")
+        # print(word2_vec_list)
+        # if len(temp) > 0:
+        #     word2_vec_list = np.mean(temp, axis=0).tolist()
+        # else:
+        #     word2_vec_list = [0 * count for count in range(15)]
+        #     num_zero_keys += 0
         space = 0
         distinct_val = {}
         new_line = 0
@@ -145,6 +191,16 @@ def get_features(tag_list, doc):
                 comp_feat = [0, 0, 0]
             dist_feat = [len(distinct_val.keys()), -sum(distr_list_mod)]
 
+            type_list = ['phone', 'name', 'address', 'city', 'email', 'id', 'age', 'number']
+            norm_type_list = [0*num for num in range(len(type_list))]
+            for val in range(len(type_list)):
+                tag_name_split = re.split(' |_', tag_name)
+                tag_name_split = [val.lower() for val in tag_name_split]
+                if type_list[val] in tag_name_split:
+                    norm_type_list[val] = 1
+            print(tag_name.upper())
+            print(norm_type_list)
+
             norm_stat_feat = []
             for val in stat_feat:
                 # norm_stat_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
@@ -178,7 +234,7 @@ def get_features(tag_list, doc):
             # print (norm_stat_feat)
             # print (comp_feat)
             # print (dist_feat)
-            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list
+            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat
             # print(norm_feature_map)
             # feature_map = stat_feat + comp_feat + dist_feat + word2_vec_list
@@ -194,8 +250,9 @@ def get_features(tag_list, doc):
     # print (example_list)
     print("Number of keys: %u" % num_keys)
     print("Number of unavailable keys: %u" % num_unavail_keys)
+    print("Number of zero keys: %u" % num_zero_keys)
     print(num_unavail_keys/num_keys*100)
-    return [final_feature_list_concat, final_feature_list, new_tag_list]
+    return [final_feature_list_concat, final_feature_list, new_tag_list, len(norm_type_list)]
 
 
 def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec, num_features):
@@ -350,6 +407,7 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
 
     model = xgb.train(param, d_train, steps)
 
+
     d_test_1 = xgb.DMatrix(batch_test_x_1)
     d_test_2 = xgb.DMatrix(batch_test_x_2)
 
@@ -376,11 +434,13 @@ def main():
     ''' Fetch data and extract features '''
 
     # f = open("Datasets/phone_schema.txt", "r")
-    f = open("Datasets/courses_schemas.txt", "r")
+    # f = open("Datasets/courses_schemas.txt", "r")
+    f = open("Datasets/courses_schemas_copy.txt", "r")
     # f = open("Datasets/real_es_schema.txt", "r")
     # f = open("Datasets/schemas.txt", "r")
     fl = f.readlines()
     info = []
+    new_words = {}
     for line in fl:
         line = line[:-1]
         print(line)
@@ -392,7 +452,7 @@ def main():
 
         elem_list = list(set(elem_list))
         doc = xml.dom.minidom.parse(line)
-        features_tag = get_features(elem_list, doc)
+        features_tag = get_features(elem_list, doc, new_words)
 
         info_dict['elem_list'] = elem_list
         info_dict['doc'] = doc
@@ -403,11 +463,14 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
-    test_set_1 = 3
-    test_set_2 = 4
+    test_set_1 = 3  # 5
+    test_set_2 = 4  # 7
 
     features = []
     label_list = []
+
+    print("INFO LENGTH")
+    print(len(info))
 
     for i in range(len(info)):
         if (i+1) == test_set_1 or (i+1) == test_set_2:
@@ -421,16 +484,17 @@ def main():
     plt.figure(figsize=(10, 7))
     plt.title("Clusters")
     get_link = shc.linkage(features, method='ward')
+    # print(label_list)
     dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
     plt.axhline(y=1, color='r', linestyle='--')
     # plt.show()
 
     ''' Ground truth for training '''
-    num_clusters = 13  # 6  # 8 #13
+    num_clusters = 13  # 25  # 6  # 8 #13
     # num_feat = 60
     # num_feat = 160
     # num_feat = 10
-    num_feat = 25
+    num_feat = info[0]['features_tag'][-1] + 25  # 10  # 25
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -448,10 +512,16 @@ def main():
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
+    print("FEATURE_1")
+    print(test_feature_1)
+    print(test_tag_1)
 
     test_feature_2 = info[test_set_2-1]['features_tag'][1]  # features_tag_4[1]
     test_tag_2 = info[test_set_2-1]['features_tag'][2]  # features_tag_4[2]
     test_doc_2 = info[test_set_2-1]['doc']  # doc4
+    print("FEATURE_2")
+    print(test_feature_2)
+    print(test_tag_2)
 
     ''' Prediction '''
     # Neural Network
