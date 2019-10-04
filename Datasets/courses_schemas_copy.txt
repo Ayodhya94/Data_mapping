@@ -9,3 +9,7 @@ Datasets/321gone.xml
 Datasets/real_estate_windermere.xml
 Datasets/real_estate_texas.xml
 Datasets/real_estate_nky.xml
+Datasets/NEH_Grants1980s.xml
+Datasets/NEH_Grants2000s.xml
+Datasets/rows.xml
+Datasets/weather.xml
