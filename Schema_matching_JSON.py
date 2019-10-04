@@ -22,7 +22,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from gensim.models import KeyedVectors
 
-
 # import cmath as math
 import operator
 import sys
@@ -66,6 +65,7 @@ class XmlDictConfig(dict):
 
     And then use xmldict for what it is... a dict.
     '''
+
     def __init__(self, parent_element):
         if parent_element.items():
             self.update(dict(parent_element.items()))
@@ -100,7 +100,7 @@ class XmlDictConfig(dict):
 
 def dict_traverse(dictionary, temp):
     for key in dictionary:
-        temp_new = [i for i in temp] + [key] #re.sub(r"([A-Z])", r" \1", key).split()
+        temp_new = [i for i in temp] + [key]  # re.sub(r"([A-Z])", r" \1", key).split()
         new_val = dictionary[key]
         if type(new_val) == dict or isinstance(new_val, XmlDictConfig):
             dict_traverse(new_val, temp_new)
@@ -142,11 +142,11 @@ def dict_test(dictionary, temp, name_list, path_list, val_list):
             list_test(new_val, temp_new, name_list, path_list, val_list)
         else:
             # name_list.append(re.sub(r"([A-Z])", r" \1", temp_new[-1]).split())
-            name_list.append(re.split('_| |:',re.sub(r"([A-Z])", r" \1", temp_new[-1])))
+            name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp_new[-1])))
             # print("\nNAME_LIST")
             # print(name_list)
             # path_list.append([re.sub(r"([A-Z])", r" \1", i).split() for i in temp_new[:-1]])
-            path_list.append([re.split('_| |:',re.sub(r"([A-Z])", r" \1", i)) for i in temp_new[:-1]])
+            path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp_new[:-1]])
             # print("\nPATH_LIST")
             # print(path_list)
             val_list.append(new_val)
@@ -209,10 +209,15 @@ def dict_test_wso2(dictionary, temp, name_list, path_list, val_list):
             if key == 'id':
                 try:
                     if temp_new[-1].isupper():
-                        name_list.append(re.split('_| |:', temp_new[-1].lower()))
+                        name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp_new[-1].lower())))))
                     else:
-                        name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp_new[-1])))
-                    # print("NAME LIST UPDATED")
+                        # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp_new[-1]).lower())))))
+                        name_list.append(list(filter(''.__ne__, (
+                            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp_new[-1]+"_").lower())))))
+                    # print("\nNAME LIST UPDATED")
+                    # print(temp_new[-1])
+                    # print(re.sub(r"([A-Z])", r" \1", re.sub(r"([A-Z]+[a-z0-9\W])", r" \1", temp_new[-1])))
+                    # print(name_list[-1])
                 except IndexError:
                     name_list.append('NONE')
                     # print("NAME LIST UPDATED")
@@ -220,9 +225,11 @@ def dict_test_wso2(dictionary, temp, name_list, path_list, val_list):
                     temp_list = []
                     for i in temp_new[:-1]:
                         if i.isupper():
-                            temp_list.append(re.split('_| |:', i.lower()))
+                            temp_list.append(list(filter(''.__ne__, (re.split('_| |:', i.lower())))))
                         else:
-                            temp_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)))
+                            # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
+                            temp_list.append(list(filter(''.__ne__, (
+                                re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
                     path_list.append(temp_list)
                     # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp_new[:-1]])
                     # print("PATH LIST UPDATED")
@@ -231,6 +238,11 @@ def dict_test_wso2(dictionary, temp, name_list, path_list, val_list):
             elif key == 'title':
                 continue
             elif key == 'type':
+                # if new_val.lower() == 'null':
+                #     del name_list[-1]
+                #     del path_list[-1]
+                #     # print("YES")
+                # else:
                 val_list.append(new_val)
                 # print("VAL LIST UPDATED")
             else:
@@ -288,9 +300,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
                 if key == 'id':
                     try:
                         if temp[-1].isupper():
-                            name_list.append(re.split('_| |:', temp[-1].lower()))
+                            name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
                         else:
-                            name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
+                            # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp[-1]).lower())))))
+                            name_list.append(list(filter(''.__ne__, (
+                                re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp[-1]+"_").lower())))))
                         # name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
                         # print("NAME LIST UPDATED")
                     except IndexError:
@@ -300,9 +314,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
                         temp_list = []
                         for i in temp[:-1]:
                             if i.isupper():
-                                temp_list.append(re.split('_| |:', i.lower()))
+                                temp_list.append(list(filter(''.__ne__, (re.split('_| |:', i.lower())))))
                             else:
-                                temp_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)))
+                                # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
+                                temp_list.append(list(filter(''.__ne__, (
+                                    re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
                         path_list.append(temp_list)
                         # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
                         # print("PATH LIST UPDATED")
@@ -312,6 +328,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
                 elif key == 'title':
                     continue
                 elif key == 'type':
+                    # if val.lower() == 'null':
+                    #     del name_list[-1]
+                    #     del path_list[-1]
+                    #     # print("YES")
+                    # else:
                     val_list.append(val)
                     # print("VAL LIST UPDATED")
                 else:
@@ -331,9 +352,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
         if key == 'id':
             try:
                 if temp[-1].isupper():
-                    name_list.append(re.split('_| |:', temp[-1].lower()))
+                    name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
                 else:
-                    name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
+                    # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp[-1]).lower())))))
+                    name_list.append(list(filter(''.__ne__, (
+                        re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp[-1]+"_").lower())))))
                 # name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
                 # print("NAME LIST UPDATED")
             except IndexError:
@@ -343,9 +366,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
                 temp_list = []
                 for i in temp[:-1]:
                     if i.isupper():
-                        temp_list.append(re.split('_| |:', i.lower()))
+                        temp_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
                     else:
-                        temp_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)))
+                        # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
+                        temp_list.append(list(filter(''.__ne__, (
+                            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
                 path_list.append(temp_list)
                 # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
                 # print("PATH LIST UPDATED")
@@ -355,6 +380,11 @@ def list_test_wso2(list_in, temp, name_list, path_list, val_list):
         elif key == 'title':
             print("ERROR")
         elif key == 'type':
+            # if val.lower() == 'null':
+            #     del name_list[-1]
+            #     del path_list[-1]
+            #     # print("YES")
+            # else:
             val_list.append(val)
             # print("VAL LIST UPDATED")
         else:
@@ -410,8 +440,10 @@ def get_features_title(names, paths, values):
 
     wv = KeyedVectors.load(path, mmap='r')
 
-    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0], 'array': [0, 0, 1, 0, 0, 0, 0, 0],
-                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0], 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
+    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0],
+                 'array': [0, 0, 1, 0, 0, 0, 0, 0],
+                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0],
+                 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
     for i in range(len(names)):
         if names[i] == ['id']:
             try:
@@ -423,11 +455,11 @@ def get_features_title(names, paths, values):
                     try:
                         word_embed.append(wv[words.lower()])
                     except KeyError:
-                        word_embed.append([0*i for i in range(150)])
+                        word_embed.append([0 * i for i in range(150)])
                 # print(word_embed)
                 word_embed = np.mean(word_embed, axis=0).tolist()
-                if names[i+1] == ['type']:
-                    type_embed = data_type[values[i+1].lower()]
+                if names[i + 1] == ['type']:
+                    type_embed = data_type[values[i + 1].lower()]
                 else:
                     type_embed = data_type['none']
 
@@ -436,9 +468,9 @@ def get_features_title(names, paths, values):
                     try:
                         norm_word_embed.append((val - min(word_embed)) / (max(word_embed) - min(word_embed)))
                     except ZeroDivisionError:
-                        if val>1:
+                        if val > 1:
                             norm_word_embed.append(1)
-                        elif val<0:
+                        elif val < 0:
                             norm_word_embed.append(0)
                         else:
                             norm_word_embed.append(val)
@@ -466,15 +498,18 @@ def get_features_title_wso2(names, paths, values):
 
     wv = KeyedVectors.load(path, mmap='r')
 
-    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0], 'array': [0, 0, 1, 0, 0, 0, 0, 0],
-                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0], 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
+    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0],
+                 'array': [0, 0, 1, 0, 0, 0, 0, 0],
+                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0],
+                 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
+    special_class = ['id', 'phone', 'name', 'num', 'age', 'date', 'value', 'type', 'code']
     for i in range(len(names)):
-        if values[i] in ['object', 'array']:
+        if values[i] in ['object', 'array', 'null']:
             continue
         else:
             attribute = names[i]
             # print("ATTRIBUTTE")
-            # print(attribute)
+            # print(''.join(attribute))
             word_embed = []
             for words in attribute:
                 try:
@@ -482,9 +517,14 @@ def get_features_title_wso2(names, paths, values):
                     # print(wv[words.lower()])
                 except KeyError:
                     # print("ERROR KEY")
+                    # print(words)
                     word_embed.append([0 * i for i in range(150)])
             word_embed = np.mean(word_embed, axis=0).tolist()
             type_embed = data_type[values[i]]
+            class_embed = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            for ite in range(len(special_class)):
+                if special_class[ite] in (''.join(attribute)).lower():
+                    class_embed[ite] = 1
 
             norm_word_embed = []
             # print("WORD EMBEDD")
@@ -499,48 +539,48 @@ def get_features_title_wso2(names, paths, values):
                         norm_word_embed.append(0)
                     else:
                         norm_word_embed.append(val)
-            feature = norm_word_embed + type_embed
+            feature = norm_word_embed + type_embed + class_embed
 
             tag_list.append(attribute)
             feature_list.append(feature)
             path_list.append(paths[i])
     return [tag_list, feature_list, path_list]
-        # if names[i] == ['id']:
-        #     try:
-        #         attribute = paths[i][-1]
-        #         print(attribute)
-        #         word_embed = []
-        #         for words in attribute:
-                    # print(words)
-                    # try:
-                    #     word_embed.append(wv[words.lower()])
-                    # except KeyError:
-                    #     word_embed.append([0*i for i in range(150)])
-                # print(word_embed)
-                # word_embed = np.mean(word_embed, axis=0).tolist()
-                # if names[i+1] == ['type']:
-                #     type_embed = data_type[values[i+1].lower()]
-                # else:
-                #     type_embed = data_type['none']
-                #
-                # norm_word_embed = []
-                # for val in word_embed:
-                #     try:
-                #         norm_word_embed.append((val - min(word_embed)) / (max(word_embed) - min(word_embed)))
-                #     except ZeroDivisionError:
-                #         if val>1:
-                #             norm_word_embed.append(1)
-                #         elif val<0:
-                #             norm_word_embed.append(0)
-                #         else:
-                #             norm_word_embed.append(val)
-                #
-                # feature = norm_word_embed + type_embed
-                #
-                # tag_list.append(attribute)
-                # feature_list.append(feature)
-            # except IndexError:
-            #     continue
+    # if names[i] == ['id']:
+    #     try:
+    #         attribute = paths[i][-1]
+    #         print(attribute)
+    #         word_embed = []
+    #         for words in attribute:
+    # print(words)
+    # try:
+    #     word_embed.append(wv[words.lower()])
+    # except KeyError:
+    #     word_embed.append([0*i for i in range(150)])
+    # print(word_embed)
+    # word_embed = np.mean(word_embed, axis=0).tolist()
+    # if names[i+1] == ['type']:
+    #     type_embed = data_type[values[i+1].lower()]
+    # else:
+    #     type_embed = data_type['none']
+    #
+    # norm_word_embed = []
+    # for val in word_embed:
+    #     try:
+    #         norm_word_embed.append((val - min(word_embed)) / (max(word_embed) - min(word_embed)))
+    #     except ZeroDivisionError:
+    #         if val>1:
+    #             norm_word_embed.append(1)
+    #         elif val<0:
+    #             norm_word_embed.append(0)
+    #         else:
+    #             norm_word_embed.append(val)
+    #
+    # feature = norm_word_embed + type_embed
+    #
+    # tag_list.append(attribute)
+    # feature_list.append(feature)
+    # except IndexError:
+    #     continue
     # path_list = []
     # for paths_name in paths:
     #     path_list.append(paths_name[:-1])
@@ -596,7 +636,7 @@ def train_nn(files, num_clustrs):
     # plt.show()
 
     ''' Ground truth for training '''
-    num_clusters = num_clustrs #13
+    num_clusters = num_clustrs  # 13
     num_feat = 158
 
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
@@ -635,11 +675,19 @@ def predict_nn(file):
     # print(paths)
     # print("VALUES")
     # print(values)
+    # print("\nCOMPARE")
+    # print(len(names))
+    # print(len(paths))
+    # print(len(values))
 
     out_feat = get_features_title_wso2(names, paths, values)
     tag_list = out_feat[0]
     feature_list = out_feat[1]
     path_list = out_feat[2]
+    print("\nCOMPARE")
+    print(len(tag_list))
+    print(len(path_list))
+    print(len(feature_list))
     # print("FEATURES_2")
     # print("TAG LIST")
     # print(tag_list)
@@ -661,7 +709,7 @@ def predict_nn(file):
 def indices(list_in, value):
     new_list = []
     for i in range(len(list_in)):
-        if list_in[i]==value:
+        if list_in[i] == value:
             new_list.append(i)
     return new_list
 
@@ -679,13 +727,13 @@ def main():
                 files.append(os.path.join(r, file))
 
     num_clusters = 20
-    # train_nn(files, num_clusters)
+    train_nn(files, num_clusters)
     # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_4.json')
-    predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_15.json')
+    predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_3.json')
     # print(predictions)
     # print("\n")
     # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_4.json')
-    predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_15.json')
+    predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_3.json')
 
     tag_1 = predictions_1[0]
     tag_2 = predictions_2[0]
@@ -719,22 +767,22 @@ def main():
         index_list_1 = indices(class_name_1, i)
         index_list_2 = indices(class_name_2, i)
 
-        # print("\n")
-        # print("Class %u" % (i + 1))
+        print("\n")
+        print("Class %u" % (i + 1))
         for item in index_list_1:
             label = tag_1[item]
             label_list_1.append(label)
-            # print(label)
+            print(label)
             path_list_1.append(path_1[item])
             # print(path_1[item])
-        # print("___________")
+        print("___________")
         for item in index_list_2:
             label = tag_2[item]
             label_list_2.append(label)
-            # print(label)
+            print(label)
             path_list_2.append(path_2[item])
             # print(path_2[item])
-        # print("_______________________________")
+        print("_______________________________")
 
         num_attr = 0
         num_not_match = 0
@@ -749,6 +797,8 @@ def main():
             # print("AIM LIST")
             # print(aim_list)
             aim_vector = []
+
+            # Find mean embedding for aim list
             for aim in aim_list:
                 word_vector = []
                 for word in aim:
@@ -757,18 +807,20 @@ def main():
                     except KeyError:
                         # print("WORD")
                         # print(word)
-                        word_vector.append([0*i for i in range(150)])
+                        word_vector.append([0 * i for i in range(150)])
                 aim_vector.append(np.mean(word_vector, axis=0))
                 # print(aim_vector[-1])
             # print(aim_list[-1])
             # index_list = []
             # print(features_1[j])
-            for i in range(len(label_list_2)):
+            for k in range(len(label_list_2)):
                 score = 0
-                candidate_list = path_list_2[i] + [label_list_2[i]]  # [label_list_2[i]]  #
+                candidate_list = path_list_2[k] + [label_list_2[k]]  # [label_list_2[k]]  #
                 # print("CANDIDATE LIST")
                 # print(candidate_list)
                 cand_vector = []
+
+                # Find mean vector for candidate list
                 for cand in candidate_list:
                     word_vector = []
                     for word in cand:
@@ -778,7 +830,7 @@ def main():
                             # print("KEY ERROR")
                             # print("WORD")
                             # print(word)
-                            word_vector.append([0 * i for i in range(150)])
+                            word_vector.append([0 * l for l in range(150)])
                     cand_vector.append(np.mean(word_vector, axis=0))
                     # print(cand_vector[-1])
                 # print(candidate_list[-1])
@@ -789,6 +841,11 @@ def main():
                 # print(candidate_list[-1])
                 if aim_list[-1] == candidate_list[-1]:
                     score = 0
+                    # print("YES -")
+                    # print(aim_list[-1])
+                    # print(candidate_list[-1])
+                    # print("DONE")
+
                 # elif aim_list[-1].any() == candidate_list[-1].any():
                 #     score = 1
                 else:
@@ -801,13 +858,15 @@ def main():
                         # print("ELSE")
                     else:
                         # print("ELSE")
-                        score = priority - (priority * np.dot(aim_vector[-1], cand_vector[-1]) / (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
+                        # print(priority * np.dot(aim_vector[-1], cand_vector[-1]) / (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
+                        score = priority - ((priority - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
+                                    np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
                 # print(score)
                 simi = 0
                 for vec_1 in aim_vector[:-1]:
                     for vec_2 in cand_vector[:-1]:
                         if (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2)) == 0:
-                            simi = simi
+                            simi += 0
                         else:
                             simi += np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2))
                 try:
@@ -823,8 +882,9 @@ def main():
                 # print(simi)
                 score_list.append(score + simi)
                 # print(score_list)
-            score_mat.append(score_list)
+            # score_mat.append(score_list)
             # print(score_mat)
+            score_mat.append(score_list)
 
         #             score_row = []
         #             for aim in aim_list:
@@ -863,30 +923,28 @@ def main():
             aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
             selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
             # print('%s : %s' % (label_list_1[], label_list_2[])),
-            print("%s : \n%s\n" % ((",".join(["_".join(i) for i in aim_list])), (",".join(["_".join(i) for i in selected_list]))))
+            print("%s : \n%s\n" % (
+            (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
 
         # dict_traverse()
 
-            # try:
-            #     if max(score_list) > 0:
-            #         selected_index = index_list[score_list.index(max(score_list))]
-            #         selected_list = path_2[selected_index] + [tag_2[selected_index]]
-            #
-            #         # print("\nSelected attribute: ")
-            #         # print(max(score_list))
-            #         print("%s : %s\n" % ((",".join(["".join(i) for i in aim_list])), (",".join(["".join(i) for i in selected_list]))))
-            #     else:
-            #         num_not_match += 1
-            # except ValueError:
-            #     # print("No matching out")
-            #     num_not_match += 1
-            #     continue
+        # try:
+        #     if max(score_list) > 0:
+        #         selected_index = index_list[score_list.index(max(score_list))]
+        #         selected_list = path_2[selected_index] + [tag_2[selected_index]]
+        #
+        #         # print("\nSelected attribute: ")
+        #         # print(max(score_list))
+        #         print("%s : %s\n" % ((",".join(["".join(i) for i in aim_list])), (",".join(["".join(i) for i in selected_list]))))
+        #     else:
+        #         num_not_match += 1
+        # except ValueError:
+        #     # print("No matching out")
+        #     num_not_match += 1
+        #     continue
 
         # print(num_not_match / num_attr * 100)
         # print(num_not_match)
-
-
-
 
         # simi_list = []
         # for i_attr in label_list_1:

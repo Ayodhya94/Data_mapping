@@ -90,7 +90,9 @@ def get_features(tag_list, doc, new_words):
         alpha_list = []
         chara_list = []
         # num_keys += 1
-        tag_name_list = re.split(' |_', tag_name)
+        # tag_name_list = re.split(' |_', tag_name)
+        tag_name_list = list(filter(''.__ne__, (
+            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", tag_name + "_").lower()))))
         temp = []
         # print("TAG NAME")
         # print(tag_name)
@@ -123,11 +125,12 @@ def get_features(tag_list, doc, new_words):
                 # word2_vec_list = [0.0 * count for count in range(10)]
                 num_zero_keys += 0
                 num_unavail_keys += 1
+                # print("ERROR")
                 # print(tags)
             temp.append(word2_vec_list)
-        print(temp)
-        print(type(temp))
-        print(len(temp))
+        # print(temp)
+        # print(type(temp))
+        # print(len(temp))
         word2_vec_list = np.mean(temp, axis=0).tolist()
         # print("W2V")
         # print(word2_vec_list)
@@ -167,12 +170,16 @@ def get_features(tag_list, doc, new_words):
             except AttributeError:
                 continue
 
+        norm_feature_map = []
+
         if processed_list == []:
+            # print("NULL")
             continue
         elif len(distinct_val)==0:
-            # print ("DISTINCT")
+            # print("DISTINCT")
             continue
         else:
+            # print("ELSE")
             new_tag_list.append(tag_name)
 
             total_items = sum([distinct_val[key] for key in distinct_val.keys()])
@@ -194,12 +201,15 @@ def get_features(tag_list, doc, new_words):
             type_list = ['phone', 'name', 'address', 'city', 'email', 'id', 'age', 'number']
             norm_type_list = [0*num for num in range(len(type_list))]
             for val in range(len(type_list)):
-                tag_name_split = re.split(' |_', tag_name)
-                tag_name_split = [val.lower() for val in tag_name_split]
-                if type_list[val] in tag_name_split:
+                # tag_name_split = re.split(' |_', tag_name)
+                # tag_name_split = list(filter(''.__ne__, (
+                #     re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", tag_name + "_").lower()))))
+                # tag_name_split = [val.lower() for val in tag_name_split]
+                if type_list[val] in tag_name.lower():
+                    # print("YES")
                     norm_type_list[val] = 1
-            print(tag_name.upper())
-            print(norm_type_list)
+            # print(tag_name.upper())
+            # print(norm_type_list)
 
             norm_stat_feat = []
             for val in stat_feat:
@@ -235,6 +245,8 @@ def get_features(tag_list, doc, new_words):
             # print (comp_feat)
             # print (dist_feat)
             norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list
+            # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_type_list
+            # norm_feature_map = norm_word2vec_list + norm_type_list
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat
             # print(norm_feature_map)
             # feature_map = stat_feat + comp_feat + dist_feat + word2_vec_list
@@ -252,7 +264,7 @@ def get_features(tag_list, doc, new_words):
     print("Number of unavailable keys: %u" % num_unavail_keys)
     print("Number of zero keys: %u" % num_zero_keys)
     print(num_unavail_keys/num_keys*100)
-    return [final_feature_list_concat, final_feature_list, new_tag_list, len(norm_type_list)]
+    return [final_feature_list_concat, final_feature_list, new_tag_list, len(norm_feature_map)]
 
 
 def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec, num_features):
@@ -407,6 +419,17 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
 
     model = xgb.train(param, d_train, steps)
 
+    # print("Feature Importance:")
+    # print("Weight:")
+    # print(model.get_score(importance_type='weight'))
+    # print("Gain:")
+    # print(model.get_score(importance_type='gain'))
+    # print("Cover:")
+    # print(model.get_score(importance_type='cover'))
+    # print("Total gain:")
+    # print(model.get_score(importance_type='total_gain'))
+    # print("Total cover:")
+    # print(model.get_score(importance_type='total_cover'))
 
     d_test_1 = xgb.DMatrix(batch_test_x_1)
     d_test_2 = xgb.DMatrix(batch_test_x_2)
@@ -463,8 +486,8 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
-    test_set_1 = 3  # 5
-    test_set_2 = 4  # 7
+    test_set_1 = 12  # 5
+    test_set_2 = 15  # 7
 
     features = []
     label_list = []
@@ -494,7 +517,7 @@ def main():
     # num_feat = 60
     # num_feat = 160
     # num_feat = 10
-    num_feat = info[0]['features_tag'][-1] + 25  # 10  # 25
+    num_feat = info[0]['features_tag'][-1] #+ 25  # 10  # 25
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -512,16 +535,16 @@ def main():
     test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
     test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
     test_doc_1 = info[test_set_1-1]['doc']  # doc1
-    print("FEATURE_1")
-    print(test_feature_1)
-    print(test_tag_1)
+    # print("FEATURE_1")
+    # print(test_feature_1)
+    # print(test_tag_1)
 
     test_feature_2 = info[test_set_2-1]['features_tag'][1]  # features_tag_4[1]
     test_tag_2 = info[test_set_2-1]['features_tag'][2]  # features_tag_4[2]
     test_doc_2 = info[test_set_2-1]['doc']  # doc4
-    print("FEATURE_2")
-    print(test_feature_2)
-    print(test_tag_2)
+    # print("FEATURE_2")
+    # print(test_feature_2)
+    # print(test_tag_2)
 
     ''' Prediction '''
     # Neural Network
@@ -637,7 +660,39 @@ def main():
                 cost_row.append(cost)
             cost_list.append(cost_row)
         # print (cost_list)
-
+        ###########################################
+        # simi_list = []
+        # for i_attr in label_list_1:
+        #     i_attr_list = i_attr.split("_")
+        #     # print(i_attr_list)
+        #     simi_row = []
+        #     for j_attr in label_list_2:
+        #         j_attr_list = j_attr.split("_")
+        #         # print(j_attr_list)
+        #         temp_list = []
+        #         for word_part_1 in i_attr_list:
+        #             for word_part_2 in j_attr_list:
+        #                 if word_part_1.lower() == word_part_2.lower():
+        #                     simi = 1
+        #                 else:
+        #                     try:
+        #                         simi = wv.similarity(w1=word_part_1, w2=word_part_2)
+        #                     except KeyError:
+        #                         # simi = 0
+        #                         # print("###########")
+        #                         # print(word_part_1)
+        #                         # print(word_part_2)
+        #                         # print("###########")
+        #                         try:
+        #                             simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+        #                         except KeyError:
+        #                             simi = 0
+        #                 temp_list.append(simi)
+        #                 # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
+        #         simi_row.append(1-max(temp_list))
+        #     simi_list.append(simi_row)
+        # # print (cost_list)
+        #############################################
         simi_list = []
         for i_attr in label_list_1:
             i_attr_list = i_attr.split("_")
@@ -649,22 +704,19 @@ def main():
                 temp_list = []
                 for word_part_1 in i_attr_list:
                     for word_part_2 in j_attr_list:
-                        try:
-                            simi = wv.similarity(w1=word_part_1, w2=word_part_2)
-                        except KeyError:
-                            # simi = 0
-                            # print("###########")
-                            # print(word_part_1)
-                            # print(word_part_2)
-                            # print("###########")
+                        if word_part_1.lower() == word_part_2.lower():
+                            simi = 1
+                        else:
                             try:
-                                simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+                                simi = wv.similarity(w1=word_part_1, w2=word_part_2)
                             except KeyError:
-                                simi = 0
+                                try:
+                                    simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+                                except KeyError:
+                                    simi = 0
                         temp_list.append(simi)
-                        # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
-
-                simi_row.append(1-max(temp_list))
+                        # print("%s, %s, %f" % (word_part_1, word_part_2, simi))
+                simi_row.append(1 - sum(temp_list)/len(temp_list))
             simi_list.append(simi_row)
         # print (cost_list)
 
