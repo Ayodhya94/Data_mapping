@@ -22,6 +22,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from gensim.models import KeyedVectors
+from xgboost import plot_importance
 
 
 import cmath as math
@@ -30,6 +31,8 @@ import sys
 import os
 import re
 import random
+import shap
+import mpld3
 
 
 def rem_vowel(string):
@@ -247,6 +250,7 @@ def get_features(tag_list, doc, new_words):
             norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_type_list
             # norm_feature_map = norm_word2vec_list + norm_type_list
+            # norm_feature_map = norm_feature_map[:15]+[norm_feature_map[16]]+norm_feature_map[20:22]
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat
             # print(norm_feature_map)
             # feature_map = stat_feat + comp_feat + dist_feat + word2_vec_list
@@ -412,16 +416,25 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     d_train = xgb.DMatrix(batch_x, label=batch_y)
     param = {
         'eta': 0.3,
-        'max_depth': 3,
+        'max_depth': 10,  # 3,
         'objective': 'multi:softprob',
         'num_class': num_class}
     steps = 1000  # The number of training iterations
 
     model = xgb.train(param, d_train, steps)
 
-    # print("Feature Importance:")
-    # print("Weight:")
-    # print(model.get_score(importance_type='weight'))
+    print("Feature Importance:")
+    print("Weight:")
+    print(model.get_score(importance_type='weight'))
+    plot_importance(model)
+    # plt.show()
+    shap.initjs()
+    explainer = shap.TreeExplainer(model)
+    shap_vlaues = explainer.shap_values(batch_x)
+    shap.force_plot(explainer.expected_value[0], shap_vlaues[0], batch_x)  # , batch_x.iloc[0, :], matplotlib=True)
+    # plt.display(force_plot())
+    # plt.show()
+    # print(model.model.feature_importances_)
     # print("Gain:")
     # print(model.get_score(importance_type='gain'))
     # print("Cover:")
@@ -458,7 +471,7 @@ def main():
 
     # f = open("Datasets/phone_schema.txt", "r")
     # f = open("Datasets/courses_schemas.txt", "r")
-    f = open("Datasets/courses_schemas_copy.txt", "r")
+    f = open("Datasets/courses_schemas.txt", "r")
     # f = open("Datasets/real_es_schema.txt", "r")
     # f = open("Datasets/schemas.txt", "r")
     fl = f.readlines()
@@ -486,8 +499,8 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
-    test_set_1 = 12  # 5
-    test_set_2 = 15  # 7
+    test_set_1 = 1  # 5
+    test_set_2 = 2  # 7
 
     features = []
     label_list = []
