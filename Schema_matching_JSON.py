@@ -22,7 +22,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from gensim.models import KeyedVectors
 
-# import cmath as math
 import operator
 import sys
 import os
@@ -98,78 +97,57 @@ class XmlDictConfig(dict):
                 self.update({element.tag: element.text})
 
 
-def dict_traverse(dictionary, temp):
-    for key in dictionary:
-        temp_new = [i for i in temp] + [key]  # re.sub(r"([A-Z])", r" \1", key).split()
-        new_val = dictionary[key]
-        if type(new_val) == dict or isinstance(new_val, XmlDictConfig):
-            dict_traverse(new_val, temp_new)
-        elif type(new_val) == list or isinstance(new_val, XmlListConfig):
-            list_traverse(new_val, temp_new)
-        else:
-            print(temp_new)
-            print(new_val)
+def indices(list_in, value):
+    new_list = []
+    for i in range(len(list_in)):
+        if list_in[i] == value:
+            new_list.append(i)
+    return new_list
 
 
-def list_traverse(list_in, temp):
-    if len(list_in) > 0:
-        for val in list_in:
-            if type(val) == dict or isinstance(val, XmlDictConfig):
-                dict_traverse(val, temp)
-            elif type(val) == list or isinstance(val, XmlListConfig):
-                list_traverse(val, temp)
+def normalize(raw_list):
+    normalized_list = []  # Need to normalize word embedding values
+    for val in raw_list:
+        try:
+            normalized_list.append((val - min(raw_list)) / (max(raw_list) - min(raw_list)))
+        except ZeroDivisionError:
+            if val > 1:
+                normalized_list.append(1)
+            elif val < 0:
+                normalized_list.append(0)
             else:
-                print(temp)
-                print(val)
+                normalized_list.append(val)
+    return normalized_list
+
+
+def add_element_to_list(word, updating_list):
+    if word.isupper():
+        updating_list.append(list(filter(''.__ne__, (re.split('[_ :]', word.lower())))))
     else:
-        print(temp)
-        print(None)
+        updating_list.append(list(filter(''.__ne__, (
+            re.split('[_ :]', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", word + "_").lower())))))
+    return
 
 
-def dict_test(dictionary, temp, name_list, path_list, val_list):
-    for key in dictionary:
-        print("\n")
-        print(key)
-        print(temp)
-        if key == 'string' or key == 'int' or key == 'array' or key == 'boolean':
-            temp_new = [i for i in temp]
-        else:
-            temp_new = [i for i in temp] + [key]
-        new_val = dictionary[key]
-        if type(new_val) == dict or isinstance(new_val, XmlDictConfig):
-            dict_test(new_val, temp_new, name_list, path_list, val_list)
-        elif type(new_val) == list or isinstance(new_val, XmlListConfig):
-            list_test(new_val, temp_new, name_list, path_list, val_list)
-        else:
-            # name_list.append(re.sub(r"([A-Z])", r" \1", temp_new[-1]).split())
-            name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp_new[-1])))
-            # path_list.append([re.sub(r"([A-Z])", r" \1", i).split() for i in temp_new[:-1]])
-            path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp_new[:-1]])
-            val_list.append(new_val)
+def update_lists(key, info, temp_new, new_val):
+    if key == 'id':
+        try:
+            add_element_to_list(temp_new[-1], info["names"])
+        except IndexError:
+            info["names"].append('NONE')
+        try:
+            temp_list = []
+            for i in temp_new[:-1]:
+                add_element_to_list(i, temp_list)
+            info["paths"].append(temp_list)
+        except IndexError:
+            info["paths"].append('NONE')
+    elif key == 'type':
+        info["values"].append(new_val)
+    return
 
 
-def list_test(list_in, temp, name_list, path_list, val_list):
-    if len(list_in) > 0:
-        for val in list_in:
-            if type(val) == dict or isinstance(val, XmlDictConfig):
-                dict_test(val, temp, name_list, path_list, val_list)
-            elif type(val) == list or isinstance(val, XmlListConfig):
-                list_test(val, temp, name_list, path_list, val_list)
-            else:
-                # name_list.append(re.sub(r"([A-Z])", r" \1", temp[-1]).split())
-                name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
-                # path_list.append([re.sub(r"([A-Z])", r" \1", i).split() for i in temp[:-1]])
-                path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
-                val_list.append(val)
-    else:
-        # name_list.append(re.sub(r"([A-Z])", r" \1", temp[-1]).split())
-        name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
-        # path_list.append([re.sub(r"([A-Z])", r" \1", i).split() for i in temp[:-1]])
-        path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
-        val_list.append(val)
-
-
-def dict_test_wso2(dictionary, temp, name_list, path_list, val_list):
+def dict_traverse(dictionary, temp, info):
     attr_list = ['id', 'title', 'type']  # 'properties', 'items',
     for key in dictionary:
         new_val = dictionary[key]
@@ -178,255 +156,77 @@ def dict_test_wso2(dictionary, temp, name_list, path_list, val_list):
         else:
             temp_new = [i for i in temp] + [key]
         if type(new_val) == dict or isinstance(new_val, XmlDictConfig):
-            dict_test_wso2(new_val, temp_new, name_list, path_list, val_list)
+            dict_traverse(new_val, temp_new, info)
         elif type(new_val) == list or isinstance(new_val, XmlListConfig):
-            list_test_wso2(new_val, temp_new, name_list, path_list, val_list)
+            list_traverse(new_val, temp_new, info)
         else:
-            if key == 'id':
-                try:
-                    if temp_new[-1].isupper():
-                        name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp_new[-1].lower())))))
-                    else:
-                        # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp_new[-1]).lower())))))
-                        name_list.append(list(filter(''.__ne__, (
-                            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp_new[-1]+"_").lower())))))
-                except IndexError:
-                    name_list.append('NONE')
-                try:
-                    temp_list = []
-                    for i in temp_new[:-1]:
-                        if i.isupper():
-                            temp_list.append(list(filter(''.__ne__, (re.split('_| |:', i.lower())))))
-                        else:
-                            # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
-                            temp_list.append(list(filter(''.__ne__, (
-                                re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
-                    path_list.append(temp_list)
-                    # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp_new[:-1]])
-                except IndexError:
-                    path_list.append('NONE')
-            elif key == 'title':
-                continue
-            elif key == 'type':
-                # if new_val.lower() == 'null':
-                #     del name_list[-1]
-                #     del path_list[-1]
-                # else:
-                val_list.append(new_val)
-            else:
-                continue
+            update_lists(key, info, temp_new, new_val)
 
 
-def list_test_wso2(list_in, temp, name_list, path_list, val_list):
+def list_traverse(list_in, temp, info):
     if len(list_in) > 0:
         for val in list_in:
             if type(val) == dict or isinstance(val, XmlDictConfig):
-                dict_test_wso2(val, temp, name_list, path_list, val_list)
+                dict_traverse(val, temp, info)
             elif type(val) == list or isinstance(val, XmlListConfig):
-                list_test_wso2(val, temp, name_list, path_list, val_list)
+                list_traverse(val, temp, info)
             else:
-                if key == 'id':
-                    try:
-                        if temp[-1].isupper():
-                            name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
-                        else:
-                            # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp[-1]).lower())))))
-                            name_list.append(list(filter(''.__ne__, (
-                                re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp[-1]+"_").lower())))))
-                        # name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
-                    except IndexError:
-                        name_list.append('NONE')
-                    try:
-                        temp_list = []
-                        for i in temp[:-1]:
-                            if i.isupper():
-                                temp_list.append(list(filter(''.__ne__, (re.split('_| |:', i.lower())))))
-                            else:
-                                # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
-                                temp_list.append(list(filter(''.__ne__, (
-                                    re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
-                        path_list.append(temp_list)
-                        # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
-                    except IndexError:
-                        path_list.append('NONE')
-                elif key == 'title':
-                    continue
-                elif key == 'type':
-                    # if val.lower() == 'null':
-                    #     del name_list[-1]
-                    #     del path_list[-1]
-                    # else:
-                    val_list.append(val)
-                else:
-                    continue
-    else:
-        if key == 'id':
-            try:
-                if temp[-1].isupper():
-                    name_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
-                else:
-                    # name_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", temp[-1]).lower())))))
-                    name_list.append(list(filter(''.__ne__, (
-                        re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", temp[-1]+"_").lower())))))
-                # name_list.append(re.split('_| |:', re.sub(r"([A-Z])", r" \1", temp[-1])))
-            except IndexError:
-                name_list.append("NONE")
-            try:
-                temp_list = []
-                for i in temp[:-1]:
-                    if i.isupper():
-                        temp_list.append(list(filter(''.__ne__, (re.split('_| |:', temp[-1].lower())))))
-                    else:
-                        # temp_list.append(list(filter(''.__ne__, (re.split('_| |:', re.sub(r"([A-Z]+\s?[A-Z]+[^a-z0-9\W])", r" \1", i).lower())))))
-                        temp_list.append(list(filter(''.__ne__, (
-                            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", i+"_").lower())))))
-                path_list.append(temp_list)
-                # path_list.append([re.split('_| |:', re.sub(r"([A-Z])", r" \1", i)) for i in temp[:-1]])
-            except IndexError:
-                path_list.append("NONE")
-        elif key == 'title':
-            print("ERROR")
-        elif key == 'type':
-            # if val.lower() == 'null':
-            #     del name_list[-1]
-            #     del path_list[-1]
-            # else:
-            val_list.append(val)
+                update_lists(key, info, temp, val)
+
+
+def word_embed(attribute, wv):
+    embed = []
+    for words in attribute:
+        try:
+            embed.append(wv[words.lower()])
+        except KeyError:  # 0 embedding is used for words that are not in w2v model
+            embed.append([0 * i for i in range(150)])
+    embed = np.mean(embed, axis=0).tolist()
+    return embed
+
+
+def type_embed(value):
+    data_types = ['none', 'string', 'int', 'array', 'object', 'boolean', 'number', 'null']
+    embed = []
+    for ite in data_types:
+        if value == ite:
+            embed.append(1)
         else:
-            print("ERROR")
+            embed.append(0)
+    return embed
 
 
-def get_features(tag_list):
-    path = '/Users/ayodhya/PycharmProjects/word2vec/vectors/default'
-    # path = '/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors'
-    wv = KeyedVectors.load(path, mmap='r')
-
-    num_keys = 0
-    num_unavail_keys = 0
-    mean_vectors = []
-
-    for name in tag_list:
-        vectors = []
-        for word in name:
-            num_keys += 1
-            try:
-                vectors.append(wv[word.lower()])
-            except KeyError:
-                vectors.append([0 * i for i in range(150)])
-                num_unavail_keys += 1
-        mean_vectors.append(np.mean(vectors, axis=0).tolist())  # Find mean embedding
-
-    # Percentage of unavailable keys
-    print("Number of keys: %u" % num_keys)
-    print("Number of unavailable keys: %u" % num_unavail_keys)
-    print(num_unavail_keys / num_keys * 100)
-
-    return mean_vectors
-
-
-def get_features_title(names, paths, values):
-    tag_list = []
-    feature_list = []
-    dirname = os.getcwd()
-    abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "default")
-
-    wv = KeyedVectors.load(path, mmap='r')
-
-    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0],
-                 'array': [0, 0, 1, 0, 0, 0, 0, 0],
-                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0],
-                 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
-    for i in range(len(names)):
-        if names[i] == ['id']:
-            try:
-                attribute = paths[i][-1]
-                word_embed = []
-                for words in attribute:
-                    try:
-                        word_embed.append(wv[words.lower()])
-                    except KeyError:
-                        word_embed.append([0 * i for i in range(150)])
-                word_embed = np.mean(word_embed, axis=0).tolist()
-                if names[i + 1] == ['type']:
-                    type_embed = data_type[values[i + 1].lower()]
-                else:
-                    type_embed = data_type['none']
-
-                norm_word_embed = []
-                for val in word_embed:
-                    try:
-                        norm_word_embed.append((val - min(word_embed)) / (max(word_embed) - min(word_embed)))
-                    except ZeroDivisionError:
-                        if val > 1:
-                            norm_word_embed.append(1)
-                        elif val < 0:
-                            norm_word_embed.append(0)
-                        else:
-                            norm_word_embed.append(val)
-
-                feature = norm_word_embed + type_embed
-
-                tag_list.append(attribute)
-                feature_list.append(feature)
-            except IndexError:
-                continue
-    path_list = []
-    for paths_name in paths:
-        path_list.append(paths_name[:-1])
-
-    return [tag_list, feature_list, path_list]
-
-
-def get_features_title_wso2(names, paths, values):
-    tag_list = []
-    feature_list = []
-    path_list = []
-    dirname = os.getcwd()
-    abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "default")
-
-    wv = KeyedVectors.load(path, mmap='r')
-
-    data_type = {'none': [0, 0, 0, 0, 0, 0, 0, 0], 'string': [1, 0, 0, 0, 0, 0, 0, 0], 'int': [0, 1, 0, 0, 0, 0, 0, 0],
-                 'array': [0, 0, 1, 0, 0, 0, 0, 0],
-                 'object': [0, 0, 0, 1, 0, 0, 0, 0], 'boolean': [0, 0, 0, 0, 1, 0, 0, 0],
-                 'number': [0, 0, 0, 0, 0, 1, 0, 0], 'null': [0, 0, 0, 0, 0, 0, 1, 0]}
+def class_embed(value):
     special_class = ['id', 'phone', 'name', 'num', 'age', 'date', 'value', 'type', 'code']
-    for i in range(len(names)):
-        if values[i] in ['object', 'array', 'null']:
+    embed = []
+    for ite in special_class:
+        if ite in value:
+            embed.append(1)
+        else:
+            embed.append(0)
+    return embed
+
+
+def get_features(info, wv):
+    tag_list = []
+    feature_list = []
+    path_list = []
+
+    for i in range(len(info["names"])):
+        if info["values"][i] in ['object', 'array', 'null']:
+            # Neglect list, object, array names which are not real attributes
             continue
         else:
-            attribute = names[i]
-            word_embed = []
-            for words in attribute:
-                try:
-                    word_embed.append(wv[words.lower()])
-                except KeyError:
-                    word_embed.append([0 * i for i in range(150)])
-            word_embed = np.mean(word_embed, axis=0).tolist()
-            type_embed = data_type[values[i]]
-            class_embed = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            for ite in range(len(special_class)):
-                if special_class[ite] in (''.join(attribute)).lower():
-                    class_embed[ite] = 1
+            word_embed_list = normalize(word_embed(info["names"][i], wv))
+            type_embed_list = type_embed(info["values"][i])
+            class_embed_list = class_embed((''.join(info["names"][i])).lower())
 
-            norm_word_embed = []
-            for val in word_embed:
-                try:
-                    norm_word_embed.append((val - min(word_embed)) / (max(word_embed) - min(word_embed)))
-                except ZeroDivisionError:
-                    if val > 1:
-                        norm_word_embed.append(1)
-                    elif val < 0:
-                        norm_word_embed.append(0)
-                    else:
-                        norm_word_embed.append(val)
-            feature = norm_word_embed + type_embed + class_embed
+            feature = word_embed_list + type_embed_list + class_embed_list
 
-            tag_list.append(attribute)
+            tag_list.append(info["names"][i])
             feature_list.append(feature)
-            path_list.append(paths[i])
+            path_list.append(info["paths"][i])
+
     return [tag_list, feature_list, path_list]
 
 
@@ -438,17 +238,22 @@ def xg_nn(batch_x, batch_y, num_class):
         'objective': 'multi:softprob',  # 'reg:linear',  # 'multi:softprob',
         'num_class': num_class}
     steps = 1000  # The number of training iterations
-    l1_params = [1, 10, 100]
-    rmses_l1 = []
-
     model = xgb.train(param, d_train, steps)
     joblib.dump(model, "XG_trained_model")
     return
 
 
-def train_nn(files, num_clustrs):
+def train_nn(files, num_clusters):
+    """ This method is for training neural network"""
+    ''' Getting features '''
     tag_list = []
     feature_list = []
+
+    dirname = os.getcwd()
+    abspath = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(abspath, "default")
+    wv = KeyedVectors.load(path, mmap='r')
+
     i = 0
     for f in files:
         print(i)
@@ -457,13 +262,11 @@ def train_nn(files, num_clustrs):
         with open(f) as g:
             distros_dict = json.load(g)
 
-        list_att_1 = []
-        names_1 = []
-        paths_1 = []
-        values_1 = []
-        dict_test_wso2(distros_dict, list_att_1, names_1, paths_1, values_1)
+        list_att = []
+        info = {"names": [], "paths": [], "values": []}
+        dict_traverse(distros_dict, list_att, info)
 
-        out_feat = get_features_title_wso2(names_1, paths_1, values_1)
+        out_feat = get_features(info, wv)
         tag_list = tag_list + out_feat[0]
         feature_list = feature_list + out_feat[1]
 
@@ -476,63 +279,171 @@ def train_nn(files, num_clustrs):
     # plt.show()
 
     ''' Ground truth for training '''
-    num_clusters = num_clustrs  # 13
-    num_feat = 158
-
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(feature_list)
-
-    # print(out_classes)
 
     out = []
     for class_name in out_classes:
         one_hot_vec = [0 * i for i in range(class_name)] + [1] + [0 * i for i in range(num_clusters - class_name - 1)]
-        # print (one_hot_vec)
         out.append(one_hot_vec)
 
+    ''' Training '''
     xg_nn(feature_list, out_classes, num_clusters)
+    return
 
 
-def predict_nn(file):
-    with open(file) as f:
+def predict_nn(files):
+    """ This method is for predicting using neural network"""
+    ''' Getting features '''
+    dirname = os.getcwd()
+    abspath = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(abspath, "default")
+    wv = KeyedVectors.load(path, mmap='r')
+
+    with open(files) as f:
         distros_dict = json.load(f)
 
     list_att = []
-    names = []
-    paths = []
-    values = []
-    dict_test_wso2(distros_dict, list_att, names, paths, values)
+    info = {"names": [], "paths": [], "values": []}
 
-    out_feat = get_features_title_wso2(names, paths, values)
-    tag_list = out_feat[0]
-    feature_list = out_feat[1]
-    path_list = out_feat[2]
-    print("\nCOMPARE")
-    print(len(tag_list))
-    print(len(path_list))
-    print(len(feature_list))
+    dict_traverse(distros_dict, list_att, info)
 
+    out_feat = get_features(info, wv)
+
+    ''' Loading model and predicting'''
     model = joblib.load("XG_trained_model")
-
-    d_test = xgb.DMatrix(feature_list)
-
+    d_test = xgb.DMatrix(out_feat[1])
     preds = model.predict(d_test)
 
-    return [tag_list, preds.argmax(1), path_list]
+    return [out_feat[0], preds.argmax(1), out_feat[2]]
 
 
-def indices(list_in, value):
-    new_list = []
-    for i in range(len(list_in)):
-        if list_in[i] == value:
-            new_list.append(i)
-    return new_list
+def classifications(num_clusters, predictions_1, predictions_2):
+    """ This method is for finding classifications"""
+    classes = {}
+
+    for i in range(num_clusters):
+        path_list_1 = []
+        path_list_2 = []
+        label_list_1 = []
+        label_list_2 = []
+        index_list_1 = indices(predictions_1[1], i)
+        index_list_2 = indices(predictions_2[1], i)
+
+        class_name = "Class_" + str(i)
+
+        print("\n")
+        print("Class %u" % (i + 1))
+
+        """ Classification from Schema 1 """
+        for item in index_list_1:
+            label_list_1.append(predictions_1[0][item])
+            print(predictions_1[0][item])
+            path_list_1.append(predictions_1[2][item])
+        print("___________")
+
+        """ Classification from Schema 2 """
+        for item in index_list_2:
+            label_list_2.append(predictions_2[0][item])
+            print(predictions_2[0][item])
+            path_list_2.append(predictions_2[2][item])
+        print("_______________________________")
+
+        classes[class_name] = [label_list_1, path_list_1, label_list_2, path_list_2]
+    return classes
+
+
+def map_attributes(class_info, num_clusters):
+    """ This method is for getting mappings"""
+    dirname = os.getcwd()
+    abspath = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(abspath, "default")
+    wv = KeyedVectors.load(path, mmap='r')
+
+    for i in range(num_clusters):
+        class_name = "Class_" + str(i)
+
+        label_list_1 = class_info[class_name][0]
+        path_list_1 = class_info[class_name][1]
+        label_list_2 = class_info[class_name][2]
+        path_list_2 = class_info[class_name][3]
+
+        num_attr = 0
+        score_mat = []
+
+        for j in range(len(label_list_1)):
+            num_attr += 1
+            score_list = []
+
+            aim_list = path_list_1[j] + [label_list_1[j]]  # [label_list_1[j]]  #
+            aim_vector = []
+            for aim in aim_list:
+                aim_vector.append(word_embed(aim, wv))
+
+            for k in range(len(label_list_2)):
+                candidate_list = path_list_2[k] + [label_list_2[k]]  # [label_list_2[k]]  #
+                cand_vector = []
+                for cand in candidate_list:
+                    cand_vector.append(word_embed(cand, wv))
+
+                weight = 10
+
+                ''' Score according to attribute name '''
+                if aim_list[-1] == candidate_list[-1]:
+                    score = 0  # Give priority to attribute name
+                # elif aim_list[-1].any() == candidate_list[-1].any():
+                #     score = 1
+                else:
+                    if (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)) == 0:
+                        score = 5
+                    else:
+                        score = weight - ((weight - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
+                                    np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
+                # print(score)
+
+                ''' Similarity of hierarchy'''
+                similarity = 0
+                for vec_1 in aim_vector:  # [:-1]:
+                    for vec_2 in cand_vector:  # [:-1]:
+                        if (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2)) == 0:
+                            similarity += 0
+                        else:
+                            similarity += np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2))
+                try:
+                    similarity = weight - (similarity / (len(aim_vector[:-1]) * len(cand_vector[:-1])))
+                except ZeroDivisionError:
+                    if len(aim_vector[:-1]) == 0 and len(cand_vector[:-1]) == 0:
+                        similarity = weight-1
+                    else:
+                        similarity = weight
+                score_list.append(score + similarity)
+            score_mat.append(score_list)
+
+        ''' Map attributes'''
+        try:
+            matching_pairs_3 = scipy.optimize.linear_sum_assignment(score_mat)
+        except ValueError:
+            continue
+
+        ''' Print mappings '''
+        for ind in range(len(matching_pairs_3[0])):
+            ind_1 = matching_pairs_3[0][ind]
+            ind_2 = matching_pairs_3[1][ind]
+            aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
+            selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
+            print("%s : \n%s\n" % (
+                (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
+    return
 
 
 def main():
+    """ Main method"""
+    ''' Parameters'''
+    num_clusters = 20
+
+    ''' Read input data for training '''
     dirname = os.getcwd()
     abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "Datasets/GC/")
     path = os.path.join(abspath, "Datasets/Connector_schemas/")
     files = []
 
@@ -541,249 +452,21 @@ def main():
             if '.json' in file:
                 files.append(os.path.join(r, file))
 
-    num_clusters = 20
-    train_nn(files, num_clusters)
-    # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_4.json')
-    predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_3.json')
-    # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_4.json')
-    predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_3.json')
+    ''' Train neural network'''
+    # train_nn(files, num_clusters)
 
-    tag_1 = predictions_1[0]
-    tag_2 = predictions_2[0]
+    ''' Read input data for testing/predicting '''
+    predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_1.json')
+    predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_1.json')
 
-    class_name_1 = predictions_1[1]
-    class_name_2 = predictions_2[1]
+    # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_1.json')
+    # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_1.json')
 
-    path_1 = predictions_1[2]
-    path_2 = predictions_2[2]
+    ''' Get classifications '''
+    class_info = classifications(num_clusters, predictions_1, predictions_2)
 
-
-    path = os.path.join(abspath, "default")
-    wv = KeyedVectors.load(path, mmap='r')
-
-    print("\n")
-
-    for i in range(num_clusters):
-        path_list_1 = []
-        path_list_2 = []
-        label_list_1 = []
-        label_list_2 = []
-
-        index_list_1 = indices(class_name_1, i)
-        index_list_2 = indices(class_name_2, i)
-
-        print("\n")
-        print("Class %u" % (i + 1))
-        for item in index_list_1:
-            label = tag_1[item]
-            label_list_1.append(label)
-            print(label)
-            path_list_1.append(path_1[item])
-        print("___________")
-        for item in index_list_2:
-            label = tag_2[item]
-            label_list_2.append(label)
-            print(label)
-            path_list_2.append(path_2[item])
-        print("_______________________________")
-
-        num_attr = 0
-        num_not_match = 0
-
-        score_mat = []
-
-        for j in range(len(label_list_1)):
-            score_list = []
-            num_attr += 1
-            aim_list = path_list_1[j] + [label_list_1[j]]  # [label_list_1[j]]  #
-            aim_vector = []
-
-            # Find mean embedding for aim list
-            for aim in aim_list:
-                word_vector = []
-                for word in aim:
-                    try:
-                        word_vector.append(wv[word.lower()])
-                    except KeyError:
-                        word_vector.append([0 * i for i in range(150)])
-                aim_vector.append(np.mean(word_vector, axis=0))
-            # index_list = []
-            for k in range(len(label_list_2)):
-                score = 0
-                candidate_list = path_list_2[k] + [label_list_2[k]]  # [label_list_2[k]]  #
-                cand_vector = []
-
-                # Find mean vector for candidate list
-                for cand in candidate_list:
-                    word_vector = []
-                    for word in cand:
-                        try:
-                            word_vector.append(wv[word.lower()])
-                        except KeyError:
-                            word_vector.append([0 * l for l in range(150)])
-                    cand_vector.append(np.mean(word_vector, axis=0))
-
-                # Give priority to attribute name
-                priority = 10
-                if aim_list[-1] == candidate_list[-1]:
-                    score = 0
-
-                # elif aim_list[-1].any() == candidate_list[-1].any():
-                #     score = 1
-                else:
-                    if (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)) == 0:
-                        score = 5
-                    else:
-                        # print(priority * np.dot(aim_vector[-1], cand_vector[-1]) / (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
-                        score = priority - ((priority - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
-                                    np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
-                # print(score)
-                simi = 0
-                for vec_1 in aim_vector[:-1]:
-                    for vec_2 in cand_vector[:-1]:
-                        if (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2)) == 0:
-                            simi += 0
-                        else:
-                            simi += np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2))
-                try:
-                    simi = 10 - (simi / (len(aim_vector[:-1]) * len(cand_vector[:-1])))
-                except ZeroDivisionError:
-                    if len(aim_vector[:-1]) == 0 and len(cand_vector[:-1]) == 0:
-                        simi = 9
-                    else:
-                        simi = 10
-                score_list.append(score + simi)
-            score_mat.append(score_list)
-        try:
-            matching_pairs_3 = scipy.optimize.linear_sum_assignment(score_mat)
-        except ValueError:
-            continue
-
-        for ind in range(len(matching_pairs_3[0])):
-            ind_1 = matching_pairs_3[0][ind]
-            ind_2 = matching_pairs_3[1][ind]
-            aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
-            selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
-            # print('%s : %s' % (label_list_1[], label_list_2[])),
-            print("%s : \n%s\n" % (
-            (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
-
-    """
-
-    path = '/Users/ayodhya/PycharmProjects/word2vec/vectors/default'
-    # path = '/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors'
-    wv = KeyedVectors.load(path, mmap='r')
-    #
-    with open("/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/data-mapper-sample-config/1/in.json", 'r') as f:
-        distros_dict = json.load(f)
-
-    # with open("/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/data-mapper-sample-config/2/response.json", 'r') as f:
-    #     distros_dict = json.load(f)
-
-    # print(distros_dict)
-
-    list_att_1 = []
-    names_1 = []
-    paths_1 = []
-    dict_test(distros_dict, list_att_1, names_1, paths_1)
-
-    with open("/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/data-mapper-sample-config/1/out.json", 'r') as f:
-        distros_dict = json.load(f)
-
-    # tree = ElementTree.parse(
-    #     "/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/data-mapper-sample-config/2/input.xml")
-    # root = tree.getroot()
-    # distros_dict = XmlDictConfig(root)
-
-    list_att_2 = []
-    names_2 = []
-    paths_2 = []
-    dict_test(distros_dict, list_att_2, names_2, paths_2)
-
-    mean_embeddings_1 = get_features(names_1)
-    mean_embeddings_2 = get_features(names_2)
-
-    mean_embeddings_total = mean_embeddings_1 + mean_embeddings_2
-
-    num_clusters = 100  # 100  # 500  # math.ceil(len(mean_embeddings_total)/2)
-    cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
-    features_total = cluster.fit_predict(mean_embeddings_total)
-
-    features_1 = features_total[0:len(mean_embeddings_1)]
-    features_2 = features_total[len(mean_embeddings_1):]
-
-    num_attr = 0
-    num_not_match = 0
-    for j in range(len(names_1)):
-        num_attr += 1
-        print("\nJ: %u" % j)
-        aim_list = paths_1[j] + [names_1[j]]
-        # print(aim_list)
-        score_list = []
-        index_list = []
-        # print(features_1[j])
-        for i in range(len(features_2)):
-            if features_2[i] == features_1[j]:
-                index_list.append(i)
-                # print("I: %u" % i)
-                candidate_list = paths_2[i] + [names_2[i]]
-                # print(candidate_list)
-
-                # score = 0
-                # for candidate in candidate_list:
-                #     if candidate in aim_list:
-                #         score += 1
-                #
-                # score_list.append(score / (len(candidate_list)))
-
-                score = 0
-                for candidate in candidate_list:
-                    score_row = []
-                    for aim in aim_list:
-                        for cand_word in candidate:
-                            for aim_word in aim:
-                                try:
-                                    score_row.append(wv.similarity(w1=cand_word.lower(), w2=aim_word.lower()))
-                                    # print(cand_word)
-                                    # print(aim_word)
-                                    # print(wv.similarity(w1=cand_word, w2=aim_word))
-                                except KeyError:
-                                    score_row.append(0)
-                    # print(score_row)
-                    score += max(score_row)  # Done
-                score_list.append(score / (len(candidate_list)))  # Done
-                # print(score / (len(candidate_list)))
-        # print(score_list)
-        try:
-            if max(score_list) > 0:
-                selected_index = index_list[score_list.index(max(score_list))]
-                selected_list = paths_2[selected_index] + [names_2[selected_index]]
-
-                # print("\nSelected attribute: ")
-                # print(max(score_list))
-                print("%s : \n%s\n" % ((",".join(["".join(i) for i in aim_list])), (",".join(["".join(i) for i in selected_list]))))
-            else:
-                num_not_match += 1
-        except ValueError:
-            # print("No matching out")
-            num_not_match += 1
-            continue
-
-    print(num_not_match/num_attr*100)
-    print(num_not_match)
-
-    # Traverse through doc
-
-    tem_list = []
-    # dict_traverse(distros_dict, tem_list)
-    tree = ElementTree.parse(
-        "/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/data-mapper-sample-config/2/input.xml")
-    root = tree.getroot()
-    tem_list = []
-    distros_dict = XmlDictConfig(root)
-    # dict_traverse(distros_dict, tem_list)
-    
-    """
+    ''' Get mappings '''
+    map_attributes(class_info, num_clusters)
 
 
 if __name__ == "__main__":
