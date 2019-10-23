@@ -63,7 +63,7 @@ def train_categories_char2vec(x, y, num_class, tag_list):
 
     # Train model
     print("Start training...")
-    model.fit(np.asarray(x_train), y_train, epochs=100, batch_size=128, shuffle=True,)
+    model.fit(np.asarray(x_train), y_train, epochs=150, batch_size=128, shuffle=True,)
     print("Trained")
 
     # # Final evaluation of the model
@@ -100,7 +100,7 @@ def train_categories_embedding(x, y, num_class, tag_list):
 
     # Train model
     print("Start training...")
-    model.fit(np.asarray(x_train), y_train, epochs=100, batch_size=32, shuffle=True,)
+    model.fit(np.asarray(x_train), y_train, epochs=150, batch_size=32, shuffle=True,)
     print("Trained")
 
     # # Final evaluation of the model
@@ -202,6 +202,21 @@ def create_dic():
     return char_dic
 
 
+def test_model(embedding_model, char_dic, max_review_length):
+    f = open("Datasets/category_test_month.txt", "r")
+    classes = ["Email", "Phone", "Name", "Country", "street", "Time", "Month", "Day", "Gender", "Date", "Currency"]
+    fl = f.readlines()
+    i = 0
+    for line in fl:
+        i += 1
+        print(i)
+        prediction = predict_embedding(line, embedding_model, char_dic, max_review_length).tolist()[0]
+        # print(prediction)
+        # print(max(prediction))
+        print("%s is a %s" % (line, classes[prediction.index(max(prediction))]))
+    return
+
+
 def main():
     """ Classes
     0 - Name
@@ -227,7 +242,7 @@ def main():
 
     max_review_length = 50
     c2v_model = chars2vec.load_model('eng_50')
-    num_class = 5
+    num_class = 9
     char_dic = create_dic()
     """
     # Get features
@@ -257,15 +272,15 @@ def main():
     # Predict
     model = load_model("Categorical_classifier.h5")
     
-    test = "South Georgia And The South Sandwich Islands"
+    test = "December"
     prediction = predict_char2vec(test, model, c2v_model, max_review_length).tolist()[0]
     print(prediction)
     print(max(prediction))
-    classes = ["Email", "Phone", "Name", "Country", "street"]
+    classes = ["Email", "Phone", "Name", "Country", "street", "Time", "Month", "Day"]
     print("%s is a %s" % (test, classes[prediction.index(max(prediction))]))
 
-    print(np.dot(c2v_model.vectorize_words(["paper"])[0], c2v_model.vectorize_words(["pencil"])[0]))
-    print(c2v_model.vectorize_words(["2"])[0] == c2v_model.vectorize_words(["1"])[0])
+    # print(np.dot(c2v_model.vectorize_words(["paper"])[0], c2v_model.vectorize_words(["pencil"])[0]))
+    # print(c2v_model.vectorize_words(["2"])[0] == c2v_model.vectorize_words(["1"])[0])
     """
 
     # ############## Embedding
@@ -292,19 +307,23 @@ def main():
 
     # Train model
     train_categories_embedding(x_batch, y_batch, num_class, tag_list)
+    """
 
     # Predict
     embedding_model = load_model("Categorical_classifier_embedd.h5")
 
-    test = "Ayodhya Somiruwan"
+    test = "Male"
     prediction = predict_embedding(test, embedding_model, char_dic, max_review_length).tolist()[0]
     print(prediction)
     print(max(prediction))
-    classes = ["Email", "Phone", "Name", "Country", "street"]
+    classes = ["Email", "Phone", "Name", "Country", "street", "Time", "Month", "Day", "Gender", "Date", "Currency",
+               "Postcode"]
     print("%s is a %s" % (test, classes[prediction.index(max(prediction))]))
 
     # ################################
-    """
+
+    test_model(embedding_model, char_dic, max_review_length)
+
     return
 
 
