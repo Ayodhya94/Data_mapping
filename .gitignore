@@ -6,3 +6,4 @@ Schema_matching_EI.py
 *.java
 *.class
 backup_JSON.py
+Private/
