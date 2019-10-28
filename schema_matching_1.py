@@ -23,6 +23,10 @@ import numpy as np
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from gensim.models import KeyedVectors
 from xgboost import plot_importance
+from keras.models import load_model
+import chars2vec
+import smart_open
+import joblib
 
 
 import cmath as math
@@ -56,14 +60,19 @@ def get_elem(tag_name, doc):
     return list_val
 
 
-def get_features(tag_list, doc, new_words):
+def get_features(tag_list, doc, new_words, num_iter):
     num_keys = 0
     num_unavail_keys = 0
     num_zero_keys = 0
-    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    # wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
     # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
     wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_2", mmap='r')
     # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_3", mmap='r')
+    model = load_model("Categorical_classifier_embedd.h5")
+    c2v_model = chars2vec.load_model('eng_50')
+    char_dic = create_dic()
+    max_review_length = 50
+
     new_tag_list = []
     obj = {}
     example_list = []
@@ -77,6 +86,7 @@ def get_features(tag_list, doc, new_words):
             except AttributeError:
                 continue
         obj['list_' + tag_name] = list_val
+
         # print (list_val)
     final_feature_list = []
     final_feature_list_concat = []
@@ -134,7 +144,10 @@ def get_features(tag_list, doc, new_words):
         # print(temp)
         # print(type(temp))
         # print(len(temp))
-        word2_vec_list = np.mean(temp, axis=0).tolist()
+        if len(temp) > 0:
+            word2_vec_list = np.mean(temp, axis=0).tolist()
+        else:
+            word2_vec_list = temp
         # print("W2V")
         # print(word2_vec_list)
         # if len(temp) > 0:
@@ -163,7 +176,6 @@ def get_features(tag_list, doc, new_words):
                     else:
                         chara_list.append(letter)
                 if item == '\n' or item.isspace():
-                    # print ("No")
                     new_line += 1
                 else:
                     if item in distinct_val.keys():
@@ -176,13 +188,10 @@ def get_features(tag_list, doc, new_words):
         norm_feature_map = []
 
         if processed_list == []:
-            # print("NULL")
             continue
         elif len(distinct_val)==0:
-            # print("DISTINCT")
             continue
         else:
-            # print("ELSE")
             new_tag_list.append(tag_name)
 
             total_items = sum([distinct_val[key] for key in distinct_val.keys()])
@@ -214,6 +223,35 @@ def get_features(tag_list, doc, new_words):
             # print(tag_name.upper())
             # print(norm_type_list)
 
+            # print(orig_list[0])
+            type_list_2 = []
+            name_list_2 = []
+            norm_type_list_2 = []
+            j = 0
+            while j < num_iter:
+                j += 1
+                try:
+                    name_list_2 = orig_list[j].split()
+                    for word in name_list_2:
+                        type_list_2.append(predict_embedding(word, model, char_dic, max_review_length).tolist()[0])
+                    if len(type_list_2) > 0:
+                        type_list_mean = np.mean(type_list_2, axis=0).tolist()
+                    else:
+                        type_list_mean = type_list_2.tolist()
+                    if type(type_list_mean) == list:
+                        norm_type_list_2.append(type_list_mean)
+                    else:
+                        continue
+
+                    # classes = ["Email", "Phone", "Name", "Country", "street", "Time", "Month", "Day", "Gender", "Date", "Currency"]
+                    # print("%s is a %s" % (orig_list[0], classes[norm_type_list_2.index(max(norm_type_list_2))]))
+                except AttributeError:
+                    continue
+                except IndexError:
+                    break
+            if len(norm_type_list_2) > 0:
+                norm_type_list_2 = np.mean(norm_type_list_2, axis=0).tolist()
+
             norm_stat_feat = []
             for val in stat_feat:
                 # norm_stat_feat.append(2 * (1 / (1 + 1.01 ** (val * -1)) - 0.5))
@@ -242,12 +280,22 @@ def get_features(tag_list, doc, new_words):
             # print(norm_comp_list)
             # print(dist_feat)
             # print(norm_dist_feat)
-            # feature_map = stat_feat + comp_feat + dist_feat
-            # print ("START")
-            # print (norm_stat_feat)
-            # print (comp_feat)
-            # print (dist_feat)
-            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list
+            # # print(word2vec_list)
+            # print(norm_word2vec_list)
+            # print(type_list)
+            # print(norm_type_list)
+            # # feature_map = stat_feat + comp_feat + dist_feat
+            # # print ("START")
+            # # print (norm_stat_feat)
+            # # print (comp_feat)
+            # # print (dist_feat)
+            # print(norm_stat_feat + norm_comp_list)
+            # print(norm_dist_feat + norm_word2vec_list)
+            # print(norm_word2vec_list + norm_type_list)
+
+            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list \
+                + norm_type_list_2
+            # norm_feature_map = norm_type_list
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_type_list
             # norm_feature_map = norm_word2vec_list + norm_type_list
             # norm_feature_map = norm_feature_map[:15]+[norm_feature_map[16]]+norm_feature_map[20:22]
@@ -424,14 +472,14 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     model = xgb.train(param, d_train, steps)
 
     print("Feature Importance:")
-    print("Weight:")
-    print(model.get_score(importance_type='weight'))
+    print("Gain:")
+    print(model.get_score(importance_type='gain'))
     plot_importance(model)
     # plt.show()
-    shap.initjs()
-    explainer = shap.TreeExplainer(model)
-    shap_vlaues = explainer.shap_values(batch_x)
-    shap.force_plot(explainer.expected_value[0], shap_vlaues[0], batch_x)  # , batch_x.iloc[0, :], matplotlib=True)
+    # shap.initjs()
+    # explainer = shap.TreeExplainer(model)
+    # shap_vlaues = explainer.shap_values(batch_x)
+    # shap.force_plot(explainer.expected_value[0], shap_vlaues[0], batch_x)  # , batch_x.iloc[0, :], matplotlib=True)
     # plt.display(force_plot())
     # plt.show()
     # print(model.model.feature_importances_)
@@ -443,12 +491,12 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     # print(model.get_score(importance_type='total_gain'))
     # print("Total cover:")
     # print(model.get_score(importance_type='total_cover'))
-
-    d_test_1 = xgb.DMatrix(batch_test_x_1)
-    d_test_2 = xgb.DMatrix(batch_test_x_2)
-
-    preds_1 = model.predict(d_test_1)
-    preds_2 = model.predict(d_test_2)
+    joblib.dump(model, "Schema_matching_1_test")
+    # d_test_1 = xgb.DMatrix(batch_test_x_1)
+    # d_test_2 = xgb.DMatrix(batch_test_x_2)
+    #
+    # preds_1 = model.predict(d_test_1)
+    # preds_2 = model.predict(d_test_2)
 
     # print ("XG BOOST")
     # print (preds_1)
@@ -461,22 +509,102 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     # print("Recall = {}".format(recall_score(Y_test, best_preds, average='macro')))
     # print("Accuracy = {}".format(accuracy_score(Y_test, best_preds)))
 
-    return [preds_1.argmax(1), preds_2.argmax(1)]
+    return  # [preds_1.argmax(1), preds_2.argmax(1)]
+
+
+def predict_char2vec(word, model, c2v_model, max_review_length):
+    feature = []
+    feature.append(get_features_char2vec(word, max_review_length, c2v_model))
+
+    features = np.asarray(feature)
+    prediction = model.predict(features)
+    return prediction
+
+
+def predict_embedding(word, embedding_model, char_dic, max_review_length):
+    feature = []
+    feature.append(get_features_embedding(word, max_review_length, char_dic))
+
+    features = np.asarray(feature)
+    prediction = embedding_model.predict(features)
+    return prediction
+
+
+def get_features_char2vec(word, max_review_length, c2v_model):
+    chars = list(word)
+    features = []
+
+    for char in chars:
+        char2vec = c2v_model.vectorize_words([char])[0]
+        norm_char2vec_list = []
+        for val in char2vec:
+            try:
+                norm_char2vec_list.append(10 * (val - min(char2vec)) / (max(char2vec) - min(char2vec)))
+            except ZeroDivisionError:
+                norm_char2vec_list.append(0)
+        features.append(norm_char2vec_list)
+
+    # Zero padding
+    features_2 = []
+    if len(features) < max_review_length:
+        for num in range(max_review_length - len(features)):
+            features_2.append([0 * i for i in range(50)])
+    features = features_2 + features
+    return features
+
+
+def get_features_embedding(word, max_review_length, char_dic):
+    chars = list(word)
+    features = []
+
+    for char in chars:
+        try:
+            char2vec = char_dic[char]
+            features.append(char2vec)
+        except KeyError:
+            continue
+
+    # Zero padding
+    features_2 = []
+    if len(features) < max_review_length:
+        for num in range(max_review_length - len(features)):
+            features_2.append(0)
+    features = features_2 + features
+    return features
+
+
+def create_dic():
+    alphanum = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=`~[]{}|;:,.<>/? ')
+    char_dic = {}
+    i = 1
+    for char in alphanum:
+        char_dic[char] = i
+        i += 1
+    # print(char_dic)
+    return char_dic
 
 
 def main():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+    num_iter = 10
+    num_clusters = 13  # 25  # 6  # 8 #13
+    test_set_1 = 12  # 5  # 2
+    test_set_2 = 13  # 7  # 3
+
     ''' Fetch data and extract features '''
 
     # f = open("Datasets/phone_schema.txt", "r")
     # f = open("Datasets/courses_schemas.txt", "r")
-    f = open("Datasets/courses_schemas.txt", "r")
+    # f = open("Datasets/courses_schemas_copy.txt", "r")
     # f = open("Datasets/real_es_schema.txt", "r")
     # f = open("Datasets/schemas.txt", "r")
-    fl = f.readlines()
+    with smart_open.open("Datasets/courses_schemas_copy.txt", "r") as f:
+        fl = f.readlines()
+    """
     info = []
     new_words = {}
+    
     for line in fl:
         line = line[:-1]
         print(line)
@@ -488,8 +616,7 @@ def main():
 
         elem_list = list(set(elem_list))
         doc = xml.dom.minidom.parse(line)
-        features_tag = get_features(elem_list, doc, new_words)
-
+        features_tag = get_features(elem_list, doc, new_words, num_iter)
         info_dict['elem_list'] = elem_list
         info_dict['doc'] = doc
         info_dict['features_tag'] = features_tag
@@ -499,9 +626,7 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
-    test_set_1 = 1  # 5
-    test_set_2 = 2  # 7
-
+    
     features = []
     label_list = []
 
@@ -526,11 +651,12 @@ def main():
     # plt.show()
 
     ''' Ground truth for training '''
-    num_clusters = 13  # 25  # 6  # 8 #13
     # num_feat = 60
     # num_feat = 160
     # num_feat = 10
     num_feat = info[0]['features_tag'][-1] #+ 25  # 10  # 25
+    print("num_feat")
+    print(num_feat)
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -541,25 +667,9 @@ def main():
         one_hot_vec = [0 * i for i in range(class_name)] + [1] + [0 * i for i in range(num_clusters - class_name - 1)]
         # print (one_hot_vec)
         out.append(one_hot_vec)
-
-    ''' Test data set '''
-    # test_set_1 = 2
-    # test_set_2 = 4
-    test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
-    test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
-    test_doc_1 = info[test_set_1-1]['doc']  # doc1
-    # print("FEATURE_1")
-    # print(test_feature_1)
-    # print(test_tag_1)
-
-    test_feature_2 = info[test_set_2-1]['features_tag'][1]  # features_tag_4[1]
-    test_tag_2 = info[test_set_2-1]['features_tag'][2]  # features_tag_4[2]
-    test_doc_2 = info[test_set_2-1]['doc']  # doc4
-    # print("FEATURE_2")
-    # print(test_feature_2)
-    # print(test_tag_2)
-
-    ''' Prediction '''
+        
+    
+    ''' Train '''
     # Neural Network
     # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features), num_feat)
 
@@ -567,7 +677,77 @@ def main():
     # prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
 
     # XG Boost
-    prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
+    xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
+    """
+
+    ''' Test data set '''
+    set_iter = 1
+    test_info = []
+    test_new_words = {}
+    for line in fl:
+        if set_iter == test_set_1 or set_iter == test_set_2:
+            line = line[:-1]
+            print(line)
+            test_dict = {}
+            xml_tree = ET.parse(line)  # ### Define line
+            elem_list = []
+            for elem in xml_tree.iter():
+                elem_list.append(elem.tag)
+
+            elem_list = list(set(elem_list))
+            doc = xml.dom.minidom.parse(line)
+            features_tag = get_features(elem_list, doc, test_new_words, num_iter)
+            test_dict['elem_list'] = elem_list
+            test_dict['doc'] = doc
+            test_dict['features_tag'] = features_tag
+
+            test_info.append(test_dict)
+        set_iter += 1
+    # test_set_1 = 2
+    # test_set_2 = 4
+    test_feature_1 = test_info[0]['features_tag'][1]  # features_tag_1[1]
+    test_tag_1 = test_info[0]['features_tag'][2]  # features_tag_1[2]
+    test_doc_1 = test_info[0]['doc']  # doc1
+    # print("FEATURE_1")
+    # print(test_feature_1)
+    # print(test_tag_1)
+
+    test_feature_2 = test_info[1]['features_tag'][1]  # features_tag_4[1]
+    test_tag_2 = test_info[1]['features_tag'][2]  # features_tag_4[2]
+    test_doc_2 = test_info[1]['doc']  # doc4
+    # print("FEATURE_2")
+    # print(test_feature_2)
+    # print(test_tag_2)
+
+    ''' Prediction '''
+    model = joblib.load("Schema_matching_1")
+
+    d_test_1 = xgb.DMatrix(test_feature_1)
+    d_test_2 = xgb.DMatrix(test_feature_2)
+
+    preds_1 = model.predict(d_test_1)
+    preds_2 = model.predict(d_test_2)
+    prediction_2 = [[], []]
+    test_tag_1_2 = []
+    test_tag_2_2 = []
+    for num in range(len(preds_1)):
+        classes = preds_1[num]
+        if max(classes) > 0.9:
+            prediction_2[0].append(classes.argmax())
+            test_tag_1_2.append(test_tag_1[num])
+
+    for num in range(len(preds_2)):
+        classes = preds_2[num]
+        if max(classes) > 0.9:
+            prediction_2[1].append(classes.argmax())
+            test_tag_2_2.append(test_tag_2[num])
+
+    # print(preds_1)
+    prediction = [preds_1.argmax(1), preds_2.argmax(1)]
+    # print(prediction)
+    # print(prediction_2)
+    # print(test_tag_1_2)
+    # print(test_tag_2_2)
 
     # arr = features[-1][0:10]
     # # arr = np.asarray(arr, dtype=np.float32)
@@ -756,8 +936,14 @@ def main():
         #     print ('%s : %s' % (label_list_1[matching_pairs[0][ind]], label_list_2[matching_pairs[1][ind]]))
         #
         # print ("COST PAIRS")
+        # print(matching_pairs_3)
         for ind in range(len(matching_pairs_3[0])):
-            print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
+            cost = simi_list[matching_pairs_3[0][ind]][matching_pairs_3[1][ind]]
+            if cost < 0.7:
+                print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
+            else:
+                print(cost)
+            # print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
             # print(cost_list[matching_pairs_2[0][ind]][matching_pairs_2[1][ind]])
     # plt.show()
 

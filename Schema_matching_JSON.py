@@ -1,6 +1,6 @@
 import json
 import re
-from gensim.models import KeyedVectors
+# from gensim.models import KeyedVectors
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as shc
@@ -20,7 +20,6 @@ from sklearn import datasets
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, accuracy_score
-from gensim.models import KeyedVectors
 
 import operator
 import sys
@@ -171,7 +170,8 @@ def list_traverse(list_in, temp, info):
             elif type(val) == list or isinstance(val, XmlListConfig):
                 list_traverse(val, temp, info)
             else:
-                update_lists(key, info, temp, val)
+                update_lists('id', info, temp, val)
+                # update_lists(key, info, temp, val)
 
 
 def word_embed(attribute, wv):
@@ -249,10 +249,13 @@ def train_nn(files, num_clusters):
     tag_list = []
     feature_list = []
 
-    dirname = os.getcwd()
-    abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "default")
-    wv = KeyedVectors.load(path, mmap='r')
+    # dirname = os.getcwd()
+    # abspath = os.path.dirname(os.path.abspath(__file__))
+    # path = os.path.join(abspath, "default")
+    # wv = KeyedVectors.load(path, mmap='r')
+
+    with open('w2v_dict.json') as f:
+        wv = json.load(f)
 
     i = 0
     for f in files:
@@ -295,10 +298,14 @@ def train_nn(files, num_clusters):
 def predict_nn(files):
     """ This method is for predicting using neural network"""
     ''' Getting features '''
-    dirname = os.getcwd()
-    abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "default")
-    wv = KeyedVectors.load(path, mmap='r')
+    # dirname = os.getcwd()
+    # abspath = os.path.dirname(os.path.abspath(__file__))
+    # path = os.path.join(abspath, "default")
+    # wv = KeyedVectors.load(path, mmap='r')
+
+    with open('w2v_dict.json') as f:
+        wv = json.load(f)
+
 
     with open(files) as f:
         distros_dict = json.load(f)
@@ -355,10 +362,13 @@ def classifications(num_clusters, predictions_1, predictions_2):
 
 def map_attributes(class_info, num_clusters):
     """ This method is for getting mappings"""
-    dirname = os.getcwd()
-    abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "default")
-    wv = KeyedVectors.load(path, mmap='r')
+    # dirname = os.getcwd()
+    # abspath = os.path.dirname(os.path.abspath(__file__))
+    # path = os.path.join(abspath, "default")
+    # wv = KeyedVectors.load(path, mmap='r')
+
+    with open('w2v_dict.json') as f:
+        wv = json.load(f)
 
     for i in range(num_clusters):
         class_name = "Class_" + str(i)
@@ -426,6 +436,7 @@ def map_attributes(class_info, num_clusters):
             continue
 
         ''' Print mappings '''
+        print(class_name)
         for ind in range(len(matching_pairs_3[0])):
             ind_1 = matching_pairs_3[0][ind]
             ind_2 = matching_pairs_3[1][ind]
@@ -459,8 +470,8 @@ def main():
     predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_1.json')
     predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_1.json')
 
-    # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_1.json')
-    # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_1.json')
+    # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_15.json')
+    # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_15.json')
 
     ''' Get classifications '''
     class_info = classifications(num_clusters, predictions_1, predictions_2)
