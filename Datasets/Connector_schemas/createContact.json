@@ -1,0 +1,78 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "region": {
+      "id": "http:\/\/wso2jsonschema.org\/region",
+      "type": "string",
+      "nullable": "true"
+    },
+    "homeEmail": {
+      "id": "http:\/\/wso2jsonschema.org\/homeEmail",
+      "type": "string",
+      "nullable": "true"
+    },
+    "street": {
+      "id": "http:\/\/wso2jsonschema.org\/street",
+      "type": "string"
+    },
+    "familyName": {
+      "id": "http:\/\/wso2jsonschema.org\/familyName",
+      "type": "string",
+      "nullable": "true"
+    },
+    "userEmail": {
+      "id": "http:\/\/wso2jsonschema.org\/userEmail",
+      "type": "string"
+    },
+    "workPhoneNumber": {
+      "id": "http:\/\/wso2jsonschema.org\/workPhoneNumber",
+      "type": "string"
+    },
+    "givenName": {
+      "id": "http:\/\/wso2jsonschema.org\/givenName",
+      "type": "string",
+      "nullable": "true"
+    },
+    "homePhoneNumber": {
+      "id": "http:\/\/wso2jsonschema.org\/homePhoneNumber",
+      "type": "string"
+    },
+    "postcode": {
+      "id": "http:\/\/wso2jsonschema.org\/postcode",
+      "type": "string",
+      "nullable": "true"
+    },
+    "country": {
+      "id": "http:\/\/wso2jsonschema.org\/country",
+      "type": "string",
+      "nullable": "true"
+    },
+    "workEmail": {
+      "id": "http:\/\/wso2jsonschema.org\/workEmail",
+      "type": "string",
+      "nullable": "true"
+    },
+    "city": {
+      "id": "http:\/\/wso2jsonschema.org\/city",
+      "type": "string",
+      "nullable": "true"
+    },
+    "content": {
+      "id": "http:\/\/wso2jsonschema.org\/content",
+      "type": "string",
+      "nullable": "true"
+    },
+    "formattedAddress": {
+      "id": "http:\/\/wso2jsonschema.org\/formattedAddress",
+      "type": "string"
+    },
+    "fullName": {
+      "id": "http:\/\/wso2jsonschema.org\/fullName",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

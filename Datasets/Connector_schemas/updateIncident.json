@@ -1,0 +1,101 @@
+{
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "from": {
+      "id": "http:\/\/wso2jsonschema.org\/from",
+      "type": "string"
+    },
+    "incidentId": {
+      "id": "http:\/\/wso2jsonschema.org\/incidentId",
+      "type": "string"
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "string"
+    },
+    "status": {
+      "id": "http:\/\/wso2jsonschema.org\/status",
+      "type": "string",
+      "nullable": "true"
+    },
+    "resolution": {
+      "id": "http:\/\/wso2jsonschema.org\/resolution",
+      "type": "string",
+      "nullable": "true"
+    },
+    "escalationLevel": {
+      "id": "http:\/\/wso2jsonschema.org\/escalationLevel",
+      "type": "number",
+      "nullable": "true"
+    },
+    "assignments": {
+      "id": "http:\/\/wso2jsonschema.org\/assignments",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/assignments\/0",
+          "type": "object",
+          "properties": {
+            "assignee": {
+              "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee\/id",
+                  "type": "string"
+                },
+                "type": {
+                  "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee\/type",
+                  "type": "string"
+                },
+                "summary": {
+                  "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee\/summary",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee\/self",
+                  "type": "string"
+                },
+                "html_url": {
+                  "id": "http:\/\/wso2jsonschema.org\/assignments\/0\/assignee\/html_url",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "escalation_policy": {
+      "id": "http:\/\/wso2jsonschema.org\/escalation_policy",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/escalation_policy\/id",
+          "type": "string"
+        },
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/escalation_policy\/type",
+          "type": "string"
+        },
+        "summary": {
+          "id": "http:\/\/wso2jsonschema.org\/escalation_policy\/summary",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/escalation_policy\/self",
+          "type": "string"
+        },
+        "html_url": {
+          "id": "http:\/\/wso2jsonschema.org\/escalation_policy\/html_url",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

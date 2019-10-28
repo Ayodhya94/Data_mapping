@@ -1,0 +1,39 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "category": {
+      "id": "http:\/\/wso2jsonschema.org\/category",
+      "type": "string"
+    },
+    "employeeAccess": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeAccess",
+      "type": "string"
+    },
+    "managerAccess": {
+      "id": "http:\/\/wso2jsonschema.org\/managerAccess",
+      "type": "string",
+      "nullable": "true"
+    },
+    "signatureRequired": {
+      "id": "http:\/\/wso2jsonschema.org\/signatureRequired",
+      "type": "string",
+      "nullable": "true"
+    },
+    "documentName": {
+      "id": "http:\/\/wso2jsonschema.org\/documentName",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string",
+      "nullable": "true"
+    },
+    "file": {
+      "id": "http:\/\/wso2jsonschema.org\/file",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

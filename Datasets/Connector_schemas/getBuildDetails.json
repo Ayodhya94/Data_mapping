@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "getBuildDetails",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "tree": {
+      "id": "http:\/\/wso2jsonschema.org\/tree",
+      "type": "string"
+    },
+    "buildValue": {
+      "id": "http:\/\/wso2jsonschema.org\/buildValue",
+      "type": "string"
+    },
+    "responseType": {
+      "id": "http:\/\/wso2jsonschema.org\/responseType",
+      "type": "string"
+    },
+    "jobName": {
+      "id": "http:\/\/wso2jsonschema.org\/jobName",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

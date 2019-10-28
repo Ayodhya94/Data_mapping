@@ -1,0 +1,70 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "projectId": {
+      "id": "http:\/\/wso2jsonschema.org\/projectId",
+      "type": "string"
+    },
+    "trackerId": {
+      "id": "http:\/\/wso2jsonschema.org\/trackerId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "statusId": {
+      "id": "http:\/\/wso2jsonschema.org\/statusId",
+      "type": "string"
+    },
+    "priorityId": {
+      "id": "http:\/\/wso2jsonschema.org\/priorityId",
+      "type": "string"
+    },
+    "subject": {
+      "id": "http:\/\/wso2jsonschema.org\/subject",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "fixedVersionId": {
+      "id": "http:\/\/wso2jsonschema.org\/fixedVersionId",
+      "type": "string"
+    },
+    "categoryId": {
+      "id": "http:\/\/wso2jsonschema.org\/categoryId",
+      "type": "string"
+    },
+    "assignedToId": {
+      "id": "http:\/\/wso2jsonschema.org\/assignedToId",
+      "type": "string"
+    },
+    "custom_fields": {
+      "id": "http:\/\/wso2jsonschema.org\/custom_fields",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/custom_fields\/0",
+          "type": "object",
+          "properties": {
+            "value": {
+              "id": "http:\/\/wso2jsonschema.org\/custom_fields\/0\/value",
+              "type": "string"
+            },
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/custom_fields\/0\/name",
+              "type": "string"
+            },
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/custom_fields\/0\/id",
+              "type": "number"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

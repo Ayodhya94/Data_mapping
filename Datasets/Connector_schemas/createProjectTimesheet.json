@@ -1,0 +1,48 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "projectTimesheetDate": {
+      "id": "http:\/\/wso2jsonschema.org\/projectTimesheetDate",
+      "type": "string"
+    },
+    "timesheetProject": {
+      "id": "http:\/\/wso2jsonschema.org\/timesheetProject",
+      "type": "string"
+    },
+    "timesheetTask": {
+      "id": "http:\/\/wso2jsonschema.org\/timesheetTask",
+      "type": "string"
+    },
+    "timesheetDetail": {
+      "id": "http:\/\/wso2jsonschema.org\/timesheetDetail",
+      "type": "string",
+      "nullable": "true"
+    },
+    "startTime": {
+      "id": "http:\/\/wso2jsonschema.org\/startTime",
+      "type": "string",
+      "nullable": "true"
+    },
+    "endTime": {
+      "id": "http:\/\/wso2jsonschema.org\/endTime",
+      "type": "string",
+      "nullable": "true"
+    },
+    "totalHours": {
+      "id": "http:\/\/wso2jsonschema.org\/totalHours",
+      "type": "string"
+    },
+    "notes": {
+      "id": "http:\/\/wso2jsonschema.org\/notes",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

@@ -22,6 +22,11 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from gensim.models import KeyedVectors
+from xgboost import plot_importance
+from keras.models import load_model
+import chars2vec
+import smart_open
+import joblib
 
 
 import cmath as math
@@ -29,6 +34,19 @@ import operator
 import sys
 import os
 import re
+import random
+import shap
+import mpld3
+
+
+def rem_vowel(string):
+    vowels = ('a', 'e', 'i', 'o', 'u')
+    for x in string.lower():
+        if x in vowels:
+            string = string.replace(x, "")
+
+            # Print string without vowels
+    return string
 
 
 def get_elem(tag_name, doc):
@@ -42,12 +60,19 @@ def get_elem(tag_name, doc):
     return list_val
 
 
-def get_features(tag_list, doc):
+def get_features(tag_list, doc, new_words, num_iter):
     num_keys = 0
     num_unavail_keys = 0
-    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
+    num_zero_keys = 0
+    # wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/word2vec_vectors", mmap='r')
     # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default", mmap='r')
     wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_2", mmap='r')
+    # wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/default_3", mmap='r')
+    model = load_model("Categorical_classifier_embedd.h5")
+    c2v_model = chars2vec.load_model('eng_50')
+    char_dic = create_dic()
+    max_review_length = 50
+
     new_tag_list = []
     obj = {}
     example_list = []
@@ -61,6 +86,7 @@ def get_features(tag_list, doc):
             except AttributeError:
                 continue
         obj['list_' + tag_name] = list_val
+
         # print (list_val)
     final_feature_list = []
     final_feature_list_concat = []
@@ -76,20 +102,59 @@ def get_features(tag_list, doc):
         digit_list = []
         alpha_list = []
         chara_list = []
-        num_keys += 1
-        tag_name_list = re.split(' |_', tag_name)
+        # num_keys += 1
+        # tag_name_list = re.split(' |_', tag_name)
+        tag_name_list = list(filter(''.__ne__, (
+            re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", tag_name + "_").lower()))))
         temp = []
+        # print("TAG NAME")
+        # print(tag_name)
         for tags in tag_name_list:
+            num_keys += 1
             try:
-                word2_vec_list = wv[tags].tolist()
+                word2_vec_list = wv[tags.lower()].tolist()
+                # print(min(word2_vec_list))
+                # print(max(word2_vec_list))
+                # temp.append(word2_vec_list)
             except KeyError:
-                # word2_vec_list = [0*count for count in range(50)]
-                # word2_vec_list = [0 * count for count in range(150)]
+                # print(tags)
+                # try:
+                #     word2_vec_list = wv_1[tags.lower()].tolist()
+                #     print("ERROR")
+                #     print(word2_vec_list)
+                # except KeyError:
+                #     #     # if tags.lower() in new_words.keys():
+                #     #     #     word2_vec_list = (new_words[tags.lower()])
+                #     #     #     # print(rem_vowel(tags))
+                #     #     # elif rem_vowel(tags.lower()) in new_words.keys():
+                #     #     #     word2_vec_list = (new_words[rem_vowel(tags.lower())])
+                #     #     # else:
+                #     #     #     word2_vec_list = random.sample(range(-15, 15), 15)
+                #     #     #     new_words[tags.lower()] = word2_vec_list
+                #     #     #     new_words[rem_vowel(tags.lower())] = word2_vec_list
+                #     #     # word2_vec_list = [0*count for count in range(50)]
+                #     word2_vec_list_1 = [0 * count for count in range(150)]
                 word2_vec_list = [0 * count for count in range(15)]
+                # word2_vec_list = [0.0 * count for count in range(10)]
+                num_zero_keys += 0
                 num_unavail_keys += 1
-                print(tags)
+                # print("ERROR")
+                # print(tags)
             temp.append(word2_vec_list)
-        word2_vec_list = np.mean(temp, axis=0).tolist()
+        # print(temp)
+        # print(type(temp))
+        # print(len(temp))
+        if len(temp) > 0:
+            word2_vec_list = np.mean(temp, axis=0).tolist()
+        else:
+            word2_vec_list = temp
+        # print("W2V")
+        # print(word2_vec_list)
+        # if len(temp) > 0:
+        #     word2_vec_list = np.mean(temp, axis=0).tolist()
+        # else:
+        #     word2_vec_list = [0 * count for count in range(15)]
+        #     num_zero_keys += 0
         space = 0
         distinct_val = {}
         new_line = 0
@@ -111,7 +176,6 @@ def get_features(tag_list, doc):
                     else:
                         chara_list.append(letter)
                 if item == '\n' or item.isspace():
-                    # print ("No")
                     new_line += 1
                 else:
                     if item in distinct_val.keys():
@@ -121,10 +185,11 @@ def get_features(tag_list, doc):
             except AttributeError:
                 continue
 
+        norm_feature_map = []
+
         if processed_list == []:
             continue
         elif len(distinct_val)==0:
-            # print ("DISTINCT")
             continue
         else:
             new_tag_list.append(tag_name)
@@ -144,6 +209,48 @@ def get_features(tag_list, doc):
             except ZeroDivisionError:
                 comp_feat = [0, 0, 0]
             dist_feat = [len(distinct_val.keys()), -sum(distr_list_mod)]
+
+            type_list = ['phone', 'name', 'address', 'city', 'email', 'id', 'age', 'number']
+            norm_type_list = [0*num for num in range(len(type_list))]
+            for val in range(len(type_list)):
+                # tag_name_split = re.split(' |_', tag_name)
+                # tag_name_split = list(filter(''.__ne__, (
+                #     re.split('_| |:', re.sub(r"([A-Z]+[a-z0-9_\W])", r" \1", tag_name + "_").lower()))))
+                # tag_name_split = [val.lower() for val in tag_name_split]
+                if type_list[val] in tag_name.lower():
+                    # print("YES")
+                    norm_type_list[val] = 1
+            # print(tag_name.upper())
+            # print(norm_type_list)
+
+            # print(orig_list[0])
+            type_list_2 = []
+            name_list_2 = []
+            norm_type_list_2 = []
+            j = 0
+            while j < num_iter:
+                j += 1
+                try:
+                    name_list_2 = orig_list[j].split()
+                    for word in name_list_2:
+                        type_list_2.append(predict_embedding(word, model, char_dic, max_review_length).tolist()[0])
+                    if len(type_list_2) > 0:
+                        type_list_mean = np.mean(type_list_2, axis=0).tolist()
+                    else:
+                        type_list_mean = type_list_2.tolist()
+                    if type(type_list_mean) == list:
+                        norm_type_list_2.append(type_list_mean)
+                    else:
+                        continue
+
+                    # classes = ["Email", "Phone", "Name", "Country", "street", "Time", "Month", "Day", "Gender", "Date", "Currency"]
+                    # print("%s is a %s" % (orig_list[0], classes[norm_type_list_2.index(max(norm_type_list_2))]))
+                except AttributeError:
+                    continue
+                except IndexError:
+                    break
+            if len(norm_type_list_2) > 0:
+                norm_type_list_2 = np.mean(norm_type_list_2, axis=0).tolist()
 
             norm_stat_feat = []
             for val in stat_feat:
@@ -173,12 +280,25 @@ def get_features(tag_list, doc):
             # print(norm_comp_list)
             # print(dist_feat)
             # print(norm_dist_feat)
-            # feature_map = stat_feat + comp_feat + dist_feat
-            # print ("START")
-            # print (norm_stat_feat)
-            # print (comp_feat)
-            # print (dist_feat)
-            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list
+            # # print(word2vec_list)
+            # print(norm_word2vec_list)
+            # print(type_list)
+            # print(norm_type_list)
+            # # feature_map = stat_feat + comp_feat + dist_feat
+            # # print ("START")
+            # # print (norm_stat_feat)
+            # # print (comp_feat)
+            # # print (dist_feat)
+            # print(norm_stat_feat + norm_comp_list)
+            # print(norm_dist_feat + norm_word2vec_list)
+            # print(norm_word2vec_list + norm_type_list)
+
+            norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_word2vec_list + norm_type_list \
+                + norm_type_list_2
+            # norm_feature_map = norm_type_list
+            # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat + norm_type_list
+            # norm_feature_map = norm_word2vec_list + norm_type_list
+            # norm_feature_map = norm_feature_map[:15]+[norm_feature_map[16]]+norm_feature_map[20:22]
             # norm_feature_map = norm_stat_feat + norm_comp_list + norm_dist_feat
             # print(norm_feature_map)
             # feature_map = stat_feat + comp_feat + dist_feat + word2_vec_list
@@ -194,8 +314,9 @@ def get_features(tag_list, doc):
     # print (example_list)
     print("Number of keys: %u" % num_keys)
     print("Number of unavailable keys: %u" % num_unavail_keys)
+    print("Number of zero keys: %u" % num_zero_keys)
     print(num_unavail_keys/num_keys*100)
-    return [final_feature_list_concat, final_feature_list, new_tag_list]
+    return [final_feature_list_concat, final_feature_list, new_tag_list, len(norm_feature_map)]
 
 
 def nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_vec, num_features):
@@ -343,18 +464,39 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     d_train = xgb.DMatrix(batch_x, label=batch_y)
     param = {
         'eta': 0.3,
-        'max_depth': 3,
+        'max_depth': 10,  # 3,
         'objective': 'multi:softprob',
         'num_class': num_class}
     steps = 1000  # The number of training iterations
 
     model = xgb.train(param, d_train, steps)
 
-    d_test_1 = xgb.DMatrix(batch_test_x_1)
-    d_test_2 = xgb.DMatrix(batch_test_x_2)
-
-    preds_1 = model.predict(d_test_1)
-    preds_2 = model.predict(d_test_2)
+    print("Feature Importance:")
+    print("Gain:")
+    print(model.get_score(importance_type='gain'))
+    plot_importance(model)
+    # plt.show()
+    # shap.initjs()
+    # explainer = shap.TreeExplainer(model)
+    # shap_vlaues = explainer.shap_values(batch_x)
+    # shap.force_plot(explainer.expected_value[0], shap_vlaues[0], batch_x)  # , batch_x.iloc[0, :], matplotlib=True)
+    # plt.display(force_plot())
+    # plt.show()
+    # print(model.model.feature_importances_)
+    # print("Gain:")
+    # print(model.get_score(importance_type='gain'))
+    # print("Cover:")
+    # print(model.get_score(importance_type='cover'))
+    # print("Total gain:")
+    # print(model.get_score(importance_type='total_gain'))
+    # print("Total cover:")
+    # print(model.get_score(importance_type='total_cover'))
+    joblib.dump(model, "Schema_matching_1_test")
+    # d_test_1 = xgb.DMatrix(batch_test_x_1)
+    # d_test_2 = xgb.DMatrix(batch_test_x_2)
+    #
+    # preds_1 = model.predict(d_test_1)
+    # preds_2 = model.predict(d_test_2)
 
     # print ("XG BOOST")
     # print (preds_1)
@@ -367,20 +509,102 @@ def xg_nn(batch_x, batch_y, batch_test_x_1, batch_test_x_2, num_class, num_featu
     # print("Recall = {}".format(recall_score(Y_test, best_preds, average='macro')))
     # print("Accuracy = {}".format(accuracy_score(Y_test, best_preds)))
 
-    return [preds_1.argmax(1), preds_2.argmax(1)]
+    return  # [preds_1.argmax(1), preds_2.argmax(1)]
+
+
+def predict_char2vec(word, model, c2v_model, max_review_length):
+    feature = []
+    feature.append(get_features_char2vec(word, max_review_length, c2v_model))
+
+    features = np.asarray(feature)
+    prediction = model.predict(features)
+    return prediction
+
+
+def predict_embedding(word, embedding_model, char_dic, max_review_length):
+    feature = []
+    feature.append(get_features_embedding(word, max_review_length, char_dic))
+
+    features = np.asarray(feature)
+    prediction = embedding_model.predict(features)
+    return prediction
+
+
+def get_features_char2vec(word, max_review_length, c2v_model):
+    chars = list(word)
+    features = []
+
+    for char in chars:
+        char2vec = c2v_model.vectorize_words([char])[0]
+        norm_char2vec_list = []
+        for val in char2vec:
+            try:
+                norm_char2vec_list.append(10 * (val - min(char2vec)) / (max(char2vec) - min(char2vec)))
+            except ZeroDivisionError:
+                norm_char2vec_list.append(0)
+        features.append(norm_char2vec_list)
+
+    # Zero padding
+    features_2 = []
+    if len(features) < max_review_length:
+        for num in range(max_review_length - len(features)):
+            features_2.append([0 * i for i in range(50)])
+    features = features_2 + features
+    return features
+
+
+def get_features_embedding(word, max_review_length, char_dic):
+    chars = list(word)
+    features = []
+
+    for char in chars:
+        try:
+            char2vec = char_dic[char]
+            features.append(char2vec)
+        except KeyError:
+            continue
+
+    # Zero padding
+    features_2 = []
+    if len(features) < max_review_length:
+        for num in range(max_review_length - len(features)):
+            features_2.append(0)
+    features = features_2 + features
+    return features
+
+
+def create_dic():
+    alphanum = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=`~[]{}|;:,.<>/? ')
+    char_dic = {}
+    i = 1
+    for char in alphanum:
+        char_dic[char] = i
+        i += 1
+    # print(char_dic)
+    return char_dic
 
 
 def main():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+    num_iter = 10
+    num_clusters = 13  # 25  # 6  # 8 #13
+    test_set_1 = 12  # 5  # 2
+    test_set_2 = 13  # 7  # 3
+
     ''' Fetch data and extract features '''
 
     # f = open("Datasets/phone_schema.txt", "r")
-    f = open("Datasets/courses_schemas.txt", "r")
+    # f = open("Datasets/courses_schemas.txt", "r")
+    # f = open("Datasets/courses_schemas_copy.txt", "r")
     # f = open("Datasets/real_es_schema.txt", "r")
     # f = open("Datasets/schemas.txt", "r")
-    fl = f.readlines()
+    with smart_open.open("Datasets/courses_schemas_copy.txt", "r") as f:
+        fl = f.readlines()
+    """
     info = []
+    new_words = {}
+    
     for line in fl:
         line = line[:-1]
         print(line)
@@ -392,8 +616,7 @@ def main():
 
         elem_list = list(set(elem_list))
         doc = xml.dom.minidom.parse(line)
-        features_tag = get_features(elem_list, doc)
-
+        features_tag = get_features(elem_list, doc, new_words, num_iter)
         info_dict['elem_list'] = elem_list
         info_dict['doc'] = doc
         info_dict['features_tag'] = features_tag
@@ -403,11 +626,12 @@ def main():
     print(len(info))
 
     ''' Features for training and clustering '''
-    test_set_1 = 3
-    test_set_2 = 4
-
+    
     features = []
     label_list = []
+
+    print("INFO LENGTH")
+    print(len(info))
 
     for i in range(len(info)):
         if (i+1) == test_set_1 or (i+1) == test_set_2:
@@ -421,16 +645,18 @@ def main():
     plt.figure(figsize=(10, 7))
     plt.title("Clusters")
     get_link = shc.linkage(features, method='ward')
+    # print(label_list)
     dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
     plt.axhline(y=1, color='r', linestyle='--')
     # plt.show()
 
     ''' Ground truth for training '''
-    num_clusters = 13  # 6  # 8 #13
     # num_feat = 60
     # num_feat = 160
     # num_feat = 10
-    num_feat = 25
+    num_feat = info[0]['features_tag'][-1] #+ 25  # 10  # 25
+    print("num_feat")
+    print(num_feat)
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
     out_classes = cluster.fit_predict(features)
     # print (label_list)
@@ -441,19 +667,9 @@ def main():
         one_hot_vec = [0 * i for i in range(class_name)] + [1] + [0 * i for i in range(num_clusters - class_name - 1)]
         # print (one_hot_vec)
         out.append(one_hot_vec)
-
-    ''' Test data set '''
-    # test_set_1 = 2
-    # test_set_2 = 4
-    test_feature_1 = info[test_set_1-1]['features_tag'][1]  # features_tag_1[1]
-    test_tag_1 = info[test_set_1-1]['features_tag'][2]  # features_tag_1[2]
-    test_doc_1 = info[test_set_1-1]['doc']  # doc1
-
-    test_feature_2 = info[test_set_2-1]['features_tag'][1]  # features_tag_4[1]
-    test_tag_2 = info[test_set_2-1]['features_tag'][2]  # features_tag_4[2]
-    test_doc_2 = info[test_set_2-1]['doc']  # doc4
-
-    ''' Prediction '''
+        
+    
+    ''' Train '''
     # Neural Network
     # prediction = nn(features, out, test_feature_1, test_feature_2, num_clusters, len(features), num_feat)
 
@@ -461,7 +677,77 @@ def main():
     # prediction = rf_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
 
     # XG Boost
-    prediction = xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
+    xg_nn(features, out_classes, test_feature_1, test_feature_2, num_clusters, num_feat)
+    """
+
+    ''' Test data set '''
+    set_iter = 1
+    test_info = []
+    test_new_words = {}
+    for line in fl:
+        if set_iter == test_set_1 or set_iter == test_set_2:
+            line = line[:-1]
+            print(line)
+            test_dict = {}
+            xml_tree = ET.parse(line)  # ### Define line
+            elem_list = []
+            for elem in xml_tree.iter():
+                elem_list.append(elem.tag)
+
+            elem_list = list(set(elem_list))
+            doc = xml.dom.minidom.parse(line)
+            features_tag = get_features(elem_list, doc, test_new_words, num_iter)
+            test_dict['elem_list'] = elem_list
+            test_dict['doc'] = doc
+            test_dict['features_tag'] = features_tag
+
+            test_info.append(test_dict)
+        set_iter += 1
+    # test_set_1 = 2
+    # test_set_2 = 4
+    test_feature_1 = test_info[0]['features_tag'][1]  # features_tag_1[1]
+    test_tag_1 = test_info[0]['features_tag'][2]  # features_tag_1[2]
+    test_doc_1 = test_info[0]['doc']  # doc1
+    # print("FEATURE_1")
+    # print(test_feature_1)
+    # print(test_tag_1)
+
+    test_feature_2 = test_info[1]['features_tag'][1]  # features_tag_4[1]
+    test_tag_2 = test_info[1]['features_tag'][2]  # features_tag_4[2]
+    test_doc_2 = test_info[1]['doc']  # doc4
+    # print("FEATURE_2")
+    # print(test_feature_2)
+    # print(test_tag_2)
+
+    ''' Prediction '''
+    model = joblib.load("Schema_matching_1")
+
+    d_test_1 = xgb.DMatrix(test_feature_1)
+    d_test_2 = xgb.DMatrix(test_feature_2)
+
+    preds_1 = model.predict(d_test_1)
+    preds_2 = model.predict(d_test_2)
+    prediction_2 = [[], []]
+    test_tag_1_2 = []
+    test_tag_2_2 = []
+    for num in range(len(preds_1)):
+        classes = preds_1[num]
+        if max(classes) > 0.9:
+            prediction_2[0].append(classes.argmax())
+            test_tag_1_2.append(test_tag_1[num])
+
+    for num in range(len(preds_2)):
+        classes = preds_2[num]
+        if max(classes) > 0.9:
+            prediction_2[1].append(classes.argmax())
+            test_tag_2_2.append(test_tag_2[num])
+
+    # print(preds_1)
+    prediction = [preds_1.argmax(1), preds_2.argmax(1)]
+    # print(prediction)
+    # print(prediction_2)
+    # print(test_tag_1_2)
+    # print(test_tag_2_2)
 
     # arr = features[-1][0:10]
     # # arr = np.asarray(arr, dtype=np.float32)
@@ -567,7 +853,39 @@ def main():
                 cost_row.append(cost)
             cost_list.append(cost_row)
         # print (cost_list)
-
+        ###########################################
+        # simi_list = []
+        # for i_attr in label_list_1:
+        #     i_attr_list = i_attr.split("_")
+        #     # print(i_attr_list)
+        #     simi_row = []
+        #     for j_attr in label_list_2:
+        #         j_attr_list = j_attr.split("_")
+        #         # print(j_attr_list)
+        #         temp_list = []
+        #         for word_part_1 in i_attr_list:
+        #             for word_part_2 in j_attr_list:
+        #                 if word_part_1.lower() == word_part_2.lower():
+        #                     simi = 1
+        #                 else:
+        #                     try:
+        #                         simi = wv.similarity(w1=word_part_1, w2=word_part_2)
+        #                     except KeyError:
+        #                         # simi = 0
+        #                         # print("###########")
+        #                         # print(word_part_1)
+        #                         # print(word_part_2)
+        #                         # print("###########")
+        #                         try:
+        #                             simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+        #                         except KeyError:
+        #                             simi = 0
+        #                 temp_list.append(simi)
+        #                 # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
+        #         simi_row.append(1-max(temp_list))
+        #     simi_list.append(simi_row)
+        # # print (cost_list)
+        #############################################
         simi_list = []
         for i_attr in label_list_1:
             i_attr_list = i_attr.split("_")
@@ -579,22 +897,19 @@ def main():
                 temp_list = []
                 for word_part_1 in i_attr_list:
                     for word_part_2 in j_attr_list:
-                        try:
-                            simi = wv.similarity(w1=word_part_1, w2=word_part_2)
-                        except KeyError:
-                            # simi = 0
-                            # print("###########")
-                            # print(word_part_1)
-                            # print(word_part_2)
-                            # print("###########")
+                        if word_part_1.lower() == word_part_2.lower():
+                            simi = 1
+                        else:
                             try:
-                                simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+                                simi = wv.similarity(w1=word_part_1, w2=word_part_2)
                             except KeyError:
-                                simi = 0
+                                try:
+                                    simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
+                                except KeyError:
+                                    simi = 0
                         temp_list.append(simi)
-                        # print("%s , %s, %f" % (word_part_1, word_part_2, simi))
-
-                simi_row.append(1-max(temp_list))
+                        # print("%s, %s, %f" % (word_part_1, word_part_2, simi))
+                simi_row.append(1 - sum(temp_list)/len(temp_list))
             simi_list.append(simi_row)
         # print (cost_list)
 
@@ -621,8 +936,14 @@ def main():
         #     print ('%s : %s' % (label_list_1[matching_pairs[0][ind]], label_list_2[matching_pairs[1][ind]]))
         #
         # print ("COST PAIRS")
+        # print(matching_pairs_3)
         for ind in range(len(matching_pairs_3[0])):
-            print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
+            cost = simi_list[matching_pairs_3[0][ind]][matching_pairs_3[1][ind]]
+            if cost < 0.7:
+                print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
+            else:
+                print(cost)
+            # print('%s : %s' % (label_list_1[matching_pairs_3[0][ind]], label_list_2[matching_pairs_3[1][ind]])),
             # print(cost_list[matching_pairs_2[0][ind]][matching_pairs_2[1][ind]])
     # plt.show()
 

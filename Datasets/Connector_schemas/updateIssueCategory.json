@@ -1,0 +1,20 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "issueId": {
+      "id": "http:\/\/wso2jsonschema.org\/issueId",
+      "type": "string"
+    },
+    "issueName": {
+      "id": "http:\/\/wso2jsonschema.org\/issueName",
+      "type": "string"
+    },
+    "assignedToId": {
+      "id": "http:\/\/wso2jsonschema.org\/assignedToId",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

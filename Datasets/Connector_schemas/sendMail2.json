@@ -1,0 +1,75 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "toRecipients": {
+      "id": "http:\/\/wso2jsonschema.org\/toRecipients",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/toRecipients\/0",
+          "type": "object",
+          "properties": {
+            "EmailAddress": {
+              "id": "http:\/\/wso2jsonschema.org\/toRecipients\/0\/EmailAddress",
+              "type": "object",
+              "properties": {
+                "Address": {
+                  "id": "http:\/\/wso2jsonschema.org\/toRecipients\/0\/EmailAddress\/Address",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "subject": {
+      "id": "http:\/\/wso2jsonschema.org\/subject",
+      "type": "string",
+      "nullable": "true"
+    },
+    "messageContentType": {
+      "id": "http:\/\/wso2jsonschema.org\/messageContentType",
+      "type": "string"
+    },
+    "content": {
+      "id": "http:\/\/wso2jsonschema.org\/content",
+      "type": "string",
+      "nullable": "true"
+    },
+    "attachments": {
+      "id": "http:\/\/wso2jsonschema.org\/attachments",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/attachments\/0",
+          "type": "object",
+          "properties": {
+            "Name": {
+              "id": "http:\/\/wso2jsonschema.org\/attachments\/0\/Name",
+              "type": "string"
+            },
+            "ContentBytes": {
+              "id": "http:\/\/wso2jsonschema.org\/attachments\/0\/ContentBytes",
+              "type": "string"
+            }
+          },
+          "attributes": {
+            "odata.type": {
+              "id": "http:\/\/wso2jsonschema.org\/attachments\/0\/odata.type",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "saveToSentItems": {
+      "id": "http:\/\/wso2jsonschema.org\/saveToSentItems",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

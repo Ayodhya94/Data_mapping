@@ -1,0 +1,45 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "startDate": {
+      "id": "http:\/\/wso2jsonschema.org\/startDate",
+      "type": "string"
+    },
+    "endDate": {
+      "id": "http:\/\/wso2jsonschema.org\/endDate",
+      "type": "string"
+    },
+    "durationType": {
+      "id": "http:\/\/wso2jsonschema.org\/durationType",
+      "type": "string"
+    },
+    "durationInDays": {
+      "id": "http:\/\/wso2jsonschema.org\/durationInDays",
+      "type": "string"
+    },
+    "oldStartDate": {
+      "id": "http:\/\/wso2jsonschema.org\/oldStartDate",
+      "type": "string"
+    },
+    "oldEndDate": {
+      "id": "http:\/\/wso2jsonschema.org\/oldEndDate",
+      "type": "string"
+    },
+    "durationInMinutes": {
+      "id": "http:\/\/wso2jsonschema.org\/durationInMinutes",
+      "type": "string"
+    },
+    "comments": {
+      "id": "http:\/\/wso2jsonschema.org\/comments",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "reasonForLeaving": {
+      "id": "http:\/\/wso2jsonschema.org\/reasonForLeaving",
+      "type": "string"
+    },
+    "finalEmploymentDate": {
+      "id": "http:\/\/wso2jsonschema.org\/finalEmploymentDate",
+      "type": "string"
+    },
+    "finalWorkingDate": {
+      "id": "http:\/\/wso2jsonschema.org\/finalWorkingDate",
+      "type": "string"
+    },
+    "markAsLeaverImmediately": {
+      "id": "http:\/\/wso2jsonschema.org\/markAsLeaverImmediately",
+      "type": "string"
+    },
+    "additionalComments": {
+      "id": "http:\/\/wso2jsonschema.org\/additionalComments",
+      "type": "string"
+    },
+    "reEmployable": {
+      "id": "http:\/\/wso2jsonschema.org\/reEmployable",
+      "type": "string"
+    },
+    "supportingComments": {
+      "id": "http:\/\/wso2jsonschema.org\/supportingComments",
+      "type": "string"
+    },
+    "reportsTo": {
+      "id": "http:\/\/wso2jsonschema.org\/reportsTo",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

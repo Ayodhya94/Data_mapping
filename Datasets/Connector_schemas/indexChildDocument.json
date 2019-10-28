@@ -1,0 +1,35 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "childId": {
+      "id": "http:\/\/wso2jsonschema.org\/childId",
+      "type": "string"
+    },
+    "indexName": {
+      "id": "http:\/\/wso2jsonschema.org\/indexName",
+      "type": "string"
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "string"
+    },
+    "parentId": {
+      "id": "http:\/\/wso2jsonschema.org\/parentId",
+      "type": "string",
+      "nullable": "true"
+    },
+    "parentType": {
+      "id": "http:\/\/wso2jsonschema.org\/parentType",
+      "type": "string",
+      "nullable": "true"
+    },
+    "tagValue": {
+      "id": "http:\/\/wso2jsonschema.org\/tagValue",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

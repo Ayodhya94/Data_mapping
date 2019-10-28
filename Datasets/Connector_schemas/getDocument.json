@@ -1,0 +1,65 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "indexName": {
+      "id": "http:\/\/wso2jsonschema.org\/indexName",
+      "type": "string"
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "source": {
+      "id": "http:\/\/wso2jsonschema.org\/source",
+      "type": "string",
+      "nullable": "true"
+    },
+    "sourceExclude": {
+      "id": "http:\/\/wso2jsonschema.org\/sourceExclude",
+      "type": "string",
+      "nullable": "true"
+    },
+    "sourceInclude": {
+      "id": "http:\/\/wso2jsonschema.org\/sourceInclude",
+      "type": "string",
+      "nullable": "true"
+    },
+    "fields": {
+      "id": "http:\/\/wso2jsonschema.org\/fields",
+      "type": "string",
+      "nullable": "true"
+    },
+    "routing": {
+      "id": "http:\/\/wso2jsonschema.org\/routing",
+      "type": "string",
+      "nullable": "true"
+    },
+    "preference": {
+      "id": "http:\/\/wso2jsonschema.org\/preference",
+      "type": "string",
+      "nullable": "true"
+    },
+    "refresh": {
+      "id": "http:\/\/wso2jsonschema.org\/refresh",
+      "type": "string",
+      "nullable": "true"
+    },
+    "realtime": {
+      "id": "http:\/\/wso2jsonschema.org\/realtime",
+      "type": "string",
+      "nullable": "true"
+    },
+    "version": {
+      "id": "http:\/\/wso2jsonschema.org\/version",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

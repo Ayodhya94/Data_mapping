@@ -1,0 +1,56 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "calendarId": {
+      "id": "http:\/\/wso2jsonschema.org\/calendarId",
+      "type": "string"
+    },
+    "ruleId": {
+      "id": "http:\/\/wso2jsonschema.org\/ruleId",
+      "type": "string"
+    },
+    "kind": {
+      "id": "http:\/\/wso2jsonschema.org\/kind",
+      "type": "string",
+      "nullable": "true"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string",
+      "nullable": "true"
+    },
+    "etag": {
+      "id": "http:\/\/wso2jsonschema.org\/etag",
+      "type": "string",
+      "nullable": "true"
+    },
+    "fields": {
+      "id": "http:\/\/wso2jsonschema.org\/fields",
+      "type": "string",
+      "nullable": "true"
+    },
+    "scope": {
+      "id": "http:\/\/wso2jsonschema.org\/scope",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/scope\/type",
+          "type": "string"
+        },
+        "value": {
+          "id": "http:\/\/wso2jsonschema.org\/scope\/value",
+          "type": "string"
+        }
+      }
+    },
+    "role": {
+      "id": "http:\/\/wso2jsonschema.org\/role",
+      "type": "string",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

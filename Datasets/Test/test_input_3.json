@@ -1,0 +1,660 @@
+{
+	"itinerary": {
+		"reservationId": {
+			"crsConfirmationId": "24955269",
+			"crsPageNumber": null,
+			"pmsReservationNumber": null,
+			"pmsId": null,
+			"corporateProfileId": null,
+			"loyaltyId": null,
+			"cancellation": null,
+			"unknown": null,
+			"unknownCrsId21": null,
+			"unknownCrsId22": null,
+			"unknownCrsId23": null,
+			"unknownCrsId24": null
+		},
+		"reservationType": null,
+		"status": "UNKNOWN",
+		"reservations": [{
+			"property": {
+				"propertyId": "JEDHR",
+				"brand": {
+					"brandId": "HYATT",
+					"name": null,
+					"logo": null
+				},
+				"chain": null,
+				"documentTemplate": []
+			},
+			"reservationId": {
+				"crsConfirmationId": "24955269",
+				"crsPageNumber": "1",
+				"pmsReservationNumber": null,
+				"pmsId": null,
+				"corporateProfileId": "CR45010",
+				"loyaltyId": null,
+				"cancellation": null,
+				"unknown": null,
+				"unknownCrsId21": null,
+				"unknownCrsId22": null,
+				"unknownCrsId23": null,
+				"unknownCrsId24": "XX"
+			},
+			"legNumber": null,
+			"alternateConfirmationIds": [{
+				"vendorId": "DS0BC",
+				"confirmationId": "1380205241_3",
+				"pageNum": "0"
+			}],
+			"status": "CONFIRMED",
+			"action": "ADD",
+			"stayDateRange": {
+				"start": {
+					"value": "2019-03-08T00:00:00.000",
+					"date": "2019 - 03 - 08",
+					"time": "00: 00",
+					"zone": null
+				},
+				"end": {
+					"value": "2019-03-10",
+					"date": "2019 - 03 - 10",
+					"time": null,
+					"zone": null
+				}
+			},
+			"channelMarketBonusCodes": {
+				"complementaryCodes": null,
+				"promotionCodes": null,
+				"bonusCodes": null,
+				"marketSegmentCodes": ["OTAS"],
+				"channelCodes": ["0BC"],
+				"marketCodes": ["WHLS"],
+				"sourceofBusiness": null,
+				"reservationOriginatorCode": null
+			},
+			"resGuests": [{
+				"confirmationLegNo": null,
+				"arrivalTransport": {
+					"type": null,
+					"id": null,
+					"flightNumber": null,
+					"transportRequired": null,
+					"location": null,
+					"comment": null,
+					"time": null
+				},
+				"departureTransport": {
+					"type": null,
+					"id": null,
+					"flightNumber": null,
+					"transportRequired": null,
+					"location": null,
+					"comment": null,
+					"time": null
+				},
+				"profiles": [{
+					"profileUniqueId": {
+						"profileId": null,
+						"profileType": "GUEST",
+						"profileIdContext": null,
+						"resortProfileId": null,
+						"propertyId": null,
+						"multiProperty": null,
+						"miniProfile": null,
+						"pseudoProfile": null,
+						"anonymizationStatus": null,
+						"replaceAddress": null
+					},
+					"individualName": {
+						"lastName": "Anonlname",
+						"middleName": null,
+						"firstName": "Anonfname",
+						"prefix": null,
+						"suffix": null,
+						"alternateFirstName": null,
+						"alternateLastName": null,
+						"alternateSalutation": null,
+						"companyName": null,
+						"title": null
+					},
+					"genericName": null,
+					"nationalName": null,
+					"nameCode": null,
+					"aRNumber": null,
+					"vipCode": null,
+					"primaryLanguageId": null,
+					"alternateLanuguageIds": null,
+					"lastUpdaterCode": null,
+					"lastUpdated": null,
+					"contactPerson": null,
+					"salesExtension": null,
+					"gender": null,
+					"nationality": null,
+					"businessTitle": null,
+					"isActive": null,
+					"deactivationReason": null,
+					"isRestricted": null,
+					"restrictionReason": null,
+					"restrictionComment": null,
+					"influenceCode": null,
+					"taxExempt": null,
+					"governmentIds": null,
+					"postalAddresses": [{
+						"addressLine1": null,
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressType": "PERSONAL",
+						"companyName": null,
+						"city": null,
+						"stateProvCode": null,
+						"postalCode": null,
+						"countryCode": null,
+						"otherAddressType": null,
+						"barCode": null,
+						"cityEtxn": null,
+						"languageCode": null,
+						"cleansed": null,
+						"isPrimary": false
+					}],
+					"phoneNumbers": [{
+						"number": "anon-phone",
+						"type": "TELEPHONE",
+						"techType": null,
+						"extn": null,
+						"isPrimary": false,
+						"isConfirmed": null
+					}],
+					"emails": null,
+					"comments": [{
+						"commentType": "Remark",
+						"commentCode": null,
+						"commentText": "72HRS PRIOR TO CHECKIN TO AVOID 1NT FEE\n\nWB-DS0BC\n",
+						"lastUpdated": null,
+						"originPropertyCommentId": null,
+						"originPropertyId": null,
+						"commentTitle": null,
+						"commentOriginatorCode": null,
+						"guestViewable": null,
+						"significance": null
+					}, {
+						"commentType": "Extended",
+						"commentCode": null,
+						"commentText": ":webs:  Genius booking,rate rewrited by feb promo *** This guest\nwould like the rooms in this booking to be close together if\npossible.Room in Higher floor near the Haram. Extra Blanket\n:webe:;\n",
+						"lastUpdated": null,
+						"originPropertyCommentId": null,
+						"originPropertyId": null,
+						"commentTitle": null,
+						"commentOriginatorCode": null,
+						"guestViewable": null,
+						"significance": null
+					}, {
+						"commentType": "TRACE",
+						"commentCode": "FO",
+						"commentText": "[CRS-01-00001] CONFIRMED NON-SMOKING RM\n",
+						"lastUpdated": {
+							"value": "2019-03-05",
+							"date": "2019 - 03 - 05",
+							"time": null,
+							"zone": null
+						},
+						"originPropertyCommentId": null,
+						"originPropertyId": null,
+						"commentTitle": null,
+						"commentOriginatorCode": null,
+						"guestViewable": null,
+						"significance": null
+					}, {
+						"commentType": "TRACE",
+						"commentCode": "RMK",
+						"commentText": "[CRSRMK-01] :webs:  Genius booking,rate rewrited by feb promo *** This guest;would like the rooms in this booking to be close together if;possible.Room in Higher floor near the Haram. Extra Blanket;:webe:;\n",
+						"lastUpdated": {
+							"value": "2019-03-05",
+							"date": "2019 - 03 - 05",
+							"time": null,
+							"zone": null
+						},
+						"originPropertyCommentId": null,
+						"originPropertyId": null,
+						"commentTitle": null,
+						"commentOriginatorCode": null,
+						"guestViewable": null,
+						"significance": null
+					}],
+					"specialRequests": null,
+					"memberships": null,
+					"preferences": null,
+					"udfc11": null,
+					"preferredRatePlanCodes": null,
+					"privacyOptions": null,
+					"negotiatedRates": null,
+					"anniversaries": null,
+					"creatorCode": null,
+					"createdDate": null,
+					"commissionPlanCode": null,
+					"commissionCurrencyCode": null,
+					"corporatePosition": null,
+					"documents": null,
+					"dateOfBirth": null,
+					"greeting": null,
+					"companyName": null,
+					"resorts": null,
+					"resortComments": null,
+					"resortId": null,
+					"contactAccount": null,
+					"multiResortEntities": null,
+					"profileCertifications": null,
+					"blacklistMessage": null,
+					"udfs": null
+				}, {
+					"profileUniqueId": {
+						"profileId": "HI101211",
+						"profileType": "TRAVEL",
+						"profileIdContext": null,
+						"resortProfileId": null,
+						"propertyId": null,
+						"multiProperty": null,
+						"miniProfile": null,
+						"pseudoProfile": null,
+						"anonymizationStatus": null,
+						"replaceAddress": null
+					},
+					"individualName": null,
+					"genericName": null,
+					"nationalName": null,
+					"nameCode": null,
+					"aRNumber": null,
+					"vipCode": null,
+					"primaryLanguageId": null,
+					"alternateLanuguageIds": null,
+					"lastUpdaterCode": null,
+					"lastUpdated": null,
+					"contactPerson": null,
+					"salesExtension": null,
+					"gender": null,
+					"nationality": null,
+					"businessTitle": null,
+					"isActive": null,
+					"deactivationReason": null,
+					"isRestricted": null,
+					"restrictionReason": null,
+					"restrictionComment": null,
+					"influenceCode": null,
+					"taxExempt": null,
+					"governmentIds": null,
+					"postalAddresses": [{
+						"addressLine1": "anon-address 28",
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressType": null,
+						"companyName": "BOOKING.COM NO-PAY",
+						"city": "AMSTERDAM",
+						"stateProvCode": null,
+						"postalCode": "1017 SG",
+						"countryCode": "NL",
+						"otherAddressType": null,
+						"barCode": null,
+						"cityEtxn": null,
+						"languageCode": null,
+						"cleansed": null,
+						"isPrimary": false
+					}],
+					"phoneNumbers": null,
+					"emails": null,
+					"comments": [],
+					"specialRequests": null,
+					"memberships": null,
+					"preferences": null,
+					"udfc11": null,
+					"preferredRatePlanCodes": null,
+					"privacyOptions": null,
+					"negotiatedRates": null,
+					"anniversaries": null,
+					"creatorCode": null,
+					"createdDate": null,
+					"commissionPlanCode": null,
+					"commissionCurrencyCode": null,
+					"corporatePosition": null,
+					"documents": null,
+					"dateOfBirth": null,
+					"greeting": null,
+					"companyName": "BOOKING.COM NO-PAY",
+					"resorts": null,
+					"resortComments": null,
+					"resortId": null,
+					"contactAccount": null,
+					"multiResortEntities": null,
+					"profileCertifications": null,
+					"blacklistMessage": null,
+					"udfs": null
+				}, {
+					"profileUniqueId": {
+						"profileId": "45010",
+						"profileType": "CORPORATE",
+						"profileIdContext": null,
+						"resortProfileId": null,
+						"propertyId": null,
+						"multiProperty": null,
+						"miniProfile": null,
+						"pseudoProfile": null,
+						"anonymizationStatus": null,
+						"replaceAddress": null
+					},
+					"individualName": null,
+					"genericName": null,
+					"nationalName": null,
+					"nameCode": null,
+					"aRNumber": null,
+					"vipCode": null,
+					"primaryLanguageId": null,
+					"alternateLanuguageIds": null,
+					"lastUpdaterCode": null,
+					"lastUpdated": null,
+					"contactPerson": null,
+					"salesExtension": null,
+					"gender": null,
+					"nationality": null,
+					"businessTitle": null,
+					"isActive": null,
+					"deactivationReason": null,
+					"isRestricted": null,
+					"restrictionReason": null,
+					"restrictionComment": null,
+					"influenceCode": null,
+					"taxExempt": null,
+					"governmentIds": null,
+					"postalAddresses": [{
+						"addressLine1": "anon-address 28-3",
+						"addressLine2": null,
+						"addressLine3": null,
+						"addressLine4": null,
+						"addressType": "BUSINESS",
+						"companyName": "BOOKING.COM",
+						"city": "AMSTERDAM",
+						"stateProvCode": null,
+						"postalCode": "1017 SG",
+						"countryCode": "NL",
+						"otherAddressType": null,
+						"barCode": null,
+						"cityEtxn": null,
+						"languageCode": null,
+						"cleansed": null,
+						"isPrimary": false
+					}],
+					"phoneNumbers": [{
+						"number": "anon-phone-2",
+						"type": "TELEPHONE",
+						"techType": null,
+						"extn": null,
+						"isPrimary": false,
+						"isConfirmed": null
+					}, {
+						"number": "31207125609",
+						"type": "FAX",
+						"techType": null,
+						"extn": null,
+						"isPrimary": false,
+						"isConfirmed": null
+					}],
+					"emails": null,
+					"comments": [],
+					"specialRequests": null,
+					"memberships": null,
+					"preferences": null,
+					"udfc11": null,
+					"preferredRatePlanCodes": null,
+					"privacyOptions": null,
+					"negotiatedRates": null,
+					"anniversaries": null,
+					"creatorCode": null,
+					"createdDate": null,
+					"commissionPlanCode": null,
+					"commissionCurrencyCode": null,
+					"corporatePosition": null,
+					"documents": null,
+					"dateOfBirth": null,
+					"greeting": null,
+					"companyName": "BOOKING.COM",
+					"resorts": null,
+					"resortComments": null,
+					"resortId": null,
+					"contactAccount": null,
+					"multiResortEntities": null,
+					"profileCertifications": null,
+					"blacklistMessage": null,
+					"udfs": null
+				}],
+				"estimatedArrivalDateTime": null,
+				"estimatedDepartureDateTime": null,
+				"confirmationId": null,
+				"reservationId": null,
+				"reservationAction": null,
+				"purposeOfStay": null,
+				"reservationChildAges": null,
+				"reservationReferences": null,
+				"awardVouchers": null,
+				"specialRequests": []
+			}],
+			"guestCountInfo": {
+				"perRoom": true,
+				"guestCounts": [{
+					"ageQualifyingCode": "ADULT",
+					"count": 2,
+					"age": null
+				}, {
+					"ageQualifyingCode": "CHILD",
+					"count": 0,
+					"age": null
+				}]
+			},
+			"vipGuest": null,
+			"accompanyingGuests": null,
+			"wakeUpCalls": null,
+			"packages": null,
+			"comments": [],
+			"specialRequests": [{
+				"requestCode": "NOSM",
+				"requestText": null,
+				"type": null,
+				"resort": null,
+				"inactiveDate": null
+			}],
+			"roomInventoryCode": null,
+			"roomRates": [{
+				"roomType": "TWIN",
+				"ratePlan": {
+					"ratePlanCode": "WCGPT",
+					"ratePlanStatus": null,
+					"isCommissionable": null,
+					"dpsCode": null
+				},
+				"rates": [{
+					"dateTimeRange": {
+						"start": {
+							"value": null,
+							"date": "2019 - 03 - 08",
+							"time": null,
+							"zone": null
+						},
+						"end": {
+							"value": null,
+							"date": "2019 - 03 - 09",
+							"time": null,
+							"zone": null
+						}
+					},
+					"baseByGuestAmounts": [{
+						"amountAfterTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						},
+						"amountBeforeTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						},
+						"amountIncludingMarkup": null,
+						"chargeType": null,
+						"guestCounts": [{
+							"ageQualifyingCode": "ADULT",
+							"count": 2,
+							"age": null
+						}],
+						"eligibilityCode": "NO",
+						"dependent": "true",
+						"purposeOfVisit": "XX",
+						"rateModifierCode": "BASE",
+						"ratePlanId": "J1",
+						"tiered": null
+					}],
+					"additionalGuestAmounts": null,
+					"additionalCharges": [{
+						"amount": {
+							"currencyCode": "SAR",
+							"value": "0.0"
+						},
+						"code": "TWIN"
+					}],
+					"rateTotal": {
+						"amountBeforeTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						}
+					},
+					"rateCode": "WCGPT",
+					"rateApplicableDaysOfWeek": null
+				}, {
+					"dateTimeRange": {
+						"start": {
+							"value": null,
+							"date": "2019 - 03 - 09",
+							"time": null,
+							"zone": null
+						},
+						"end": {
+							"value": null,
+							"date": "2019 - 03 - 10",
+							"time": null,
+							"zone": null
+						}
+					},
+					"baseByGuestAmounts": [{
+						"amountAfterTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						},
+						"amountBeforeTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						},
+						"amountIncludingMarkup": null,
+						"chargeType": null,
+						"guestCounts": [{
+							"ageQualifyingCode": "ADULT",
+							"count": 2,
+							"age": null
+						}],
+						"eligibilityCode": "NO",
+						"dependent": "true",
+						"purposeOfVisit": "XX",
+						"rateModifierCode": "BASE",
+						"ratePlanId": "J1",
+						"tiered": null
+					}],
+					"additionalGuestAmounts": null,
+					"additionalCharges": [{
+						"amount": {
+							"currencyCode": "SAR",
+							"value": "0.0"
+						},
+						"code": "TWIN"
+					}],
+					"rateTotal": {
+						"amountBeforeTax": {
+							"currencyCode": "SAR",
+							"value": "405.0"
+						}
+					},
+					"rateCode": "WCGPT",
+					"rateApplicableDaysOfWeek": null
+				}],
+				"availabilityStatus": null,
+				"paymentInstructions": null,
+				"confidentialRate": false,
+				"complimentaryCode": null
+			}],
+			"bookedRatePlan": {
+				"ratePlanCode": "WCGPT",
+				"ratePlanStatus": null,
+				"isCommissionable": null,
+				"dpsCode": null
+			},
+			"roomQuantity": 1,
+			"assignedRoom": null,
+			"inventoryBlockCode": null,
+			"paymentMethods": null,
+			"guarantee": {
+				"guaranteeType": null,
+				"guaranteeCode": null,
+				"paymentType": null,
+				"deadLine": null,
+				"description": null,
+				"mandatoryDeposit": null,
+				"cancellationRequired": null,
+				"creditCardRequired": null,
+				"guaranteeAccepteds": [{
+					"creditcard": {
+						"cardType": "MC",
+						"cardToken": "xxxxxxxxxxxx9008",
+						"cardExpiry": {
+							"value": "12/31/21",
+							"date": "2021 - 12 - 31",
+							"time": null,
+							"zone": null
+						},
+						"description": null,
+						"isPrimary": true
+					},
+					"directBill": null,
+					"otherGuarantee": null,
+					"voucher": null,
+					"deposit": null,
+					"travelAgentId": null,
+					"companyId": null,
+					"agentPhoneNumber": null
+				}]
+			},
+			"charges": null,
+			"discount": null,
+			"deposit": null,
+			"awardVouchers": null,
+			"pmsChangeLogs": null,
+			"alerts": null,
+			"traces": null,
+			"primaryLangId": "eng",
+			"creatorId": "0BC",
+			"sharedWithThirdParty": false,
+			"itineraryReservation": false,
+			"membershipEligible": "NO",
+			"originalContact": null,
+			"tpaExtension": {
+				"resCreator": null,
+				"companyName": "BOOKING.COM",
+				"title": null
+			}
+		}],
+		"sharedReservations": null,
+		"creatorId": null,
+		"originalBookingDate": null,
+		"createDateTime": null,
+		"updatedTime": null,
+		"channelMarketBonusCodes": null,
+		"specialRequests": null,
+		"paymentMethods": null
+	},
+	"reservationAction": "UNKNOWN",
+	"interfaceName": "SPIRIT",
+	"viewable": "true",
+	"transactionId": "2801913"
+}

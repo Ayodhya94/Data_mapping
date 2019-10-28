@@ -1,0 +1,104 @@
+{
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "since": {
+      "id": "http:\/\/wso2jsonschema.org\/since",
+      "type": "string",
+      "nullable": "true"
+    },
+    "until": {
+      "id": "http:\/\/wso2jsonschema.org\/until",
+      "type": "string",
+      "nullable": "true"
+    },
+    "dateRange": {
+      "id": "http:\/\/wso2jsonschema.org\/dateRange",
+      "type": "string",
+      "nullable": "true"
+    },
+    "statuses": {
+      "id": "http:\/\/wso2jsonschema.org\/statuses",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/statuses\/0",
+          "type": "string"
+        }
+      ]
+    },
+    "incidentKey": {
+      "id": "http:\/\/wso2jsonschema.org\/incidentKey",
+      "type": "string",
+      "nullable": "true"
+    },
+    "serviceIDs": {
+      "id": "http:\/\/wso2jsonschema.org\/serviceIDs",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/serviceIDs\/0",
+          "type": "string"
+        }
+      ]
+    },
+    "teamIDs": {
+      "id": "http:\/\/wso2jsonschema.org\/teamIDs",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/teamIDs\/0",
+          "type": "string"
+        }
+      ]
+    },
+    "userIDs": {
+      "id": "http:\/\/wso2jsonschema.org\/userIDs",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/userIDs\/0",
+          "type": "string"
+        }
+      ]
+    },
+    "urgencies": {
+      "id": "http:\/\/wso2jsonschema.org\/urgencies",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/urgencies\/0",
+          "type": "string"
+        }
+      ]
+    },
+    "timeZone": {
+      "id": "http:\/\/wso2jsonschema.org\/timeZone",
+      "type": "string",
+      "nullable": "true"
+    },
+    "sortBy": {
+      "id": "http:\/\/wso2jsonschema.org\/sortBy",
+      "type": "string",
+      "nullable": "true"
+    },
+    "include": {
+      "id": "http:\/\/wso2jsonschema.org\/include",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/include\/0",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}

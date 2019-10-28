@@ -1,0 +1,75 @@
+{
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "serviceKey": {
+      "id": "http:\/\/wso2jsonschema.org\/serviceKey",
+      "type": "string"
+    },
+    "eventType": {
+      "id": "http:\/\/wso2jsonschema.org\/eventType",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "incidentKey": {
+      "id": "http:\/\/wso2jsonschema.org\/incidentKey",
+      "type": "string",
+      "nullable": "true"
+    },
+    "client": {
+      "id": "http:\/\/wso2jsonschema.org\/client",
+      "type": "string",
+      "nullable": "true"
+    },
+    "clientUrl": {
+      "id": "http:\/\/wso2jsonschema.org\/clientUrl",
+      "type": "string",
+      "nullable": "true"
+    },
+    "details": {
+      "id": "http:\/\/wso2jsonschema.org\/details",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "ping time": {
+          "id": "http:\/\/wso2jsonschema.org\/details\/ping time",
+          "type": "string"
+        },
+        "load avg": {
+          "id": "http:\/\/wso2jsonschema.org\/details\/load avg",
+          "type": "number"
+        }
+      }
+    },
+    "contexts": {
+      "id": "http:\/\/wso2jsonschema.org\/contexts",
+      "type": "array",
+      "nullable": "true",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/contexts\/0",
+          "type": "object",
+          "properties": {
+            "type": {
+              "id": "http:\/\/wso2jsonschema.org\/contexts\/0\/type",
+              "type": "string"
+            },
+            "href": {
+              "id": "http:\/\/wso2jsonschema.org\/contexts\/0\/href",
+              "type": "string"
+            },
+            "text": {
+              "id": "http:\/\/wso2jsonschema.org\/contexts\/0\/text",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

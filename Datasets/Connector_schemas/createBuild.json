@@ -1,0 +1,26 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "createBuild",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "isBuildWithParameters": {
+      "id": "http:\/\/wso2jsonschema.org\/isBuildWithParameters",
+      "type": "null",
+      "nullable": "true"
+    },
+    "parameters": {
+      "id": "http:\/\/wso2jsonschema.org\/parameters",
+      "type": "string",
+      "nullable": "true"
+    },
+    "responseType": {
+      "id": "http:\/\/wso2jsonschema.org\/responseType",
+      "type": "string"
+    },
+    "jobName": {
+      "id": "http:\/\/wso2jsonschema.org\/jobName",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

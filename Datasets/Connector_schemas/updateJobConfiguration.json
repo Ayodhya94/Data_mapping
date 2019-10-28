@@ -1,0 +1,51 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "updateJobConfiguration",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "jobName": {
+      "id": "http:\/\/wso2jsonschema.org\/jobName",
+      "type": "string"
+    },
+    "configDetails": {
+      "id": "http:\/\/wso2jsonschema.org\/configDetails",
+      "type": "object",
+      "nullable": "true",
+      "properties": {
+        "values": {
+          "id": "http:\/\/wso2jsonschema.org\/configDetails\/values",
+          "type": "object",
+          "properties": {
+            "project": {
+              "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project",
+              "type": "object",
+              "properties": {
+                "actions": {
+                  "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project\/actions",
+                  "type": "null"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project\/description",
+                  "type": "string"
+                },
+                "keepDependencies": {
+                  "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project\/keepDependencies",
+                  "type": "boolean"
+                },
+                "publishers": {
+                  "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project\/publishers",
+                  "type": "null"
+                },
+                "buildWrappers": {
+                  "id": "http:\/\/wso2jsonschema.org\/configDetails\/values\/project\/buildWrappers",
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object"
+}

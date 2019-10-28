@@ -1,0 +1,33 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "login": {
+      "id": "http:\/\/wso2jsonschema.org\/login",
+      "type": "string"
+    },
+    "password": {
+      "id": "http:\/\/wso2jsonschema.org\/password",
+      "type": "string"
+    },
+    "firstname": {
+      "id": "http:\/\/wso2jsonschema.org\/firstname",
+      "type": "string"
+    },
+    "lastname": {
+      "id": "http:\/\/wso2jsonschema.org\/lastname",
+      "type": "string"
+    },
+    "mail": {
+      "id": "http:\/\/wso2jsonschema.org\/mail",
+      "type": "string"
+    },
+    "authSourceId": {
+      "id": "http:\/\/wso2jsonschema.org\/authSourceId",
+      "type": "null",
+      "nullable": "true"
+    }
+  },
+  "type": "object"
+}

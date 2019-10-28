@@ -1,0 +1,28 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
+  "properties": {
+    "employeeId": {
+      "id": "http:\/\/wso2jsonschema.org\/employeeId",
+      "type": "string"
+    },
+    "timesheetDate": {
+      "id": "http:\/\/wso2jsonschema.org\/timesheetDate",
+      "type": "string"
+    },
+    "timeIn1": {
+      "id": "http:\/\/wso2jsonschema.org\/timeIn1",
+      "type": "string"
+    },
+    "timeOut1": {
+      "id": "http:\/\/wso2jsonschema.org\/timeOut1",
+      "type": "string"
+    },
+    "comments": {
+      "id": "http:\/\/wso2jsonschema.org\/comments",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
