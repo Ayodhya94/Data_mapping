@@ -1,0 +1,2 @@
+Datasets/courses_wsu.xml
+Datasets/courses_washington.xml
