@@ -69,16 +69,16 @@ def range_extract(list):
     return sorted_diff
 
 
-def predict_embedding(word, embedding_model, char_dic, max_review_length):
+def predict_char2vec(word, embedding_model, char_dic, max_review_length):
     feature = []
-    feature.append(get_features_embedding(word, max_review_length, char_dic))
+    feature.append(get_features_char2vec(word, max_review_length, char_dic))
 
     features = np.asarray(feature)
     prediction = embedding_model.predict(features)
     return prediction
 
 
-def get_features_embedding(word, max_review_length, char_dic):
+def get_features_char2vec(word, max_review_length, char_dic):
     chars = list(word)
     features = []
 
@@ -181,7 +181,7 @@ def get_class_features(model, char_dic, max_review_length, num_iter, orig_list):
         try:
             name_list_2 = orig_list[j].split()
             for word in name_list_2:
-                type_list.append(predict_embedding(word, model, char_dic, max_review_length).tolist()[0])
+                type_list.append(predict_char2vec(word, model, char_dic, max_review_length).tolist()[0])
             if len(type_list) > 0:
                 type_list_mean = np.mean(type_list, axis=0).tolist()
             else:
@@ -329,13 +329,13 @@ def extract_features(info):
 
 
 def hierarchical_clustering(features, label_list, num_clusters, plot):
-    plt.figure(figsize=(10, 7))
-    plt.title("Clusters")
-    get_link = shc.linkage(features, method='ward')
-    # print(label_list)
-    dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
-    plt.axhline(y=1, color='r', linestyle='--')
     if plot:
+        plt.figure(figsize=(10, 7))
+        plt.title("Clusters")
+        get_link = shc.linkage(features, method='ward')
+        # print(label_list)
+        dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=label_list)
+        plt.axhline(y=1, color='r', linestyle='--')
         plt.show()
 
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
