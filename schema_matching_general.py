@@ -283,9 +283,10 @@ def get_features(tag_list, doc, num_iter):
             new_tag_list.append(tag_name)
             ''' Merge all the features'''
             norm_feature_map = normalize(get_stat_features(processed_list)) + \
-                normalize(get_comp_features(digit_list, alpha_list, chara_list)) + \
-                normalize(get_dist_features(distinct_val)) + normalize(get_embed_feature(tag_name, wv)) + \
-                get_type_feature(tag_name) + get_class_features(model, char_dic, max_review_length, num_iter, orig_list)
+                               normalize(get_comp_features(digit_list, alpha_list, chara_list)) + \
+                               normalize(get_dist_features(distinct_val)) + normalize(get_embed_feature(tag_name, wv)) + \
+                               get_type_feature(tag_name) + get_class_features(model, char_dic, max_review_length,
+                                                                               num_iter, orig_list)
 
             final_feature_list.append(norm_feature_map)
             final_feature_list_concat = final_feature_list_concat + norm_feature_map
@@ -608,14 +609,14 @@ def main():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     data_paths_train = "Datasets/courses_schemas_test.txt"
     data_paths_test = "Datasets/courses_schemas_test.txt"
-    num_iter = 10
+    num_instance = 10  # Number of instances that are considered for get category from categorical classifier
     num_clusters = 13
 
     ''' Training '''
-    train_model(num_iter, data_paths_train, num_clusters)
+    train_model(num_instance, data_paths_train, num_clusters)
 
     ''' Testing '''
-    test_model(num_iter, data_paths_test, num_clusters)
+    test_model(num_instance, data_paths_test, num_clusters)
 
 
 if __name__ == "__main__":
