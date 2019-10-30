@@ -257,36 +257,7 @@ def hierarchical_clustering(feature_list, tag_list, num_clusters, plot):
     return out_classes
 
 
-def train(files, num_clusters):
-    """ This method is for training model"""
-    ''' Getting features '''
-    tag_list = []
-    feature_list = []
 
-    with open('W2V_models/w2v_dict.json') as f:
-        wv = json.load(f)
-
-    i = 0
-    for f in files:
-        print(i)
-        i = i + 1
-        print(f)
-        with open(f) as g:
-            distros_dict = json.load(g)
-
-        list_att = []
-        info = {"names": [], "paths": [], "values": []}
-        dict_traverse(distros_dict, list_att, info)
-
-        out_feat = get_features(info, wv)
-        tag_list = tag_list + out_feat[0]
-        feature_list = feature_list + out_feat[1]
-
-    out_classes = hierarchical_clustering(feature_list, tag_list, num_clusters, plot=0)
-
-    ''' Training '''
-    xg_train(feature_list, out_classes, num_clusters)
-    return
 
 
 def predict(files):
@@ -437,15 +408,10 @@ def map_attributes(class_info, num_clusters):
     return
 
 
-def main():
-    """ Main method"""
-    ''' Parameters'''
-    num_clusters = 20
-
-    ''' Read input data for training '''
+def train_model(file_name, num_clusters):
     dirname = os.getcwd()
     abspath = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(abspath, "Datasets/Connector_schemas/")
+    path = os.path.join(abspath, file_name)
     files = []
 
     for r, d, f in os.walk(path):
@@ -453,21 +419,73 @@ def main():
             if '.json' in file:
                 files.append(os.path.join(r, file))
 
-    ''' Train neural network'''
-    # train(files, num_clusters)
+    ''' Getting input data '''
+    tag_list = []
+    feature_list = []
+
+    with open('W2V_models/w2v_dict.json') as f:
+        wv = json.load(f)
+
+    i = 0
+    for f in files:
+        print(i)
+        i = i + 1
+        print(f)
+        with open(f) as g:
+            distros_dict = json.load(g)
+
+        list_att = []
+        info = {"names": [], "paths": [], "values": []}
+        dict_traverse(distros_dict, list_att, info)
+
+        out_feat = get_features(info, wv)
+        tag_list = tag_list + out_feat[0]
+        feature_list = feature_list + out_feat[1]
+
+    ''' Hierarchical Clustering '''
+    out_classes = hierarchical_clustering(feature_list, tag_list, num_clusters, plot=0)
+
+    ''' Training '''
+    xg_train(feature_list, out_classes, num_clusters)
+    return
+
+
+def test_model(file_name_1, file_name_2, num_clusters):
+    dirname = os.getcwd()
+    abspath = os.path.dirname(os.path.abspath(__file__))
+    path_1 = os.path.join(abspath, file_name_1)
+    path_2 = os.path.join(abspath, file_name_2)
 
     ''' Read input data for testing/predicting '''
-    predictions_1 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_1.json')
-    predictions_2 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_1.json')
-
-    # predictions_1 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_15.json')
-    # predictions_2 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_15.json')
+    predictions_1 = predict(path_1)
+    predictions_2 = predict(path_2)
 
     ''' Get classifications '''
     class_info = classifications(num_clusters, predictions_1, predictions_2)
 
     ''' Get mappings '''
     map_attributes(class_info, num_clusters)
+    return
+
+
+def main():
+    """ Main method"""
+    ''' Parameters'''
+    num_clusters = 20
+
+    ''' Train model '''
+    # file_name = "Datasets/Connector_schemas/"
+    # train_model(file_name, num_clusters)
+
+    ''' Test model '''
+    test_schema_1 = 'Datasets/Test/test_input_1.json'
+    test_schema_2 = 'Datasets/Test/test_output_1.json'
+
+    # test_schema_1 = Datasets/Test/in_15.json
+    # test_schema_2 = Datasets/Test/out_15.json
+
+    test_model(test_schema_1, test_schema_2, num_clusters)
+
 
 
 if __name__ == "__main__":
