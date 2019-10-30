@@ -29,7 +29,7 @@ from xml.etree import cElementTree as ElementTree
 import xmltodict
 import joblib
 
-"""Copied from a repo : Class XmlListConfig and class XmlDictConfig"""
+"""class XmlListConfig and class XmlDictConfig were copied"""
 
 
 class XmlListConfig(list):
@@ -230,7 +230,7 @@ def get_features(info, wv):
     return [tag_list, feature_list, path_list]
 
 
-def xg_nn(batch_x, batch_y, num_class):
+def xg_train(batch_x, batch_y, num_class):
     d_train = xgb.DMatrix(batch_x, label=batch_y)
     param = {
         'eta': 0.3,
@@ -239,22 +239,31 @@ def xg_nn(batch_x, batch_y, num_class):
         'num_class': num_class}
     steps = 1000  # The number of training iterations
     model = xgb.train(param, d_train, steps)
-    joblib.dump(model, "XG_trained_model")
+    joblib.dump(model, "Schema_matching_models/XG_trained_model_test")
     return
 
 
-def train_nn(files, num_clusters):
-    """ This method is for training neural network"""
+def hierarchical_clustering(feature_list, tag_list, num_clusters, plot):
+    if plot:
+        plt.figure(figsize=(10, 7))
+        plt.title("Clusters")
+        get_link = shc.linkage(feature_list, method='ward')
+        dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=tag_list)
+        plt.axhline(y=1, color='r', linestyle='--')
+        plt.show()
+
+    cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
+    out_classes = cluster.fit_predict(feature_list)
+    return out_classes
+
+
+def train(files, num_clusters):
+    """ This method is for training model"""
     ''' Getting features '''
     tag_list = []
     feature_list = []
 
-    # dirname = os.getcwd()
-    # abspath = os.path.dirname(os.path.abspath(__file__))
-    # path = os.path.join(abspath, "default")
-    # wv = KeyedVectors.load(path, mmap='r')
-
-    with open('w2v_dict.json') as f:
+    with open('W2V_models/w2v_dict.json') as f:
         wv = json.load(f)
 
     i = 0
@@ -273,39 +282,18 @@ def train_nn(files, num_clusters):
         tag_list = tag_list + out_feat[0]
         feature_list = feature_list + out_feat[1]
 
-    ''' Hierarchical clustering '''
-    plt.figure(figsize=(10, 7))
-    plt.title("Clusters")
-    get_link = shc.linkage(feature_list, method='ward')
-    dend = shc.dendrogram(get_link, leaf_font_size=8, leaf_rotation=90., labels=tag_list)
-    plt.axhline(y=1, color='r', linestyle='--')
-    # plt.show()
-
-    ''' Ground truth for training '''
-    cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
-    out_classes = cluster.fit_predict(feature_list)
-
-    out = []
-    for class_name in out_classes:
-        one_hot_vec = [0 * i for i in range(class_name)] + [1] + [0 * i for i in range(num_clusters - class_name - 1)]
-        out.append(one_hot_vec)
+    out_classes = hierarchical_clustering(feature_list, tag_list, num_clusters, plot=0)
 
     ''' Training '''
-    xg_nn(feature_list, out_classes, num_clusters)
+    xg_train(feature_list, out_classes, num_clusters)
     return
 
 
-def predict_nn(files):
-    """ This method is for predicting using neural network"""
+def predict(files):
+    """ This method is for predicting using model"""
     ''' Getting features '''
-    # dirname = os.getcwd()
-    # abspath = os.path.dirname(os.path.abspath(__file__))
-    # path = os.path.join(abspath, "default")
-    # wv = KeyedVectors.load(path, mmap='r')
-
-    with open('w2v_dict.json') as f:
+    with open('W2V_models/w2v_dict.json') as f:
         wv = json.load(f)
-
 
     with open(files) as f:
         distros_dict = json.load(f)
@@ -318,17 +306,25 @@ def predict_nn(files):
     out_feat = get_features(info, wv)
 
     ''' Loading model and predicting'''
-    model = joblib.load("XG_trained_model")
+    model = joblib.load("Schema_matching_models/XG_trained_model")
     d_test = xgb.DMatrix(out_feat[1])
     preds = model.predict(d_test)
 
     return [out_feat[0], preds.argmax(1), out_feat[2]]
 
 
+def info_class(index_list, label_list, path_list, predictions):
+    for item in index_list:
+        label_list.append(predictions[0][item])
+        print(predictions[0][item])
+        path_list.append(predictions[2][item])
+    print("___________")
+    return
+
+
 def classifications(num_clusters, predictions_1, predictions_2):
     """ This method is for finding classifications"""
     classes = {}
-
     for i in range(num_clusters):
         path_list_1 = []
         path_list_2 = []
@@ -341,33 +337,90 @@ def classifications(num_clusters, predictions_1, predictions_2):
 
         print("\n")
         print("Class %u" % (i + 1))
-
-        """ Classification from Schema 1 """
-        for item in index_list_1:
-            label_list_1.append(predictions_1[0][item])
-            print(predictions_1[0][item])
-            path_list_1.append(predictions_1[2][item])
-        print("___________")
-
-        """ Classification from Schema 2 """
-        for item in index_list_2:
-            label_list_2.append(predictions_2[0][item])
-            print(predictions_2[0][item])
-            path_list_2.append(predictions_2[2][item])
-        print("_______________________________")
+        info_class(index_list_1, label_list_1, path_list_1, predictions_1)
+        info_class(index_list_2, label_list_2, path_list_2, predictions_2)
 
         classes[class_name] = [label_list_1, path_list_1, label_list_2, path_list_2]
     return classes
 
 
+def score_attribute_name(aim_list, candidate_list, aim_vector, cand_vector, weight):
+    if aim_list[-1] == candidate_list[-1]:
+        score = 0  # Give priority to attribute name
+    # elif aim_list[-1].any() == candidate_list[-1].any():
+    #     score = 1
+    else:
+        if (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)) == 0:
+            score = 5
+        else:
+            score = weight - ((weight - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
+                    np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
+    # print(score)
+    return score
+
+
+def score_hierarchy(aim_vector, cand_vector, weight):
+    similarity = 0
+    for vec_1 in aim_vector:  # [:-1]:
+        for vec_2 in cand_vector:  # [:-1]:
+            if (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2)) == 0:
+                similarity += 0
+            else:
+                similarity += np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2))
+    try:
+        similarity = weight - (similarity / (len(aim_vector[:-1]) * len(cand_vector[:-1])))
+    except ZeroDivisionError:
+        if len(aim_vector[:-1]) == 0 and len(cand_vector[:-1]) == 0:
+            similarity = weight - 1
+        else:
+            similarity = weight
+    return similarity
+
+
+def get_mappings(score_mat, path_list_1, label_list_1, path_list_2, label_list_2):
+    try:
+        matching_pairs = scipy.optimize.linear_sum_assignment(score_mat)
+        for ind in range(len(matching_pairs[0])):
+            ind_1 = matching_pairs[0][ind]
+            ind_2 = matching_pairs[1][ind]
+            aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
+            selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
+            print("%s : \n%s\n" % (
+                (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
+        return
+    except ValueError:
+        return
+
+
+def get_score_matrix(score_mat, label_list_1, path_list_1, label_list_2, path_list_2, wv):
+    for j in range(len(label_list_1)):
+        score_list = []
+
+        aim_list = path_list_1[j] + [label_list_1[j]]  # [label_list_1[j]]  #
+        aim_vector = []
+        for aim in aim_list:
+            aim_vector.append(word_embed(aim, wv))
+
+        for k in range(len(label_list_2)):
+            candidate_list = path_list_2[k] + [label_list_2[k]]  # [label_list_2[k]]  #
+            cand_vector = []
+            for cand in candidate_list:
+                cand_vector.append(word_embed(cand, wv))
+
+            weight = 10
+
+            score = score_attribute_name(aim_list, candidate_list, aim_vector, cand_vector, weight)
+            similarity = score_hierarchy(aim_vector, cand_vector, weight)
+
+            score_list.append(score + similarity)
+
+        score_mat.append(score_list)
+    return
+
+
 def map_attributes(class_info, num_clusters):
     """ This method is for getting mappings"""
-    # dirname = os.getcwd()
-    # abspath = os.path.dirname(os.path.abspath(__file__))
-    # path = os.path.join(abspath, "default")
-    # wv = KeyedVectors.load(path, mmap='r')
-
-    with open('w2v_dict.json') as f:
+    with open('W2V_models/w2v_dict.json') as f:
         wv = json.load(f)
 
     for i in range(num_clusters):
@@ -378,72 +431,9 @@ def map_attributes(class_info, num_clusters):
         label_list_2 = class_info[class_name][2]
         path_list_2 = class_info[class_name][3]
 
-        num_attr = 0
         score_mat = []
-
-        for j in range(len(label_list_1)):
-            num_attr += 1
-            score_list = []
-
-            aim_list = path_list_1[j] + [label_list_1[j]]  # [label_list_1[j]]  #
-            aim_vector = []
-            for aim in aim_list:
-                aim_vector.append(word_embed(aim, wv))
-
-            for k in range(len(label_list_2)):
-                candidate_list = path_list_2[k] + [label_list_2[k]]  # [label_list_2[k]]  #
-                cand_vector = []
-                for cand in candidate_list:
-                    cand_vector.append(word_embed(cand, wv))
-
-                weight = 10
-
-                ''' Score according to attribute name '''
-                if aim_list[-1] == candidate_list[-1]:
-                    score = 0  # Give priority to attribute name
-                # elif aim_list[-1].any() == candidate_list[-1].any():
-                #     score = 1
-                else:
-                    if (np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)) == 0:
-                        score = 5
-                    else:
-                        score = weight - ((weight - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
-                                    np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
-                # print(score)
-
-                ''' Similarity of hierarchy'''
-                similarity = 0
-                for vec_1 in aim_vector:  # [:-1]:
-                    for vec_2 in cand_vector:  # [:-1]:
-                        if (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2)) == 0:
-                            similarity += 0
-                        else:
-                            similarity += np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1, ord=2) * np.linalg.norm(vec_2, ord=2))
-                try:
-                    similarity = weight - (similarity / (len(aim_vector[:-1]) * len(cand_vector[:-1])))
-                except ZeroDivisionError:
-                    if len(aim_vector[:-1]) == 0 and len(cand_vector[:-1]) == 0:
-                        similarity = weight-1
-                    else:
-                        similarity = weight
-                score_list.append(score + similarity)
-            score_mat.append(score_list)
-
-        ''' Map attributes'''
-        try:
-            matching_pairs_3 = scipy.optimize.linear_sum_assignment(score_mat)
-        except ValueError:
-            continue
-
-        ''' Print mappings '''
-        print(class_name)
-        for ind in range(len(matching_pairs_3[0])):
-            ind_1 = matching_pairs_3[0][ind]
-            ind_2 = matching_pairs_3[1][ind]
-            aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
-            selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
-            print("%s : \n%s\n" % (
-                (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
+        get_score_matrix(score_mat, label_list_1, path_list_1, label_list_2, path_list_2, wv)
+        get_mappings(score_mat, path_list_1, label_list_1, path_list_2, label_list_2)
     return
 
 
@@ -464,14 +454,14 @@ def main():
                 files.append(os.path.join(r, file))
 
     ''' Train neural network'''
-    # train_nn(files, num_clusters)
+    # train(files, num_clusters)
 
     ''' Read input data for testing/predicting '''
-    predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_1.json')
-    predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_1.json')
+    predictions_1 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_input_1.json')
+    predictions_2 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/test_output_1.json')
 
-    # predictions_1 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_15.json')
-    # predictions_2 = predict_nn('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_15.json')
+    # predictions_1 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/in_15.json')
+    # predictions_2 = predict('/Users/ayodhya/Documents/GitHub/Data_mapping/Datasets/Test/out_15.json')
 
     ''' Get classifications '''
     class_info = classifications(num_clusters, predictions_1, predictions_2)
