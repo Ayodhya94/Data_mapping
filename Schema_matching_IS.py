@@ -253,11 +253,9 @@ def hierarchical_clustering(feature_list, tag_list, num_clusters, plot):
         plt.show()
 
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
+    cluster.fit
     out_classes = cluster.fit_predict(feature_list)
     return out_classes
-
-
-
 
 
 def predict(files):
