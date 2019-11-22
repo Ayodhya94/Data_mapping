@@ -261,8 +261,9 @@ def hierarchical_clustering(feature_list, tag_list, num_clusters, plot):
 def predict(files):
     """ This method is for predicting using model"""
     ''' Getting features '''
-    with open('W2V_models/w2v_dict.json') as f:
-        wv = json.load(f)
+    # with open('W2V_models/w2v_dict.json') as f:
+    #     wv = json.load(f)
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
 
     with open(files) as f:
         distros_dict = json.load(f)
@@ -389,8 +390,9 @@ def get_score_matrix(score_mat, label_list_1, path_list_1, label_list_2, path_li
 
 def map_attributes(class_info, num_clusters):
     """ This method is for getting mappings"""
-    with open('W2V_models/w2v_dict.json') as f:
-        wv = json.load(f)
+    # with open('W2V_models/w2v_dict.json') as f:
+    #     wv = json.load(f)
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
 
     for i in range(num_clusters):
         class_name = "Class_" + str(i)
@@ -421,8 +423,9 @@ def train_model(file_name, num_clusters):
     tag_list = []
     feature_list = []
 
-    with open('W2V_models/w2v_dict.json') as f:
-        wv = json.load(f)
+    # with open('W2V_models/w2v_dict.json') as f:
+    #     wv = json.load(f)
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
 
     i = 0
     for f in files:
