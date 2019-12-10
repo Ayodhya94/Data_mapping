@@ -303,6 +303,8 @@ def get_info(info, new_words, num_iter, data_paths):
         print(line)
         info_dict = {}
         xml_tree = ET.parse(line)  # ### Define line
+        # parser = ET.XMLParser(encoding="utf-8")
+        # xml_tree = ET.fromstring(line, parser=parser)
         elem_list = []
         for elem in xml_tree.iter():
             elem_list.append(elem.tag)
@@ -609,7 +611,7 @@ def test_model(num_iter, data_paths_test, num_clusters):
 
 def main():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-    data_paths_train = "Datasets/courses_schemas_test.txt"
+    data_paths_train = "Datasets/courses_schemas_train.txt"
     data_paths_test = "Datasets/courses_schemas_test.txt"
     num_instance = 10  # Number of instances that are considered for get category from categorical classifier
     num_clusters = 13

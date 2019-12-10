@@ -1,2 +1,2 @@
-Datasets/courses_uwm.xml
-Datasets/courses_reed.xml
+Datasets/generated_schemas/schema_in_2.xml
+Datasets/generated_schemas/schema_out_2.xml

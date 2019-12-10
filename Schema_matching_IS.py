@@ -284,7 +284,10 @@ def predict(files):
     # ''' Getting features '''
     # # with open('W2V_models/w2v_dict.json') as f:
     # #     wv = json.load(f)
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
+    # dirname = os.getcwd()
+    # abspath = os.path.dirname(os.path.abspath(__file__))
+    # wv = KeyedVectors.load(os.path.join(abspath, file_name_1), mmap='r')
+    wv = KeyedVectors.load("W2V_models/default", mmap='r')
 
     with open(files) as f:
         distros_dict = json.load(f)
@@ -427,7 +430,7 @@ def map_attributes(class_info, num_clusters):
     """ This method is for getting mappings"""
     # with open('W2V_models/w2v_dict.json') as f:
     #     wv = json.load(f)
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
+    wv = KeyedVectors.load("W2V_models/default", mmap='r')
 
     answer = []
     answer_string = []
