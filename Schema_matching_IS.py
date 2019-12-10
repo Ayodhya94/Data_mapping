@@ -534,9 +534,6 @@ def save_files1():
 def save_files2():
     if request.method == 'POST':
         buffer1 = request.json
-        # buffer2 = request.files['file2']
-        # with open("schema_file_in.json", "w") as f:
-        #     f.write(buffer1)
         with open("schema_file_out.json", "w") as f:
             f.write(buffer1)
     return 'file uploaded successfully'
@@ -556,22 +553,10 @@ def main_task():
     # test_schema_1 = 'Datasets/Test/test_input_1.json'
     # test_schema_2 = 'Datasets/Test/test_output_1.json'
 
-    # if request.method == 'POST':
-    #     buffer1 = request.files['file']
-    #     buffer2 = request.files['file2']
-    #     with open("schema_file_in.json", "wb") as f:
-    #         f.write(buffer1.getvalue())
-    #     with open("schema_file_out.json", "wb") as f:
-    #         f.write(buffer2.getvalue())
     test_schema_1 = "schema_file_in.json"
     test_schema_2 = "schema_file_out.json"
     answer = test_model(test_schema_1, test_schema_2, num_clusters)
-    return '#'.join(answer)  # str(answer)  # "Processed!"
-    # return 'file uploaded successfully'
-
-    # test_schema_1 = Datasets/Test/in_15.json
-    # test_schema_2 = Datasets/Test/out_15.json
-
+    return '#'.join(answer)
     # test_model(test_schema_1, test_schema_2, num_clusters)
 
 
