@@ -1,12 +1,8 @@
-import sys
 import os
 import operator
 import smart_open
 import cmath as math
 import re
-import random
-import shap
-import mpld3
 
 import xml.dom.minidom
 import xml.etree.ElementTree as ET
@@ -19,22 +15,15 @@ import statistics
 import matplotlib.pyplot as plt
 import numpy as np
 
-import tensorflow as tf
-from tensorflow.contrib.tensor_forest.python import tensor_forest
-from tensorflow.python.ops import resources
 from keras.models import load_model
 
 from sklearn.cluster import AgglomerativeClustering
-from sklearn import datasets
-from sklearn.metrics import precision_score, recall_score, accuracy_score
-from sklearn.model_selection import train_test_split
 
 import xgboost as xgb
 from xgboost import plot_importance
 import joblib
 
 from gensim.models import KeyedVectors
-import chars2vec
 
 
 def get_elem(tag_name, doc):
@@ -249,7 +238,7 @@ def character_count(orig_list, processed_list, digit_list, alpha_list, chara_lis
 
 
 def get_features(tag_list, doc, num_iter):
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
+    wv = KeyedVectors.load("W2V_models/default_2", mmap='r')
     model = load_model("Categorical_classifier_models/Categorical_classifier_embedd.h5")
     char_dic = create_dic()
 
@@ -303,6 +292,8 @@ def get_info(info, new_words, num_iter, data_paths):
         print(line)
         info_dict = {}
         xml_tree = ET.parse(line)  # ### Define line
+        # parser = ET.XMLParser(encoding="utf-8")
+        # xml_tree = ET.fromstring(line, parser=parser)
         elem_list = []
         for elem in xml_tree.iter():
             elem_list.append(elem.tag)
@@ -504,8 +495,11 @@ def get_score_3(label_list_1, label_list_2, wv, wv_1):
                             try:
                                 simi = wv_1.similarity(w1=word_part_1, w2=word_part_2)
                             except KeyError:
+                                print("__________")
+                                print("KEY ERROR")
                                 print(word_part_1)
                                 print(word_part_2)
+                                print("__________")
                                 simi = 0
                     temp_list.append(simi)
             simi_row.append(1 - sum(temp_list) / len(temp_list))
@@ -531,8 +525,8 @@ def get_mapping(score_list, label_list_1, label_list_2):
 def mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_doc_2):
     print('\n')
     range_n = 5
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
-    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/word2vec_vectors", mmap='r')
+    wv = KeyedVectors.load("W2V_models/default", mmap='r')
+    wv_1 = KeyedVectors.load("W2V_models/word2vec_vectors", mmap='r')
 
     for i in range(num_clusters):
         range_list_1 = []
@@ -609,7 +603,7 @@ def test_model(num_iter, data_paths_test, num_clusters):
 
 def main():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-    data_paths_train = "Datasets/courses_schemas_test.txt"
+    data_paths_train = "Datasets/courses_schemas_train.txt"
     data_paths_test = "Datasets/courses_schemas_test.txt"
     num_instance = 10  # Number of instances that are considered for get category from categorical classifier
     num_clusters = 13
@@ -618,59 +612,7 @@ def main():
     # train_model(num_instance, data_paths_train, num_clusters)
 
     ''' Testing '''
-    # test_model(num_instance, data_paths_test, num_clusters)
-
-    ''' test 1 class '''
-    test_info = []
-    test_new_words = {}
-    get_info(test_info, test_new_words, 10, data_paths_test)
-
-    test_feature_1 = test_info[0]['features_tag'][1]
-    test_tag_1 = test_info[0]['features_tag'][2]
-    test_doc_1 = test_info[0]['doc']
-
-    test_feature_2 = test_info[1]['features_tag'][1]
-    test_tag_2 = test_info[1]['features_tag'][2]
-    test_doc_2 = test_info[1]['doc']
-
-    ''' Construct score list '''
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
-    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/word2vec_vectors", mmap='r')
-    score_list = get_score_3(test_tag_1, test_tag_2, wv, wv_1)
-
-    ''' Find and print mapping'''
-    # min_args = np.argmin(score_list, axis = 0)
-    # print(test_tag_1)
-    # print (test_tag_2)
-    # print (score_list)
-    # get_mapping(score_list, test_tag_1, test_tag_1)
-
-    label_list_1 = []
-
-    for label in test_tag_1:
-        if label in test_tag_2:
-            print("%s : %s"%(label, label))
-            test_tag_2.remove(label)
-        else:
-            label_list_1.append(label)
-
-    # print(label_list_1)
-    # print(test_tag_2)
-    #
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
-    wv_1 = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/word2vec_vectors", mmap='r')
-    score_list = get_score_3(label_list_1, test_tag_2, wv, wv_1)
-
-    get_mapping(score_list, label_list_1, test_tag_2)
-
-    # min_args = np.argmin(score_list, axis=1)
-    # for i in range(len(test_tag_2)):
-    #     classes = indices(min_args, i)
-    #     # if len(classes)<2 and len(classes)>0:
-    #     print("%s : %s"%(test_tag_2[i], np.array(label_list_1)[classes]))
-    #     # elif len(classes)>0:
-    #     #     print("%s : %s" % (test_tag_2[i], np.array(label_list_1)[classes[0]]))
-
+    test_model(num_instance, data_paths_test, num_clusters)
 
 
 if __name__ == "__main__":

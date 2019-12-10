@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Datasets/generated_schemas/schema_in_1.xml
 Datasets/generated_schemas/schema_out_1.xml
+=======
+Datasets/generated_schemas/schema_in_2.xml
+Datasets/generated_schemas/schema_out_2.xml
+>>>>>>> master

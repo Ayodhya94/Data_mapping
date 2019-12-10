@@ -1,9 +1,14 @@
+from flask import Flask, render_template, request, Response
+# from flask_cors import CORS
+# from werkzeug import secure_filename
+
 import json
 import re
 # from gensim.models import KeyedVectors
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as shc
+from gensim.models import KeyedVectors
 from sklearn.cluster import AgglomerativeClustering
 
 import xml.dom.minidom
@@ -28,6 +33,10 @@ from xml.etree import cElementTree as ElementTree
 
 import xmltodict
 import joblib
+
+
+app = Flask(__name__)
+# CORS(app)
 
 """class XmlListConfig and class XmlDictConfig were copied"""
 
@@ -132,26 +141,35 @@ def update_lists(key, info, temp_new, new_val):
     if key == 'id':
         try:
             add_element_to_list(temp_new[-1], info["names"])
+            info["full_names"].append(temp_new[-1])
         except IndexError:
             info["names"].append('NONE')
+            info["full_names"].append("NONE")
         try:
             temp_list = []
+            full_temp_list = []
             for i in temp_new[:-1]:
                 add_element_to_list(i, temp_list)
+                # full_temp_list.append(i)
             info["paths"].append(temp_list)
+            info["full_paths"].append(temp_new)
         except IndexError:
             info["paths"].append('NONE')
+            info["full_paths"].append(temp_new)
     elif key == 'type':
         info["values"].append(new_val)
     return
 
 
 def dict_traverse(dictionary, temp, info):
-    attr_list = ['id', 'title', 'type']  # 'properties', 'items',
+    attr_list = ['id', 'type']  # ['id', 'title', 'type']  # 'properties', 'items',
     for key in dictionary:
         new_val = dictionary[key]
         if key in attr_list:
             temp_new = [i for i in temp]
+        elif key == "title":
+            temp_new = [i for i in temp] + [new_val]
+            temp.append(new_val)
         else:
             temp_new = [i for i in temp] + [key]
         if type(new_val) == dict or isinstance(new_val, XmlDictConfig):
@@ -180,7 +198,7 @@ def word_embed(attribute, wv):
         try:
             embed.append(wv[words.lower()])
         except KeyError:  # 0 embedding is used for words that are not in w2v model
-            embed.append([0 * i for i in range(150)])
+            embed.append([0.0 * i for i in range(150)])
     embed = np.mean(embed, axis=0).tolist()
     return embed
 
@@ -209,8 +227,10 @@ def class_embed(value):
 
 def get_features(info, wv):
     tag_list = []
+    full_tag_list = []
     feature_list = []
     path_list = []
+    full_path_list = []
 
     for i in range(len(info["names"])):
         if info["values"][i] in ['object', 'array', 'null']:
@@ -224,10 +244,12 @@ def get_features(info, wv):
             feature = word_embed_list + type_embed_list + class_embed_list
 
             tag_list.append(info["names"][i])
+            full_tag_list.append(info["full_names"][i])
             feature_list.append(feature)
             path_list.append(info["paths"][i])
+            full_path_list.append(info["full_paths"][i])
 
-    return [tag_list, feature_list, path_list]
+    return [tag_list, feature_list, path_list, full_tag_list, full_path_list]
 
 
 def xg_train(batch_x, batch_y, num_class):
@@ -253,23 +275,25 @@ def hierarchical_clustering(feature_list, tag_list, num_clusters, plot):
         plt.show()
 
     cluster = AgglomerativeClustering(n_clusters=num_clusters, affinity='euclidean', linkage='ward')
-    cluster.fit
     out_classes = cluster.fit_predict(feature_list)
     return out_classes
 
 
 def predict(files):
     """ This method is for predicting using model"""
-    ''' Getting features '''
-    # with open('W2V_models/w2v_dict.json') as f:
-    #     wv = json.load(f)
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
+    # ''' Getting features '''
+    # # with open('W2V_models/w2v_dict.json') as f:
+    # #     wv = json.load(f)
+    # dirname = os.getcwd()
+    # abspath = os.path.dirname(os.path.abspath(__file__))
+    # wv = KeyedVectors.load(os.path.join(abspath, file_name_1), mmap='r')
+    wv = KeyedVectors.load("W2V_models/default", mmap='r')
 
     with open(files) as f:
         distros_dict = json.load(f)
 
     list_att = []
-    info = {"names": [], "paths": [], "values": []}
+    info = {"names": [], "paths": [], "values": [], "full_names": [], "full_paths": []}
 
     dict_traverse(distros_dict, list_att, info)
 
@@ -280,14 +304,16 @@ def predict(files):
     d_test = xgb.DMatrix(out_feat[1])
     preds = model.predict(d_test)
 
-    return [out_feat[0], preds.argmax(1), out_feat[2]]
+    return [out_feat[0], preds.argmax(1), out_feat[2], out_feat[3], out_feat[4]]
 
 
-def info_class(index_list, label_list, path_list, predictions):
+def info_class(index_list, label_list, path_list, predictions, full_label_list, full_path_list):
     for item in index_list:
         label_list.append(predictions[0][item])
-        print(predictions[0][item])
+        full_label_list.append(predictions[3][item])
+        print(predictions[3][item])
         path_list.append(predictions[2][item])
+        full_path_list.append(predictions[4][item])
     print("___________")
     return
 
@@ -298,8 +324,12 @@ def classifications(num_clusters, predictions_1, predictions_2):
     for i in range(num_clusters):
         path_list_1 = []
         path_list_2 = []
+        full_path_list_1 = []
+        full_path_list_2 = []
         label_list_1 = []
         label_list_2 = []
+        full_label_list_1 = []
+        full_label_list_2 = []
         index_list_1 = indices(predictions_1[1], i)
         index_list_2 = indices(predictions_2[1], i)
 
@@ -307,10 +337,11 @@ def classifications(num_clusters, predictions_1, predictions_2):
 
         print("\n")
         print("Class %u" % (i + 1))
-        info_class(index_list_1, label_list_1, path_list_1, predictions_1)
-        info_class(index_list_2, label_list_2, path_list_2, predictions_2)
+        info_class(index_list_1, label_list_1, path_list_1, predictions_1, full_label_list_1, full_path_list_1)
+        info_class(index_list_2, label_list_2, path_list_2, predictions_2, full_label_list_2, full_path_list_2)
 
-        classes[class_name] = [label_list_1, path_list_1, label_list_2, path_list_2]
+        classes[class_name] = [label_list_1, path_list_1, full_label_list_1, full_path_list_1, label_list_2, path_list_2,
+                               full_label_list_2, full_path_list_2]
     return classes
 
 
@@ -325,7 +356,7 @@ def score_attribute_name(aim_list, candidate_list, aim_vector, cand_vector, weig
         else:
             score = weight - ((weight - 1) * np.dot(aim_vector[-1], cand_vector[-1]) / (
                     np.linalg.norm(aim_vector[-1], ord=2) * np.linalg.norm(cand_vector[-1], ord=2)))
-    # print(score)
+
     return score
 
 
@@ -347,16 +378,23 @@ def score_hierarchy(aim_vector, cand_vector, weight):
     return similarity
 
 
-def get_mappings(score_mat, path_list_1, label_list_1, path_list_2, label_list_2):
+def get_mappings(score_mat, path_list_1, label_list_1, full_label_list_1, full_path_list_1, path_list_2, label_list_2, full_label_list_2, full_path_list_2, answer, answer_string):
     try:
         matching_pairs = scipy.optimize.linear_sum_assignment(score_mat)
         for ind in range(len(matching_pairs[0])):
             ind_1 = matching_pairs[0][ind]
             ind_2 = matching_pairs[1][ind]
-            aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
-            selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
+            # aim_list = path_list_1[ind_1] + [label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
+            # selected_list = path_list_2[ind_2] + [label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
+            aim_list = full_path_list_1[ind_1] + [full_label_list_1[ind_1]]  # [label_list_1[ind_1]]  #
+            selected_list = full_path_list_2[ind_2] + [full_label_list_2[ind_2]]  # [label_list_2[ind_2]]  #
+            # print("%s : \n%s\n" % (
+            #     (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
             print("%s : \n%s\n" % (
-                (",".join(["_".join(l) for l in aim_list])), (",".join(["_".join(l) for l in selected_list]))))
+                (",".join(["".join(l) for l in aim_list])), (",".join(["".join(l) for l in selected_list]))))
+            answer.append([full_label_list_1[ind_1], full_label_list_2[ind_2]])
+            answer_string.append(full_label_list_1[ind_1] + "#" + (",".join(["".join(l) for l in aim_list])) + "#" + full_label_list_2[ind_2] + "#" + (",".join(["".join(l) for l in selected_list])))
+            # answer[full_label_list_1[ind_1]] = full_label_list_2[ind_2]
         return
     except ValueError:
         return
@@ -392,20 +430,31 @@ def map_attributes(class_info, num_clusters):
     """ This method is for getting mappings"""
     # with open('W2V_models/w2v_dict.json') as f:
     #     wv = json.load(f)
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
+    wv = KeyedVectors.load("W2V_models/default", mmap='r')
 
+    answer = []
+    answer_string = []
     for i in range(num_clusters):
         class_name = "Class_" + str(i)
 
         label_list_1 = class_info[class_name][0]
         path_list_1 = class_info[class_name][1]
-        label_list_2 = class_info[class_name][2]
-        path_list_2 = class_info[class_name][3]
+        full_label_list_1 = class_info[class_name][2]
+        full_path_list_1 = class_info[class_name][3]
+        label_list_2 = class_info[class_name][4]
+        path_list_2 = class_info[class_name][5]
+        full_label_list_2 = class_info[class_name][6]
+        full_path_list_2 = class_info[class_name][7]
+        # label_list_2 = class_info[class_name][2]
+        # path_list_2 = class_info[class_name][3]
 
         score_mat = []
         get_score_matrix(score_mat, label_list_1, path_list_1, label_list_2, path_list_2, wv)
-        get_mappings(score_mat, path_list_1, label_list_1, path_list_2, label_list_2)
-    return
+        get_mappings(score_mat, path_list_1, label_list_1, full_label_list_1, full_path_list_1, path_list_2, label_list_2, full_label_list_2, full_path_list_2, answer, answer_string)
+        dump_json_file(answer)
+        print("OUTPUT STRING")
+        print(answer_string)
+    return answer_string
 
 
 def train_model(file_name, num_clusters):
@@ -425,7 +474,7 @@ def train_model(file_name, num_clusters):
 
     # with open('W2V_models/w2v_dict.json') as f:
     #     wv = json.load(f)
-    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default_2", mmap='r')
+    wv = KeyedVectors.load("/Users/ayodhya/Documents/GitHub/Data_mapping/W2V_models/default", mmap='r')
 
     i = 0
     for f in files:
@@ -436,7 +485,7 @@ def train_model(file_name, num_clusters):
             distros_dict = json.load(g)
 
         list_att = []
-        info = {"names": [], "paths": [], "values": []}
+        info = {"names": [], "paths": [], "values": [], "full_names": [], "full_paths": []}
         dict_traverse(distros_dict, list_att, info)
 
         out_feat = get_features(info, wv)
@@ -465,11 +514,33 @@ def test_model(file_name_1, file_name_2, num_clusters):
     class_info = classifications(num_clusters, predictions_1, predictions_2)
 
     ''' Get mappings '''
-    map_attributes(class_info, num_clusters)
-    return
+    answer = map_attributes(class_info, num_clusters)
+    return answer
 
 
-def main():
+@app.route('/uploader1', methods=['POST', 'GET'])
+def save_files1():
+    if request.method == 'POST':
+        buffer1 = request.json
+        # buffer2 = request.files['file2']
+        with open("schema_file_in.json", "w") as f:
+            f.write(buffer1)
+        # with open("schema_file_out.json", "w") as f:
+        #     f.write(buffer1)
+    return 'file uploaded successfully'
+
+
+@app.route('/uploader2', methods=['POST', 'GET'])
+def save_files2():
+    if request.method == 'POST':
+        buffer1 = request.json
+        with open("schema_file_out.json", "w") as f:
+            f.write(buffer1)
+    return 'file uploaded successfully'
+
+
+@app.route('/answer', methods=['GET', 'POST'])
+def main_task():
     """ Main method"""
     ''' Parameters'''
     num_clusters = 20
@@ -479,15 +550,24 @@ def main():
     # train_model(file_name, num_clusters)
 
     ''' Test model '''
-    test_schema_1 = 'Datasets/Test/test_input_1.json'
-    test_schema_2 = 'Datasets/Test/test_output_1.json'
+    # test_schema_1 = 'Datasets/Test/test_input_1.json'
+    # test_schema_2 = 'Datasets/Test/test_output_1.json'
 
-    # test_schema_1 = Datasets/Test/in_15.json
-    # test_schema_2 = Datasets/Test/out_15.json
+    test_schema_1 = "schema_file_in.json"
+    test_schema_2 = "schema_file_out.json"
+    answer = test_model(test_schema_1, test_schema_2, num_clusters)
+    return '#'.join(answer)
+    # test_model(test_schema_1, test_schema_2, num_clusters)
 
-    test_model(test_schema_1, test_schema_2, num_clusters)
 
+def dump_json_file(answer):
+    js_dump = json.dumps(answer)
+    with open('out.json', 'w') as f:
+        json.dump(answer, f)
+    resp = Response(js_dump, status=200, mimetype='application/json')
+    return resp
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    app.run(debug=True)
