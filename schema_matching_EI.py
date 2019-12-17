@@ -140,6 +140,7 @@ def add_element_to_list(word, updating_list):
 def update_lists(key, info, temp_new, new_val):
     if key == 'id':
         try:
+            print(temp_new[-1])
             add_element_to_list(temp_new[-1], info["names"])
             info["full_names"].append(temp_new[-1])
         except IndexError:
@@ -149,6 +150,7 @@ def update_lists(key, info, temp_new, new_val):
             temp_list = []
             full_temp_list = []
             for i in temp_new[:-1]:
+                print(i)
                 add_element_to_list(i, temp_list)
                 # full_temp_list.append(i)
             info["paths"].append(temp_list)
@@ -162,12 +164,22 @@ def update_lists(key, info, temp_new, new_val):
 
 
 def dict_traverse(dictionary, temp, info):
-    attr_list = ['id', 'type']  # ['id', 'title', 'type']  # 'properties', 'items',
+    # print(dictionary)
+    attr_list = ['id', 'type', 'properties']  # ['id', 'title', 'type']  # 'properties', 'items',
+    print(dictionary.keys())
     for key in dictionary:
         new_val = dictionary[key]
+        print("_______________________________________________________________________________________________________")
+        print("KEY")
+        print(key)
+        print("TEMP")
+        print(new_val)
         if key in attr_list:
             temp_new = [i for i in temp]
-        elif key == "title":
+        elif key == "title" and not(type(new_val) == dict or isinstance(new_val, XmlDictConfig)):
+            print("NOOOOOOOOOO")
+            print(new_val)
+            print(type(new_val))
             temp_new = [i for i in temp] + [new_val]
             temp.append(new_val)
         else:
@@ -177,6 +189,11 @@ def dict_traverse(dictionary, temp, info):
         elif type(new_val) == list or isinstance(new_val, XmlListConfig):
             list_traverse(new_val, temp_new, info)
         else:
+            print(type(new_val))
+            print(key)
+            print(new_val)
+            print(temp_new)
+            print(temp)
             update_lists(key, info, temp_new, new_val)
 
 
@@ -452,8 +469,8 @@ def map_attributes(class_info, num_clusters):
         get_score_matrix(score_mat, label_list_1, path_list_1, label_list_2, path_list_2, wv)
         get_mappings(score_mat, path_list_1, label_list_1, full_label_list_1, full_path_list_1, path_list_2, label_list_2, full_label_list_2, full_path_list_2, answer, answer_string)
         dump_json_file(answer)
-        print("OUTPUT STRING")
-        print(answer_string)
+    print("OUTPUT STRING")
+    print(answer_string)
     return answer_string
 
 
