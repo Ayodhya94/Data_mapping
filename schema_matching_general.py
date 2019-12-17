@@ -478,10 +478,10 @@ def get_score_3(label_list_1, label_list_2, wv, wv_1):
     # # print (cost_list)
     #############################################
     for i_attr in label_list_1:
-        i_attr_list = i_attr.split("_")
+        i_attr_list = list(filter(''.__ne__, (re.split('[_ :]', re.sub(r"([A-Z0-9]+[a-z0-9_\W])", r" \1", i_attr + "_").lower()))))  # i_attr.split("_")
         simi_row = []
         for j_attr in label_list_2:
-            j_attr_list = j_attr.split("_")
+            j_attr_list = list(filter(''.__ne__, (re.split('[_ :]', re.sub(r"([A-Z0-9]+[a-z0-9_\W])", r" \1", j_attr + "_").lower()))))  # j_attr.split("_")
             # print(j_attr_list)
             temp_list = []
             for word_part_1 in i_attr_list:
