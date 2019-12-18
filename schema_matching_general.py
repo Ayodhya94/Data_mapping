@@ -508,6 +508,7 @@ def get_score_3(label_list_1, label_list_2, wv, wv_1):
 
 
 def get_mapping(score_list, label_list_1, label_list_2):
+    mapping_list = []
     try:
         matching_pairs = scipy.optimize.linear_sum_assignment(score_list)
 
@@ -515,11 +516,12 @@ def get_mapping(score_list, label_list_1, label_list_2):
             cost = score_list[matching_pairs[0][ind]][matching_pairs[1][ind]]
             if cost < 1: #.7:
                 print('%s : %s' % (label_list_1[matching_pairs[0][ind]], label_list_2[matching_pairs[1][ind]])),
+                mapping_list. append([label_list_1[matching_pairs[0][ind]], label_list_2[matching_pairs[1][ind]]])
             else:
                 print(cost)
-        return matching_pairs
+        return mapping_list
     except ValueError:
-        return
+        return mapping_list
 
 
 def mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_doc_2):
@@ -527,7 +529,7 @@ def mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_d
     range_n = 5
     wv = KeyedVectors.load("W2V_models/default", mmap='r')
     wv_1 = KeyedVectors.load("W2V_models/word2vec_vectors", mmap='r')
-
+    mapping_list = []
     for i in range(num_clusters):
         range_list_1 = []
         range_list_2 = []
@@ -547,8 +549,8 @@ def mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_d
         score_list = get_score_3(label_list_1, label_list_2, wv, wv_1)
 
         ''' Find and print mapping'''
-        get_mapping(score_list, label_list_1, label_list_2)
-    return
+        mapping_list = mapping_list + get_mapping(score_list, label_list_1, label_list_2)
+    return mapping_list
 
 
 def train_model(num_iter, data_paths_train, num_clusters):
@@ -597,8 +599,8 @@ def test_model(num_iter, data_paths_test, num_clusters):
     prediction = predict(test_feature_1, test_feature_2, test_tag_1, test_tag_2)
 
     ''' Match schemas '''
-    mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_doc_2)
-    return
+    mapping_list = mapping(num_clusters, prediction, test_tag_1, test_tag_2, test_doc_1, test_doc_2)
+    return mapping_list
 
 
 def main():
@@ -612,7 +614,8 @@ def main():
     # train_model(num_instance, data_paths_train, num_clusters)
 
     ''' Testing '''
-    test_model(num_instance, data_paths_test, num_clusters)
+    mapping_list = test_model(num_instance, data_paths_test, num_clusters)
+    return mapping_list
 
 
 if __name__ == "__main__":
