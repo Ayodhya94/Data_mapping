@@ -7,3 +7,4 @@ Schema_matching_EI.py
 *.class
 backup_JSON.py
 Private/
+/Datasets/generated_schemas/
