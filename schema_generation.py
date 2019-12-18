@@ -143,6 +143,13 @@ def generate_schemas(number_of_schemas):
         # Save schema sets
         save_schema_set(input_schema, output_schema, i, number_of_instances)
 
+        # Write correct mappings to files
+        answer_file_name = "Datasets/generated_schemas/mappings_" + str(i) + ".txt"
+        with open(answer_file_name, 'w+') as f:
+            for j in range(len(attributes_of_input_schema)):
+                f.write(attributes_of_input_schema[j][0] + "\n")
+                f.write(attributes_of_output_schema[j][0] + "\n")
+
 
 def main():
     number_of_schemas = 10
@@ -151,29 +158,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-""" XML """
-"""
-import xml.etree.cElementTree as ET
-
-students = [1,2]
-assignments=[100,101,102]
-scores=[0,4,10]
-results = ET.Element("results")
-
-for s in students:    
-    for a in range(len(assignments)):
-        result = ET.SubElement(results,"result")
-        student = ET.SubElement(result,"student")
-        assignment = ET.SubElement(result,"assignment")
-        score = ET.SubElement(result,"score")
-
-        student.text = str(s)
-        assignment.text = str(assignments[a])
-        score.text = str(scores[a])
-        results.append(result)
-
-tree = ET.ElementTree(results)
-tree.write('test.xml')
-"""
